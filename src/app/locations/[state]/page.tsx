@@ -9,6 +9,9 @@ interface StatePageProps {
   params: Promise<{ state: string }>;
 }
 
+export const dynamicParams = true;
+export const revalidate = 86400;
+
 export async function generateStaticParams() {
   return Object.keys(STATES_DATA).map((state) => ({ state }));
 }

@@ -38,7 +38,7 @@ export const STATES_DATA: Record<string, StateData> = {
     capital: "Mumbai",
     regionalLabourNuances:
       "Governed by the Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2017, Maharashtra State Professional Tax Act, and revised state minimum wages updated semi-annually under the Minimum Wages Act.",
-    cities: ["mumbai", "pune"],
+    cities: ["mumbai", "pune", "nagpur"],
   },
   karnataka: {
     slug: "karnataka",
@@ -92,7 +92,7 @@ export const STATES_DATA: Record<string, StateData> = {
     capital: "Chennai",
     regionalLabourNuances:
       "Operates under the Tamil Nadu Shops and Establishments Act, 1947, mandatory 24/7 permissions for ITeS with stringent transport and safety compliances, and active inspectorates across SIPCOT industrial corridors.",
-    cities: ["chennai"],
+    cities: ["chennai", "coimbatore"],
   },
   gujarat: {
     slug: "gujarat",
@@ -101,7 +101,7 @@ export const STATES_DATA: Record<string, StateData> = {
     capital: "Gandhinagar",
     regionalLabourNuances:
       "Governed by the Gujarat Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2019, simplified labor inspection schemes, and specialized regulatory guidelines for GIFT City IFSC entities.",
-    cities: ["ahmedabad"],
+    cities: ["ahmedabad", "surat", "vadodara"],
   },
   "west-bengal": {
     slug: "west-bengal",
@@ -111,6 +111,60 @@ export const STATES_DATA: Record<string, StateData> = {
     regionalLabourNuances:
       "Governed by the West Bengal Shops and Establishments Act, 1963, bi-annual minimum wage revisions for scheduled employments, and specialized compliance oversight across Salt Lake Sector V and New Town tech zones.",
     cities: ["kolkata"],
+  },
+  rajasthan: {
+    slug: "rajasthan",
+    name: "Rajasthan",
+    lgdStateCode: 8,
+    capital: "Jaipur",
+    regionalLabourNuances:
+      "Governed by the Rajasthan Shops and Commercial Establishments Act, 1958, simplified labor inspections under the Rajasthan Investment Promotion Scheme (RIPS), and RIICO industrial estate compliance standards.",
+    cities: ["jaipur"],
+  },
+  "madhya-pradesh": {
+    slug: "madhya-pradesh",
+    name: "Madhya Pradesh",
+    lgdStateCode: 23,
+    capital: "Bhopal",
+    regionalLabourNuances:
+      "Regulated under the MP Shops and Establishments Act, 1958, online labor compliance under MP Shram Seva Portal, and fast-track approvals for Super Corridor SEZ IT entities in Indore.",
+    cities: ["indore"],
+  },
+  kerala: {
+    slug: "kerala",
+    name: "Kerala",
+    lgdStateCode: 32,
+    capital: "Thiruvananthapuram",
+    regionalLabourNuances:
+      "Governed under the Kerala Shops and Commercial Establishments Act, 1960, active Trade Union engagement protocols, and Kerala Labor Welfare Fund digital statutory filings.",
+    cities: ["kochi"],
+  },
+  "andhra-pradesh": {
+    slug: "andhra-pradesh",
+    name: "Andhra Pradesh",
+    lgdStateCode: 28,
+    capital: "Amaravati",
+    regionalLabourNuances:
+      "Regulated under the AP Shops and Establishments Act, 1988, AP Single Desk Portal approvals, and port/SEZ statutory safety and contract labor compliance.",
+    cities: ["visakhapatnam"],
+  },
+  odisha: {
+    slug: "odisha",
+    name: "Odisha",
+    lgdStateCode: 21,
+    capital: "Bhubaneswar",
+    regionalLabourNuances:
+      "Governed under the Odisha Shops and Commercial Establishments Act, 1956, state industrial safety inspections, and GO-SWIFT single window compliance frameworks for IT and metallurgy sectors.",
+    cities: ["bhubaneswar"],
+  },
+  punjab: {
+    slug: "punjab",
+    name: "Punjab",
+    lgdStateCode: 3,
+    capital: "Chandigarh",
+    regionalLabourNuances:
+      "Regulated under the Punjab Shops and Commercial Establishments Act, 1958, Invest Punjab business approvals, and state labor welfare board statutory compliances.",
+    cities: ["chandigarh"],
   },
 };
 
@@ -154,6 +208,7 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Hyderabad", slug: "hyderabad" },
     ],
   },
+
   mumbai: {
     slug: "mumbai",
     name: "Mumbai",
@@ -193,6 +248,7 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Navi Mumbai", slug: "navi-mumbai" },
     ],
   },
+
   pune: {
     slug: "pune",
     name: "Pune",
@@ -228,10 +284,11 @@ export const CITIES_DATA: Record<string, CityData> = {
     averageSourcingSLA: "24–72 hours for IT and engineering roles; 48 hours for contract staffing",
     nearbyHubs: [
       { name: "Mumbai", slug: "mumbai" },
-      { name: "Pimpri-Chinchwad", slug: "pimpri-chinchwad" },
+      { name: "Nagpur", slug: "nagpur" },
       { name: "Aurangabad", slug: "aurangabad" },
     ],
   },
+
   hyderabad: {
     slug: "hyderabad",
     name: "Hyderabad",
@@ -271,6 +328,7 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Warangal", slug: "warangal" },
     ],
   },
+
   delhi: {
     slug: "delhi",
     name: "Delhi",
@@ -310,6 +368,7 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Faridabad", slug: "faridabad" },
     ],
   },
+
   gurugram: {
     slug: "gurugram",
     name: "Gurugram",
@@ -349,6 +408,7 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Manesar", slug: "manesar" },
     ],
   },
+
   noida: {
     slug: "noida",
     name: "Noida",
@@ -388,6 +448,7 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Ghaziabad", slug: "ghaziabad" },
     ],
   },
+
   chennai: {
     slug: "chennai",
     name: "Chennai",
@@ -422,11 +483,12 @@ export const CITIES_DATA: Record<string, CityData> = {
       "Strict monitoring of Tamil Nadu Shops Act 24/7 night shift permissions for women, statutory PF/ESI returns, and SIPCOT industrial environmental and labor guidelines.",
     averageSourcingSLA: "24–72 hours for automotive engineers and SaaS developers",
     nearbyHubs: [
-      { name: "Kanchipuram", slug: "kanchipuram" },
       { name: "Coimbatore", slug: "coimbatore" },
+      { name: "Kanchipuram", slug: "kanchipuram" },
       { name: "Bengaluru", slug: "bengaluru" },
     ],
   },
+
   ahmedabad: {
     slug: "ahmedabad",
     name: "Ahmedabad",
@@ -466,6 +528,7 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Surat", slug: "surat" },
     ],
   },
+
   kolkata: {
     slug: "kolkata",
     name: "Kolkata",
@@ -503,6 +566,357 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Howrah", slug: "howrah" },
       { name: "Durgapur", slug: "durgapur" },
       { name: "Bhubaneswar", slug: "bhubaneswar" },
+    ],
+  },
+
+  // --- Phase 4 Expansion Metros (Tier-2 Strategic Growth Hubs) ---
+  jaipur: {
+    slug: "jaipur",
+    name: "Jaipur",
+    state: "Rajasthan",
+    stateSlug: "rajasthan",
+    lgdCode: 104,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Jaipur",
+    overview:
+      "Jaipur is emerging as North India's fastest-growing destination for FinTech, software services, and gems & jewelry exports. Service Dial powers technology staffing and statutory labor governance across Mahindra World City and Sitapura.",
+    economicProfile:
+      "Rapidly scaling IT SEZ presence with prominent multinational tech centers and robust industrial manufacturing.",
+    dominantIndustries: ["Fintech & ITeS", "Textiles & Handicrafts", "Gems & Jewelry Exports", "Automotive Parts"],
+    clusters: [
+      {
+        name: "Mahindra World City (MWC)",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["IT/ITeS SEZ", "Engineering Zone", "Domestic Tariff Area"],
+      },
+      {
+        name: "Sitapura Industrial Area",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Sitapura Phase I-IV", "EPIP Sitapura", "Gem & Jewellery SEZ"],
+      },
+    ],
+    localComplianceNuance:
+      "Regulated under the Rajasthan Shops and Commercial Establishments Act 1958 and RIICO factory environmental protocols.",
+    averageSourcingSLA: "24–72 hours for tech and operations support roles",
+    nearbyHubs: [
+      { name: "Delhi", slug: "delhi" },
+      { name: "Gurugram", slug: "gurugram" },
+      { name: "Ajmer", slug: "ajmer" },
+    ],
+  },
+
+  indore: {
+    slug: "indore",
+    name: "Indore",
+    state: "Madhya Pradesh",
+    stateSlug: "madhya-pradesh",
+    lgdCode: 393,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Indore",
+    overview:
+      "Indore is Central India's commercial capital, featuring the prominent Super Corridor technology park, pharmaceuticals, and textile hubs. Service Dial provides leadership hiring and payroll automation.",
+    economicProfile:
+      "Central India's leading education, IT engineering, and pharmaceutical manufacturing nexus.",
+    dominantIndustries: ["Pharmaceuticals", "IT Software & Cloud", "Textiles", "Auto Engineering", "Food Processing"],
+    clusters: [
+      {
+        name: "Super Corridor IT SEZ",
+        type: "IT Park",
+        keyZones: ["TCS Campus", "Infosys Super Corridor", "Crystal IT Park"],
+      },
+      {
+        name: "Pithampur Industrial Area (Automotive Belt)",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Sector 1-3 Pithampur", "Special Economic Zone Phase II"],
+      },
+    ],
+    localComplianceNuance:
+      "Compliance under Madhya Pradesh Shops and Establishments Act 1958 and MP Labour Welfare Fund statutory deductions.",
+    averageSourcingSLA: "24–72 hours for pharmaceutical specialists and tech engineers",
+    nearbyHubs: [
+      { name: "Bhopal", slug: "bhopal" },
+      { name: "Ujjain", slug: "ujjain" },
+      { name: "Ahmedabad", slug: "ahmedabad" },
+    ],
+  },
+
+  coimbatore: {
+    slug: "coimbatore",
+    name: "Coimbatore",
+    state: "Tamil Nadu",
+    stateSlug: "tamil-nadu",
+    lgdCode: 603,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Coimbatore",
+    overview:
+      "Known as the 'Manchester of South India', Coimbatore is an engineering and pump manufacturing capital rapidly transforming into a SaaS and auto-tech hub.",
+    economicProfile:
+      "Global supplier of textile machinery, precision motors, foundry castings, and burgeoning SaaS technology parks.",
+    dominantIndustries: ["Textile Machinery", "Precision Engineering", "SaaS & Cloud Software", "Automotive Components"],
+    clusters: [
+      {
+        name: "TIDEL Park Coimbatore & ELCOT SEZ",
+        type: "IT Park",
+        keyZones: ["Vilankurichi Road", "Peelamedu", "Eachanari"],
+      },
+      {
+        name: "SIDCO & Kurichi Industrial Estates",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Kurichi Industrial Belt", "Malumichampatti", "Ganapathy"],
+      },
+    ],
+    localComplianceNuance:
+      "Governed by Tamil Nadu Shops Act 1947 and strict Factory Inspectorate norms for industrial foundries.",
+    averageSourcingSLA: "24–72 hours for mechanical and software engineers",
+    nearbyHubs: [
+      { name: "Chennai", slug: "chennai" },
+      { name: "Bengaluru", slug: "bengaluru" },
+      { name: "Kochi", slug: "kochi" },
+    ],
+  },
+
+  vadodara: {
+    slug: "vadodara",
+    name: "Vadodara",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    lgdCode: 443,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Vadodara",
+    overview:
+      "Vadodara is Gujarat's capital of heavy engineering, power transmission, chemicals, and pharmaceuticals.",
+    economicProfile:
+      "Unmatched density of multinational heavy equipment, power electronics, and petrochemical corporations.",
+    dominantIndustries: ["Heavy Engineering", "Power Equipment", "Chemicals & Petrochemicals", "Pharmaceuticals"],
+    clusters: [
+      {
+        name: "Makarpura GIDC Industrial Estate",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Makarpura Phase I-III", "Maneja Power Engineering Belt"],
+      },
+      {
+        name: "Savli GIDC & Manjusar",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Savli Industrial Area", "Manjusar GIDC", "Halol Road Corridor"],
+      },
+    ],
+    localComplianceNuance:
+      "Strict GIDC safety compliance and Gujarat Shops and Establishments Act 2019 statutory filings.",
+    averageSourcingSLA: "24–72 hours for engineering and chemical plant talent",
+    nearbyHubs: [
+      { name: "Ahmedabad", slug: "ahmedabad" },
+      { name: "Surat", slug: "surat" },
+      { name: "Bharuch", slug: "bharuch" },
+    ],
+  },
+
+  kochi: {
+    slug: "kochi",
+    name: "Kochi",
+    state: "Kerala",
+    stateSlug: "kerala",
+    lgdCode: 562,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Kochi",
+    overview:
+      "Kochi is Kerala's commercial and technology epicenter, commanding major international shipping lanes and two premier IT campuses (Infopark & SmartCity).",
+    economicProfile:
+      "Deep-water port trade, maritime logistics, fintech development, and enterprise IT services.",
+    dominantIndustries: ["Maritime Logistics", "IT & Cloud Services", "Fintech", "Petrochemicals", "Spices & Seafood Export"],
+    clusters: [
+      {
+        name: "Infopark Kochi Phases I & II",
+        type: "IT Park",
+        keyZones: ["Kakkanad", "Cherthala Infopark", "Amrita Tech Park"],
+      },
+      {
+        name: "SmartCity Kochi",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["SmartCity SEZ Pavilion", "Cyberpark Corridor"],
+      },
+    ],
+    localComplianceNuance:
+      "Adherence to Kerala Shops Act 1960 and structured labor union reconciliation protocols.",
+    averageSourcingSLA: "24–72 hours for maritime and IT developers",
+    nearbyHubs: [
+      { name: "Thiruvananthapuram", slug: "thiruvananthapuram" },
+      { name: "Coimbatore", slug: "coimbatore" },
+      { name: "Bengaluru", slug: "bengaluru" },
+    ],
+  },
+
+  visakhapatnam: {
+    slug: "visakhapatnam",
+    name: "Visakhapatnam",
+    state: "Andhra Pradesh",
+    stateSlug: "andhra-pradesh",
+    lgdCode: 510,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Visakhapatnam",
+    overview:
+      "Visakhapatnam is Eastern India's strategic deep-water maritime port, petroleum, steel, and burgeoning coastal IT hub.",
+    economicProfile:
+      "Major hub for heavy steel, naval shipyards, oil refineries, and sea cargo handling alongside Rushikonda IT Hill.",
+    dominantIndustries: ["Port Logistics", "Steel & Heavy Metallurgy", "Petrochemicals", "Pharma API", "IT Services"],
+    clusters: [
+      {
+        name: "Rushikonda & Madhurawada IT SEZ",
+        type: "IT Park",
+        keyZones: ["Hill 1, 2 & 3", "APIIC IT SEZ", "Gambheeram Tech Park"],
+      },
+      {
+        name: "Jawaharlal Nehru Pharma City (JNPC)",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["Parawada Industrial Belt", "Duvvada SEZ"],
+      },
+    ],
+    localComplianceNuance:
+      "Adherence to AP Shops Act 1988, port authority clearances, and industrial hazardous labor norms.",
+    averageSourcingSLA: "24–72 hours for industrial and logistics professionals",
+    nearbyHubs: [
+      { name: "Bhubaneswar", slug: "bhubaneswar" },
+      { name: "Vijayawada", slug: "vijayawada" },
+      { name: "Hyderabad", slug: "hyderabad" },
+    ],
+  },
+
+  surat: {
+    slug: "surat",
+    name: "Surat",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    lgdCode: 442,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Surat",
+    overview:
+      "Surat is the global capital of diamond cutting and synthetic textiles, coupled with heavy petrochemical complexes in Hazira.",
+    economicProfile:
+      "Cuts and polishes 90% of the world's diamonds; supplies 40% of India's man-made fabrics; heavy industrial deep port in Hazira.",
+    dominantIndustries: ["Diamond Processing & Surat Diamond Bourse", "Synthetic Textiles", "Steel & Port Infrastructure", "Petrochemicals"],
+    clusters: [
+      {
+        name: "Surat Diamond Bourse (SDB) & DREAM City",
+        type: "BFSI / Financial Hub",
+        keyZones: ["Khajod DREAM City", "Bourse Tower Corridor"],
+      },
+      {
+        name: "Hazira Multi-Product Industrial Hub",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Hazira Port Estate", "Mora Industrial Belt"],
+      },
+    ],
+    localComplianceNuance:
+      "Strict monitoring of Gujarat Factory Rules, textile labor minimum wages, and export SEZ customs/statutory clearances.",
+    averageSourcingSLA: "24–72 hours for manufacturing and finance personnel",
+    nearbyHubs: [
+      { name: "Ahmedabad", slug: "ahmedabad" },
+      { name: "Vadodara", slug: "vadodara" },
+      { name: "Mumbai", slug: "mumbai" },
+    ],
+  },
+
+  bhubaneswar: {
+    slug: "bhubaneswar",
+    name: "Bhubaneswar",
+    state: "Odisha",
+    stateSlug: "odisha",
+    lgdCode: 338,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Bhubaneswar",
+    overview:
+      "Bhubaneswar is Eastern India's rising education and technology power, serving as the administrative nerve center for Odisha's massive mining and metal industries.",
+    economicProfile:
+      "Rapidly scaling IT Infocity with global software majors, coupled with corporate control of mineral and metallurgy giants.",
+    dominantIndustries: ["IT & Cloud Services", "Metals & Mining Governance", "Higher Education & Research", "Healthcare"],
+    clusters: [
+      {
+        name: "Infocity & Chandaka Industrial Estate",
+        type: "IT Park",
+        keyZones: ["Infocity Phase 1 & 2", "IDCO Info Valley", "Gothapatna"],
+      },
+      {
+        name: "Mancheswar & Rasulgarh Industrial Corridor",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Mancheswar Estate", "Rasulgarh Commercial Hub"],
+      },
+    ],
+    localComplianceNuance:
+      "Adherence to Odisha Shops Act 1956 and GO-SWIFT single window statutory labor portals.",
+    averageSourcingSLA: "24–72 hours for IT engineers and mining finance talent",
+    nearbyHubs: [
+      { name: "Kolkata", slug: "kolkata" },
+      { name: "Cuttack", slug: "cuttack" },
+      { name: "Visakhapatnam", slug: "visakhapatnam" },
+    ],
+  },
+
+  nagpur: {
+    slug: "nagpur",
+    name: "Nagpur",
+    state: "Maharashtra",
+    stateSlug: "maharashtra",
+    lgdCode: 520,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Nagpur",
+    overview:
+      "Positioned at India's geographical center, Nagpur is the premier logistics, aviation MRO, and multi-modal cargo transit powerhouse (MIHAN).",
+    economicProfile:
+      "Zero-mile logistics epicenter, massive warehousing corridors, and expanding IT aerospace SEZ.",
+    dominantIndustries: ["Logistics & Warehousing", "Aviation MRO", "IT Services (MIHAN)", "Defense Manufacturing"],
+    clusters: [
+      {
+        name: "MIHAN SEZ & Multi-modal Hub",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["MIHAN IT Park", "Aviation Special Economic Zone", "TCS/Infosys Campuses"],
+      },
+      {
+        name: "Butibori MIDC Industrial Estate",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Butibori Phase 1 & 2", "Hingna Industrial Belt"],
+      },
+    ],
+    localComplianceNuance:
+      "Governed by Maharashtra Shops and Establishments Act 2017 and MIDC factory inspectorate standards.",
+    averageSourcingSLA: "24–72 hours for supply chain and tech personnel",
+    nearbyHubs: [
+      { name: "Pune", slug: "pune" },
+      { name: "Mumbai", slug: "mumbai" },
+      { name: "Hyderabad", slug: "hyderabad" },
+    ],
+  },
+
+  chandigarh: {
+    slug: "chandigarh",
+    name: "Chandigarh",
+    state: "Punjab",
+    stateSlug: "punjab",
+    lgdCode: 25,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Chandigarh",
+    overview:
+      "The Chandigarh Tricity (Chandigarh, Mohali, Panchkula) serves as North India's thriving software, fintech, and pharmaceutical R&D gateway.",
+    economicProfile:
+      "High concentration of software product engineering, biotechnology, and agricultural equipment manufacturing.",
+    dominantIndustries: ["IT/ITeS Software", "Pharmaceutical R&D", "Fintech", "Agri-Tech & Machinery"],
+    clusters: [
+      {
+        name: "Rajiv Gandhi Chandigarh Technology Park (RGCTP)",
+        type: "IT Park",
+        keyZones: ["Kishangarh Tech Park", "DLF Cybercity Chandigarh"],
+      },
+      {
+        name: "Mohali IT City & Industrial Area Phases 1-9",
+        type: "IT Park",
+        keyZones: ["Mohali IT City Sector 81-83", "QuarkCity Mohali", "Industrial Focal Point"],
+      },
+    ],
+    localComplianceNuance:
+      "Subject to Punjab Shops and Commercial Establishments Act 1958 and Chandigarh UT labor regulations.",
+    averageSourcingSLA: "24–72 hours for IT engineers and pharma scientists",
+    nearbyHubs: [
+      { name: "Delhi", slug: "delhi" },
+      { name: "Gurugram", slug: "gurugram" },
+      { name: "Ludhiana", slug: "ludhiana" },
     ],
   },
 };

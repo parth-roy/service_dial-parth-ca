@@ -3,11 +3,12 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { CITIES_DATA, STATES_DATA } from "@/data/locations";
 import { SERVICES_CATALOG } from "@/data/services";
+import LocationDirectoryClient from "./LocationDirectoryClient";
 
 export const metadata: Metadata = {
-  title: "National Service Coverage & Locations | Service Dial",
+  title: "National Service Coverage & Locations Directory | Service Dial",
   description:
-    "Explore Service Dial's nationwide B2B service delivery network across India's top commercial metros and industrial clusters. Staffing, Payroll, Finance & Compliance.",
+    "Search and explore Service Dial's nationwide B2B service delivery network across 20 primary Indian commercial metros and industrial clusters. Staffing, Payroll, Finance & Compliance.",
   alternates: { canonical: "https://servicedial.in/locations" },
 };
 
@@ -27,11 +28,11 @@ export default function LocationsDirectoryPage() {
         />
 
         {/* Header */}
-        <div className="max-w-3xl mt-4 mb-12">
+        <div className="max-w-3xl mt-4 mb-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-sd-pink/30 bg-sd-pink/5 px-3 py-1 mb-4">
             <span className="h-1.5 w-1.5 rounded-full bg-sd-pink animate-pulse" />
             <span className="text-xs font-semibold text-sd-pink">
-              Local Government Directory (LGD) Aligned Architecture
+              Local Government Directory (LGD) Aligned Architecture · 20 Hubs
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-sd-text">
@@ -42,82 +43,13 @@ export default function LocationsDirectoryPage() {
           </p>
         </div>
 
-        {/* Top 10 Metros Grid */}
+        {/* Interactive Search & Filter Client Component */}
         <div className="mb-16">
-          <div className="flex items-center justify-between mb-6 border-b border-sd-border pb-3">
-            <div>
-              <h2 className="text-xl font-bold text-sd-text">Tier 1 & Strategic Commercial Metros</h2>
-              <p className="text-xs text-sd-muted mt-0.5">High-velocity delivery hubs covering IT parks, BFSI districts, and industrial belts</p>
-            </div>
-            <span className="text-xs font-semibold text-sd-pink bg-sd-pink/5 border border-sd-pink/20 px-2.5 py-1 rounded">
-              10 Pilot Metros Active
-            </span>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {cities.map((city) => (
-              <div
-                key={city.slug}
-                className="rounded-lg border border-sd-border bg-white p-6 shadow-xs hover:border-sd-pink/40 hover:shadow-sm transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <div>
-                      <h3 className="text-lg font-bold text-sd-text">{city.name}</h3>
-                      <Link
-                        href={`/locations/${city.stateSlug}`}
-                        className="text-xs font-medium text-sd-pink hover:underline"
-                      >
-                        {city.state}
-                      </Link>
-                    </div>
-                    <span className="text-[10px] font-mono uppercase bg-sd-bg-2 text-sd-muted border border-sd-border px-1.5 py-0.5 rounded">
-                      LGD: {city.lgdCode}
-                    </span>
-                  </div>
-
-                  <p className="text-xs text-sd-muted leading-relaxed mb-4 line-clamp-3">
-                    {city.overview}
-                  </p>
-
-                  {/* Clusters */}
-                  <div className="mb-4">
-                    <p className="text-[11px] font-semibold text-sd-text uppercase tracking-wider mb-1.5">
-                      Key Commercial Zones:
-                    </p>
-                    <div className="flex flex-wrap gap-1">
-                      {city.clusters.slice(0, 2).map((c) => (
-                        <span
-                          key={c.name}
-                          className="text-[11px] bg-sd-bg-2 text-sd-muted-2 px-2 py-0.5 rounded border border-sd-border truncate max-w-full"
-                        >
-                          {c.name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Service links */}
-                <div className="pt-4 border-t border-sd-border">
-                  <p className="text-[10px] uppercase font-bold text-sd-muted mb-2 tracking-wider">
-                    Available Services in {city.name}:
-                  </p>
-                  <div className="grid grid-cols-2 gap-1.5 text-xs">
-                    {services.map((svc) => (
-                      <Link
-                        key={svc.slug}
-                        href={`/services/${svc.slug}/${city.slug}`}
-                        className="text-sd-text hover:text-sd-pink transition-colors truncate font-medium hover:underline"
-                      >
-                        → {svc.shortName}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <LocationDirectoryClient
+            cities={cities}
+            states={states}
+            services={services}
+          />
         </div>
 
         {/* State Hubs Section */}
@@ -155,9 +87,9 @@ export default function LocationsDirectoryPage() {
         {/* CTA */}
         <div className="rounded-lg border border-sd-pink/20 bg-gradient-to-r from-sd-pink/5 to-transparent p-8 text-center sm:text-left sm:flex sm:items-center sm:justify-between gap-6">
           <div>
-            <h3 className="text-xl font-bold text-sd-text">Need service delivery in a specialized cluster?</h3>
+            <h3 className="text-xl font-bold text-sd-text">Need service delivery in a specialized industrial cluster?</h3>
             <p className="text-xs text-sd-muted mt-1">
-              From remote IT parks to heavy manufacturing belts, our multi-state workforce network operates with guaranteed 24–72 hour SLAs.
+              From remote IT SEZs to heavy manufacturing belts, our multi-state workforce network operates with guaranteed 24–72 hour SLAs.
             </p>
           </div>
           <Link

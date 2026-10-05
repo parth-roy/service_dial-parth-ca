@@ -12,6 +12,9 @@ interface CityServicePageProps {
   }>;
 }
 
+export const dynamicParams = true;
+export const revalidate = 86400;
+
 export async function generateStaticParams() {
   const serviceKeys = Object.keys(SERVICES_CATALOG);
   const cityKeys = Object.keys(CITIES_DATA);
