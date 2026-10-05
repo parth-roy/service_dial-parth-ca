@@ -33,6 +33,7 @@ const areas = [
 
 const caseStudies = [
   {
+    slug: "vp-data-science-global-mnc",
     role: "VP Data Science",
     market: "India",
     company: "MNC – 10,000+ Employees",
@@ -40,6 +41,7 @@ const caseStudies = [
     tags: ["Hadoop", "Kafka", "Global Consulting", "15+ yrs exp."],
   },
   {
+    slug: "vp-sap-sales-united-states",
     role: "VP SAP Sales",
     market: "United States",
     company: "Global Enterprise",
@@ -47,6 +49,7 @@ const caseStudies = [
     tags: ["SAP", "7:10 Ratio", "US Market", "10-day cycle"],
   },
   {
+    slug: "sales-head-bfsi-united-kingdom",
     role: "Sales Head – BFSI",
     market: "United Kingdom",
     company: "MNC IT Company",
@@ -54,6 +57,7 @@ const caseStudies = [
     tags: ["BFSI", "UK Market", "6-week delivery", "Green-field"],
   },
   {
+    slug: "diversity-hiring-product-engineering",
     role: "Senior Sales Director – Product Engineering",
     market: "India",
     company: "Tier 1 & Tier 2 MNCs",
@@ -137,15 +141,31 @@ export default function StaffingPage() {
                   </span>
                 </div>
                 <p className="text-sm text-sd-muted leading-relaxed mb-4">{cs.summary}</p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {cs.tags.map((t) => (
                     <span key={t} className="text-xs px-1.5 py-0.5 rounded bg-sd-bg-2 text-sd-muted border border-sd-border">
                       {t}
                     </span>
                   ))}
                 </div>
+                <div className="pt-3 border-t border-sd-border flex justify-end">
+                  <Link
+                    href={`/case-studies/${cs.slug}`}
+                    className="text-xs font-bold text-sd-pink hover:text-sd-pink-dark transition-colors"
+                  >
+                    Read Full Case Study →
+                  </Link>
+                </div>
               </div>
             ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-sd-text hover:text-sd-pink border border-sd-border bg-white px-4 py-2 rounded shadow-xs transition-all"
+            >
+              Explore All Case Studies & Outcomes →
+            </Link>
           </div>
         </div>
       </section>

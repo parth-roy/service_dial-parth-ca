@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { CITIES_DATA, STATES_DATA } from "@/data/locations";
 import { SERVICES_CATALOG } from "@/data/services";
+import { CASE_STUDIES_DATA } from "@/data/case-studies";
 
 const BASE_URL = "https://servicedial.in";
 
@@ -39,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/case-studies`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
   ];
 
   // Core 4 Service Pillars
@@ -49,6 +56,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: currentDate,
     changeFrequency: "weekly",
     priority: 0.9,
+  }));
+
+  // Case Studies Individual Pages
+  const caseStudyPages: MetadataRoute.Sitemap = Object.keys(
+    CASE_STUDIES_DATA
+  ).map((slug) => ({
+    url: `${BASE_URL}/case-studies/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
+    priority: 0.85,
   }));
 
   // State Hub Pages (9 States)
@@ -77,6 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...corePages,
     ...servicePillarPages,
+    ...caseStudyPages,
     ...statePages,
     ...serviceCityPages,
   ];

@@ -10,7 +10,7 @@ const services = [
 
 const company = [
   { label: "About Us", href: "/about" },
-  { label: "Case Studies", href: "/about#case-studies" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Locations Directory", href: "/locations" },
   { label: "Contact", href: "/contact" },
 ];

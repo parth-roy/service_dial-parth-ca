@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Finance & Audit", href: "/services/finance-and-audit" },
   { label: "Compliance", href: "/services/compliance-services" },
   { label: "Locations", href: "/locations" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
 ];
 
@@ -23,6 +24,10 @@ function isRouteActive(currentPath: string, linkHref: string): boolean {
   if (linkHref === "/locations") {
     // Active on /locations and /locations/[state]
     return currentPath === "/locations" || currentPath.startsWith("/locations/");
+  }
+  if (linkHref === "/case-studies") {
+    // Active on /case-studies and /case-studies/[slug]
+    return currentPath === "/case-studies" || currentPath.startsWith("/case-studies/");
   }
   if (linkHref === "/about") {
     return currentPath === "/about";
