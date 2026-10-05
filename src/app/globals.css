@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --sd-pink: #E91E8C;
+  --sd-pink-dark: #C41677;
+  --sd-pink-light: #FF6FBF;
+
+  /* Light mode surfaces */
+  --sd-bg: #FFFFFF;
+  --sd-bg-2: #F9FAFB;
+  --sd-bg-3: #F3F4F6;
+
+  /* Text */
+  --sd-text: #0A0A0F;
+  --sd-text-2: #1F2937;
+  --sd-muted: #6B7280;
+  --sd-muted-2: #9CA3AF;
+
+  /* Borders */
+  --sd-border: #E5E7EB;
+  --sd-border-2: #D1D5DB;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-sd-pink: var(--sd-pink);
+  --color-sd-pink-dark: var(--sd-pink-dark);
+  --color-sd-pink-light: var(--sd-pink-light);
+  --color-sd-bg: var(--sd-bg);
+  --color-sd-bg-2: var(--sd-bg-2);
+  --color-sd-bg-3: var(--sd-bg-3);
+  --color-sd-text: var(--sd-text);
+  --color-sd-text-2: var(--sd-text-2);
+  --color-sd-muted: var(--sd-muted);
+  --color-sd-muted-2: var(--sd-muted-2);
+  --color-sd-border: var(--sd-border);
+  --color-sd-border-2: var(--sd-border-2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--sd-bg);
+  color: var(--sd-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sd-bg-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sd-pink);
+  border-radius: 2px;
+}
+
+/* Pink underline nav utility */
+.pink-underline {
+  position: relative;
+}
+.pink-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background: var(--sd-pink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.pink-underline:hover::after {
+  transform: scaleX(1);
+}
+.nav-active::after {
+  transform: scaleX(1) !important;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--sd-pink), var(--sd-pink-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--sd-pink);
+  outline-offset: 2px;
+  border-radius: 2px;
 }

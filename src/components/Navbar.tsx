@@ -1,0 +1,124 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+import Logo from "@/components/Logo";
+
+const navLinks = [
+  { label: "Services", href: "/services" },
+  { label: "Staffing", href: "/services/staffing-and-recruitment" },
+  { label: "Payroll & HRMS", href: "/services/hrms-and-payroll" },
+  { label: "Finance & Audit", href: "/services/finance-and-audit" },
+  { label: "Compliance", href: "/services/compliance-services" },
+  { label: "About", href: "/about" },
+];
+
+export default function Navbar() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-sd-border bg-white/95 backdrop-blur-sm">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="transition-opacity hover:opacity-90">
+            <Logo size="md" showTagline={true} />
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const active =
+                pathname === link.href ||
+                pathname.startsWith(link.href + "/");
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`pink-underline px-3 py-1.5 text-sm font-medium transition-colors ${
+                    active
+                      ? "text-sd-text nav-active"
+                      : "text-sd-muted hover:text-sd-text"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* CTA + Mobile toggle */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/contact"
+              className="hidden sm:inline-flex items-center gap-1.5 rounded px-4 py-2 text-sm font-semibold bg-sd-pink text-white hover:bg-sd-pink-dark transition-colors"
+            >
+              Get in Touch
+            </Link>
+
+            <button
+              onClick={() => setOpen(!open)}
+              className="lg:hidden p-2 text-sd-muted hover:text-sd-text"
+              aria-label="Toggle menu"
+            >
+              <div className="w-5 space-y-1.5">
+                <span
+                  className={`block h-0.5 bg-current transition-all duration-300 ${
+                    open ? "translate-y-2 rotate-45" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 bg-current transition-all duration-300 ${
+                    open ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`block h-0.5 bg-current transition-all duration-300 ${
+                    open ? "-translate-y-2 -rotate-45" : ""
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        {open && (
+          <div className="lg:hidden border-t border-sd-border py-3">
+            <nav className="flex flex-col gap-1">
+              {navLinks.map((link) => {
+                const active =
+                  pathname === link.href ||
+                  pathname.startsWith(link.href + "/");
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
+                      active
+                        ? "bg-sd-bg-2 text-sd-text"
+                        : "text-sd-muted hover:text-sd-text hover:bg-sd-bg-2"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="mt-2 mx-3 text-center rounded px-4 py-2 text-sm font-semibold bg-sd-pink text-white hover:bg-sd-pink-dark transition-colors"
+              >
+                Get in Touch
+              </Link>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}
