@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
 import Logo from "@/components/Logo";
 
 const navLinks = [
@@ -15,6 +14,22 @@ const navLinks = [
   { label: "Locations", href: "/locations" },
   { label: "About", href: "/about" },
 ];
+
+function isRouteActive(currentPath: string, linkHref: string): boolean {
+  if (linkHref === "/services") {
+    // Only active when strictly on the /services directory page
+    return currentPath === "/services";
+  }
+  if (linkHref === "/locations") {
+    // Active on /locations and /locations/[state]
+    return currentPath === "/locations" || currentPath.startsWith("/locations/");
+  }
+  if (linkHref === "/about") {
+    return currentPath === "/about";
+  }
+  // For specific service pillars: active on /services/staffing-and-recruitment and /services/staffing-and-recruitment/[city]
+  return currentPath === linkHref || currentPath.startsWith(linkHref + "/");
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -32,20 +47,24 @@ export default function Navbar() {
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {
-              const active =
-                pathname === link.href ||
-                pathname.startsWith(link.href + "/");
+              const active = isRouteActive(pathname, link.href);
+
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`pink-underline px-3 py-1.5 text-sm font-medium transition-colors ${
+                  className={`group relative px-3 py-1.5 text-sm font-medium transition-colors ${
                     active
-                      ? "text-sd-text nav-active"
+                      ? "text-sd-text font-semibold"
                       : "text-sd-muted hover:text-sd-text"
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  {active ? (
+                    <span className="absolute -bottom-1 left-2.5 right-2.5 h-[2px] bg-sd-pink rounded-full transition-all" />
+                  ) : (
+                    <span className="absolute -bottom-1 left-2.5 right-2.5 h-[2px] bg-sd-pink/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center rounded-full" />
+                  )}
                 </Link>
               );
             })}
@@ -91,21 +110,21 @@ export default function Navbar() {
           <div className="lg:hidden border-t border-sd-border py-3">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => {
-                const active =
-                  pathname === link.href ||
-                  pathname.startsWith(link.href + "/");
+                const active = isRouteActive(pathname, link.href);
+
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
+                    className={`flex items-center justify-between px-3 py-2 text-sm font-medium rounded transition-colors ${
                       active
-                        ? "bg-sd-bg-2 text-sd-text"
+                        ? "bg-sd-pink/10 text-sd-pink font-semibold"
                         : "text-sd-muted hover:text-sd-text hover:bg-sd-bg-2"
                     }`}
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {active && <span className="h-1.5 w-1.5 rounded-full bg-sd-pink" />}
                   </Link>
                 );
               })}
