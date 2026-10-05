@@ -11,6 +11,7 @@ const services = [
 const company = [
   { label: "About Us", href: "/about" },
   { label: "Case Studies", href: "/about#case-studies" },
+  { label: "Locations Directory", href: "/locations" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -85,7 +86,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-sd-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-sd-muted">
+        {/* Top Metros Link Spoke */}
+        <div className="mt-10 pt-6 border-t border-sd-border">
+          <p className="text-[11px] uppercase tracking-wider font-bold text-sd-muted mb-2.5">
+            Key Service Delivery Metros:
+          </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-sd-muted">
+            <Link href="/services/staffing-and-recruitment/bengaluru" className="hover:text-sd-pink transition-colors">Bengaluru</Link>
+            <Link href="/services/staffing-and-recruitment/mumbai" className="hover:text-sd-pink transition-colors">Mumbai</Link>
+            <Link href="/services/staffing-and-recruitment/pune" className="hover:text-sd-pink transition-colors">Pune</Link>
+            <Link href="/services/staffing-and-recruitment/hyderabad" className="hover:text-sd-pink transition-colors">Hyderabad</Link>
+            <Link href="/services/staffing-and-recruitment/delhi" className="hover:text-sd-pink transition-colors">Delhi</Link>
+            <Link href="/services/staffing-and-recruitment/gurugram" className="hover:text-sd-pink transition-colors">Gurugram</Link>
+            <Link href="/services/staffing-and-recruitment/noida" className="hover:text-sd-pink transition-colors">Noida</Link>
+            <Link href="/services/staffing-and-recruitment/chennai" className="hover:text-sd-pink transition-colors">Chennai</Link>
+            <Link href="/services/staffing-and-recruitment/ahmedabad" className="hover:text-sd-pink transition-colors">Ahmedabad</Link>
+            <Link href="/services/staffing-and-recruitment/kolkata" className="hover:text-sd-pink transition-colors">Kolkata</Link>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-sd-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-sd-muted">
           <p>© {new Date().getFullYear()} Service Dial. All rights reserved.</p>
           <p>100% Referenceable Clients · Strict NDA · 24–72 hr Sourcing</p>
         </div>

@@ -84,6 +84,22 @@
 
 ---
 
+## Nationwide Delivery & Geographic Coverage (Top 10 Indian Metros)
+
+Service Dial operates active service delivery across India's top economic and industrial hubs, mapped to the Local Government Directory (LGD):
+- **Bengaluru (LGD: 556, Karnataka):** Outer Ring Road, Whitefield (ITPB), Electronic City. Specialization: AI/ML, Cloud, Data Science, GCCs.
+- **Mumbai (LGD: 519, Maharashtra):** BKC, Lower Parel, Andheri-Powai. Specialization: BFSI leadership, Capital Markets, Corporate Finance & AP/AR.
+- **Pune (LGD: 521, Maharashtra):** Hinjawadi Infotech Park, Magarpatta, MIDC Chakan & Bhosari. Specialization: Auto-engineering, IT, Contract staffing.
+- **Hyderabad (LGD: 540, Telangana):** HITEC City, Gachibowli, Genome Valley. Specialization: Cloud engineering, Pharma/Life Sciences, Payroll automation.
+- **Delhi (LGD: 84, NCT of Delhi):** Connaught Place, Aerocity, Okhla. Specialization: Advisory, Legal, Corporate compliance, Retail operations.
+- **Gurugram (LGD: 70, Haryana):** DLF Cyber City, Golf Course Road, Udyog Vihar. Specialization: Management consulting, Tech startups, Executive search.
+- **Noida (LGD: 141, Uttar Pradesh):** Noida Expressway, Sector 62, Ecotech Greater Noida. Specialization: Hardware electronics, ITeS, Volume workforce.
+- **Chennai (LGD: 602, Tamil Nadu):** OMR IT Corridor, SIPCOT Sriperumbudur, Guindy. Specialization: Automotive & EV, Global SaaS, Factory compliance.
+- **Ahmedabad (LGD: 440, Gujarat):** GIFT City IFSC, Sanand GIDC, Changodar. Specialization: Fintech, Pharmaceuticals, Statutory audit.
+- **Kolkata (LGD: 318, West Bengal):** Sector V Salt Lake, Rajarhat New Town. Specialization: IT/ITeS services, Metals/Mining HQs, Finance operations.
+
+---
+
 ## Contact
 
 - **Website:** https://servicedial.in  

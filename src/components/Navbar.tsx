@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Payroll & HRMS", href: "/services/hrms-and-payroll" },
   { label: "Finance & Audit", href: "/services/finance-and-audit" },
   { label: "Compliance", href: "/services/compliance-services" },
+  { label: "Locations", href: "/locations" },
   { label: "About", href: "/about" },
 ];
 
