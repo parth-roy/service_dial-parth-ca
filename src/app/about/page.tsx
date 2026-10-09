@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "About Service Dial – Company Profile & Story",
   description:
     "Service Dial was established in 2016 with a mission to simplify business through technology-driven, tailor-made solutions. 100% referenceable clients. Strict NDA. Pan-India and global operations.",
-  alternates: { canonical: "https://servicedial.in/about" },
+  alternates: { canonical: "https://servicedialtm.com/about" },
 };
 
 const milestones = [

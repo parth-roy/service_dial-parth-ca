@@ -30,6 +30,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://servicedial.in/sitemap.xml",
+    sitemap: "https://servicedialtm.com/sitemap.xml",
   };
 }

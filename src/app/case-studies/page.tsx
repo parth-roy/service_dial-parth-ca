@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Case Studies & Verified Sourcing Outcomes | Service Dial",
   description:
     "Explore verifiable executive search, IT recruitment, and enterprise outsourcing case studies from Service Dial across India, the US, and the UK. Documented 24–72 hr sourcing SLAs and 7:10 selection ratios.",
-  alternates: { canonical: "https://servicedial.in/case-studies" },
+  alternates: { canonical: "https://servicedialtm.com/case-studies" },
 };
 
 export default function CaseStudiesHubPage() {

@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   return {
     title: `${cs.role} Case Study | Service Dial`,
     description: `${cs.headline} Placed in ${cs.timeToFill} with a ${cs.sourcingWindow} sourcing window and ${cs.submissionRatio} selection ratio.`,
-    alternates: { canonical: `https://servicedial.in/case-studies/${cs.slug}` },
+    alternates: { canonical: `https://servicedialtm.com/case-studies/${cs.slug}` },
     openGraph: {
       title: `${cs.title} | Service Dial`,
       description: cs.headline,
-      url: `https://servicedial.in/case-studies/${cs.slug}`,
+      url: `https://servicedialtm.com/case-studies/${cs.slug}`,
       siteName: "Service Dial",
       type: "article",
     },
@@ -51,12 +51,12 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
     author: {
       "@type": "Organization",
       name: "Service Dial",
-      url: "https://servicedial.in",
+      url: "https://servicedialtm.com",
     },
     publisher: {
       "@type": "Organization",
       name: "Service Dial",
-      logo: "https://servicedial.in/logo.png",
+      logo: "https://servicedialtm.com/logo.png",
     },
     about: {
       "@type": "Thing",

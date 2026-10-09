@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
   return {
     title: `B2B Enterprise Services in ${state.name} | Service Dial`,
     description: `Enterprise staffing, payroll, finance, and labour law compliance services across ${state.name}. LGD Code: ${state.lgdStateCode}. 100% statutory adherence.`,
-    alternates: { canonical: `https://servicedial.in/locations/${state.slug}` },
+    alternates: { canonical: `https://servicedialtm.com/locations/${state.slug}` },
   };
 }
 

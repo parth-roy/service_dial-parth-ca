@@ -4,12 +4,12 @@ export default function OrganizationSchema() {
     "@type": "Organization",
     name: "Service Dial",
     alternateName: "ServiceDial",
-    url: "https://servicedial.in",
-    logo: "https://servicedial.in/logo.png",
+    url: "https://servicedialtm.com",
+    logo: "https://servicedialtm.com/logo.png",
     description:
       "Service Dial provides technology-driven, tailor-made staffing & recruitment, HRMS & payroll management, finance & audit, and compliance services across India and globally. Established 2016.",
     foundingDate: "2016",
-    email: "info@servicedial.in",
+    email: "info@servicedialtm.com",
     areaServed: [
       { "@type": "Country", name: "India" },
       { "@type": "Country", name: "United States" },
@@ -26,7 +26,7 @@ export default function OrganizationSchema() {
             name: "Staffing & Recruitment",
             description:
               "IT staffing, CXO leadership hiring, general staffing, and blue collar staffing with 24–72 hour sourcing turnaround.",
-            url: "https://servicedial.in/services/staffing-and-recruitment",
+            url: "https://servicedialtm.com/services/staffing-and-recruitment",
           },
         },
         {
@@ -36,7 +36,7 @@ export default function OrganizationSchema() {
             name: "HRMS & Payroll Management",
             description:
               "End-to-end payroll processing, vendor compliance, labour law adherence, and HRMS technology integration.",
-            url: "https://servicedial.in/services/hrms-and-payroll",
+            url: "https://servicedialtm.com/services/hrms-and-payroll",
           },
         },
         {
@@ -46,7 +46,7 @@ export default function OrganizationSchema() {
             name: "Finance & Audit",
             description:
               "Accounts payable, accounts receivable, record to report (R2R), and internal & external audit services.",
-            url: "https://servicedial.in/services/finance-and-audit",
+            url: "https://servicedialtm.com/services/finance-and-audit",
           },
         },
         {
@@ -56,7 +56,7 @@ export default function OrganizationSchema() {
             name: "Compliance Services",
             description:
               "Statutory compliance, labour law filings, regulatory reporting, and risk assessment across India.",
-            url: "https://servicedial.in/services/compliance-services",
+            url: "https://servicedialtm.com/services/compliance-services",
           },
         },
       ],

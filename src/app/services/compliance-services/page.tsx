@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Compliance Services – Labour Law, Statutory & Regulatory | Service Dial",
   description:
     "Proactive compliance management covering statutory filings, labour law, regulatory reporting, and risk assessment. Integrated across HR, payroll, and finance functions.",
-  alternates: { canonical: "https://servicedial.in/services/compliance-services" },
+  alternates: { canonical: "https://servicedialtm.com/services/compliance-services" },
 };
 
 const areas = [

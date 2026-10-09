@@ -3,7 +3,7 @@ import { CITIES_DATA, STATES_DATA } from "@/data/locations";
 import { SERVICES_CATALOG } from "@/data/services";
 import { CASE_STUDIES_DATA } from "@/data/case-studies";
 
-const BASE_URL = "https://servicedial.in";
+const BASE_URL = "https://servicedialtm.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();

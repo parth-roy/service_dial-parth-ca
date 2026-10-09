@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Staffing & Recruitment Services – IT, CXO, Blue Collar | Service Dial",
   description:
     "Premium staffing and recruitment solutions across India. IT staffing, CXO leadership hiring, general and blue collar staffing. 7:10 submission-to-selection ratio. 24–72 hr turnaround. NDA protected.",
-  alternates: { canonical: "https://servicedial.in/services/staffing-and-recruitment" },
+  alternates: { canonical: "https://servicedialtm.com/services/staffing-and-recruitment" },
 };
 
 const areas = [

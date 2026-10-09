@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "HRMS & Payroll Management Services | Service Dial",
   description:
     "End-to-end HRMS and payroll management services including payroll processing, vendor compliance, labour law adherence, and HRMS technology integration across India.",
-  alternates: { canonical: "https://servicedial.in/services/hrms-and-payroll" },
+  alternates: { canonical: "https://servicedialtm.com/services/hrms-and-payroll" },
 };
 
 const pillars = [

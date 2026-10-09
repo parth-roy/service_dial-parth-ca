@@ -51,28 +51,28 @@
 ## Verified Case Studies & Evidence Reports
 
 ### 1. VP Data Science – India
-- **URL:** https://servicedial.in/case-studies/vp-data-science-global-mnc
+- **URL:** https://servicedialtm.com/case-studies/vp-data-science-global-mnc
 - **Client:** MNC with 10,000+ employees (global consulting firm)
 - **Requirement:** VP Data Science, 15+ years experience, Hadoop, Kafka, big data technologies
 - **Outcome:** Sourced in 48 hours; placed within 21 days; all NDA protected
 - **Tech Stack:** Hadoop, Kafka, Storm, Hive, Python, Machine Learning
 
 ### 2. Vice President SAP Sales – United States
-- **URL:** https://servicedial.in/case-studies/vp-sap-sales-united-states
+- **URL:** https://servicedialtm.com/case-studies/vp-sap-sales-united-states
 - **Client:** Global enterprise / international IT services firm
 - **Requirement:** CXO-level SAP Sales VP for US market
 - **Outcome:** 7:10 submission-to-selection ratio; 10-day interview-to-selection cycle; 24–72 hr first shortlist delivery
 - **Tech Stack:** SAP S/4HANA, Cloud ERP, Oracle HCM, Salesforce
 
 ### 3. Sales Head BFSI – United Kingdom
-- **URL:** https://servicedial.in/case-studies/sales-head-bfsi-united-kingdom
+- **URL:** https://servicedialtm.com/case-studies/sales-head-bfsi-united-kingdom
 - **Client:** MNC IT Company
 - **Requirement:** Sales Head for BFSI vertical, green-field assignment (no existing pipeline)
 - **Outcome:** Placement completed within 6 weeks from cold start; 95% offer-to-joining ratio; 12-month retainer renewed
 - **Tech Stack:** Core Banking, RegTech, Cloud Modernization
 
 ### 4. Senior Sales Director Product Engineering – India
-- **URL:** https://servicedial.in/case-studies/diversity-hiring-product-engineering
+- **URL:** https://servicedialtm.com/case-studies/diversity-hiring-product-engineering
 - **Client:** Tier 1 and Tier 2 MNCs
 - **Requirement:** Senior Sales Director, diversity hiring mandate, product engineering vertical
 - **Outcome:** Passive candidates mapped and shortlisted from target Tier 1 organizations; 100% offer acceptance (1 offered, 1 joined)
@@ -110,6 +110,6 @@ Service Dial operates active service delivery across India's top economic and in
 
 ## Contact
 
-- **Website:** https://servicedial.in  
-- **Email:** info@servicedial.in  
+- **Website:** https://servicedialtm.com  
+- **Email:** info@servicedialtm.com  
 - **Inquiry Response:** Within 24 hours, confidential

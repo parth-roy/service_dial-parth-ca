@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://servicedial.in"),
+  metadataBase: new URL("https://servicedialtm.com"),
   title: {
     default: "Service Dial – Staffing, Payroll, Finance & Compliance Solutions",
     template: "%s | Service Dial",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://servicedial.in",
+    url: "https://servicedialtm.com",
     siteName: "Service Dial",
     title: "Service Dial – Simplifying Business",
     description:

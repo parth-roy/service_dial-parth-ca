@@ -70,8 +70,8 @@ export default function ContactForm() {
               {[
                 {
                   label: "Confidential Email",
-                  value: "info@servicedial.in",
-                  href: "mailto:info@servicedial.in",
+                  value: "info@servicedialtm.com",
+                  href: "mailto:info@servicedialtm.com",
                 },
                 {
                   label: "Inquiry Response SLA",

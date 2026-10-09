@@ -77,10 +77,10 @@ export default function Footer() {
                 Contact
               </p>
               <a
-                href="mailto:info@servicedial.in"
+                href="mailto:info@servicedialtm.com"
                 className="text-sm text-sd-muted hover:text-sd-text transition-colors"
               >
-                info@servicedial.in
+                info@servicedialtm.com
               </a>
             </div>
           </div>

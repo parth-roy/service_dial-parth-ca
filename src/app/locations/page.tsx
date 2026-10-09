@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "National Service Coverage & Locations Directory | Service Dial",
   description:
     "Search and explore Service Dial's nationwide B2B service delivery network across 20 primary Indian commercial metros and industrial clusters. Staffing, Payroll, Finance & Compliance.",
-  alternates: { canonical: "https://servicedial.in/locations" },
+  alternates: { canonical: "https://servicedialtm.com/locations" },
 };
 
 export default function LocationsDirectoryPage() {

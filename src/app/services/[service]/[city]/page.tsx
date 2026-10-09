@@ -46,12 +46,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `https://servicedial.in/services/${service.slug}/${city.slug}`,
+      canonical: `https://servicedialtm.com/services/${service.slug}/${city.slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://servicedial.in/services/${service.slug}/${city.slug}`,
+      url: `https://servicedialtm.com/services/${service.slug}/${city.slug}`,
       siteName: "Service Dial",
       locale: "en_IN",
       type: "website",
@@ -92,8 +92,8 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
     provider: {
       "@type": "Organization",
       name: "Service Dial",
-      url: "https://servicedial.in",
-      logo: "https://servicedial.in/logo.png",
+      url: "https://servicedialtm.com",
+      logo: "https://servicedialtm.com/logo.png",
     },
     areaServed: {
       "@type": "City",

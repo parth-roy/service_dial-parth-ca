@@ -17,7 +17,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      item: `https://servicedial.in${item.href}`,
+      item: `https://servicedialtm.com${item.href}`,
     })),
   };
 

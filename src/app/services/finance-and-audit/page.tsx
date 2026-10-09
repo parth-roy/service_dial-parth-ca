@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Finance & Audit Services – AP, AR, R2R | Service Dial",
   description:
     "Expert finance and audit services including accounts payable, accounts receivable, record to report (R2R), and internal audit. Delivered by domain specialists across India.",
-  alternates: { canonical: "https://servicedial.in/services/finance-and-audit" },
+  alternates: { canonical: "https://servicedialtm.com/services/finance-and-audit" },
 };
 
 const functions_ = [
