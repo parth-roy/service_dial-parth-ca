@@ -56,7 +56,10 @@ export default async function StateIntentPage({ params }: StateIntentPageProps) 
     notFound();
   }
 
-  const cities = await Geography.find({ parentId: stateDoc._id, level: "District" }).lean() as any[];
+  const cities = await Geography.find({ 
+    parentId: stateDoc._id, 
+    level: { $in: ["District", "Subdistrict", "LocalBody"] } 
+  }).sort({ name: 1 }).lean() as any[];
   const jurisdiction = stateDoc.jurisdictionId || {
     officeName: "Regional Registry",
     officialAddress: "IP India Registry Office",

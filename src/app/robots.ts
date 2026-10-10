@@ -33,6 +33,7 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: [
       "https://servicedialtm.com/sitemap.xml",
       "https://servicedialtm.com/sitemap-ip.xml",
+      "https://servicedialtm.com/sitemap-mumbai.xml",
     ],
   };
 }

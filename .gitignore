@@ -35,7 +35,8 @@ yarn-error.log*
 
 # vercel
 .vercel
-
+Service_Dial_1000_Location_Rollout_Plan.md
+Service_Dial_Massive_1000_Locations_Data_Matrix.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
