@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Payroll & HRMS", href: "/services/hrms-and-payroll" },
   { label: "Finance & Audit", href: "/services/finance-and-audit" },
   { label: "Compliance", href: "/services/compliance-services" },
+  { label: "IP & Trademarks", href: "/ip-services" },
   { label: "Locations", href: "/locations" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
@@ -20,6 +21,9 @@ function isRouteActive(currentPath: string, linkHref: string): boolean {
   if (linkHref === "/services") {
     // Only active when strictly on the /services directory page
     return currentPath === "/services";
+  }
+  if (linkHref === "/ip-services") {
+    return currentPath === "/ip-services" || currentPath.startsWith("/ip-services/");
   }
   if (linkHref === "/locations") {
     // Active on /locations and /locations/[state]

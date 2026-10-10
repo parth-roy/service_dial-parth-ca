@@ -6,6 +6,7 @@ const services = [
   { label: "HRMS & Payroll", href: "/services/hrms-and-payroll" },
   { label: "Finance & Audit", href: "/services/finance-and-audit" },
   { label: "Compliance Services", href: "/services/compliance-services" },
+  { label: "Trademark & IP Services", href: "/ip-services" },
 ];
 
 const company = [

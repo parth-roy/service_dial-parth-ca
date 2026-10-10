@@ -26,6 +26,7 @@ export default function Logo({
           width={dims.width}
           height={dims.height}
           priority
+          style={{ width: "auto", height: "auto" }}
           className="object-contain drop-shadow-xs"
         />
       </div>

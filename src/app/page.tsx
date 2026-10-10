@@ -106,6 +106,7 @@ export default function HomePage() {
                   alt="Service Dial Emblem"
                   width={18}
                   height={17}
+                  style={{ width: "auto", height: "auto" }}
                   className="object-contain"
                 />
                 <span className="text-xs font-semibold text-sd-text">

@@ -32,7 +32,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (
-              <li key={item.href} className="flex items-center gap-1.5">
+              <li key={`${item.href}-${index}`} className="flex items-center gap-1.5">
                 {index > 0 && <span className="text-sd-border-2 select-none">/</span>}
                 {isLast ? (
                   <span className="font-semibold text-sd-text truncate max-w-xs sm:max-w-none" aria-current="page">

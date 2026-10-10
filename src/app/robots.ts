@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/"],
       },
       // Explicitly allow AI crawlers for GEO/AEO
       {
@@ -30,6 +30,9 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://servicedialtm.com/sitemap.xml",
+    sitemap: [
+      "https://servicedialtm.com/sitemap.xml",
+      "https://servicedialtm.com/sitemap-ip.xml",
+    ],
   };
 }
