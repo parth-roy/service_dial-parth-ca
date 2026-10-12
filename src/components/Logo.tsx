@@ -12,13 +12,28 @@ export default function Logo({
   className = "",
 }: LogoProps) {
   const dims = {
-    sm: { width: 28, height: 26, title: "text-base", tagline: "text-[8px] tracking-[0.2em]" },
-    md: { width: 36, height: 33, title: "text-lg", tagline: "text-[9px] tracking-[0.22em]" },
-    lg: { width: 48, height: 45, title: "text-2xl", tagline: "text-[11px] tracking-[0.25em]" },
+    sm: {
+      width: 28,
+      height: 26,
+      title: "text-base tracking-tight",
+      tagline: "text-[7.5px] tracking-[0.24em]",
+    },
+    md: {
+      width: 35,
+      height: 33,
+      title: "text-[19px] xl:text-[20px] tracking-tight leading-none",
+      tagline: "text-[8.5px] tracking-[0.22em] leading-none",
+    },
+    lg: {
+      width: 48,
+      height: 45,
+      title: "text-2xl tracking-tight leading-none",
+      tagline: "text-[10px] tracking-[0.25em] leading-none",
+    },
   }[size];
 
   return (
-    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+    <div className={`flex items-center gap-2.5 select-none shrink-0 ${className}`}>
       <div className="relative shrink-0 flex items-center justify-center">
         <Image
           src="/logo.png"
@@ -30,12 +45,13 @@ export default function Logo({
           className="object-contain drop-shadow-xs"
         />
       </div>
-      <div className="flex flex-col justify-center leading-none">
-        <span className={`font-black tracking-tight text-sd-text ${dims.title}`}>
+
+      <div className="flex flex-col justify-center gap-0.5">
+        <span className={`font-black text-sd-text ${dims.title}`}>
           Service <span className="text-sd-pink">Dial</span>
         </span>
         {showTagline && (
-          <span className={`uppercase font-medium text-sd-muted mt-1 ${dims.tagline}`}>
+          <span className={`uppercase font-bold text-sd-muted-2 ${dims.tagline}`}>
             SIMPLIFYING BUSINESS
           </span>
         )}
