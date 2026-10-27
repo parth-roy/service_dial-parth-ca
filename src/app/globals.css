@@ -74,6 +74,23 @@ body {
   background-clip: text;
 }
 
+/* Outline stroke text effect (as seen in modern enterprise heroes) */
+.stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #ffffff;
+  paint-order: stroke fill;
+}
+
+.stroke-text-pink {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--sd-pink);
+  paint-order: stroke fill;
+}
+
+.font-outfit {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
 /* Focus ring */
 *:focus-visible {
   outline: 2px solid var(--sd-pink);

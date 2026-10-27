@@ -109,8 +109,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 19,
     capital: "Kolkata",
     regionalLabourNuances:
-      "Governed by the West Bengal Shops and Establishments Act, 1963, bi-annual minimum wage revisions for scheduled employments, and specialized compliance oversight across Salt Lake Sector V and New Town tech zones.",
-    cities: ["kolkata"],
+      "Governed by the West Bengal Shops and Establishments Act, 1963, West Bengal State Tax on Professions, Trades, Callings and Employments Act, 1979 (revised slabs effective Oct 1, 2026 exempting gross wages up to ₹20,000/mo; Form III-A annual return due April 30), and West Bengal Labour Welfare Fund Act, 1974 (half-yearly deduction due July 15 and January 15; employee ₹3, employer ₹30; Form D returns).",
+    cities: ["kolkata", "barrackpore", "howrah-dankuni", "salt-lake-sector-v"],
   },
   rajasthan: {
     slug: "rajasthan",
@@ -563,9 +563,135 @@ export const CITIES_DATA: Record<string, CityData> = {
       "Strict monitoring of West Bengal Shops and Establishments Act 1963, semi-annual minimum wage revisions, and West Bengal Labor Welfare Fund compliance.",
     averageSourcingSLA: "24–72 hours for IT services and financial operations talent",
     nearbyHubs: [
-      { name: "Howrah", slug: "howrah" },
-      { name: "Durgapur", slug: "durgapur" },
-      { name: "Bhubaneswar", slug: "bhubaneswar" },
+      { name: "Barrackpore (HQ)", slug: "barrackpore" },
+      { name: "Howrah & Dankuni", slug: "howrah-dankuni" },
+      { name: "Salt Lake Sector V", slug: "salt-lake-sector-v" },
+    ],
+  },
+
+  barrackpore: {
+    slug: "barrackpore",
+    name: "Barrackpore & North 24 Parganas Corridor",
+    state: "West Bengal",
+    stateSlug: "west-bengal",
+    lgdCode: 312,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Barrackpore",
+    overview:
+      "Barrackpore is the historic industrial, defense, and administrative hub of North 24 Parganas and the registered corporate headquarters of Service Dial Talent Management Private Limited. Located along the eastern bank of the Hooghly River, it anchors the manufacturing and industrial clusters of Titagarh, Shyamnagar, Naihati, and Khardah.",
+    economicProfile:
+      "Strategic epicenter for heavy defense and ordnance manufacturing, railway rolling stock engineering (Titagarh Rail Systems), jute textiles, chemical processing, and light engineering fabrication.",
+    dominantIndustries: [
+      "Defense & Ordnance Manufacturing",
+      "Railway Rolling Stock & Heavy Engineering",
+      "Jute & Textile Processing",
+      "Precision SME Fabrication",
+      "Chemicals & Industrial Gases",
+    ],
+    clusters: [
+      {
+        name: "Titagarh & Khardah Heavy Engineering Corridor",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Titagarh Rail Systems Zone", "BT Road Industrial Belt", "Khardah Industrial Estate"],
+      },
+      {
+        name: "Ishapore & Shyamnagar Defense & Industrial Belt",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Rifle Factory Ishapore Zone", "Shyamnagar Industrial Cluster", "Naihati Logistics Spoke"],
+      },
+      {
+        name: "Barrackpore Corporate & Administrative Hub",
+        type: "BFSI / Financial Hub",
+        keyZones: ["S.N. Banerjee Road Corporate Hub", "Barrackpore Cantonment Area", "Station Road Commercial Center"],
+      },
+    ],
+    localComplianceNuance:
+      "High concentration of Factories Act 1948 certified establishments, certified Standing Orders under the Industrial Employment Act 1946, trade union collective bargaining protocols, and strict West Bengal Labour Welfare Fund bi-annual submissions.",
+    averageSourcingSLA: "24–48 hours for plant engineering, technical supervisory, and skilled blue-collar personnel",
+    nearbyHubs: [
+      { name: "Kolkata", slug: "kolkata" },
+      { name: "Howrah & Dankuni", slug: "howrah-dankuni" },
+      { name: "Salt Lake Sector V", slug: "salt-lake-sector-v" },
+    ],
+  },
+
+  "howrah-dankuni": {
+    slug: "howrah-dankuni",
+    name: "Howrah & Dankuni Industrial Freight Corridor",
+    state: "West Bengal",
+    stateSlug: "west-bengal",
+    lgdCode: 315,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Howrah",
+    overview:
+      "The Howrah and Dankuni corridor forms the industrial and logistics backbone of Eastern India, housing the Dankuni Inland Container Depot (ICD), Eastern Dedicated Freight Corridor terminus, heavy foundry belts, and massive 3PL distribution centers.",
+    economicProfile:
+      "Eastern India's primary freight transshipment node connecting the Golden Quadrilateral, Kolkata & Haldia ports, and North-East India trade routes.",
+    dominantIndustries: [
+      "3PL & Warehousing Logistics",
+      "Heavy Engineering & Foundry",
+      "Automotive Ancillaries",
+      "FMCG Central Distribution",
+      "Container Freight Transit",
+    ],
+    clusters: [
+      {
+        name: "Dankuni ICD & Logistics Corridor",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["Dankuni Freight Hub", "Delhi Road Warehousing Cluster", "Jalan Complex"],
+      },
+      {
+        name: "Dhulagarh & Sankrail Industrial Belt",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Dhulagarh Logistics Park", "Sankrail Poly Park", "Kona Expressway Corridor"],
+      },
+    ],
+    localComplianceNuance:
+      "Extensive exposure to Contract Labour (Regulation & Abolition) Act licensing, interstate migrant worker compliance, heavy vehicle transport overtime tracking, and half-yearly WBLWF remittances.",
+    averageSourcingSLA: "24–72 hours for warehouse supervisors, inventory handlers, and factory operators",
+    nearbyHubs: [
+      { name: "Kolkata", slug: "kolkata" },
+      { name: "Barrackpore", slug: "barrackpore" },
+    ],
+  },
+
+  "salt-lake-sector-v": {
+    slug: "salt-lake-sector-v",
+    name: "Salt Lake Sector V & New Town IT Corridor",
+    state: "West Bengal",
+    stateSlug: "west-bengal",
+    lgdCode: 318,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Bidhannagar",
+    overview:
+      "Salt Lake Sector V and adjoining New Town represent Eastern India's Silicon Valley, spanning over 15 million square feet of Grade-A commercial IT parks, Global Capability Centers (GCCs), and fintech campuses.",
+    economicProfile:
+      "Premier IT/ITeS hub housing Tata Consultancy Services, Wipro, Cognizant, IBM, Genpact, and over 400 product startups and fintech firms.",
+    dominantIndustries: [
+      "Software Engineering & SaaS",
+      "ITeS & Business Process Management",
+      "Fintech & Banking Technology",
+      "Consulting & Global In-House Centers",
+      "Data Centers",
+    ],
+    clusters: [
+      {
+        name: "Sector V Bidhannagar Core IT Belt",
+        type: "IT Park",
+        keyZones: ["Infinity Benchmark", "Candor TechSpace", "Godrej Genesis", "RDB Boulevard", "Webel STP II"],
+      },
+      {
+        name: "New Town Financial Hub & Action Area II",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["Ecospace Business Park", "Mani Casadona", "Candor New Town", "Fintech City"],
+      },
+    ],
+    localComplianceNuance:
+      "Shops & Establishments 24/7 operating exemptions, female night shift safety and transportation compliance, EPFO wage ceiling restructuring for junior developers, and multi-state Professional Tax management.",
+    averageSourcingSLA: "24–48 hours for software engineers, cloud architects, and financial analysts",
+    nearbyHubs: [
+      { name: "Kolkata", slug: "kolkata" },
+      { name: "Barrackpore", slug: "barrackpore" },
     ],
   },
 

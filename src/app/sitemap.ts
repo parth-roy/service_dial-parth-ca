@@ -47,6 +47,66 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/tools/payroll-fee-estimator`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/epfo-wage-ceiling-25000`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/west-bengal-professional-tax-2026`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/west-bengal-labour-welfare-fund`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/industries`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/industries/it-ites-startups`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/industries/manufacturing-engineering`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/industries/logistics-warehousing`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/industries/healthcare-pharma`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: `${BASE_URL}/ip-services`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -116,7 +176,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // State Hub Pages (9 States)
+  // State Hub Pages
   const statePages: MetadataRoute.Sitemap = Object.keys(STATES_DATA).map(
     (stateSlug) => ({
       url: `${BASE_URL}/locations/${stateSlug}`,
@@ -126,7 +186,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // 40 Service x City transactional pages (4 services * 10 cities)
+  // Service x City transactional pages
   const serviceCityPages: MetadataRoute.Sitemap = [];
   for (const serviceSlug of Object.keys(SERVICES_CATALOG)) {
     for (const citySlug of Object.keys(CITIES_DATA)) {

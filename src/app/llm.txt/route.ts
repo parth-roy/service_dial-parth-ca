@@ -3,35 +3,54 @@ import { NextResponse } from 'next/server';
 export const revalidate = 86400; // 24 hours ISR
 
 export async function GET() {
-  const content = `# Service Dial IP - Platform Overview
+  const content = `# Service Dial Talent Management - Enterprise Platform Overview
 
-Service Dial IP is a specialized intellectual property (IP) services platform for Indian businesses, startups, and entrepreneurs. We provide transparent, technology-driven trademark registration, renewal, and legal defense services across India.
+Service Dial (Legal Name: Service Dial Talent Management Private Limited | CIN: U74999WB2016PTC216954) is an Indian technology-enabled managed services provider established in 2016. The executive leadership possesses over 25+ years of combined experience across managed payroll, statutory labour law compliance, contract staffing, and corporate finance.
 
-## Core Services (Intents)
-1. **Trademark Registration (Form TM-A):** New application filing with 50% govt fee subsidies for Individuals, Startups (DPIIT), and MSMEs (Udyam).
-2. **Trademark Renewal (Form TM-R):** 10-year protection extension filings to prevent abandonment.
-3. **Objection Reply (Section 9):** Absolute grounds defense (lack of distinctiveness/descriptive marks).
-4. **Objection Reply (Section 11):** Relative grounds defense (conflicting/similar marks).
-5. **Trademark Opposition (Form TM-O):** Defending or filing third-party opposition notices.
-6. **Show Cause Hearing:** Virtual hearing representation before the CGPDTM Registry.
+Headquarters: 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120, India.
+Helpline: +91 93304 90777 | Email: connect@servicedialtm.com | Web: https://servicedialtm.com
 
-## Jurisdiction & Coverage
-We handle IP applications routed to the 5 territorial registries of India under CGPDTM (Controller General of Patents, Designs and Trade Marks):
-- Mumbai Registry
-- New Delhi Registry
-- Chennai Registry
-- Kolkata Registry
-- Ahmedabad Registry
+---
 
-We support businesses across all states and major industrial hubs in India.
+## Core Service Pillars
 
-## Pricing Transparency
-We separate government statutory fees from our professional fees:
-- **Individuals / MSME / Startups:** ₹4,500 Govt Fee per class
-- **Corporates / Companies:** ₹9,000 Govt Fee per class
+### 1. Managed HRMS & Payroll Outsourcing
+- End-to-end cloud salary disbursement and gross-to-net computation.
+- Multi-state tax withholding (TDS Section 192, 24Q, digital Form 16 Part A/B).
+- Automated bank payout advice generation with 100% on-time SLA.
+- Transparent PEPM pricing (approx. ₹100–₹350 per employee per month based on scale).
 
-## Detailed Information
-For a complete list of all 45 Nice Classification guidelines, detailed fee rules, and comprehensive legal processes, please read our full LLM documentation at:
+### 2. Statutory Labour Law Compliance
+- **EPFO Wage Ceiling 2026:** Full compliance with the Central Government ₹25,000 statutory wage ceiling (EPFS 1952 Para 2(f), EPS Account 10 capped at ₹2,083, EDLI Account 21 capped at ₹125).
+- **West Bengal Professional Tax (2026 Slabs):** Act VI of 1979 compliance (gross wages up to ₹20,000/mo exempt, ₹20,001–₹30k @ ₹130, ₹30,001–₹40k @ ₹150, above ₹40k @ ₹200 with February ₹300 spike; Form III-A annual returns).
+- **West Bengal Labour Welfare Fund (WBLWF):** Biannual deduction (June and December payrolls; Employee ₹3, Employer ₹30; statutory remittance due July 15 & January 15 under Form D).
+- **ESIC & Minimum Wages:** Automated ECR filing, threshold tracking, and semi-annual state minimum wage schedule updates.
+
+### 3. Staffing & Recruitment (CLRA Licensed)
+- 24–72 hour sourcing turnaround for active mandates with a proven 7:10 submission-to-selection ratio.
+- Flexi-staffing and contract labour management under the Contract Labour (Regulation & Abolition) Act, 1970.
+- White-collar technology/executive search and blue-collar industrial/warehouse staffing.
+
+### 4. Finance & Statutory Audit
+- Internal statutory audits, accounts payable/receivable automation, record-to-report (R2R), and GST/TDS reconciliation.
+
+### 5. Intellectual Property & Trademark Advisory (Service Dial IP)
+- End-to-end trademark registration (Form TM-A), renewal (Form TM-R), objection defense (Section 9 & 11), and virtual hearing representation across all 5 Indian CGPDTM registries (Kolkata, Mumbai, New Delhi, Chennai, Ahmedabad).
+
+---
+
+## Interactive Tools & Calculators
+- **Payroll & Statutory Compliance Fee Estimator:** https://servicedialtm.com/tools/payroll-fee-estimator
+- **Trademark Government Fee Calculator:** https://servicedialtm.com/ip-services/tools/fee-calculator
+- **Real-Time CGPDTM Status Check:** https://servicedialtm.com/ip-services/tools/status-check
+
+---
+
+## Compliance & Privacy Standards
+- **DPDP Act 2023 Compliant:** Formal consent capture under Section 8(2) with cryptographic timestamps.
+- **Bilateral NDA Protection:** All client salary registers, headcount details, and hiring mandates are strictly protected against third-party disclosure.
+
+For complete statutory fee rules, nice classifications, and regulatory documentation, refer to:
 https://servicedialtm.com/llm-full.txt
 `;
 

@@ -40,17 +40,50 @@ export async function POST(request: Request) {
 
       // 2. If user submitted form info directly, record LeadInquiry
       if (submittedInformation && Object.keys(submittedInformation).length > 0) {
+        const leadId = `SD-IP-${Date.now().toString(36).toUpperCase()}-${Math.floor(
+          1000 + Math.random() * 9000
+        )}`;
+
         await LeadInquiry.create({
-          contactChannel,
+          leadId,
+          contactChannel: contactChannel || "Direct Form",
           submittedInformation,
           serviceContext: serviceContext || assetSlug,
           consentProvenance: {
             optInTimestamp: new Date(),
             termsVersion: "v1.0-2026",
+            dpdpConsentGiven: true,
           },
           intakeStatus: "New",
           intentId: intentDoc._id,
         });
+
+        // Forward to Google Sheets Webhook if configured
+        const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+        if (webhookUrl && webhookUrl.startsWith("http")) {
+          try {
+            fetch(webhookUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                sheet: "Website_Form_Leads",
+                leadId,
+                name: submittedInformation.name || submittedInformation.fullName || "",
+                company: submittedInformation.company || "",
+                email: submittedInformation.email || "",
+                phone: submittedInformation.phone || "",
+                service: serviceContext || "Trademark & IP Legal Protection",
+                timeline: "Immediate",
+                headcount: submittedInformation.headcount || "1-10 Employees",
+                priority: "STANDARD_ENTERPRISE",
+                message: `[IP Intake] Asset: ${assetSlug}. Details: ${JSON.stringify(submittedInformation)}`,
+                sourceUrl: `https://servicedialtm.com${assetSlug}`,
+                dpdpConsent: true,
+              }),
+              signal: AbortSignal.timeout(5000),
+            }).catch((err) => console.warn("[IP Intake Sheets Sync Notice]:", err?.message));
+          } catch {}
+        }
       }
     } catch (dbError) {
       // Fail-open: Telemetry or database failure MUST NOT prevent customer contact

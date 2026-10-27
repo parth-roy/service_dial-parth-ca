@@ -5,6 +5,7 @@ import { FeeRule } from "./FeeRule";
 import { IPPageAsset } from "./IPPageAsset";
 import { ConversionIntent, LeadInquiry } from "./Conversion";
 import { TMRegistryStatus } from "./TMRegistryStatus";
+import { ClientBillingLedger } from "./ClientBillingLedger";
 
 export {
   Jurisdiction,
@@ -15,4 +16,5 @@ export {
   ConversionIntent,
   LeadInquiry,
   TMRegistryStatus,
+  ClientBillingLedger,
 };

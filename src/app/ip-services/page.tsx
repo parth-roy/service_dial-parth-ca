@@ -15,10 +15,16 @@ export const metadata: Metadata = {
 };
 
 export default async function IPServicesHubPage() {
-  await dbConnect();
+  let jurisdictions: any[] = [];
+  let pilotStates: any[] = [];
 
-  const jurisdictions = await Jurisdiction.find({}).lean() as any[];
-  const pilotStates = await Geography.find({ level: "State" }).lean() as any[];
+  try {
+    await dbConnect();
+    jurisdictions = (await Jurisdiction.find({}).lean()) as any[];
+    pilotStates = (await Geography.find({ level: "State" }).lean()) as any[];
+  } catch (err) {
+    console.warn("[IP Services Hub] DB connection fallback active");
+  }
 
   return (
     <div className="bg-sd-bg min-h-screen">

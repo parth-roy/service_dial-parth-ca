@@ -15,8 +15,22 @@ export const metadata: Metadata = {
 };
 
 export default async function FeeCalculatorPage() {
-  await dbConnect();
-  const niceClasses = await NiceClass.find({}).sort({ classNumber: 1 }).lean() as any[];
+  let niceClasses: any[] = [];
+  try {
+    await dbConnect();
+    niceClasses = (await NiceClass.find({}).sort({ classNumber: 1 }).lean()) as any[];
+  } catch (err) {
+    console.warn("[Fee Calculator] DB fallback active");
+  }
+
+  if (!niceClasses || niceClasses.length === 0) {
+    niceClasses = Array.from({ length: 45 }, (_, i) => ({
+      classNumber: i + 1,
+      type: i + 1 <= 34 ? "Goods" : "Services",
+      description: `Nice Class ${i + 1} goods/services for Indian trademark registration.`,
+      industryTags: ["Commercial", "Statutory"],
+    }));
+  }
 
   return (
     <div className="bg-sd-bg min-h-screen">

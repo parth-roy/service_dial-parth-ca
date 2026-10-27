@@ -32,6 +32,8 @@ async function dbConnect() {
     const opts = {
       bufferCommands: false,
       dbName: "service_dial",
+      serverSelectionTimeoutMS: 2500,
+      connectTimeoutMS: 2500,
     };
 
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {

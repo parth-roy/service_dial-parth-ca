@@ -1,5 +1,11 @@
 "use server";
 
+import dbConnect from "@/lib/mongodb";
+import { LeadInquiry } from "@/models/Conversion";
+import { headers } from "next/headers";
+import fs from "node:fs/promises";
+import path from "node:path";
+
 export interface ContactSubmissionState {
   success: boolean;
   message?: string;
@@ -21,11 +27,28 @@ export async function submitContactLead(
     const headcount = (formData.get("headcount") as string)?.trim() || "10_50";
     const message = (formData.get("message") as string)?.trim();
 
+    // DPDP & Attribution fields
+    const dpdpConsent = formData.get("dpdp_consent") === "true" || formData.get("dpdp_consent") === "on";
+    const termsVersion = (formData.get("terms_version") as string)?.trim() || "DPDP-2023-V1.0";
+    const utmSource = (formData.get("utm_source") as string)?.trim() || "";
+    const utmMedium = (formData.get("utm_medium") as string)?.trim() || "";
+    const utmCampaign = (formData.get("utm_campaign") as string)?.trim() || "";
+    const utmTerm = (formData.get("utm_term") as string)?.trim() || "";
+    const utmContent = (formData.get("utm_content") as string)?.trim() || "";
+    const referrer = (formData.get("referrer") as string)?.trim() || "";
+
     // Basic validation
     if (!name || !company || !email || !service || !message) {
       return {
         success: false,
         error: "Please complete all required fields (Name, Company, Work Email, Service, and Details).",
+      };
+    }
+
+    if (!dpdpConsent) {
+      return {
+        success: false,
+        error: "DPDP Act 2023 statutory consent is required to process enterprise inquiries.",
       };
     }
 
@@ -52,7 +75,90 @@ export async function submitContactLead(
       1000 + Math.random() * 9000
     )}`;
 
-    // In production, this can forward to a CRM (HubSpot, Salesforce), Slack webhook, or PostgreSQL database
+    // Get IP and User Agent from request headers for audit trail
+    const headerList = await headers();
+    const forwardedFor = headerList.get("x-forwarded-for");
+    const ipAddress = forwardedFor ? forwardedFor.split(",")[0].trim() : "127.0.0.1";
+    const userAgent = headerList.get("user-agent") || "unknown";
+
+    const leadPayload = {
+      leadId,
+      contactChannel: "Direct Form" as const,
+      submittedInformation: {
+        name,
+        company,
+        email,
+        phone,
+        service,
+        timeline,
+        headcount,
+        message,
+      },
+      serviceContext: service,
+      consentProvenance: {
+        optInTimestamp: new Date(),
+        termsVersion,
+        dpdpConsentGiven: true,
+        ipAddress,
+        userAgent,
+      },
+      utmParams: {
+        source: utmSource || undefined,
+        medium: utmMedium || undefined,
+        campaign: utmCampaign || undefined,
+        term: utmTerm || undefined,
+        content: utmContent || undefined,
+        referrer: referrer || undefined,
+      },
+      priorityLevel: priority,
+      intakeStatus: "New" as const,
+    };
+
+    // Persist to MongoDB
+    try {
+      await dbConnect();
+      await LeadInquiry.create(leadPayload);
+      console.log(`[Service Dial DB] Lead ${leadId} persisted to MongoDB successfully.`);
+    } catch (dbErr) {
+      console.error("[Service Dial DB Persistence Error - Failover Active]", dbErr);
+      try {
+        const failoverDir = path.join(process.cwd(), ".failover_leads");
+        await fs.mkdir(failoverDir, { recursive: true });
+        const filePath = path.join(failoverDir, "lead_inquiries.jsonl");
+        await fs.appendFile(filePath, JSON.stringify(leadPayload) + "\n", "utf-8");
+        console.log(`[Service Dial DB] Lead ${leadId} safely archived to local failover queue.`);
+      } catch (fileErr) {
+        console.error("[Service Dial Failover File Write Error]", fileErr);
+      }
+    }
+
+    // Forward to Google Sheets Webhook if configured (Website_Form_Leads tab)
+    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    if (webhookUrl && webhookUrl.startsWith("http")) {
+      try {
+        fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            sheet: "Website_Form_Leads",
+            leadId,
+            name,
+            company,
+            email,
+            phone,
+            service,
+            timeline,
+            headcount,
+            priority,
+            message,
+            sourceUrl: referrer || "https://servicedialtm.com/contact",
+            dpdpConsent: true,
+          }),
+          signal: AbortSignal.timeout(5000),
+        }).catch((err) => console.warn("[Google Sheets Contact Sync Notice]:", err?.message));
+      } catch {}
+    }
+
     console.log("[Service Dial Lead Captured]", {
       leadId,
       timestamp: new Date().toISOString(),
@@ -61,10 +167,7 @@ export async function submitContactLead(
       email,
       phone,
       service,
-      timeline,
-      headcount,
       priority,
-      messageSnippet: message.slice(0, 100),
     });
 
     return {
@@ -72,13 +175,13 @@ export async function submitContactLead(
       leadId,
       priorityLevel: priority,
       message:
-        "Your requirement has been securely submitted under our bilateral NDA. An executive consultant will reach out within 24 hours.",
+        "Your requirement has been securely submitted under our bilateral NDA and DPDP Act data protection standards. An executive consultant will reach out within 24 hours.",
     };
   } catch (err) {
     console.error("[Contact Form Server Action Error]", err);
     return {
       success: false,
-      error: "An unexpected server error occurred. Please email us directly at info@servicedialtm.com.",
+      error: "An unexpected server error occurred. Please contact us directly at connect@servicedialtm.com or +91 93304 90777.",
     };
   }
 }

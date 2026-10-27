@@ -97,8 +97,12 @@ export default function AboutPage() {
               <span className="gradient-text">Proven to deliver.</span>
             </h1>
             <p className="mt-5 text-sd-muted text-base lg:text-lg leading-relaxed">
-              Service Dial was founded in 2016 with one mission: enable organisations to run leaner, smarter, and more confidently — through technology-driven, tailor-made solutions in staffing, payroll, finance, and compliance.
+              Service Dial Talent Management Private Limited (CIN: <span className="font-mono text-sd-text font-bold">U74999WB2016PTC216954</span>) was incorporated in 2016 with registered headquarters in Barrackpore, West Bengal. While our corporate entity celebrates over 8+ years of institutional growth, our executive leadership brings over <strong>25+ years of combined industry tenure</strong> in statutory labour law compliance, enterprise payroll architectures, and executive workforce solutions.
             </p>
+            <div className="mt-4 p-4 rounded-lg bg-sd-bg-2 border border-sd-border text-xs text-sd-muted space-y-1">
+              <p>🏛️ <strong>Registered Corporate Office:</strong> 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120</p>
+              <p>🛡️ <strong>Statutory Governance:</strong> DPDP Act 2023 Compliant · Ministry of Corporate Affairs Verified · CLRA Compliant</p>
+            </div>
           </div>
         </div>
       </section>

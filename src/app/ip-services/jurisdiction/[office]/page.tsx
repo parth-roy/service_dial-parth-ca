@@ -34,14 +34,57 @@ export async function generateMetadata({ params }: OfficeGuideProps): Promise<Me
   };
 }
 
+const JURISDICTION_FALLBACKS: Record<string, any> = {
+  mumbai: {
+    officeName: "Mumbai",
+    officialAddress: "Boudhik Sampada Bhavan, S.M. Road, Antop Hill, Mumbai 400037",
+    statesCovered: ["Maharashtra", "Goa", "Madhya Pradesh", "Chhattisgarh"],
+    hearingJurisdiction: "Territorial Jurisdiction of Western India",
+  },
+  "new-delhi": {
+    officeName: "New Delhi",
+    officialAddress: "Boudhik Sampada Bhavan, Plot No. 32, Sector 14, Dwarka, New Delhi 110078",
+    statesCovered: ["Delhi (NCT)", "Haryana", "Punjab", "Uttar Pradesh", "Himachal Pradesh", "Uttarakhand", "Jammu & Kashmir", "Ladakh", "Chandigarh"],
+    hearingJurisdiction: "Territorial Jurisdiction of Northern India",
+  },
+  chennai: {
+    officeName: "Chennai",
+    officialAddress: "Intellectual Property Building, G.S.T. Road, Guindy, Chennai 600032",
+    statesCovered: ["Tamil Nadu", "Karnataka", "Kerala", "Andhra Pradesh", "Telangana", "Puducherry"],
+    hearingJurisdiction: "Territorial Jurisdiction of Southern India",
+  },
+  kolkata: {
+    officeName: "Kolkata",
+    officialAddress: "CP-2, Sector V, Salt Lake, Kolkata 700091",
+    statesCovered: ["West Bengal", "Bihar", "Jharkhand", "Odisha", "Assam", "Meghalaya", "Manipur", "Tripura", "Mizoram", "Nagaland", "Arunachal Pradesh", "Sikkim"],
+    hearingJurisdiction: "Territorial Jurisdiction of Eastern & North-Eastern India",
+  },
+  ahmedabad: {
+    officeName: "Ahmedabad",
+    officialAddress: "Near Chanakyapuri Overbridge, Ghatlodiya, Ahmedabad 380061",
+    statesCovered: ["Gujarat", "Rajasthan", "Daman & Diu", "Dadra & Nagar Haveli"],
+    hearingJurisdiction: "Territorial Jurisdiction of Western-North Region",
+  },
+};
+
 export default async function OfficeGuidePage({ params }: OfficeGuideProps) {
   const { office } = await params;
-  await dbConnect();
+  const normalizedKey = office.toLowerCase();
 
-  const formattedName = office.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-  const jurisdiction = await Jurisdiction.findOne({
-    officeName: { $regex: new RegExp(`^${formattedName}$`, "i") }
-  }).lean() as any;
+  let jurisdiction: any = null;
+  try {
+    await dbConnect();
+    const formattedName = office.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    jurisdiction = await Jurisdiction.findOne({
+      officeName: { $regex: new RegExp(`^${formattedName}$`, "i") }
+    }).lean() as any;
+  } catch (err) {
+    console.warn(`[Office Guide ${office}] DB fallback active`);
+  }
+
+  if (!jurisdiction) {
+    jurisdiction = JURISDICTION_FALLBACKS[normalizedKey];
+  }
 
   if (!jurisdiction) {
     notFound();

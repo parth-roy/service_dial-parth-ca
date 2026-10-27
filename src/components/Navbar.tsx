@@ -7,12 +7,12 @@ import Logo from "@/components/Logo";
 
 const navLinks = [
   { label: "Services", href: "/services" },
-  { label: "Staffing", href: "/services/staffing-and-recruitment" },
   { label: "Payroll & HRMS", href: "/services/hrms-and-payroll" },
-  { label: "Finance & Audit", href: "/services/finance-and-audit" },
-  { label: "Compliance", href: "/services/compliance-services" },
+  { label: "Compliance Desk", href: "/services/compliance-services" },
+  { label: "Fee Estimator", href: "/tools/payroll-fee-estimator" },
+  { label: "2026 Regulations", href: "/resources" },
+  { label: "Industries", href: "/industries" },
   { label: "IP & Trademarks", href: "/ip-services" },
-  { label: "Locations", href: "/locations" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
 ];
