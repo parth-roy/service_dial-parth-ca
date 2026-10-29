@@ -40,8 +40,6 @@ export default function Footer() {
             </p>
             <div className="text-xs text-sd-muted space-y-1 mb-4">
               <p>📍 <strong>Registered Office:</strong> 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120</p>
-              <p>📞 <strong>Corporate Desk:</strong> <a href="tel:+919330490777" className="text-sd-text font-semibold hover:text-sd-pink">+91 93304 90777</a></p>
-              <p>✉️ <strong>Direct Inquiries:</strong> <a href="mailto:connect@servicedialtm.com" className="text-sd-text font-semibold hover:text-sd-pink">connect@servicedialtm.com</a></p>
             </div>
             <div className="flex flex-wrap gap-2 text-xs text-sd-muted">
               <span className="px-2 py-0.5 border border-sd-border rounded bg-white font-medium">Est. 2016</span>

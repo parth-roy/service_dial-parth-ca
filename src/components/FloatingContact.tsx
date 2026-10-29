@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import ContactIntentModal, { ContactChannel } from "./ContactIntentModal";
 
-const PHONE_DISPLAY = "+91 93304 90777";
+const PHONE_DISPLAY = "+91 87778 64949";
 const EMAIL_ADDRESS = "connect@servicedialtm.com";
 
 export default function FloatingContact() {

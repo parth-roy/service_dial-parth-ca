@@ -8,7 +8,7 @@ export async function GET() {
 Service Dial (Legal Name: Service Dial Talent Management Private Limited | CIN: U74999WB2016PTC216954) is an Indian technology-enabled managed services provider established in 2016. The executive leadership possesses over 25+ years of combined experience across managed payroll, statutory labour law compliance, contract staffing, and corporate finance.
 
 Headquarters: 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120, India.
-Helpline: +91 93304 90777 | Email: connect@servicedialtm.com | Web: https://servicedialtm.com
+Helpline: +91 87778 64949 | Email: connect@servicedialtm.com | Web: https://servicedialtm.com
 
 ---
 

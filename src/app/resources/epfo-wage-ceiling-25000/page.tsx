@@ -343,7 +343,7 @@ export default function EpfoWageCeilingGuidePage() {
               </Link>
             </div>
             <p className="text-[11px] text-white/50 mt-4">
-              Protected by Bilateral NDA · Helpline: <a href="tel:+919330490777" className="text-white underline">+91 93304 90777</a>
+              Protected by Bilateral NDA · Helpline: <a href="tel:+918777864949" className="text-white underline">+91 87778 64949</a>
             </p>
           </div>
         </div>

@@ -69,7 +69,7 @@ export default function WhatsAppCTA({
     ].filter(Boolean);
 
     const encodedMessage = encodeURIComponent(messageLines.join("\n"));
-    const whatsappUrl = `https://wa.me/919999999999?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/918777864949?text=${encodedMessage}`;
 
     // 3. Open WhatsApp in new tab or navigate
     if (typeof window !== "undefined") {

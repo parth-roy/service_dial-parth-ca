@@ -29,14 +29,14 @@ export default function PayrollKolkataLandingPage() {
                 Direct Corporate Desk
               </span>
               <a
-                href="tel:+919330490777"
+                href="tel:+918777864949"
                 className="text-sm font-black text-sd-text hover:text-sd-pink transition-colors"
               >
-                +91 93304 90777
+                +91 87778 64949
               </a>
             </div>
             <a
-              href="https://wa.me/919330490777?text=Hi%20Service%20Dial,%20we%20are%20looking%20for%20payroll%20and%20compliance%20services%20in%20Kolkata"
+              href="https://wa.me/918777864949?text=Hi%20Service%20Dial,%20we%20are%20looking%20for%20payroll%20and%20compliance%20services%20in%20Kolkata"
               target="_blank"
               rel="noopener noreferrer"
               className="py-2 px-4 rounded-xl bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-700 transition-all flex items-center gap-1.5 shadow-xs"
@@ -143,7 +143,7 @@ export default function PayrollKolkataLandingPage() {
             <strong>Service Dial Talent Management Private Limited</strong> · CIN: U74999WB2016PTC216954
           </p>
           <p className="text-[11px]">
-            Registered Office: 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120 · Tel: +91 93304 90777 · Email: connect@servicedialtm.com
+            Registered Office: 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120
           </p>
         </div>
       </footer>

@@ -392,7 +392,7 @@ export default async function CityIntentPage({ params }: CityIntentPageProps) {
   const whatsappMessage = encodeURIComponent(
     `Hello Service Dial IP team, I am looking for ${intentData.title} services for my business in ${cityName}, ${stateName}. Please advise on the Mumbai Registry filing procedure, class mapping, and statutory fees.`
   );
-  const whatsappUrl = `https://wa.me/919999999999?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/918777864949?text=${whatsappMessage}`;
 
   return (
     <>

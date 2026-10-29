@@ -343,7 +343,7 @@ export default function WestBengalPTGuidePage() {
               </Link>
             </div>
             <p className="text-[11px] text-white/50 mt-4">
-              Headquarters: 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata 700120 · Phone: <a href="tel:+919330490777" className="text-white underline">+91 93304 90777</a>
+              Headquarters: 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata 700120 · Phone: <a href="tel:+918777864949" className="text-white underline">+91 87778 64949</a>
             </p>
           </div>
         </div>

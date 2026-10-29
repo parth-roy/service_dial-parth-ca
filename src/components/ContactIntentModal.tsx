@@ -11,8 +11,8 @@ export interface ContactIntentModalProps {
   initialService?: string;
 }
 
-const PHONE_NUMBER = "+919330490777";
-const WHATSAPP_NUMBER = "919330490777";
+const PHONE_NUMBER = "+918777864949";
+const WHATSAPP_NUMBER = "918777864949";
 const EMAIL_ADDRESS = "connect@servicedialtm.com";
 
 const SERVICES = [
@@ -157,7 +157,7 @@ export default function ContactIntentModal({
     if (!cleanPhone) {
       newErrors.phone = "Mobile / WhatsApp number is required.";
     } else if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
-      newErrors.phone = "Enter a valid 10-digit Indian mobile number (e.g. 9330490777).";
+      newErrors.phone = "Enter a valid 10-digit Indian mobile number (e.g. 8777864949).";
     }
 
     if (!cleanEmail) {
@@ -282,11 +282,11 @@ ${cleanName}`;
     call: {
       title: "Connect with Senior Advisory Desk",
       subtitle: "Direct voice line to our Principal Compliance & Payroll Officer",
-      badgeText: "Priority Phone Line (+91 93304 90777)",
+      badgeText: "Priority Phone Line (+91 87778 64949)",
       accentBg: "bg-[#2563EB]",
       accentHover: "hover:bg-[#1d4ed8]",
       headerBg: "bg-blue-950 text-white",
-      buttonText: "Initiate Call Now (+91 93304 90777) →",
+      buttonText: "Initiate Call Now (+91 87778 64949) →",
       btnClass: "bg-[#2563EB] hover:bg-[#1d4ed8] text-white shadow-blue-500/25",
     },
     mail: {
@@ -423,7 +423,7 @@ ${cleanName}`;
                   maxLength={10}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value.replace(/\D/g, ""))}
-                  placeholder="93304 90777"
+                  placeholder="87778 64949"
                   className="w-full px-3 py-2 rounded-r-lg border border-slate-300 text-sm focus:border-sd-blue focus:ring-2 focus:ring-sd-blue/20 outline-none transition-all placeholder:text-slate-400"
                 />
               </div>

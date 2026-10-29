@@ -13,7 +13,7 @@ export default function OrganizationSchema() {
     identifier: "U74999WB2016PTC216954",
     taxID: "U74999WB2016PTC216954",
     email: "connect@servicedialtm.com",
-    telephone: "+91-9330490777",
+    telephone: "+91-8777864949",
     address: {
       "@type": "PostalAddress",
       streetAddress: "58 (30), S.N. Banerjee Road, Barrackpore",
@@ -25,14 +25,14 @@ export default function OrganizationSchema() {
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: "+91-9330490777",
+        telephone: "+91-8777864949",
         contactType: "customer service",
         areaServed: "IN",
         availableLanguage: ["English", "Hindi", "Bengali"],
       },
       {
         "@type": "ContactPoint",
-        telephone: "+91-9330490777",
+        telephone: "+91-8777864949",
         contactType: "compliance advisory",
         areaServed: "IN",
         availableLanguage: ["English", "Hindi", "Bengali"],

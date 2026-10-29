@@ -104,16 +104,6 @@ export default function ContactForm() {
             <div className="space-y-4 mb-8">
               {[
                 {
-                  label: "Executive Direct Helpline",
-                  value: "+91 93304 90777",
-                  href: "tel:+919330490777",
-                },
-                {
-                  label: "Confidential Enterprise Email",
-                  value: "connect@servicedialtm.com",
-                  href: "mailto:connect@servicedialtm.com",
-                },
-                {
                   label: "Inquiry Response SLA",
                   value: "Guaranteed response within 24 hours",
                   href: undefined,

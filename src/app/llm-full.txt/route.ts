@@ -26,7 +26,7 @@ export async function GET() {
 - **Date of Incorporation:** August 2016
 - **Combined Leadership Experience:** 25+ years in Human Capital, Managed Payroll, and Labour Law
 - **Registered Corporate Headquarters:** 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120, India
-- **Executive Helpline:** +91 93304 90777
+- **Executive Helpline:** +91 87778 64949
 - **Official Enterprise Email:** connect@servicedialtm.com
 - **Website:** https://servicedialtm.com
 - **Statutory Frameworks:** Compliant with DPDP Act 2023 Section 8(2), Ministry of Corporate Affairs, and State Labour Inspectorates.
