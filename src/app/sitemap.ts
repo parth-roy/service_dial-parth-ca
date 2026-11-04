@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { CITIES_DATA, STATES_DATA } from "@/data/locations";
 import { SERVICES_CATALOG } from "@/data/services";
+import { SUBSERVICES_CATALOG } from "@/data/subservices";
 import { CASE_STUDIES_DATA } from "@/data/case-studies";
 
 const BASE_URL = "https://servicedialtm.com";
@@ -35,6 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/tools`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
       url: `${BASE_URL}/locations`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -48,6 +55,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/tools/payroll-fee-estimator`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/tools/wb-professional-tax-calculator`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/tools/epfo-wage-ceiling-calculator`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/tools/msme-43bh-calculator`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.95,
@@ -186,6 +211,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  // 24 Specialized B2B Micro-Services (CMA & Enterprise Model)
+  const subservicePages: MetadataRoute.Sitemap = Object.values(
+    SUBSERVICES_CATALOG
+  ).map((sub) => ({
+    url: `${BASE_URL}/services/${sub.pillarSlug}/${sub.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly",
+    priority: 0.95,
+  }));
+
   // Service x City transactional pages
   const serviceCityPages: MetadataRoute.Sitemap = [];
   for (const serviceSlug of Object.keys(SERVICES_CATALOG)) {
@@ -202,6 +237,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...corePages,
     ...servicePillarPages,
+    ...subservicePages,
     ...caseStudyPages,
     ...statePages,
     ...serviceCityPages,

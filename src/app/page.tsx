@@ -4,7 +4,7 @@ import Image from "next/image";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Staffing, Payroll & Compliance Solutions | Service Dial",
+  title: "Staffing, Payroll & Compliance Solutions",
   description:
     "Service Dial delivers premium staffing, HRMS & payroll, finance & audit, and compliance services across India. Established 2016. 100% referenceable clients.",
 };

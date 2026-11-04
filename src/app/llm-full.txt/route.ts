@@ -68,7 +68,16 @@ export async function GET() {
    - Statutory Due Dates: July 15 and January 15 under Form D.
    - Section 9: Strict prohibition against deducting employer contribution from employee wages.
 
-### C. Contract Labour (CLRA) & Staffing
+### C. Corporate Finance, CMA Accounts Department & Internal Controls
+- **CARO 2020 Fixed Asset Tagging (Clause 3(i)):** Physical barcode, QR code, and RFID asset tagging; Fixed Asset Register (FAR) reconstruction; ghost asset write-offs; and Ind AS 16 componentization.
+- **Physical Inventory & Stock Audits (Clause 3(ii)):** Wall-to-wall Raw Material, WIP, and Finished Goods physical counts; cut-off testing; slow-moving/obsolete (SLOB) provisioning; and consortium bank drawing power (DP) certification.
+- **Accounts Payable (P2P):** Automated 3-way matching (PO vs. GRN vs. Invoice), vendor statement reconciliations, and dynamic MSME Section 43B(h) 45-day payment tracking to prevent tax disallowances.
+- **Accounts Receivable (O2C):** DSO (Days Sales Outstanding) compression, automated GST e-invoicing/e-way bills, dunning workflows, and unallocated cash clearing.
+- **Record to Report (R2R):** Day 3–5 fast month-end financial close, inter-company eliminations, forex revaluation (Ind AS 21), and board-ready MIS packs.
+- **Section 148 Statutory Cost Auditing:** Maintenance of cost records in Form CRA-1, cost audit reports in Form CRA-3, and MCA XBRL filing in Form CRA-4.
+- **GST Triangulation:** Automated GSTR-2B vs. Purchase Register 3-way reconciliation, non-compliant vendor payment withholding, and GSTR-9/9C certification.
+
+### D. Contract Labour (CLRA) & Staffing
 - Principal Employer registration (Form I) and Contractor licensing (Form IV).
 - Mandatory pre-billing compliance audits verifying contractor ECRs, minimum wage pass-through, and digital bank records.
 - Sourcing SLAs: 24–72 hours for active mandates; proven 7:10 submission-to-selection ratio.

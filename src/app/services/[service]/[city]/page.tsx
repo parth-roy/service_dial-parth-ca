@@ -37,7 +37,7 @@ export async function generateMetadata({
 
   if (!service || !city) return { title: "Service Not Found" };
 
-  const title = `${service.name} in ${city.name} | Service Dial`;
+  const title = `${service.name} in ${city.name}`;
   const description = service.metaDescriptionTemplate
     .replace("{city}", city.name)
     .replace("{state}", city.state);
@@ -67,6 +67,20 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
   if (!service || !city) notFound();
 
   const state = STATES_DATA[city.stateSlug];
+
+  // Dynamic service-calibrated compliance nuance
+  const serviceComplianceNuance = (() => {
+    if (service.slug === "finance-and-audit") {
+      return `Operating in ${city.name} (${city.state}) requires strict adherence to State Professional Tax schedules, CARO 2020 Clause 3(i) & 3(ii) physical fixed asset and inventory verifications, GSTR-2B Input Tax Credit reconciliation timelines, and MSME 45-day payment disclosures under Section 43B(h).`;
+    }
+    if (service.slug === "hrms-and-payroll") {
+      return `Payroll administration in ${city.name} requires adherence to the revised EPFO ₹25,000 wage ceiling (Notification S.O. 5109(E)), ${city.state} Professional Tax brackets, Labour Welfare Fund deductions, and timely ECR challan remittances.`;
+    }
+    if (service.slug === "staffing-and-recruitment") {
+      return `Recruitment and executive search in ${city.name} adheres to local industrial hub talent sourcing SLAs, thorough background KYC verifications, and compliance with the ${city.state} Shops and Establishments Act.`;
+    }
+    return city.localComplianceNuance;
+  })();
 
   // Prepare localized BLUF string
   const blufAnswer = service.blufSummaryTemplate
@@ -217,7 +231,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
               <p className="font-semibold text-sd-text mb-0.5">
                 Statutory & Compliance Nuance for {city.name}:
               </p>
-              <p>{city.localComplianceNuance}</p>
+              <p>{serviceComplianceNuance}</p>
             </div>
           </section>
 
@@ -299,7 +313,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
                 const question = faq.questionTemplate.replace("{city}", city.name);
                 const answer = faq.answerTemplate
                   .replace("{city}", city.name)
-                  .replace("{localCompliance}", city.localComplianceNuance);
+                  .replace("{localCompliance}", serviceComplianceNuance);
 
                 return (
                   <div
