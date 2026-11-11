@@ -31,17 +31,33 @@ jobs:
             echo "Installing dependencies..."
             npm install --production=false
 
-            echo "Building application..."
-            npm run build
+            echo "Type-checking application before build..."
+            npx tsc --noEmit
 
-            echo "Reloading process with PM2..."
-            if pm2 describe service_dial > /dev/null 2>&1; then
-              pm2 reload service_dial --update-env
-            else
-              pm2 start ecosystem.config.cjs
-              pm2 startup systemd -u root --hp /root || true
-              pm2 save
+            echo "Stopping old PM2 process & freeing port 3000..."
+            pm2 delete service_dial || true
+            if command -v fuser >/dev/null 2>&1; then
+              fuser -k 3000/tcp >/dev/null 2>&1 || true
             fi
 
+            echo "Clearing stale .next cache and building cleanly..."
+            rm -rf .next
+            npm run build
+
+            echo "Starting fresh process with PM2..."
+            pm2 start ecosystem.config.cjs --update-env
+            pm2 startup systemd -u root --hp /root || true
+            pm2 save
+
             systemctl reload nginx
+
+            echo "Verifying origin /sitemap.xml..."
+            for i in 1 2 3 4 5; do
+              COUNT=$(curl -s http://127.0.0.1:3000/sitemap.xml | grep -c "<url>" || true)
+              if [ "$COUNT" -gt 0 ]; then
+                echo "Origin /sitemap.xml active with $COUNT URLs"
+                break
+              fi
+              sleep 2
+            done
             echo "Deployment completed successfully!"

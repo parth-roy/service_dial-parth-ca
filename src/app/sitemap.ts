@@ -6,6 +6,8 @@ import { CASE_STUDIES_DATA } from "@/data/case-studies";
 
 const BASE_URL = "https://servicedialtm.com";
 
+export const dynamic = "force-dynamic";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
 
