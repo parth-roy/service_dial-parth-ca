@@ -101,6 +101,105 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    // Cluster 1: Central Labour Codes & EPFO Wage Ceiling
+    {
+      url: `${BASE_URL}/resources/new-employee-compensation-and-labor-codes-guide-2026-2027`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/epfo-wage-ceiling-ctc-impact`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/eps-account-10-cap-calculation-2083`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/basic-salary-allowance-split-50-percent-wage-code`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/why-in-house-hrms-fails-new-labor-codes`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    // Cluster 2: West Bengal Statutory Specialization
+    {
+      url: `${BASE_URL}/resources/west-bengal-labor-laws-professional-tax-and-welfare-remittances-directory`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/understanding-act-vi-1979-west-bengal-pt-slabs`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/form-iii-a-annual-returns-west-bengal-pt`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/checklist-bi-annual-west-bengal-labour-welfare-fund`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/deciphering-section-9-wblwf-act-employer-deduction-rules`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/sourcing-blue-collar-cxo-mandates-west-bengal-clra-guidelines`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    // Cluster 3: Enterprise Financial Risk & Manpower Outsourcing
+    {
+      url: `${BASE_URL}/resources/enterprise-financial-risk-and-manpower-outsourcing-handbook`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/resources/dpdp-act-section-8-third-party-staffing-payroll-data-compliance`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/payroll-software-vs-managed-payroll-outsourcing-tco-pepm`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/error-free-tds-salary-form-24q-e-filing-form-16`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/resources/structuring-bilateral-nda-accounts-payable-record-to-report-bpo`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     {
       url: `${BASE_URL}/industries`,
       lastModified: currentDate,
