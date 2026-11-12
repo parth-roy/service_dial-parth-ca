@@ -7,7 +7,7 @@ import { Jurisdiction, Geography } from "@/models";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Intellectual Property & Trademark Registration Services | Service Dial IP",
+  title: "Intellectual Property & Trademark Registration Services",
   description: "Pan-India trademark registration, renewal, Section 9/11 objection replies, and virtual hearing representation across 5 CGPDTM registries. Official fee advisory from ₹4,500.",
   alternates: {
     canonical: "https://servicedialtm.com/ip-services",

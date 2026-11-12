@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "IT, ITeS & Startup Payroll & Compliance Solutions | Service Dial",
+  title: "IT, ITeS & Startup Payroll & Compliance Solutions",
   description:
     "End-to-end payroll outsourcing and statutory compliance for software, fintech, and ITeS enterprises. 24/7 night shift permissions, multi-state PT, and ESOP withholding.",
   keywords: [

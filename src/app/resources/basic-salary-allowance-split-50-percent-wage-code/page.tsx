@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Basic Salary vs Allowance Split: Re-architecting Payroll Under the 50% Allowances Cap Rule | Service Dial",
+  title: "Basic Salary vs Allowance Split: Re-architecting Payroll Under the 50% Allowances Cap Rule",
   description:
     "Authoritative guide on Section 2(y) of the Code on Wages. Re-architect salary structures to comply with the 50% allowances cap rule, avoid retro-penalties, and optimize corporate PF and gratuity liabilities.",
   keywords: [

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import WhatsAppCTA from "./WhatsAppCTA";
+import CalculatorQuickLeadForm from "@/components/calculator/CalculatorQuickLeadForm";
 
 interface PricingCalculatorProps {
   defaultGovtFeeIndividual?: number;
@@ -229,7 +230,17 @@ export default function PricingCalculator({
             </div>
           </div>
 
-          <div className="mt-8 pt-4 border-t border-sd-border">
+          <div className="mt-6 pt-4 border-t border-sd-border space-y-4">
+            <CalculatorQuickLeadForm
+              service="Trademark & IP Legal Protection"
+              heading="Get Free Trademark Conflict Check & Quote"
+              ctaLabel={`Email / Call Back Quote (₹${grandTotal.toLocaleString("en-IN")})`}
+              contextSummary={`IP Fee Calculator Lead — ${intentTitle} (${cityName}${stateName ? `, ${stateName}` : ""}) | Entity: ${isIndividualOrMSME ? "Individual/MSME" : "Corporate"} | Classes: ${classCount} | Search Clearance: ${includeSearchClearance ? "Yes" : "No"} | Govt Fee: ₹${totalGovtFee.toLocaleString("en-IN")} | Grand Total: ₹${grandTotal.toLocaleString("en-IN")}`}
+              analyticsChannel="ip_fee_calculator"
+              variant="light"
+              analyticsMeta={{ class_count: classCount, grand_total: grandTotal }}
+            />
+
             <WhatsAppCTA
               cityName={cityName}
               stateName={stateName}

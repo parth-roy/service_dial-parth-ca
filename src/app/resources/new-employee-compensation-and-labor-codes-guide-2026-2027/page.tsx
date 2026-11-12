@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "The Complete Employer Guide to India's New Employee Compensation & New Labor Codes (2026–2027) | Service Dial",
+  title: "The Complete Employer Guide to India's New Employee Compensation & New Labor Codes (2026–2027)",
   description:
     "Authoritative employer master guide on the 2026–2027 Central Labour Codes, the EPFO wage ceiling hike to ₹25,000, 50% basic wage restructuring, and EPS Account 10 capping at ₹2,083.",
   keywords: [

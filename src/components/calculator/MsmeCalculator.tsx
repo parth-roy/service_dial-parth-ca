@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import CalculatorQuickLeadForm from "./CalculatorQuickLeadForm";
 
 export default function MsmeCalculator() {
   const [invoiceDateStr, setInvoiceDateStr] = useState<string>(
@@ -290,12 +291,15 @@ export default function MsmeCalculator() {
           </div>
 
           <div className="mt-6 pt-4 border-t border-white/10">
-            <a
-              href="/contact"
-              className="w-full block text-center py-2.5 px-4 rounded-xl bg-sd-pink hover:bg-sd-pink-dark text-white font-bold text-xs transition-colors shadow-md"
-            >
-              Outsource AP &amp; 43B(h) Gatekeeping →
-            </a>
+            <CalculatorQuickLeadForm
+              service="Finance, Accounting & Tax Filing"
+              heading="43B(h) Vendor Audit & AP Automation"
+              ctaLabel="Outsource AP & 43B(h) Gatekeeping"
+              contextSummary={`MSME 43B(h) Calculator Lead | Amount: ₹${invoiceAmount.toLocaleString("en-IN")} | Enterprise: ${enterpriseType} | Due Date: ${analysis.dueDateFormatted} | Potential Disallowance: ₹${analysis.potentialTaxHit.toLocaleString("en-IN")}`}
+              analyticsChannel="msme_43bh_calculator"
+              variant="dark"
+              analyticsMeta={{ invoice_amount: invoiceAmount, tax_hit: analysis.potentialTaxHit }}
+            />
           </div>
         </div>
       </div>

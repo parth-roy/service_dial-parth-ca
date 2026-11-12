@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import CalculatorQuickLeadForm from "./CalculatorQuickLeadForm";
 
 export default function WbPtCalculator() {
   const [grossSalary, setGrossSalary] = useState<number>(35000);
@@ -223,12 +224,15 @@ export default function WbPtCalculator() {
           </div>
 
           <div className="mt-6 pt-4 border-t border-white/10">
-            <a
-              href="/contact"
-              className="w-full block text-center py-2.5 px-4 rounded-xl bg-sd-pink hover:bg-sd-pink-dark text-white font-bold text-xs transition-colors shadow-md"
-            >
-              Consult a WB Payroll Specialist →
-            </a>
+            <CalculatorQuickLeadForm
+              service="HRMS & Payroll Management"
+              heading="Free WB PT & Form III-A Audit"
+              ctaLabel="Request WB Payroll Callback"
+              contextSummary={`WB PT Calculator Lead | Gross Salary: ₹${grossSalary.toLocaleString("en-IN")} | Staff: ${employeeCount} | Slab: ${calculation.slabName} | Monthly Outgo: ₹${calculation.totalMonthlyOutgo.toLocaleString("en-IN")}`}
+              analyticsChannel="wb_pt_calculator"
+              variant="dark"
+              analyticsMeta={{ headcount: employeeCount, monthly_pt: calculation.totalMonthlyOutgo }}
+            />
           </div>
         </div>
       </div>

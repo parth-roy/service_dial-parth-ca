@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Enterprise Financial Risk & Manpower Outsourcing: The Digital Compliance Handbook (2026–2027) | Service Dial",
+  title: "Enterprise Financial Risk & Manpower Outsourcing: The Digital Compliance Handbook (2026–2027)",
   description:
     "CFO master handbook for corporate compliance, financial risk, and mid-office BPO outsourcing. Section 8 DPDP Act data privacy, TCO & PEPM modeling vs SaaS, quarterly Form 24Q TDS filing, and AP/R2R controls.",
   keywords: [

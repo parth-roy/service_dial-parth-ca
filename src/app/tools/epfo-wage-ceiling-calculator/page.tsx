@@ -4,7 +4,7 @@ import EpfoCeilingCalculator from "@/components/calculator/EpfoCeilingCalculator
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "EPFO ₹25,000 Wage Ceiling Split Calculator | Service Dial",
+  title: "EPFO ₹25,000 Wage Ceiling Split Calculator",
   description:
     "Model the CTC and take-home impact of the EPFO statutory wage ceiling hike from ₹15,000 to ₹25,000 (Notification S.O. 5109(E)). Instant EPF, EPS, EDLI, and admin fee variance.",
   keywords: [

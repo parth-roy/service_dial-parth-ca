@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Form III-A Annual Returns Guide: West Bengal Professional Tax PTRC vs PTEC Reconciliation | Service Dial",
+  title: "Form III-A Annual Returns Guide: West Bengal Professional Tax PTRC vs PTEC Reconciliation",
   description:
     "Comprehensive compliance guide for filing Form III-A Professional Tax annual returns in West Bengal. Reconcile monthly GRIPS challans, understand PTRC vs PTEC distinctions, and avoid late filing penalties.",
   keywords: [

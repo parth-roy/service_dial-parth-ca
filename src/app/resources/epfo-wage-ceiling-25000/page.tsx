@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "EPFO Wage Ceiling Hike to ₹25,000: Employer Impact & Compliance Guide | Service Dial",
+  title: "EPFO Wage Ceiling Hike to ₹25,000: Employer Impact & Compliance Guide",
   description:
     "Authoritative analysis of the central EPFO wage ceiling hike from ₹15,000 to ₹25,000. CTC impact tables, take-home reduction formulas, EDLI enhancements, and CFO action checklist.",
   keywords: [
@@ -340,6 +340,12 @@ export default function EpfoWageCeilingGuidePage() {
                 className="py-3 px-6 rounded-xl bg-white/10 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all border border-white/20"
               >
                 Model Managed Payroll Costs
+              </Link>
+              <Link
+                href="/services/hrms-and-payroll/kolkata"
+                className="py-3 px-6 rounded-xl bg-white/10 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all border border-white/20"
+              >
+                Kolkata Payroll &amp; EPFO Desk
               </Link>
             </div>
             <p className="text-[11px] text-white/50 mt-4">

@@ -4,7 +4,7 @@ import Logo from "@/components/Logo";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Outsourced Payroll & Statutory Compliance Services in Kolkata | Service Dial",
+  title: "Outsourced Payroll & Statutory Compliance Services in Kolkata",
   description:
     "End-to-end payroll processing and 100% statutory labour law compliance for enterprises in Kolkata and West Bengal. Zero penalty guarantee. Est. 2016.",
   robots: {

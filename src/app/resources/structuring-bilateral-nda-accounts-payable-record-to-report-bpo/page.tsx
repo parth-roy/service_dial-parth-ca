@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Structuring Bilateral NDAs for Accounts Payable (AP) & Record to Report (R2R) BPO Automation | Service Dial",
+  title: "Structuring Bilateral NDAs for Accounts Payable (AP) & Record to Report (R2R) BPO Automation",
   description:
     "Institutional governance framework for mid-office finance BPO. Bilateral NDA structuring, 3-way matching in Accounts Payable, duplicate payment elimination, and month-end Record to Report (R2R) ledger controls.",
   keywords: [

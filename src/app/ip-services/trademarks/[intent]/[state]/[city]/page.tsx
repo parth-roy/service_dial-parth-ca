@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect, redirect } from "next/navigation";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PricingCalculator from "@/components/ip/PricingCalculator";
@@ -245,6 +245,11 @@ export default async function CityIntentPage({ params }: CityIntentPageProps) {
     notFound();
   }
 
+  const cleanCity = city.replace(/(?:-\d+)+$/, "");
+  if (cleanCity !== city && cleanCity.length > 0) {
+    permanentRedirect(`/ip-services/trademarks/${intent}/${state}/${cleanCity}`);
+  }
+
   await dbConnect();
 
   // 1. Fetch Page Asset
@@ -264,6 +269,10 @@ export default async function CityIntentPage({ params }: CityIntentPageProps) {
   // 2. Resolve Geography & Jurisdiction
   const cityDoc = (await Geography.findOne({ slug: city }).populate("jurisdictionId").lean()) as any;
   const stateDoc = (await Geography.findOne({ slug: state, level: "State" }).populate("jurisdictionId").lean()) as any;
+
+  if (!asset && !cityDoc) {
+    notFound();
+  }
 
   const cityName = cityDoc?.name || (city.charAt(0).toUpperCase() + city.slice(1).replace(/-/g, " "));
   const stateName = stateDoc?.name || (state.charAt(0).toUpperCase() + state.slice(1).replace(/-/g, " "));

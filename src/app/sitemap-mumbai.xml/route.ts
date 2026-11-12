@@ -5,6 +5,8 @@ export const revalidate = 43200; // 12 hours ISR
 
 const BASE_URL = "https://servicedialtm.com";
 
+const CORRUPTED_SLUG_RE = /(?:-\d+)+$/;
+
 export async function GET() {
   try {
     await dbConnect();
@@ -16,18 +18,12 @@ export async function GET() {
       throw new Error("Mumbai Jurisdiction document not found");
     }
 
-    // 2. Fetch States for parent slug mapping
+    // 2. Fetch States & Cities under Mumbai Jurisdiction
     const states = (await Geography.find({
       level: "State",
       jurisdictionId: mumbaiOffice._id,
     }).lean()) as any[];
 
-    const stateMap: Record<string, string> = {};
-    states.forEach((s) => {
-      stateMap[s._id.toString()] = s.slug;
-    });
-
-    // 3. Fetch Cities / Industrial Hubs under Mumbai Jurisdiction
     const cities = (await Geography.find({
       level: { $in: ["District", "Subdistrict", "LocalBody"] },
       jurisdictionId: mumbaiOffice._id,
@@ -35,12 +31,16 @@ export async function GET() {
 
     const allGeoIds = cities.map((c) => c._id).concat(states.map((s) => s._id));
 
-    // 4. Fetch all Published City-Intent and State-Hub Assets
+    // 3. Fetch Published City-Intent and State-Hub Assets (excluding corrupted duplicate slugs)
     const assets = (await IPPageAsset.find({
       routeFamily: { $in: ["City-Intent", "State-Hub"] },
       publicationState: "Published",
       geographyId: { $in: allGeoIds },
     }).lean()) as any[];
+
+    const cleanAssets = assets.filter(
+      (a: any) => a.slug && !CORRUPTED_SLUG_RE.test(a.slug)
+    );
 
     const today = new Date().toISOString().split("T")[0];
 
@@ -53,8 +53,8 @@ export async function GET() {
     <priority>0.9</priority>
   </url>`;
 
-    // Asset URLs: City-Intent (522) + State-Hub (30) = 552 URLs
-    const urlsXml = assets
+    // Asset URLs only (City x 45 Nice Class matrix excluded to prevent crawl budget bloat)
+    const urlsXml = cleanAssets
       .map((a: any) => {
         const lastMod = a.updatedAt
           ? new Date(a.updatedAt).toISOString().split("T")[0]
@@ -71,28 +71,9 @@ export async function GET() {
       })
       .join("");
 
-    // Programmatic City x Nice Class Combinations (87 Cities x 45 Classes = 3,915 URLs)
-    const classCombinationsXml = cities
-      .map((city) => {
-        const stateSlug = (city.parentId && stateMap[city.parentId.toString()]) || "maharashtra";
-        const citySlug = city.slug;
-
-        return Array.from({ length: 45 }, (_, i) => i + 1)
-          .map((cNum) => `
-  <url>
-    <loc>${BASE_URL}/ip-services/trademarks/class/${cNum}/${stateSlug}/${citySlug}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>`)
-          .join("");
-      })
-      .join("");
-
-    // Combined XML output: 1 + 552 + 3,915 = 4,468 URLs
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${officeGuideEntry}${urlsXml}${classCombinationsXml}
+${officeGuideEntry}${urlsXml}
 </urlset>`;
 
     return new Response(xml, {

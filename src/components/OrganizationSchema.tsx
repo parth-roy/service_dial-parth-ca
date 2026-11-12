@@ -1,4 +1,11 @@
 export default function OrganizationSchema() {
+  const sameAsProfiles = [
+    process.env.NEXT_PUBLIC_LINKEDIN_URL,
+    process.env.NEXT_PUBLIC_GBP_URL,
+    process.env.NEXT_PUBLIC_TWITTER_URL,
+    process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+  ].filter((val): val is string => Boolean(val && val.trim().startsWith("http")));
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -10,6 +17,19 @@ export default function OrganizationSchema() {
     description:
       "Service Dial is an Indian managed services provider specializing in tech-enabled payroll outsourcing, statutory labour law compliance (EPFO, ESIC, West Bengal PT & LWF), contract staffing, and IP/trademark protection. Established 2016 with 25+ years combined executive leadership tenure.",
     foundingDate: "2016-08-01",
+    foundingLocation: {
+      "@type": "Place",
+      name: "Barrackpore, Kolkata, West Bengal, India",
+    },
+    knowsAbout: [
+      "Outsourced Payroll Processing India",
+      "EPFO & ESIC Statutory Compliance",
+      "West Bengal Professional Tax & LWF",
+      "Contract Labour (CLRA) Staffing",
+      "CXO & Executive Search",
+      "DPDP Act 2023 Payroll Compliance",
+      "Trademark Registration India",
+    ],
     identifier: "U74999WB2016PTC216954",
     taxID: "U74999WB2016PTC216954",
     email: "connect@servicedialtm.com",
@@ -102,7 +122,7 @@ export default function OrganizationSchema() {
         },
       ],
     },
-    sameAs: [],
+    sameAs: sameAsProfiles,
   };
 
   return (

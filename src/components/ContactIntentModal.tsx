@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export type ContactChannel = "whatsapp" | "call" | "mail";
 
@@ -187,6 +188,12 @@ export default function ContactIntentModal({
     const cleanCompany = company.trim();
     const cleanMessage = message.trim();
     const currentUrl = typeof window !== "undefined" ? window.location.href : "https://servicedialtm.com";
+
+    trackEvent("lead_submitted", {
+      channel,
+      service,
+      headcount,
+    });
 
     // 1. Fire-and-forget push to internal backend (/api/lead-capture)
     // Synchronously captures to MongoDB and triggers Google Sheets Webhook

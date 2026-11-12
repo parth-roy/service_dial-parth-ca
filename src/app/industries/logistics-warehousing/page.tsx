@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Logistics, Supply Chain & Warehousing Workforce Compliance | Service Dial",
+  title: "Logistics, Supply Chain & Warehousing Workforce Compliance",
   description:
     "Flexi-staffing, statutory labour compliance, and high-velocity payroll for warehouse corridors, 3PL providers, and freight hubs across India.",
   keywords: [

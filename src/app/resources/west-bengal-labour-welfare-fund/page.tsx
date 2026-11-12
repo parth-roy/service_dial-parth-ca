@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "West Bengal Labour Welfare Fund (WBLWF): Due Dates, Rates & Form D | Service Dial",
+  title: "West Bengal Labour Welfare Fund (WBLWF): Due Dates, Rates & Form D",
   description:
     "Authoritative guide to West Bengal Labour Welfare Fund compliance. Biannual due dates (July 15 & Jan 15), statutory rates (Employee ₹3, Employer ₹30), and Form D return filing.",
   keywords: [

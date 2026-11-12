@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Quarterly TDS on Salary (Form 24Q) e-Filing & Form 16 Generation: Enterprise Compliance Guide | Service Dial",
+  title: "Quarterly TDS on Salary (Form 24Q) e-Filing & Form 16 Generation: Enterprise Compliance Guide",
   description:
     "End-to-end statutory guide for corporate finance on Section 192 TDS withholding, quarterly Form 24Q e-filing via TRACES/FVU, Annexure II reconciliation, Section 234E penalty mitigation, and digitally signed Form 16 generation.",
   keywords: [

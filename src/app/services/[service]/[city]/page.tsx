@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import CalculatorQuickLeadForm from "@/components/calculator/CalculatorQuickLeadForm";
 import { CITIES_DATA, STATES_DATA } from "@/data/locations";
 import { SERVICES_CATALOG } from "@/data/services";
 
@@ -129,11 +130,30 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
     description: blufAnswer,
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.localFaqTemplates.map((faq) => ({
+      "@type": "Question",
+      name: faq.questionTemplate.replace("{city}", city.name),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answerTemplate
+          .replace("{city}", city.name)
+          .replace("{localCompliance}", serviceComplianceNuance),
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       <div className="py-10 lg:py-16">
@@ -384,21 +404,49 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
           </section>
 
           {/* Bottom Lead Conversion Box */}
-          <section className="rounded-lg border border-sd-pink/20 bg-gradient-to-r from-sd-pink/5 to-transparent p-8 lg:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <div className="max-w-xl">
-              <h2 className="text-2xl font-black text-sd-text">
+          <section className="rounded-2xl border border-sd-pink/25 bg-gradient-to-br from-sd-pink/5 via-white to-slate-50 p-6 sm:p-8 lg:p-10 grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-6 space-y-3">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-sd-pink">
+                Direct {city.name} Corporate Desk
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black text-sd-text">
                 Initiate Your {service.shortName} Mandate in {city.name}
               </h2>
-              <p className="text-xs sm:text-sm text-sd-muted mt-2 leading-relaxed">
-                Every mandate is executed under strict NDA protection. Receive verified shortlists and customized SLA delivery models within 24 to 72 hours.
+              <p className="text-xs sm:text-sm text-sd-muted leading-relaxed">
+                Every mandate is executed under strict bilateral NDA &amp; DPDP Act protection. Receive verified SLAs and tailored pricing within 24–72 hours.
               </p>
+              <div className="flex flex-wrap items-center gap-4 pt-1 text-xs">
+                <a
+                  href="tel:+918777864949"
+                  className="font-bold text-sd-text hover:text-sd-pink underline"
+                >
+                  📞 +91 87778 64949
+                </a>
+                <Link
+                  href="/tools/payroll-fee-estimator"
+                  className="font-semibold text-sd-pink hover:underline"
+                >
+                  Estimate Monthly Fee →
+                </Link>
+                <Link
+                  href="/contact"
+                  className="font-semibold text-sd-muted hover:text-sd-text underline"
+                >
+                  Full Mandate Form
+                </Link>
+              </div>
             </div>
-            <Link
-              href="/contact"
-              className="inline-flex shrink-0 items-center justify-center rounded px-6 py-3 text-xs sm:text-sm font-semibold bg-sd-pink text-white hover:bg-sd-pink-dark transition-colors shadow-xs"
-            >
-              Start Confidential Discussion →
-            </Link>
+            <div className="lg:col-span-6">
+              <CalculatorQuickLeadForm
+                service={service.name}
+                heading={`Request ${service.shortName} Proposal in ${city.name}`}
+                ctaLabel={`Get ${city.name} Proposal & Callback`}
+                contextSummary={`Commercial City Page Lead — Service: ${service.name} | City: ${city.name}, ${city.state}`}
+                analyticsChannel="city_service_page"
+                variant="light"
+                analyticsMeta={{ city: city.slug, service_slug: service.slug }}
+              />
+            </div>
           </section>
         </div>
       </div>

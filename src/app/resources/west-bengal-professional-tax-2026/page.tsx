@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "West Bengal Professional Tax Slabs (2026 Revision): Employer Guide | Service Dial",
+  title: "West Bengal Professional Tax Slabs (2026 Revision): Employer Guide",
   description:
     "Complete employer guide to the West Bengal Professional Tax Act revisions. Revised salary slabs (gross < ₹20,000 exempt), February ₹300 spike, ERC vs EC registration, Form III-A return due dates.",
   keywords: [
@@ -336,10 +336,16 @@ export default function WestBengalPTGuidePage() {
                 Schedule West Bengal Compliance Audit →
               </Link>
               <Link
-                href="/resources/west-bengal-labour-welfare-fund"
+                href="/tools/wb-professional-tax-calculator"
                 className="py-3 px-6 rounded-xl bg-white/10 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all border border-white/20"
               >
-                View WB Labour Welfare Fund Rules
+                WB PT 2026 Calculator
+              </Link>
+              <Link
+                href="/services/compliance-services/kolkata"
+                className="py-3 px-6 rounded-xl bg-white/10 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all border border-white/20"
+              >
+                Kolkata Compliance Desk
               </Link>
             </div>
             <p className="text-[11px] text-white/50 mt-4">

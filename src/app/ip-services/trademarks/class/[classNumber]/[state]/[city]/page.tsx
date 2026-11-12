@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PricingCalculator from "@/components/ip/PricingCalculator";
@@ -19,14 +19,25 @@ interface ClassCityPageProps {
 export const dynamicParams = true;
 export const revalidate = 86400; // 24 hours ISR
 
+function parseStrictClassNumber(raw: string): number | null {
+  if (!/^\d+$/.test(raw)) return null;
+  const num = Number(raw);
+  return num >= 1 && num <= 45 ? num : null;
+}
+
+function stripCorruptedNumericSuffix(slug: string): string {
+  return slug.replace(/(?:-\d+)+$/, "");
+}
+
 export async function generateMetadata({ params }: ClassCityPageProps): Promise<Metadata> {
   const { classNumber, state, city } = await params;
-  const num = parseInt(classNumber, 10);
-  if (isNaN(num) || num < 1 || num > 45) {
-    return { title: "Trademark Class Not Found" };
+  const num = parseStrictClassNumber(classNumber);
+  if (!num) {
+    return { title: "Trademark Class Not Found", robots: { index: false, follow: false } };
   }
 
-  const formattedCity = city.charAt(0).toUpperCase() + city.slice(1).replace(/-/g, " ");
+  const cleanCity = stripCorruptedNumericSuffix(city);
+  const formattedCity = cleanCity.charAt(0).toUpperCase() + cleanCity.slice(1).replace(/-/g, " ");
   const formattedState = state.charAt(0).toUpperCase() + state.slice(1).replace(/-/g, " ");
 
   const title = `Trademark Class ${num} Registration in ${formattedCity}, ${formattedState} | Nice Classification`;
@@ -35,13 +46,18 @@ export async function generateMetadata({ params }: ClassCityPageProps): Promise<
   return {
     title,
     description,
+    // Prevent thin programmatic City x Class matrix bloat while preserving link equity
+    robots: {
+      index: false,
+      follow: true,
+    },
     alternates: {
-      canonical: `https://servicedialtm.com/ip-services/trademarks/class/${num}/${state}/${city}`,
+      canonical: `https://servicedialtm.com/ip-services/trademarks/class/${num}/${state}/${cleanCity}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://servicedialtm.com/ip-services/trademarks/class/${num}/${state}/${city}`,
+      url: `https://servicedialtm.com/ip-services/trademarks/class/${num}/${state}/${cleanCity}`,
       type: "website",
       siteName: "Service Dial IP",
     },
@@ -50,9 +66,19 @@ export async function generateMetadata({ params }: ClassCityPageProps): Promise<
 
 export default async function ClassCityPage({ params }: ClassCityPageProps) {
   const { classNumber, state, city } = await params;
-  const num = parseInt(classNumber, 10);
 
-  if (isNaN(num) || num < 1 || num > 45) {
+  const suffixedClassMatch = classNumber.match(/^(\d+)(?:-\d+)+$/);
+  const cleanCity = stripCorruptedNumericSuffix(city);
+  if (suffixedClassMatch || cleanCity !== city) {
+    const cleanNum = suffixedClassMatch ? Number(suffixedClassMatch[1]) : parseStrictClassNumber(classNumber);
+    if (cleanNum && cleanNum >= 1 && cleanNum <= 45 && cleanCity) {
+      permanentRedirect(`/ip-services/trademarks/class/${cleanNum}/${state}/${cleanCity}`);
+    }
+    notFound();
+  }
+
+  const num = parseStrictClassNumber(classNumber);
+  if (!num) {
     notFound();
   }
 

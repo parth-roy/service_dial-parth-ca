@@ -4,7 +4,7 @@ import MsmeCalculator from "@/components/calculator/MsmeCalculator";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "MSME Section 43B(h) Payment Gatekeeper & Penalty Calculator | Service Dial",
+  title: "MSME Section 43B(h) Payment Gatekeeper & Penalty Calculator",
   description:
     "Calculate MSME Section 43B(h) 15/45-day statutory payment due dates, corporate tax disallowance exposure, and Section 16 penal interest (19.5% compounded monthly).",
   keywords: [

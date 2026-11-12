@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Manufacturing & Heavy Engineering Labour Compliance & Payroll | Service Dial",
+  title: "Manufacturing & Heavy Engineering Labour Compliance & Payroll",
   description:
     "Comprehensive Factories Act 1948 compliance, Contract Labour (CLRA) audits, and factory payroll management across Howrah, Dankuni, Barrackpore, and Pan-India.",
   keywords: [

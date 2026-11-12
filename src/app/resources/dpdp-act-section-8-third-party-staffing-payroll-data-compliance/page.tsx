@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "DPDP Act Section 8 Compliant Payroll & Staffing: Employer Obligations for Third-Party Data Processors | Service Dial",
+  title: "DPDP Act Section 8 Compliant Payroll & Staffing: Employer Obligations for Third-Party Data Processors",
   description:
     "Statutory legal guide on Section 8 of the Digital Personal Data Protection (DPDP) Act 2023 for Indian employers. Data Fiduciary obligations, Data Processing Agreements (DPA), employee Aadhaar/PAN security, and ₹250 Crore penalty defense.",
   keywords: [

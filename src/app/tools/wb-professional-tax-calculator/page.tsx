@@ -4,7 +4,7 @@ import WbPtCalculator from "@/components/calculator/WbPtCalculator";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "West Bengal Professional Tax Calculator (2026 Revision) | Service Dial",
+  title: "West Bengal Professional Tax Calculator (2026 Revision)",
   description:
     "Instant West Bengal Professional Tax calculator under revised slabs (Notification No. 1607-F.T.). Calculate exact monthly PT deductions, February spike, and annual organization liability.",
   keywords: [

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   if (!cs) return { title: "Case Study Not Found" };
 
   return {
-    title: `${cs.role} Case Study | Service Dial`,
+    title: `${cs.role} Case Study`,
     description: `${cs.headline} Placed in ${cs.timeToFill} with a ${cs.sourcingWindow} sourcing window and ${cs.submissionRatio} selection ratio.`,
     alternates: { canonical: `https://servicedialtm.com/case-studies/${cs.slug}` },
     openGraph: {

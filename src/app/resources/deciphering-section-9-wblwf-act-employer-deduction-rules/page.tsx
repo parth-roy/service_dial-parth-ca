@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Deciphering Section 9 of the West Bengal Labour Welfare Fund Act: Legal Employer Deduction Rules | Service Dial",
+  title: "Deciphering Section 9 of the West Bengal Labour Welfare Fund Act: Legal Employer Deduction Rules",
   description:
     "Legal analysis of Section 9 of the West Bengal Labour Welfare Fund Act, 1974. Understand the strict statutory prohibition against passing employer contributions to employees, director liabilities, and audit defenses.",
   keywords: [

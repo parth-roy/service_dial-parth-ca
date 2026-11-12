@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Why In-House HRMS Fails New Labor Code Updates: The Value of Managing Compliance Manually | Service Dial",
+  title: "Why In-House HRMS Fails New Labor Code Updates: The Value of Managing Compliance Manually",
   description:
     "Why standalone HRMS software fails enterprise compliance during Central Labour Code transitions. Discover the legal protection, inspection defense, and zero-defect indemnity of a Managed Services Provider (MSP).",
   keywords: [

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface WhatsAppCTAProps {
   cityName?: string;
@@ -29,6 +30,12 @@ export default function WhatsAppCTA({
 
   const handleClick = async () => {
     setLoading(true);
+    trackEvent("whatsapp_cta_click", {
+      city: cityName,
+      intent: intentTitle,
+      entity_type: entityType,
+      class_count: classCount,
+    });
 
     const assetSlug = typeof window !== "undefined" ? window.location.pathname : "/ip-services";
 

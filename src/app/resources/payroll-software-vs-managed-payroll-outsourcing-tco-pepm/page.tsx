@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Payroll Software vs Managed Payroll Outsourcing: Total Cost of Ownership (TCO) & PEPM Model | Service Dial",
+  title: "Payroll Software vs Managed Payroll Outsourcing: Total Cost of Ownership (TCO) & PEPM Model",
   description:
     "Rigorous financial TCO comparison: Standalone SaaS payroll software vs full-service Managed Payroll Outsourcing. Per-Employee-Per-Month (PEPM) formulas, hidden software overheads, and ROI models for Indian enterprises.",
   keywords: [

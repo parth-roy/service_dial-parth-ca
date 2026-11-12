@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Healthcare, Hospitals & Pharma Workforce Compliance & Payroll | Service Dial",
+  title: "Healthcare, Hospitals & Pharma Workforce Compliance & Payroll",
   description:
     "Statutory labour law compliance, doctor retainer taxation, and 24/7 nursing shift payroll for hospitals, diagnostic chains, and pharmaceutical manufacturers across India.",
   keywords: [

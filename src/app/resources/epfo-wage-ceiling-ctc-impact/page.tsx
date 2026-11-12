@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "How the EPFO Wage Ceiling Increase to ₹25,000 Changes Your Monthly CTC Layouts | Service Dial",
+  title: "How the EPFO Wage Ceiling Increase to ₹25,000 Changes Your Monthly CTC Layouts",
   description:
     "Band-by-band CTC financial models and statutory calculations on the EPFO wage ceiling hike from ₹15,000 to ₹25,000. Take-home salary impact, employer PF liabilities, and payroll restructuring.",
   keywords: [

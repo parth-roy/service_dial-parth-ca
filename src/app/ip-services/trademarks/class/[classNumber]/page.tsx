@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PricingCalculator from "@/components/ip/PricingCalculator";
@@ -22,11 +22,17 @@ export async function generateStaticParams() {
   }));
 }
 
+function parseStrictClassNumber(raw: string): number | null {
+  if (!/^\d+$/.test(raw)) return null;
+  const num = Number(raw);
+  return num >= 1 && num <= 45 ? num : null;
+}
+
 export async function generateMetadata({ params }: ClassPageProps): Promise<Metadata> {
   const { classNumber } = await params;
-  const num = parseInt(classNumber, 10);
-  if (isNaN(num) || num < 1 || num > 45) {
-    return { title: "Trademark Class Not Found" };
+  const num = parseStrictClassNumber(classNumber);
+  if (!num) {
+    return { title: "Trademark Class Not Found", robots: { index: false, follow: false } };
   }
 
   const title = `Trademark Class ${num} Registration Guide (India 2026) | Nice Classification`;
@@ -43,9 +49,18 @@ export async function generateMetadata({ params }: ClassPageProps): Promise<Meta
 
 export default async function NiceClassPage({ params }: ClassPageProps) {
   const { classNumber } = await params;
-  const num = parseInt(classNumber, 10);
 
-  if (isNaN(num) || num < 1 || num > 45) {
+  // Redirect malformed suffixed slugs such as /class/35-2 to canonical /class/35
+  const suffixedMatch = classNumber.match(/^(\d+)(?:-\d+)+$/);
+  if (suffixedMatch) {
+    const cleanNum = Number(suffixedMatch[1]);
+    if (cleanNum >= 1 && cleanNum <= 45) {
+      permanentRedirect(`/ip-services/trademarks/class/${cleanNum}`);
+    }
+  }
+
+  const num = parseStrictClassNumber(classNumber);
+  if (!num) {
     notFound();
   }
 

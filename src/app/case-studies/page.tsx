@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { CASE_STUDIES_DATA } from "@/data/case-studies";
 
 export const metadata: Metadata = {
-  title: "Case Studies & Verified Sourcing Outcomes | Service Dial",
+  title: "Case Studies & Verified Sourcing Outcomes",
   description:
     "Explore verifiable executive search, IT recruitment, and enterprise outsourcing case studies from Service Dial across India, the US, and the UK. Documented 24–72 hr sourcing SLAs and 7:10 selection ratios.",
   alternates: { canonical: "https://servicedialtm.com/case-studies" },

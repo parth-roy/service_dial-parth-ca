@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Bi-Annual West Bengal Labour Welfare Fund (WBLWF) Compliance Checklist & Form D Filing Dates | Service Dial",
+  title: "Bi-Annual West Bengal Labour Welfare Fund (WBLWF) Compliance Checklist & Form D Filing Dates",
   description:
     "Statutory checklist for West Bengal Labour Welfare Fund (WBLWF) compliance. Mandatory July 15 & January 15 Form D filing dates, ₹3 employee / ₹30 employer contribution rules, and penalty mitigation.",
   keywords: [

@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Contract Labour Regulation & Abolition (CLRA) in West Bengal: Sourcing Blue-Collar to CXO Mandates | Service Dial",
+  title: "Contract Labour Regulation & Abolition (CLRA) in West Bengal: Sourcing Blue-Collar to CXO Mandates",
   description:
     "Master compliance guide on CLRA flexi-staffing and executive recruitment across West Bengal. Principal employer licensing, Form XII contractor compliance, Section 21(4) liabilities, and vendor audit trails.",
   keywords: [

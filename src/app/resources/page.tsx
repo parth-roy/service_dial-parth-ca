@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Statutory Labour Law, Payroll & Regulatory Resource Hub | Service Dial",
+  title: "Statutory Labour Law, Payroll & Regulatory Resource Hub",
   description:
     "Authoritative Indian statutory compliance resource directory for CFOs and HR Heads. Comprehensive guides on Central Labour Codes, EPFO ₹25k wage ceilings, West Bengal Professional Tax slabs, WBLWF Form D, DPDP Act 2023, and financial BPO governance.",
   alternates: {

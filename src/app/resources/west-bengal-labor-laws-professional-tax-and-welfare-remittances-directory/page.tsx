@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "The Master Directory of West Bengal Labor Laws, Professional Taxes, and Welfare Remittances (2026–2027) | Service Dial",
+  title: "The Master Directory of West Bengal Labor Laws, Professional Taxes, and Welfare Remittances (2026–2027)",
   description:
     "Authoritative employer directory for West Bengal labour compliance. Act VI of 1979 Professional Tax slabs, Form III-A annual returns, WBLWF biannual Form D filings, and CLRA staffing regulations.",
   keywords: [

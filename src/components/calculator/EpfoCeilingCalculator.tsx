@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import CalculatorQuickLeadForm from "./CalculatorQuickLeadForm";
 
 export default function EpfoCeilingCalculator() {
   const [basicDaSalary, setBasicDaSalary] = useState<number>(25000);
@@ -222,12 +223,15 @@ export default function EpfoCeilingCalculator() {
           </div>
 
           <div className="mt-4 pt-3 border-t border-white/10">
-            <a
-              href="/contact"
-              className="w-full block text-center py-2 px-3 rounded-xl bg-sd-pink hover:bg-sd-pink-dark text-white font-bold text-xs transition-colors"
-            >
-              Request CTC Restructuring Plan →
-            </a>
+            <CalculatorQuickLeadForm
+              service="Statutory Compliance & Audits"
+              heading="Get CTC Restructuring Sheet"
+              ctaLabel="Send EPFO Impact Report"
+              contextSummary={`EPFO ₹25k Calculator Lead | Basic+DA: ₹${basicDaSalary.toLocaleString("en-IN")} | Workforce: ${employeeCount} | Monthly Variance: +₹${split.orgMonthlyIncrease.toLocaleString("en-IN")} | Annual Variance: +₹${split.orgAnnualIncrease.toLocaleString("en-IN")}`}
+              analyticsChannel="epfo_calculator"
+              variant="dark"
+              analyticsMeta={{ headcount: employeeCount, annual_delta: split.orgAnnualIncrease }}
+            />
           </div>
         </div>
       </div>

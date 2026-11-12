@@ -4,7 +4,7 @@ import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Payroll & Statutory Compliance Fee Estimator (2026) | Service Dial",
+  title: "Payroll & Statutory Compliance Fee Estimator (2026)",
   description:
     "Calculate your outsourced payroll, EPFO, ESIC, and West Bengal Professional Tax compliance fees instantly. Transparent B2B pricing with 100% statutory indemnity.",
   keywords: [

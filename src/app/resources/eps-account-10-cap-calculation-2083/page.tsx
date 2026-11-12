@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "EPS Account 10 Cap Re-capping: Step-by-Step Guide to Calculating the New Max ₹2,083 Statutory Contribution | Service Dial",
+  title: "EPS Account 10 Cap Re-capping: Step-by-Step Guide to Calculating the New Max ₹2,083 Statutory Contribution",
   description:
     "Authoritative mathematical guide for payroll teams on calculating the ₹2,083 EPS Account 10 pension diversion under the revised ₹25,000 wage ceiling. Form 3A, ECR generation, and 8.33% statutory splitting.",
   keywords: [

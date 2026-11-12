@@ -79,9 +79,50 @@ const caseStudies = [
   },
 ];
 
+const practiceDesks = [
+  {
+    desk: "Statutory Payroll & EPFO Practice",
+    scope: "Gross-to-net processing, ₹25,000 EPFO wage ceiling modeling, ESIC ECR generation, and Form 16 / 24Q TDS filings.",
+    sla: "Zero-defect monthly cutoff · Penalty indemnity",
+  },
+  {
+    desk: "West Bengal Labour Law & CLRA Desk",
+    scope: "Act VI of 1979 Professional Tax (Form III-A), WBLWF Form D bi-annual filings, CLRA Form V licensing, and inspectorate defense.",
+    sla: "Barrackpore HQ & Salt Lake Sector V coverage",
+  },
+  {
+    desk: "Virtual CMA Finance & Audit Desk",
+    scope: "CARO 2020 fixed asset tagging, MSME Section 43B(h) 45-day payment gatekeeping, AP 3-way matching, and R2R month-close.",
+    sla: "Certified CMA & CA governance",
+  },
+  {
+    desk: "IP & Trademark Registry Advisory",
+    scope: "Vienna search clearance, Form TM-A filing across 45 Nice classes, and Section 9/11 examination objection defense.",
+    sla: "Pan-India CGPDTM Registry filing",
+  },
+];
+
 export default function AboutPage() {
+  const aboutJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Service Dial Talent Management Private Limited",
+    url: "https://servicedialtm.com/about",
+    mainEntity: {
+      "@type": "Organization",
+      name: "Service Dial Talent Management Private Limited",
+      identifier: "U74999WB2016PTC216954",
+      foundingDate: "2016-08-01",
+      url: "https://servicedialtm.com",
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
       {/* Header */}
       <section className="border-b border-sd-border py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -204,6 +245,36 @@ export default function AboutPage() {
                     </span>
                   ))}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Governance & Specialized Practice Desks (E-E-A-T) */}
+      <section className="py-16 lg:py-20 border-t border-sd-border bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-10">
+            <p className="text-xs font-semibold uppercase tracking-widest text-sd-pink mb-2">
+              Domain Authority &amp; Governance
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-black text-sd-text">
+              Specialized Practice Desks Backed by Statutory Accountability
+            </h2>
+            <p className="mt-3 text-sm text-sd-muted leading-relaxed">
+              Every engagement is handled by domain-aligned operations specialists rather than generic coordinators, under bilateral NDA and DPDP Act 2023 controls.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {practiceDesks.map((item) => (
+              <div key={item.desk} className="rounded-xl border border-sd-border bg-sd-bg p-5 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-sm font-bold text-sd-text mb-2">{item.desk}</h3>
+                  <p className="text-xs text-sd-muted leading-relaxed">{item.scope}</p>
+                </div>
+                <span className="mt-4 pt-3 border-t border-sd-border text-[11px] font-semibold text-sd-pink">
+                  {item.sla}
+                </span>
               </div>
             ))}
           </div>

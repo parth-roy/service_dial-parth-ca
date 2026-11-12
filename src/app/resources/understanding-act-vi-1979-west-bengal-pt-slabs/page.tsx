@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
-  title: "Understanding West Bengal Act VI of 1979: Professional Tax Slabs, Gross Pay Exemptions & February Spike | Service Dial",
+  title: "Understanding West Bengal Act VI of 1979: Professional Tax Slabs, Gross Pay Exemptions & February Spike",
   description:
     "Authoritative guide to West Bengal Act VI of 1979 Professional Tax (PT) slabs. Gross wage exemption thresholds, monthly deduction brackets, and why ₹300 is deducted in February under Article 276(2).",
   keywords: [

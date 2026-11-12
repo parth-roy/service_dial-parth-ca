@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/*?_rsc=*", "/*&_rsc=*"],
       },
       // Explicitly allow AI crawlers for GEO/AEO
       {

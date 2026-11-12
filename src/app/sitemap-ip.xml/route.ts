@@ -1,18 +1,38 @@
 import dbConnect from "@/lib/mongodb";
-import { IPPageAsset } from "@/models";
+import { IPPageAsset, Geography, Jurisdiction } from "@/models";
 
 export const revalidate = 86400; // 24 hours ISR
+
+const CORRUPTED_SLUG_RE = /(?:-\d+)+$/;
 
 export async function GET() {
   const BASE_URL = "https://servicedialtm.com";
 
   try {
     await dbConnect();
-    const assets = await IPPageAsset.find({
-      publicationState: "Published",
-    }).lean() as any[];
 
-    const urlsXml = assets.map((a: any) => {
+    // Exclude Mumbai-jurisdiction City-Intent & State-Hub URLs owned by sitemap-mumbai.xml
+    const mumbaiOffice = (await Jurisdiction.findOne({ officeName: "Mumbai" }).lean()) as any;
+    let mumbaiGeoIds = new Set<string>();
+    if (mumbaiOffice?._id) {
+      const mumbaiGeos = (await Geography.find({ jurisdictionId: mumbaiOffice._id }).select("_id").lean()) as any[];
+      mumbaiGeoIds = new Set(mumbaiGeos.map((g) => g._id.toString()));
+    }
+
+    const assets = (await IPPageAsset.find({
+      publicationState: "Published",
+    }).lean()) as any[];
+
+    const filteredAssets = assets.filter((a: any) => {
+      if (!a.slug || CORRUPTED_SLUG_RE.test(a.slug)) return false;
+      const isMumbaiOwned =
+        (a.routeFamily === "City-Intent" || a.routeFamily === "State-Hub") &&
+        a.geographyId &&
+        mumbaiGeoIds.has(a.geographyId.toString());
+      return !isMumbaiOwned;
+    });
+
+    const urlsXml = filteredAssets.map((a: any) => {
       const lastMod = a.updatedAt
         ? new Date(a.updatedAt).toISOString().split("T")[0]
         : new Date().toISOString().split("T")[0];

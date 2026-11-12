@@ -3,6 +3,7 @@
 import React, { useState, useId } from "react";
 import Link from "next/link";
 import { submitContactLead } from "@/app/contact/actions";
+import { trackEvent } from "@/lib/analytics";
 
 interface ModuleOption {
   id: string;
@@ -155,6 +156,11 @@ export default function PayrollFeeEstimator() {
 
     const res = await submitContactLead(formData);
     if (res.success) {
+      trackEvent("lead_submitted", {
+        channel: "payroll_fee_estimator",
+        service: "HRMS & Payroll Management",
+        headcount: employeeCount,
+      });
       setSubmissionState({ loading: false, success: true, leadId: res.leadId });
     } else {
       setSubmissionState({

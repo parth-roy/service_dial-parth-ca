@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Our Services",
   description:
     "Service Dial offers staffing & recruitment, HRMS & payroll, finance & audit, and compliance services across India. Enterprise-grade. NDA protected.",
+  alternates: { canonical: "https://servicedialtm.com/services" },
 };
 
 const services = [

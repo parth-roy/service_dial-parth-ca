@@ -3,7 +3,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Industry Compliance & Payroll Solutions | Service Dial",
+  title: "Industry Compliance & Payroll Solutions",
   description:
     "Tailored HRMS, payroll outsourcing, and statutory labour law compliance across key Indian industry sectors: IT/ITeS, Manufacturing & Heavy Engineering, Logistics & Warehousing, and Healthcare & Pharma.",
   keywords: [
