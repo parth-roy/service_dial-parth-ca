@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Logo from "@/components/Logo";
 
@@ -25,8 +25,42 @@ interface ServiceCategory {
 
 const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
+    id: "finance",
+    label: "FINANCE & ACCOUNTING SERVICES",
+    title: "Finance & Accounting Services",
+    href: "/services/finance-and-audit",
+    tagline: "Expert corporate accounting, accounts payable/receivable automation, and statutory internal audits.",
+    services: [
+      {
+        title: "Finance & Accounting Services",
+        desc: "AP | AR | R2R | Audits. Transform corporate F&A operations with end-to-end controllership.",
+        href: "/services/finance-and-audit",
+      },
+      {
+        title: "Accounts Payable",
+        desc: "AP without the bottlenecks: Smarter, faster payables processing, 3-way invoice matching, and ledger hygiene.",
+        href: "/services/finance-and-audit",
+      },
+      {
+        title: "Accounts Receivable",
+        desc: "Elevate your cash flow, minimize disputes: Customer billing, aging analysis, dispute resolution, and DSO optimization.",
+        href: "/services/finance-and-audit",
+      },
+      {
+        title: "Record to Report",
+        desc: "Faster closes, better decision-making: Period-end financial close, balance sheet substantiation, and board MIS.",
+        href: "/services/finance-and-audit",
+      },
+      {
+        title: "Fixed Asset & Inventory Audit Services",
+        desc: "Verified, accurate, compliant inventory: Physical asset tagging, inventory valuation, and statutory registers.",
+        href: "/services/finance-and-audit",
+      },
+    ],
+  },
+  {
     id: "payroll",
-    label: "HRMS & PAYROLL",
+    label: "PAYROLL",
     title: "HRMS & Payroll Management",
     href: "/services/hrms-and-payroll",
     tagline: "End-to-end cloud payroll processing, automated salary disbursement, and multi-state tax withholding.",
@@ -51,11 +85,16 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         desc: "Simulate custom PEPM retainers and model cost savings compared to an in-house payroll department.",
         href: "/tools/payroll-fee-estimator",
       },
+      {
+        title: "Statutory Bonus & Gratuity Desk",
+        desc: "Automated provision calculation, actuarial valuation compliance, and timely annual settlement execution.",
+        href: "/services/hrms-and-payroll",
+      },
     ],
   },
   {
     id: "compliance",
-    label: "STATUTORY COMPLIANCE",
+    label: "COMPLIANCE SERVICES",
     title: "Labour Law & Statutory Desk",
     href: "/services/compliance-services",
     tagline: "Proactive labour law compliance, EPFO/ESIC administration, and factory inspection assurance.",
@@ -79,6 +118,11 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         title: "West Bengal PT 2026 Revision",
         desc: "Advisory and automated salary slab adjustments for the revised West Bengal Professional Tax schedules.",
         href: "/resources/west-bengal-professional-tax-2026",
+      },
+      {
+        title: "CLRA Contractor Licensing",
+        desc: "Principal employer registration, contractor license issuance (Form IV/V), and half-yearly returns.",
+        href: "/services/compliance-services",
       },
     ],
   },
@@ -109,34 +153,10 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         desc: "Background-checked, compliance-onboarded workforce for warehousing, manufacturing, and facilities.",
         href: "/services/staffing-and-recruitment",
       },
-    ],
-  },
-  {
-    id: "finance",
-    label: "FINANCE & AUDIT",
-    title: "Finance & Accounting Services",
-    href: "/services/finance-and-audit",
-    tagline: "Expert corporate accounting, accounts payable/receivable automation, and statutory internal audits.",
-    services: [
       {
-        title: "Accounts Payable (AP)",
-        desc: "3-way invoice matching, automated payment runs, vendor reconciliation, and clean ledger hygiene.",
-        href: "/services/finance-and-audit",
-      },
-      {
-        title: "Accounts Receivable (AR)",
-        desc: "Customer billing, aging analysis, dispute resolution, and DSO optimization accelerating working capital.",
-        href: "/services/finance-and-audit",
-      },
-      {
-        title: "Record to Report (R2R)",
-        desc: "Period-end financial close, intercompany reconciliation, balance sheet substantiation, and MIS reports.",
-        href: "/services/finance-and-audit",
-      },
-      {
-        title: "Internal & Statutory Audit",
-        desc: "Control testing, fixed asset verification, and documentation maintenance for inspection readiness.",
-        href: "/services/finance-and-audit",
+        title: "Permanent Executive Sourcing",
+        desc: "Retained search, comprehensive candidate benchmarking, and seamless leadership onboarding.",
+        href: "/services/staffing-and-recruitment",
       },
     ],
   },
@@ -165,6 +185,11 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
       {
         title: "Pan-India Jurisdiction Filing",
         desc: "Direct jurisdictional support across Mumbai, Delhi, Chennai, Kolkata, and Ahmedabad offices.",
+        href: "/ip-services",
+      },
+      {
+        title: "Trademark Objection & Hearing",
+        desc: "Drafting formal examination responses and senior counsel representation in registry hearings.",
         href: "/ip-services",
       },
     ],
@@ -205,15 +230,17 @@ const DIRECT_NAV_LINKS = [
   { label: "About", href: "/about" },
 ];
 
+const emptySubscribe = () => () => {};
+
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   // Desktop Dropdown State
   const [activeDropdown, setActiveDropdown] = useState<"services" | "industries" | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string>("payroll");
+  const [activeCategory, setActiveCategory] = useState<string>("finance");
 
   // Mobile Drawer & Accordion State
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -222,15 +249,17 @@ export default function Navbar() {
 
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Close menus on route change
-  useEffect(() => {
-    setActiveDropdown(null);
-    setMobileOpen(false);
-  }, [pathname]);
+  // Close menus on route change during render (official React pattern)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    if (activeDropdown !== null) {
+      setActiveDropdown(null);
+    }
+    if (mobileOpen) {
+      setMobileOpen(false);
+    }
+  }
 
   // Lock body scroll when mobile drawer is open
   useEffect(() => {
@@ -295,7 +324,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-sd-border bg-white/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white">
         <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 2xl:px-12">
           <div className="flex h-16 xl:h-18 items-center justify-between gap-2 lg:gap-4">
             
@@ -320,15 +349,15 @@ export default function Navbar() {
                   }
                   className={`group flex items-center gap-1.5 px-3 py-2 text-[13px] xl:text-[14px] font-medium transition-all duration-150 whitespace-nowrap rounded-lg cursor-pointer ${
                     activeDropdown === "services" || isServicesActive
-                      ? "text-sd-text font-bold bg-sd-bg-2"
-                      : "text-sd-muted hover:text-sd-text hover:bg-sd-bg-2"
+                      ? "text-sd-pink font-bold"
+                      : "text-slate-700 hover:text-slate-900"
                   }`}
                   aria-expanded={activeDropdown === "services"}
                 >
                   <span>Services</span>
                   <svg
-                    className={`w-3.5 h-3.5 transition-transform duration-200 text-sd-muted group-hover:text-sd-text ${
-                      activeDropdown === "services" ? "rotate-180 text-sd-pink" : ""
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      activeDropdown === "services" ? "rotate-180 text-sd-pink" : "text-slate-400 group-hover:text-slate-700"
                     }`}
                     viewBox="0 0 24 24"
                     fill="none"
@@ -339,7 +368,7 @@ export default function Navbar() {
                   >
                     <path d="m6 9 6 6 6-6" />
                   </svg>
-                  {isServicesActive && (
+                  {isServicesActive && !activeDropdown && (
                     <span className="absolute -bottom-1 left-3 right-3 h-[2px] bg-sd-pink rounded-full" />
                   )}
                 </button>
@@ -358,15 +387,15 @@ export default function Navbar() {
                   }
                   className={`group flex items-center gap-1.5 px-3 py-2 text-[13px] xl:text-[14px] font-medium transition-all duration-150 whitespace-nowrap rounded-lg cursor-pointer ${
                     activeDropdown === "industries" || isIndustriesActive
-                      ? "text-sd-text font-bold bg-sd-bg-2"
-                      : "text-sd-muted hover:text-sd-text hover:bg-sd-bg-2"
+                      ? "text-sd-pink font-bold"
+                      : "text-slate-700 hover:text-slate-900"
                   }`}
                   aria-expanded={activeDropdown === "industries"}
                 >
                   <span>Industries</span>
                   <svg
-                    className={`w-3.5 h-3.5 transition-transform duration-200 text-sd-muted group-hover:text-sd-text ${
-                      activeDropdown === "industries" ? "rotate-180 text-sd-pink" : ""
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      activeDropdown === "industries" ? "rotate-180 text-sd-pink" : "text-slate-400 group-hover:text-slate-700"
                     }`}
                     viewBox="0 0 24 24"
                     fill="none"
@@ -377,7 +406,7 @@ export default function Navbar() {
                   >
                     <path d="m6 9 6 6 6-6" />
                   </svg>
-                  {isIndustriesActive && (
+                  {isIndustriesActive && !activeDropdown && (
                     <span className="absolute -bottom-1 left-3 right-3 h-[2px] bg-sd-pink rounded-full" />
                   )}
                 </button>
@@ -394,8 +423,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`group relative px-3 py-2 text-[13px] xl:text-[14px] font-medium transition-all duration-150 whitespace-nowrap rounded-lg ${
                       active
-                        ? "text-sd-text font-bold"
-                        : "text-sd-muted hover:text-sd-text hover:bg-sd-bg-2"
+                        ? "text-sd-pink font-bold"
+                        : "text-slate-700 hover:text-slate-900"
                     }`}
                   >
                     <span className="whitespace-nowrap">{link.label}</span>
@@ -411,18 +440,32 @@ export default function Navbar() {
 
             {/* ── Action Buttons & Mobile Hamburger ─────────────────────────── */}
             <div className="flex items-center gap-3 shrink-0">
+              {/* Search Icon Button (Matches Image 1 Reference) */}
+              <Link
+                href="/services"
+                aria-label="Search all services"
+                className="hidden xl:inline-flex w-9 h-9 rounded-full border border-slate-200 items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-400 transition-colors"
+                title="Search services"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.35-4.35" />
+                </svg>
+              </Link>
+
+              {/* Contact Pill Button (Matches Image 1 Reference) */}
               <Link
                 href="/contact"
-                className="hidden sm:inline-flex items-center justify-center rounded-xl px-4 xl:px-5 py-2 xl:py-2.5 text-xs xl:text-sm font-semibold bg-sd-pink text-white hover:bg-sd-pink-dark transition-all duration-200 shadow-xs hover:shadow-md whitespace-nowrap active:scale-98"
+                className="hidden sm:inline-flex items-center justify-center rounded-full px-5 xl:px-6 py-2 xl:py-2.5 text-xs xl:text-sm font-semibold bg-sd-pink text-white hover:bg-sd-pink-dark transition-all duration-200 shadow-xs hover:shadow-md whitespace-nowrap active:scale-98"
               >
-                Get in Touch
+                Contact
               </Link>
 
               {/* Mobile Hamburger Button */}
               <button
                 type="button"
                 onClick={() => setMobileOpen(true)}
-                className="lg:hidden p-2 text-sd-muted hover:text-sd-text rounded-lg hover:bg-sd-bg-2 transition-colors cursor-pointer"
+                className="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
                 aria-label="Open navigation menu"
               >
                 <div className="w-5 space-y-1.5">
@@ -435,28 +478,28 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ── DESKTOP MEGA-MENU PANEL: SERVICES (Screenshot 1 Inspiration) ────── */}
+        {/* ── DESKTOP MEGA-MENU PANEL: SERVICES (Matches Image 1 Reference) ────── */}
         {activeDropdown === "services" && (
           <div
-            className="hidden lg:block absolute top-full left-0 right-0 w-full bg-white border-b border-sd-border shadow-[0_25px_60px_rgba(15,23,42,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+            className="hidden lg:block absolute top-full left-0 right-0 w-full bg-white border-b border-slate-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.06)] z-50 animate-in fade-in slide-in-from-top-2 duration-200"
             onMouseEnter={() => handleMouseEnter("services")}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="mx-auto max-w-7xl px-6 sm:px-8 py-8 lg:py-10">
-              <div className="grid grid-cols-12 gap-8 items-start">
+            <div className="mx-auto max-w-[1440px] px-8 xl:px-12 py-10">
+              <div className="grid grid-cols-12 gap-10 items-start">
                 
-                {/* Left Column: Overview & Category Switcher */}
-                <div className="col-span-4 pr-6 border-r border-slate-100 flex flex-col justify-between self-stretch">
+                {/* Left Column: Overview & Category Switcher (Clean Text Highlight) */}
+                <div className="col-span-3 pr-8 border-r border-slate-100 flex flex-col justify-between self-stretch">
                   <div>
-                    <h3 className="text-xl font-black text-slate-900 tracking-tight mb-2">
+                    <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-2">
                       Enterprise Solutions
                     </h3>
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                      Technology-driven managed services delivering institutional payroll, statutory labour compliance, and executive talent solutions.
+                    <p className="text-xs text-slate-500 leading-relaxed mb-6 max-w-[280px]">
+                      Our managed services business providing end-to-end F&A, Compliance and HR solutions.
                     </p>
 
-                    {/* Category Switcher Tabs */}
-                    <div className="space-y-1">
+                    {/* Category Switcher - Pure Text Highlight with Dividers, No Bulky Pills */}
+                    <div className="flex flex-col">
                       {SERVICE_CATEGORIES.map((category) => {
                         const isSelected = activeCategory === category.id;
                         return (
@@ -465,18 +508,17 @@ export default function Navbar() {
                             type="button"
                             onMouseEnter={() => setActiveCategory(category.id)}
                             onClick={() => setActiveCategory(category.id)}
-                            className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all duration-150 flex items-center justify-between cursor-pointer ${
-                              isSelected
-                                ? "bg-sd-pink/10 text-sd-pink shadow-xs font-extrabold"
-                                : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
-                            }`}
+                            className="w-full text-left py-3.5 border-b border-slate-100 transition-colors duration-150 flex items-center justify-between cursor-pointer group bg-transparent"
                           >
-                            <span className="tracking-wide uppercase text-[11.5px]">
+                            <span
+                              className={`tracking-wider uppercase text-[12px] transition-colors duration-150 ${
+                                isSelected
+                                  ? "text-sd-pink font-extrabold"
+                                  : "text-slate-800 font-bold group-hover:text-sd-pink"
+                              }`}
+                            >
                               {category.label}
                             </span>
-                            {isSelected && (
-                              <span className="h-1.5 w-1.5 rounded-full bg-sd-pink" />
-                            )}
                           </button>
                         );
                       })}
@@ -484,19 +526,19 @@ export default function Navbar() {
                   </div>
 
                   {/* Bottom Action Link on Left Column */}
-                  <div className="pt-6 border-t border-slate-100 mt-6">
+                  <div className="pt-8 mt-2">
                     <Link
                       href="/services"
-                      className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-sd-pink hover:text-sd-pink-dark transition-colors group"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sd-pink hover:text-sd-pink-dark transition-colors group"
                     >
-                      <span>Explore All Services</span>
-                      <span className="w-6 h-6 rounded-full border border-sd-pink/40 flex items-center justify-center group-hover:bg-sd-pink group-hover:text-white transition-all">
+                      <span>Explore Service Dial Enterprise</span>
+                      <span className="w-6 h-6 rounded-full border border-sd-pink/40 text-sd-pink flex items-center justify-center group-hover:bg-sd-pink group-hover:text-white transition-all">
                         <svg
                           className="w-3 h-3 transition-transform group-hover:translate-x-0.5"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          strokeWidth="2.5"
+                          strokeWidth="2"
                         >
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
@@ -505,50 +547,33 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* Right Column: Sub-Services Cards Grid */}
-                <div className="col-span-8">
-                  <div className="mb-4 flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-black text-slate-900">
-                        {selectedCategoryData.title}
-                      </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">
-                        {selectedCategoryData.tagline}
-                      </p>
-                    </div>
-                    <Link
-                      href={selectedCategoryData.href}
-                      className="text-xs font-bold text-sd-pink hover:underline shrink-0 ml-4"
-                    >
-                      View Pillar Hub →
-                    </Link>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
+                {/* Right Column: Clean 4-Column Sub-Services (No Box, No Border, Pure Clean UI) */}
+                <div className="col-span-9 pl-4">
+                  <div className="grid grid-cols-4 gap-x-8 gap-y-10">
                     {selectedCategoryData.services.map((svc) => (
                       <Link
                         key={svc.title}
                         href={svc.href}
-                        className="group flex flex-col justify-between p-4 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-sd-pink/40 hover:shadow-sm transition-all duration-200"
+                        className="group flex flex-col justify-between"
                       >
                         <div>
-                          <h5 className="text-xs font-bold text-slate-900 group-hover:text-sd-pink transition-colors">
+                          <h4 className="text-[14px] font-bold text-slate-900 group-hover:text-sd-pink transition-colors leading-snug">
                             {svc.title}
-                          </h5>
-                          <p className="text-[11px] text-slate-500 leading-relaxed mt-1">
+                          </h4>
+                          <p className="text-[12px] text-slate-500 leading-relaxed mt-1.5 mb-3.5 line-clamp-2">
                             {svc.desc}
                           </p>
                         </div>
 
-                        {/* Small Circular Pink Arrow Button (Screenshot 1 Reference) */}
-                        <div className="mt-3 flex justify-end">
-                          <span className="w-6 h-6 rounded-full border border-sd-pink/40 text-sd-pink flex items-center justify-center group-hover:bg-sd-pink group-hover:text-white group-hover:scale-110 transition-all duration-200">
+                        {/* Circular Pink Arrow Button (Image 1 Benchmark) */}
+                        <div className="mt-3">
+                          <span className="w-7 h-7 rounded-full border border-sd-pink/50 text-sd-pink flex items-center justify-center group-hover:bg-sd-pink group-hover:text-white group-hover:border-sd-pink transition-all duration-200">
                             <svg
-                              className="w-3 h-3"
+                              className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
-                              strokeWidth="2.5"
+                              strokeWidth="2"
                             >
                               <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
@@ -557,18 +582,6 @@ export default function Navbar() {
                       </Link>
                     ))}
                   </div>
-
-                  {/* Sub-Footer Guarantee Callout */}
-                  <div className="mt-5 p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                    <div className="flex items-center gap-2">
-                      <span className="text-emerald-600 font-bold">✓</span>
-                      <span>100% On-Time Salary Disbursement SLA Guarantee</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-emerald-600 font-bold">✓</span>
-                      <span>DPDP Act 2023 & Institutional Bilateral NDA Protected</span>
-                    </div>
-                  </div>
                 </div>
 
               </div>
@@ -576,58 +589,63 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* ── DESKTOP DROPDOWN PANEL: INDUSTRIES ──────────────────────────────── */}
+        {/* ── DESKTOP DROPDOWN PANEL: INDUSTRIES (Clean 4-Column Layout) ───────── */}
         {activeDropdown === "industries" && (
           <div
-            className="hidden lg:block absolute top-full left-0 right-0 w-full bg-white border-b border-sd-border shadow-[0_25px_60px_rgba(15,23,42,0.14)] z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+            className="hidden lg:block absolute top-full left-0 right-0 w-full bg-white border-b border-slate-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.06)] z-50 animate-in fade-in slide-in-from-top-2 duration-200"
             onMouseEnter={() => handleMouseEnter("industries")}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="mx-auto max-w-7xl px-6 sm:px-8 py-8">
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+            <div className="mx-auto max-w-[1440px] px-8 xl:px-12 py-10">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
                 <div>
-                  <h3 className="text-lg font-black text-slate-900 tracking-tight">
+                  <h3 className="text-lg font-bold text-slate-900 tracking-tight">
                     Industry-Tailored Enterprise Managed Services
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 mt-1">
                     Pre-configured compliance frameworks and specialized staffing aligned to industry mandates.
                   </p>
                 </div>
                 <Link
                   href="/industries"
-                  className="text-xs font-bold text-sd-pink hover:underline"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sd-pink hover:text-sd-pink-dark transition-colors group"
                 >
-                  Explore All Industry Verticals →
+                  <span>Explore All Industries</span>
+                  <span className="w-6 h-6 rounded-full border border-sd-pink/40 text-sd-pink flex items-center justify-center group-hover:bg-sd-pink group-hover:text-white transition-all">
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </Link>
               </div>
 
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-4 gap-x-8 gap-y-10">
                 {INDUSTRY_VERTICALS.map((ind) => (
                   <Link
                     key={ind.title}
                     href={ind.href}
-                    className="group flex flex-col justify-between p-4 rounded-xl border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-sd-pink/40 hover:shadow-sm transition-all duration-200"
+                    className="group flex flex-col justify-between"
                   >
                     <div>
-                      <span className="inline-block px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider bg-sd-pink/10 text-sd-pink mb-2">
+                      <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-sd-pink mb-1.5">
                         {ind.badge}
                       </span>
-                      <h5 className="text-xs font-bold text-slate-900 group-hover:text-sd-pink transition-colors">
+                      <h4 className="text-[14px] font-bold text-slate-900 group-hover:text-sd-pink transition-colors leading-snug">
                         {ind.title}
-                      </h5>
-                      <p className="text-[11px] text-slate-500 leading-relaxed mt-1">
+                      </h4>
+                      <p className="text-[12px] text-slate-500 leading-relaxed mt-1.5 mb-3.5 line-clamp-2">
                         {ind.desc}
                       </p>
                     </div>
 
-                    <div className="mt-4 flex justify-end">
-                      <span className="w-6 h-6 rounded-full border border-sd-pink/40 text-sd-pink flex items-center justify-center group-hover:bg-sd-pink group-hover:text-white group-hover:scale-110 transition-all duration-200">
+                    <div className="mt-3">
+                      <span className="w-7 h-7 rounded-full border border-sd-pink/50 text-sd-pink flex items-center justify-center group-hover:bg-sd-pink group-hover:text-white group-hover:border-sd-pink transition-all duration-200">
                         <svg
-                          className="w-3 h-3"
+                          className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          strokeWidth="2.5"
+                          strokeWidth="2"
                         >
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>

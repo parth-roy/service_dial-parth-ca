@@ -4,6 +4,9 @@
   --sd-pink: #E91E8C;
   --sd-pink-dark: #C41677;
   --sd-pink-light: #FF6FBF;
+  --sd-purple: #2e0d82;
+  --sd-purple-dark: #1e075b;
+  --sd-purple-light: #4318b8;
 
   /* Light mode surfaces */
   --sd-bg: #FFFFFF;
@@ -25,6 +28,9 @@
   --color-sd-pink: var(--sd-pink);
   --color-sd-pink-dark: var(--sd-pink-dark);
   --color-sd-pink-light: var(--sd-pink-light);
+  --color-sd-purple: var(--sd-purple);
+  --color-sd-purple-dark: var(--sd-purple-dark);
+  --color-sd-purple-light: var(--sd-purple-light);
   --color-sd-bg: var(--sd-bg);
   --color-sd-bg-2: var(--sd-bg-2);
   --color-sd-bg-3: var(--sd-bg-3);
@@ -74,6 +80,14 @@ body {
   background-clip: text;
 }
 
+/* Logo TM 3-Color Gradient (1st darker pink -> 2nd darker royal purple -> 3rd darker sky) */
+.logo-tm-gradient {
+  background: linear-gradient(90deg, #b80f68 0%, #2e0d82 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Outline stroke text effect (as seen in modern enterprise heroes) */
 .stroke-text {
   color: transparent;
@@ -81,9 +95,21 @@ body {
   paint-order: stroke fill;
 }
 
+.stroke-text-dark {
+  color: transparent;
+  -webkit-text-stroke: 2px #0f172a;
+  paint-order: stroke fill;
+}
+
 .stroke-text-pink {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--sd-pink);
+  paint-order: stroke fill;
+}
+
+.stroke-text-watermark {
+  color: transparent;
+  -webkit-text-stroke: 1.75px rgba(15, 23, 42, 0.16);
   paint-order: stroke fill;
 }
 

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import PayrollFeeEstimator from "@/components/calculator/PayrollFeeEstimator";
 
 export const metadata: Metadata = {
   title: "Staffing, Payroll & Compliance Solutions",
@@ -21,7 +20,8 @@ const services = [
   {
     slug: "staffing-and-recruitment",
     title: "Staffing & Recruitment",
-    tagline: "Premium. IT. Blue Collar. CXO.",
+    tagline: "TALENT SOURCING & EXECUTIVE SEARCH",
+    headline: "Pan-India executive search and verified contract workforce deployed under strict NDA.",
     description:
       "From CXO-level leadership mandates to large-scale blue collar drives, we source verified talent with a 7:10 submission-to-selection ratio.",
     highlights: ["IT & Tech Staffing", "CXO / Leadership Hiring", "Blue Collar & General Staffing", "Pan-India & Global Mandates"],
@@ -29,26 +29,56 @@ const services = [
   {
     slug: "hrms-and-payroll",
     title: "HRMS & Payroll",
-    tagline: "Accurate. Compliant. Automated.",
+    tagline: "PAYROLL CENTRALISED AND AUTOMATED",
+    headline: "100% on-time payroll processing, statutory tax deductions, and automated salary disbursement.",
     description:
       "End-to-end payroll management, vendor compliance, and labour law adherence — so your HR team focuses on people, not paperwork.",
-    highlights: ["Payroll Processing", "Vendor Compliance", "Labour Law Adherence", "HRMS Technology Integration"],
+    highlights: ["Payroll Processing & Advice", "Vendor & Contractor Audits", "TDS 24Q & Digital Form 16", "2026 EPFO Wage Ceiling Desk"],
   },
   {
     slug: "finance-and-audit",
     title: "Finance & Audit",
-    tagline: "Reliable. Transparent. Controlled.",
+    tagline: "SMOOTH AP AND AR ACROSS THE ORGANISATION",
+    headline: "Enterprise accounts payable, receivable automation, and statutory internal audits.",
     description:
       "Accounts payable, receivable, record-to-report (R2R), and audit functions delivered by domain specialists.",
-    highlights: ["Accounts Payable (AP)", "Accounts Receivable (AR)", "Record to Report (R2R)", "Internal & External Audit"],
+    highlights: ["Accounts Payable (AP)", "Accounts Receivable (AR)", "Record to Report (R2R)", "Internal & Fixed Asset Audit"],
   },
   {
     slug: "compliance-services",
     title: "Compliance Services",
-    tagline: "Proactive. Thorough. Risk-Free.",
+    tagline: "STATUTORY LABOUR LAW & FACTORY ASSURANCE",
+    headline: "Proactive labour law compliance, EPFO/ESIC administration, and factory inspection assurance.",
     description:
       "Deep regulatory compliance integrated across HR, payroll, and finance functions — keeping you ahead of statutory obligations.",
-    highlights: ["Statutory Compliance", "Labour Law Filings", "Regulatory Reporting", "Risk Assessment"],
+    highlights: ["Statutory Returns Filings", "Factory & CLRA Licensing", "Inspection Defense Desk", "West Bengal PT 2026 Revision"],
+  },
+];
+
+const regulatoryCards = [
+  {
+    href: "/resources/epfo-wage-ceiling-25000",
+    badge: "CENTRAL LABOUR MINISTRY",
+    title: "EPFO Wage Ceiling Hike to ₹25,000",
+    desc: "Full employer CTC impact analysis, mandatory inclusion of previously excluded staff, EPS Account 10 re-capping at ₹2,083, and 50% Wage Code compliance.",
+    tags: ["₹25,000 Threshold", "EPS ₹2,083 Re-cap", "50% Wage Code Rule"],
+    cta: "Read Employer Breakdown",
+  },
+  {
+    href: "/resources/west-bengal-professional-tax-2026",
+    badge: "WEST BENGAL STATE SCHEDULE",
+    title: "West Bengal Professional Tax (2026 Slabs)",
+    desc: "Act VI of 1979 schedule restructuring. Gross wages under ₹20,000 exempt, February ₹300 spike, ERC vs EC dual compliance, and Form III-A annual returns.",
+    tags: ["Act VI of 1979", "₹20,000 Exemption", "Form III-A Return"],
+    cta: "View Revised Slabs",
+  },
+  {
+    href: "/resources/west-bengal-labour-welfare-fund",
+    badge: "BI-ANNUAL STATUTORY FILINGS",
+    title: "WB Labour Welfare Fund (July 15 & Jan 15)",
+    desc: "Statutory rates (Employee ₹3, Employer ₹30), Form D filing procedures, and Section 9 prohibition against deducting employer shares from employee wages.",
+    tags: ["Section 9 Compliance", "₹3 / ₹30 Remittance", "Form D Filing"],
+    cta: "Review WBLWF Calendar",
   },
 ];
 
@@ -87,7 +117,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden border-b border-sd-border bg-[#0A101D] min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] flex items-center">
+      <section className="relative overflow-hidden border-b border-sd-border bg-[#0A101D] min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] flex flex-col justify-between">
         {/* Background Image & Atmospheric Overlays */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -135,7 +165,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Statement */}
             <div>
@@ -193,186 +223,269 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ── TRUST BAR ── */}
-      <div className="border-b border-sd-border bg-[#0A101D] text-white/75">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs">
-            {[
-              "Strict NDA Confidentiality",
-              "100% Referenceable Customers Globally",
-              "24–72 hr Average Sourcing Time",
-              "CXO to Blue Collar Mandates",
-              "Pan-India & Global Coverage",
-              "Section 8(2) DPDP Act Compliant",
-            ].map((t) => (
-              <span key={t} className="flex items-center gap-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-sd-pink" />
-                {t}
-              </span>
-            ))}
+        {/* ── TRUST BAR DOCKED AT HERO BOTTOM (Mirror Glass Effect) ── */}
+        <div className="relative z-10 w-full border-t border-white/15 bg-white/[0.04] backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+          <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 2xl:px-12 py-3.5 sm:py-4">
+            <div className="flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-between gap-y-2.5 gap-x-4 sm:gap-x-6 lg:gap-x-3 xl:gap-x-6 2xl:gap-x-8 text-[11px] sm:text-xs xl:text-[13px] font-medium text-white/90">
+              {[
+                "Strict NDA Confidentiality",
+                "100% Referenceable Customers Globally",
+                "24–72 hr Average Sourcing Time",
+                "CXO to Blue Collar Mandates",
+                "Pan-India & Global Coverage",
+                "Section 8(2) DPDP Act Compliant",
+              ].map((t) => (
+                <span key={t} className="flex items-center gap-2 whitespace-nowrap shrink-0">
+                  <span className="h-1.5 w-1.5 rounded-full bg-sd-pink shadow-[0_0_8px_rgba(233,30,140,0.9)]" />
+                  <span>{t}</span>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ── 2026 REGULATORY ACTION DESK ── */}
-      <section className="py-12 bg-sd-bg-2 border-b border-sd-border">
+      <section className="py-20 lg:py-28 bg-white border-b border-sd-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-sd-pink/30 bg-sd-pink/5 px-3 py-1 mb-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-sd-pink animate-pulse" />
-                <span className="text-xs font-semibold text-sd-pink uppercase tracking-wider">
-                  Critical 2026 Statutory Amendments
-                </span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-sd-text tracking-tight">
-                Labour Law & Regulatory Action Desk
-              </h2>
-            </div>
-            <Link
-              href="/resources"
-              className="text-xs font-bold text-sd-pink hover:text-sd-pink-dark transition-colors flex items-center gap-1 self-start sm:self-end"
-            >
-              <span>View All Statutory Intelligence</span>
-              <span>→</span>
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link
-              href="/resources/epfo-wage-ceiling-25000"
-              className="p-6 rounded-2xl bg-white border border-sd-border hover:border-sd-pink/40 hover:shadow-md transition-all group flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 inline-block mb-3">
-                  Central Labour Ministry
-                </span>
-                <h3 className="text-base font-black text-sd-text mb-2 group-hover:text-sd-pink transition-colors">
-                  EPFO Wage Ceiling Hike to ₹25,000
-                </h3>
-                <p className="text-xs text-sd-muted leading-relaxed mb-4">
-                  Full employer CTC impact analysis, mandatory inclusion of previously excluded staff, EPS Account 10 re-capping at ₹2,083, and 50% Wage Code compliance.
-                </p>
-              </div>
-              <span className="text-xs font-bold text-sd-pink flex items-center gap-1">
-                Read Employer Breakdown →
-              </span>
-            </Link>
-
-            <Link
-              href="/resources/west-bengal-professional-tax-2026"
-              className="p-6 rounded-2xl bg-white border border-sd-border hover:border-sd-pink/40 hover:shadow-md transition-all group flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800 inline-block mb-3">
-                  West Bengal State Schedule
-                </span>
-                <h3 className="text-base font-black text-sd-text mb-2 group-hover:text-sd-pink transition-colors">
-                  West Bengal Professional Tax (2026 Slabs)
-                </h3>
-                <p className="text-xs text-sd-muted leading-relaxed mb-4">
-                  Act VI of 1979 schedule restructuring. Gross wages under ₹20,000 exempt, February ₹300 spike, ERC vs EC dual compliance, and Form III-A annual returns.
-                </p>
-              </div>
-              <span className="text-xs font-bold text-sd-pink flex items-center gap-1">
-                View Revised Slabs →
-              </span>
-            </Link>
-
-            <Link
-              href="/resources/west-bengal-labour-welfare-fund"
-              className="p-6 rounded-2xl bg-white border border-sd-border hover:border-sd-pink/40 hover:shadow-md transition-all group flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800 inline-block mb-3">
-                  Bi-Annual Filings
-                </span>
-                <h3 className="text-base font-black text-sd-text mb-2 group-hover:text-sd-pink transition-colors">
-                  WB Labour Welfare Fund (July 15 & Jan 15)
-                </h3>
-                <p className="text-xs text-sd-muted leading-relaxed mb-4">
-                  Statutory rates (Employee ₹3, Employer ₹30), Form D filing procedures, and Section 9 prohibition against deducting employer shares from employee wages.
-                </p>
-              </div>
-              <span className="text-xs font-bold text-sd-pink flex items-center gap-1">
-                Review WBLWF Calendar →
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── INTERACTIVE PAYROLL FEE ESTIMATOR TOOL ── */}
-      <section className="py-16 sm:py-20 border-b border-sd-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest text-sd-pink block mb-2">
-              Transparent Pricing Calculator
+          
+          {/* Top Eyebrow with Full Horizontal Rule (Matching What We Do) */}
+          <div className="flex items-center gap-3.5 sm:gap-4 mb-10 sm:mb-12">
+            <span className="w-2.5 h-2.5 rounded-full bg-sd-pink shrink-0" />
+            <span className="font-outfit text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.24em] text-slate-900 whitespace-nowrap">
+              CRITICAL 2026 STATUTORY AMENDMENTS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-sd-text tracking-tight mb-3">
-              Calculate Your Monthly Managed Services Retainer
-            </h2>
-            <p className="text-sd-muted text-sm sm:text-base leading-relaxed">
-              Explore our volume-calibrated per-employee-per-month (PEPM) fee structure across payroll, statutory compliance filings, and labour law audit modules.
-            </p>
-          </div>
-          <PayrollFeeEstimator />
-        </div>
-      </section>
-
-      {/* ── SERVICES ── */}
-      <section className="py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="text-xs font-semibold uppercase tracking-widest text-sd-pink mb-3">
-              What We Do
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-sd-text">
-              Four pillars. One trusted partner.
-            </h2>
-            <p className="mt-4 text-sd-muted max-w-xl">
-              Each service is delivered by domain specialists with deep
-              regulatory knowledge and enterprise-grade confidentiality.
-            </p>
+            <span className="h-px flex-1 bg-slate-200/90" />
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            {services.map((svc) => (
-              <Link
-                key={svc.slug}
-                href={`/services/${svc.slug}`}
-                className="group relative rounded-lg border border-sd-border bg-white p-6 hover:border-sd-pink/40 hover:shadow-sm transition-all"
-              >
-                <div className="absolute top-0 left-0 right-0 h-px bg-sd-pink opacity-0 group-hover:opacity-100 transition-opacity rounded-t-lg" />
+          {/* Split Header: Big & Wide SEO Headline on Left + Distinctive Editorial Typography on Right */}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 sm:mb-16">
+            {/* Left: Wide Majestic Headline with Text Art */}
+            <div className="lg:col-span-7 pb-8 lg:pb-0 lg:pr-12 lg:border-r border-slate-200/90">
+              <h2 className="font-outfit text-3xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-black leading-[1.06] tracking-tight text-slate-900">
+                Labour law &amp;
+                <br />
+                regulatory action desk.
+                <br />
+                Mandates for <span className="stroke-text-dark font-black">2026.</span>
+              </h2>
+              <div className="mt-8 flex items-center gap-3">
+                <span className="h-0.5 w-16 bg-sd-pink rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                  Real-Time Statutory Advisory
+                </span>
+              </div>
+            </div>
 
-                <p className="text-xs font-semibold text-sd-pink mb-2">
-                  {svc.tagline}
-                </p>
-                <h3 className="text-lg font-bold text-sd-text mb-2">
-                  {svc.title}
-                </h3>
-                <p className="text-sm text-sd-muted leading-relaxed mb-4">
-                  {svc.description}
-                </p>
-                <ul className="flex flex-wrap gap-2">
-                  {svc.highlights.map((h) => (
-                    <li
-                      key={h}
-                      className="text-xs px-2 py-0.5 rounded border border-sd-border text-sd-muted bg-sd-bg-2"
-                    >
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 text-xs font-semibold text-sd-pink flex items-center gap-1">
-                  Learn more
+            {/* Right: Highly Visible, Attractive Editorial Description */}
+            <div className="lg:col-span-5 flex flex-col justify-center space-y-4 lg:pl-2">
+              <p className="font-outfit text-base sm:text-lg lg:text-[19px] font-bold text-slate-900 leading-snug">
+                Proactive legal intelligence protecting enterprises against inspection notices, retroactive wage liabilities, and statutory penalties.
+              </p>
+              <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal">
+                Our regulatory desk tracks legislative gazettes and tribunal notifications across Central and State labour bodies. Access employer CTC simulations, slab restructuring models, and audit compliance directories before deadlines strike.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-5 text-xs font-bold uppercase tracking-wider">
+                <Link
+                  href="/resources"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#2e0d82] hover:text-[#1e075b] transition-colors group"
+                >
+                  <span>Explore All Statutory Intelligence</span>
                   <span className="transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 Regulatory Action Cards (Polished Cards Style matching What We Do) */}
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {regulatoryCards.map((card) => (
+              <Link
+                key={card.title}
+                href={card.href}
+                className="group flex flex-col justify-between p-7 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white hover:border-[#2e0d82]/35 shadow-xs hover:shadow-md transition-all duration-300"
+              >
+                <div>
+                  {/* Uppercase Tagline */}
+                  <span className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-sd-pink mb-4 block">
+                    {card.badge}
+                  </span>
+
+                  {/* Headline: Remains Pink on Hover */}
+                  <h3 className="text-lg sm:text-[19px] font-bold text-slate-900 leading-snug mb-3 group-hover:text-sd-pink transition-colors">
+                    {card.title}
+                  </h3>
+
+                  {/* Detail Paragraph */}
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+                    {card.desc}
+                  </p>
+                </div>
+
+                <div>
+                  {/* Highlights Tiles with Darker Purple (#2e0d82) Outline & Solid White Background */}
+                  <div className="flex flex-wrap gap-2 pt-5 border-t border-slate-100 mt-2">
+                    {card.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-[#2e0d82]/20 group-hover:border-[#2e0d82]/50 transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2e0d82]" />
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bottom Action Row: Neutral by default, turns Darker Purple on Hover */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-600 group-hover:text-[#2e0d82] group-hover:translate-x-0.5 transition-all inline-flex items-center gap-1.5">
+                      <span>{card.cta}</span>
+                      <span>→</span>
+                    </span>
+                    {/* Up-Right Diagonal Arrow (↗), Neutral by default, Darker Purple on Hover, No BG fill */}
+                    <span className="w-8 h-8 rounded-full border border-slate-200 text-slate-400 bg-transparent flex items-center justify-center group-hover:border-[#2e0d82] group-hover:text-[#2e0d82] transition-all duration-200">
+                      <svg
+                        className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M7 17 17 7" />
+                        <path d="M7 7h10v10" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
+
+        </div>
+      </section>
+
+      {/* ── SERVICES / WHAT WE DO ── */}
+      <section className="py-20 lg:py-28 bg-white border-b border-sd-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          
+          {/* Top Eyebrow with Full Horizontal Rule (Exact Reference Match) */}
+          <div className="flex items-center gap-3.5 sm:gap-4 mb-10 sm:mb-12">
+            <span className="w-2.5 h-2.5 rounded-full bg-sd-pink shrink-0" />
+            <span className="font-outfit text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.24em] text-slate-900 whitespace-nowrap">
+              WHAT WE DO
+            </span>
+            <span className="h-px flex-1 bg-slate-200/90" />
+          </div>
+
+          {/* Split Header: Big & Wide SEO Headline on Left + Distinctive Editorial Typography on Right */}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 sm:mb-16">
+            {/* Left: Wide Majestic Headline with Text Art */}
+            <div className="lg:col-span-7 pb-8 lg:pb-0 lg:pr-12 lg:border-r border-slate-200/90">
+              <h2 className="font-outfit text-3xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-black leading-[1.06] tracking-tight text-slate-900">
+                Institutional staffing, payroll
+                <br />
+                &amp; statutory compliance.
+                <br />
+                Engineered for <span className="stroke-text-dark font-black">scale.</span>
+              </h2>
+              <div className="mt-8 flex items-center gap-3">
+                <span className="h-0.5 w-16 bg-sd-pink rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                  Four Integrated Practice Desks
+                </span>
+              </div>
+            </div>
+
+            {/* Right: Highly Visible, Attractive Editorial Description */}
+            <div className="lg:col-span-5 flex flex-col justify-center space-y-4 lg:pl-2">
+              <p className="font-outfit text-base sm:text-lg lg:text-[19px] font-bold text-slate-900 leading-snug">
+                One unified partner governing your workforce, salary disbursements, financial books, and statutory inspection defense.
+              </p>
+              <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal">
+                Service Dial organizes its enterprise managed services around four specialized practice desks. By eliminating fragmented vendors, organizations achieve guaranteed 100% on-time payroll, zero-defect labour compliance, and verified executive hires under bilateral confidentiality.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-5 text-xs font-bold uppercase tracking-wider text-slate-500">
+                <span className="flex items-center gap-1.5 text-slate-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  100% SLA Guarantee
+                </span>
+                <span className="flex items-center gap-1.5 text-slate-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sd-pink" />
+                  Strict NDA Protected
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Pillars Cards Grid (Polished Cards Style) */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            {services.map((svc) => (
+              <Link
+                key={svc.slug}
+                href={`/services/${svc.slug}`}
+                className="group flex flex-col justify-between p-7 sm:p-9 rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white hover:border-[#2e0d82]/35 shadow-xs hover:shadow-md transition-all duration-300"
+              >
+                <div>
+                  {/* Uppercase Tagline */}
+                  <span className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-sd-pink mb-4 block">
+                    {svc.tagline}
+                  </span>
+
+                  {/* Proposition Headline: Remains Pink on Hover */}
+                  <h3 className="text-lg sm:text-[20px] font-bold text-slate-900 leading-snug mb-3 group-hover:text-sd-pink transition-colors">
+                    {svc.headline}
+                  </h3>
+
+                  {/* Detail Paragraph */}
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+                    {svc.description}
+                  </p>
+                </div>
+
+                <div>
+                  {/* Highlights Tiles with Darker Midnight Royal Purple (#2e0d82) Outline & Solid White Background */}
+                  <div className="flex flex-wrap gap-2 pt-5 border-t border-slate-100 mt-2">
+                    {svc.highlights.map((h) => (
+                      <span
+                        key={h}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-[#2e0d82]/20 group-hover:border-[#2e0d82]/50 transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#2e0d82]" />
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bottom Action Row: Neutral by default, turns Darker Purple (#2e0d82) on Hover */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-600 group-hover:text-[#2e0d82] group-hover:translate-x-0.5 transition-all inline-flex items-center gap-1.5">
+                      <span>Explore {svc.title}</span>
+                      <span>→</span>
+                    </span>
+                    {/* Up-Right Diagonal Arrow (↗), Neutral by default, Darker Purple on Hover, No BG fill */}
+                    <span className="w-8 h-8 rounded-full border border-slate-200 text-slate-400 bg-transparent flex items-center justify-center group-hover:border-[#2e0d82] group-hover:text-[#2e0d82] transition-all duration-200">
+                      <svg
+                        className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M7 17 17 7" />
+                        <path d="M7 7h10v10" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -384,7 +497,7 @@ export default function HomePage() {
               Proven Track Record
             </p>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-sd-text">
-              Mandates we've delivered.
+              Mandates we&apos;ve delivered.
             </h2>
             <p className="mt-4 text-sd-muted max-w-xl">
               Real placements, real outcomes — across markets, industries, and
@@ -434,7 +547,7 @@ export default function HomePage() {
               </h2>
               <p className="text-sd-muted mb-8 text-base">
                 Whether you need a CXO placed in 72 hours or end-to-end payroll
-                compliance across 1,000 employees — let's talk.
+                compliance across 1,000 employees — let&apos;s talk.
               </p>
               <Link
                 href="/contact"
