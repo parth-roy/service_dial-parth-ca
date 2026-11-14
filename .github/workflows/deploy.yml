@@ -28,6 +28,9 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
 
+            echo "Clearing stale build artifacts and Next.js type cache..."
+            rm -rf .next
+
             echo "Installing dependencies..."
             npm install --production=false
 
@@ -40,8 +43,7 @@ jobs:
               fuser -k 3000/tcp >/dev/null 2>&1 || true
             fi
 
-            echo "Clearing stale .next cache and building cleanly..."
-            rm -rf .next
+            echo "Building application cleanly..."
             npm run build
 
             echo "Starting fresh process with PM2..."
