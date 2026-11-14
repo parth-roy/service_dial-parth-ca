@@ -50,7 +50,7 @@ export default function Footer() {
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm mb-4">
               <strong>Service Dial Talent Management Private Limited</strong> (CIN:{" "}
               <span className="font-mono text-xs text-slate-800">U74999WB2016PTC216954</span>).
-              Established 2016 with over 25+ years combined executive leadership tenure. Delivering zero-defect payroll, statutory compliance, and flexi-staffing across India.
+              Established 2016 with over 25+ years combined executive leadership tenure. Delivering zero-defect HRMS &amp; payroll management, statutory compliance, and flexi-staffing across India.
             </p>
             <div className="text-xs text-slate-600 space-y-1 mb-4">
               <p className="flex items-start gap-1.5 leading-relaxed">

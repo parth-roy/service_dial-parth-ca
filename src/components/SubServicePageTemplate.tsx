@@ -38,10 +38,31 @@ export default function SubServicePageTemplate({
     serviceType: subservice.shortTitle,
   };
 
+  const institutionalFaqs = [
+    {
+      question: `What is the operational turnaround timeline (SLA) for onboarding and full deployment under ${subservice.shortTitle}?`,
+      answer: `Service Dial operates with a strict 24–72 hour discovery-to-scoping turnaround. Following initial mandate sign-off under bilateral mutual NDA, master data reconciliation and preliminary compliance gap audits are delivered within 3 to 5 business days. Enterprise recurring deliverables are governed by contractually committed cutoff dates (e.g., Day 1 payroll bank advice files or Day 5 month-end close MIS packs).`,
+    },
+    {
+      question: `How does Service Dial guarantee statutory legal indemnity and zero client liability?`,
+      answer: `Every managed service engagement is executed as an institutional "Contract for Service" (deliverable-backed SLA). Service Dial carries independent statutory registrations, maintains comprehensive audit logs, and provides signed monthly compliance indemnity certificates. In the event of statutory inspections or labour notices, our in-house compliance counsels directly represent and defend the audit file before regulatory authorities.`,
+    },
+    {
+      question: `How is candidate, payroll, and corporate financial data safeguarded under Indian privacy laws?`,
+      answer: `Service Dial enforces strict compliance with Section 8(2) of the Digital Personal Data Protection (DPDP) Act, 2023. All candidate KYC, executive salary registers, and financial ledgers are encrypted at rest (AES-256) and in transit (TLS 1.3). Access is strictly role-based (RBAC) with immutable audit trails and air-gapped processing for sensitive CXO and leadership compensation.`,
+    },
+    {
+      question: `Can this service scale across multi-state branch offices and manufacturing plant locations simultaneously?`,
+      answer: `Yes. Service Dial operates an integrated Pan-India delivery network covering over 50 commercial metros, SEZs, and industrial manufacturing corridors across all 28 Indian States and Union Territories. We harmonize multi-state statutory variances—including state-specific Professional Tax schedules, Labour Welfare Fund cycles, and local municipal trade licenses—under a single centralized enterprise SLA.`,
+    },
+  ];
+
+  const allFaqs = [...subservice.faqs, ...institutionalFaqs];
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: subservice.faqs.map((faq) => ({
+    mainEntity: allFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {
@@ -296,7 +317,7 @@ export default function SubServicePageTemplate({
           </ScrollReveal>
 
           <div className="space-y-4">
-            {subservice.faqs.map((faq, idx) => (
+            {allFaqs.map((faq, idx) => (
               <ScrollReveal key={idx} direction="up" distance={20} delay={idx * 60}>
                 <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs">
                   <h3 className="font-outfit text-base font-bold text-slate-900 mb-2 flex items-start gap-2">

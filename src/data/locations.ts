@@ -37,8 +37,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 27,
     capital: "Mumbai",
     regionalLabourNuances:
-      "Governed by the Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2017, Maharashtra State Professional Tax Act, and revised state minimum wages updated semi-annually under the Minimum Wages Act.",
-    cities: ["mumbai", "pune", "nagpur"],
+      "Governed by the Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2017, Maharashtra State Professional Tax Act (with 2023 gender exemption for women earning ≤₹25,000/mo), and semi-annual minimum wages updated under the Minimum Wages Act.",
+    cities: ["mumbai", "pune", "nagpur", "chakan-talegaon", "bhosari-pcmc", "ttc-navi-mumbai", "taloja", "chhatrapati-sambhajinagar"],
   },
   karnataka: {
     slug: "karnataka",
@@ -46,8 +46,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 29,
     capital: "Bengaluru",
     regionalLabourNuances:
-      "Subject to the Karnataka Shops and Commercial Establishments Act, 1961, Karnataka Professional Tax, and the Karnataka Compulsory Gratuity Insurance Rules. IT/ITeS sector exemptions on standing orders are subject to annual statutory compliance filings.",
-    cities: ["bengaluru"],
+      "Subject to the Karnataka Shops and Commercial Establishments Act, 1961, Karnataka Professional Tax (Karnataka Act 14 of 2023 with ₹25,000 threshold), and Karnataka Labour Welfare Fund rules.",
+    cities: ["bengaluru", "peenya", "whitefield", "bommasandra-jigani", "bidadi", "mysuru"],
   },
   telangana: {
     slug: "telangana",
@@ -55,7 +55,7 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 36,
     capital: "Hyderabad",
     regionalLabourNuances:
-      "Regulated under the Telangana Shops and Establishments Act, 1988, mandatory TS-iPASS single-desk labor approvals, and state labor welfare fund contributions with digital compliance oversight.",
+      "Regulated under the Telangana Shops and Establishments Act, 1988, mandatory TS-iPASS single-desk labor approvals, and state professional tax monthly remittances via TGCT portal.",
     cities: ["hyderabad"],
   },
   delhi: {
@@ -64,7 +64,7 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 7,
     capital: "New Delhi",
     regionalLabourNuances:
-      "Features among the highest statutory minimum wage rates in India, updated semi-annually in April and October. Governed under the Delhi Shops and Establishments Act, 1954 and rigorous vendor compliance audit norms.",
+      "Features among the highest statutory minimum wage rates in India, updated semi-annually in April and October. Zero Professional Tax jurisdiction under Delhi NCT rules.",
     cities: ["delhi"],
   },
   haryana: {
@@ -73,8 +73,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 6,
     capital: "Chandigarh",
     regionalLabourNuances:
-      "Regulated under the Punjab Shops and Commercial Establishments Act (as applied to Haryana) and Haryana State Employment of Local Candidates framework. Strong focus on corporate labor audit readiness in Gurugram.",
-    cities: ["gurugram"],
+      "Regulated under the Punjab Shops and Commercial Establishments Act (as applied to Haryana), monthly Labour Welfare Fund deductions, and auto belt compliance in Gurugram & IMT Manesar.",
+    cities: ["gurugram", "imt-manesar"],
   },
   "uttar-pradesh": {
     slug: "uttar-pradesh",
@@ -82,8 +82,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 9,
     capital: "Lucknow",
     regionalLabourNuances:
-      "Regulated under the Uttar Pradesh Dookan Aur Vanijya Adhishthan Adhiniyam, 1962, state-level electronic labor register filings via Nivesh Mitra portal, and manufacturing compliance guidelines across Gautam Buddha Nagar (Noida).",
-    cities: ["noida"],
+      "Regulated under the Uttar Pradesh Dookan Aur Vanijya Adhishthan Adhiniyam, 1962, state-level electronic labor register filings via Nivesh Mitra portal, and manufacturing compliance across Noida and Greater Noida.",
+    cities: ["noida", "greater-noida"],
   },
   "tamil-nadu": {
     slug: "tamil-nadu",
@@ -91,8 +91,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 33,
     capital: "Chennai",
     regionalLabourNuances:
-      "Operates under the Tamil Nadu Shops and Establishments Act, 1947, mandatory 24/7 permissions for ITeS with stringent transport and safety compliances, and active inspectorates across SIPCOT industrial corridors.",
-    cities: ["chennai", "coimbatore"],
+      "Operates under the Tamil Nadu Shops and Establishments Act, 1947, half-yearly municipal professional tax remittances, and active DISH inspectorates across SIPCOT industrial corridors.",
+    cities: ["chennai", "coimbatore", "sriperumbudur-oragadam", "ambattur", "hosur", "tiruppur"],
   },
   gujarat: {
     slug: "gujarat",
@@ -100,8 +100,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 24,
     capital: "Gandhinagar",
     regionalLabourNuances:
-      "Governed by the Gujarat Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2019, simplified labor inspection schemes, and specialized regulatory guidelines for GIFT City IFSC entities.",
-    cities: ["ahmedabad", "surat", "vadodara"],
+      "Governed by the Gujarat Shops and Establishments Act, 2019, Notification GHN-35 professional tax threshold (exempt up to ₹12,000), and GIDC industrial single-window clearance schemes.",
+    cities: ["ahmedabad", "surat", "vadodara", "sanand", "changodar", "dahej-bharuch", "morbi", "savli-vadodara"],
   },
   "west-bengal": {
     slug: "west-bengal",
@@ -109,7 +109,7 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 19,
     capital: "Kolkata",
     regionalLabourNuances:
-      "Governed by the West Bengal Shops and Establishments Act, 1963, West Bengal State Tax on Professions, Trades, Callings and Employments Act, 1979 (revised slabs effective Oct 1, 2026 exempting gross wages up to ₹20,000/mo; Form III-A annual return due April 30), and West Bengal Labour Welfare Fund Act, 1974 (half-yearly deduction due July 15 and January 15; employee ₹3, employer ₹30; Form D returns).",
+      "Governed by the West Bengal Shops and Establishments Act, 1963, West Bengal State Tax on Professions Act, 1979 (Act VI of 1979 schedule), and West Bengal Labour Welfare Fund Act, 1974 (Section 9 employer deduction bar).",
     cities: ["kolkata", "barrackpore", "howrah-dankuni", "salt-lake-sector-v"],
   },
   rajasthan: {
@@ -118,8 +118,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 8,
     capital: "Jaipur",
     regionalLabourNuances:
-      "Governed by the Rajasthan Shops and Commercial Establishments Act, 1958, simplified labor inspections under the Rajasthan Investment Promotion Scheme (RIPS), and RIICO industrial estate compliance standards.",
-    cities: ["jaipur"],
+      "Governed by the Rajasthan Shops and Commercial Establishments Act, 1958, simplified labor inspections under RIPS, RIICO industrial estate compliance, and Zero Professional Tax on salaries.",
+    cities: ["jaipur", "bhiwadi-neemrana"],
   },
   "madhya-pradesh": {
     slug: "madhya-pradesh",
@@ -127,8 +127,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 23,
     capital: "Bhopal",
     regionalLabourNuances:
-      "Regulated under the MP Shops and Establishments Act, 1958, online labor compliance under MP Shram Seva Portal, and fast-track approvals for Super Corridor SEZ IT entities in Indore.",
-    cities: ["indore"],
+      "Regulated under the MP Shops and Establishments Act, 1958, MP Vritti Kar Adhiniyam 1995, online labor compliance under MP Shram Seva Portal, and Pithampur industrial manufacturing standards.",
+    cities: ["indore", "pithampur"],
   },
   kerala: {
     slug: "kerala",
@@ -154,8 +154,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 21,
     capital: "Bhubaneswar",
     regionalLabourNuances:
-      "Governed under the Odisha Shops and Commercial Establishments Act, 1956, state industrial safety inspections, and GO-SWIFT single window compliance frameworks for IT and metallurgy sectors.",
-    cities: ["bhubaneswar"],
+      "Governed under the Odisha Shops and Commercial Establishments Act, 1956. CRITICAL 2026 STATUTE UPDATE: The Odisha State Tax on Professions Act 2000 was repealed effective April 1, 2026 (Flat ₹0 PT across all salaries).",
+    cities: ["bhubaneswar", "kalinganagar", "jharsuguda", "paradeep-port", "rourkela"],
   },
   punjab: {
     slug: "punjab",
@@ -163,8 +163,8 @@ export const STATES_DATA: Record<string, StateData> = {
     lgdStateCode: 3,
     capital: "Chandigarh",
     regionalLabourNuances:
-      "Regulated under the Punjab Shops and Commercial Establishments Act, 1958, Invest Punjab business approvals, and state labor welfare board statutory compliances.",
-    cities: ["chandigarh"],
+      "Regulated under the Punjab Shops and Commercial Establishments Act, 1958, Punjab State Development Tax Act 2018 (flat ₹200/mo only for Income Tax payers), and Invest Punjab single-desk approvals.",
+    cities: ["chandigarh", "ludhiana"],
   },
 };
 
@@ -1043,6 +1043,996 @@ export const CITIES_DATA: Record<string, CityData> = {
       { name: "Delhi", slug: "delhi" },
       { name: "Gurugram", slug: "gurugram" },
       { name: "Ludhiana", slug: "ludhiana" },
+    ],
+  },
+
+  // ============================================================================
+  // 35+ PAN-INDIA INDUSTRIAL ENGINES & MANUFACTURING HUBS (PHASE 4 EXPANSION)
+  // ============================================================================
+
+  // 1. KARNATAKA INDUSTRIAL HUBS
+  peenya: {
+    slug: "peenya",
+    name: "Peenya Industrial Area",
+    state: "Karnataka",
+    stateSlug: "karnataka",
+    lgdCode: 55601,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Peenya",
+    overview:
+      "Peenya Industrial Area is one of the largest and oldest industrial estates in South East Asia, housing over 5,000 MSME and large engineering units.",
+    economicProfile:
+      "Heavy engineering, precision CNC tooling, hydraulics, industrial valves, and aerospace component manufacturing ecosystem.",
+    dominantIndustries: ["Precision CNC Machining", "Hydraulics & Pneumatics", "Aerospace Tooling", "Electrical Switchgear"],
+    clusters: [
+      {
+        name: "Peenya Industrial Area Phases 1–4",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Phase 1 & 2 Machine Tool Belts", "Phase 3 Electronics & Rubber Zone", "Phase 4 Heavy Fabrication"],
+      },
+      {
+        name: "Yeshwanthpur-Jalahalli Ancillary Corridor",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Yeshwanthpur Industrial Suburb", "Jalahalli Machine Enclave"],
+      },
+    ],
+    localComplianceNuance:
+      "Subject to Karnataka Factories Rules 1969, Section 6 Form 1 site clearances with DISH Bannerghatta, KSPCB Peenya Regional Office CTE/CTO consents, and Karnataka Act 14 of 2023 Professional Tax.",
+    averageSourcingSLA: "24–48 hours for certified CNC machinists, toolmakers, and plant supervisors",
+    nearbyHubs: [
+      { name: "Bengaluru", slug: "bengaluru" },
+      { name: "Bidadi", slug: "bidadi" },
+      { name: "Bommasandra-Jigani", slug: "bommasandra-jigani" },
+    ],
+  },
+
+  whitefield: {
+    slug: "whitefield",
+    name: "Whitefield EPIP",
+    state: "Karnataka",
+    stateSlug: "karnataka",
+    lgdCode: 55602,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Whitefield,_Bangalore",
+    overview:
+      "Whitefield is Bengaluru's premier Export Promotion Industrial Park (EPIP) and technology nexus, hosting Fortune 500 GCCs, semiconductors, and precision medical tech.",
+    economicProfile:
+      "Global Capability Centers (GCCs), semiconductor design, telecommunications hardware, and biopharmaceutical R&D campuses.",
+    dominantIndustries: ["Global Capability Centers (GCC)", "Semiconductor Design", "Biopharma R&D", "Telecommunications"],
+    clusters: [
+      {
+        name: "EPIP Zone & ITPL Campus",
+        type: "IT Park",
+        keyZones: ["International Tech Park Bangalore (ITPL)", "EPIP Industrial Layout", "Sigma Tech Park"],
+      },
+      {
+        name: "Hoodi-Sadaramangala Industrial Belt",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Sadaramangala Industrial Area", "Hoodi Hardware Zone"],
+      },
+    ],
+    localComplianceNuance:
+      "Regulated under Karnataka Shops and Commercial Establishments Act 1961, e-Prerana PT Form 5-A, Karnataka Labour Welfare Fund, and 24/7 IT night-shift female transport orders.",
+    averageSourcingSLA: "24–72 hours for senior software architects, VLSI design leads, and data scientists",
+    nearbyHubs: [
+      { name: "Bengaluru", slug: "bengaluru" },
+      { name: "Peenya", slug: "peenya" },
+      { name: "Bommasandra-Jigani", slug: "bommasandra-jigani" },
+    ],
+  },
+
+  "bommasandra-jigani": {
+    slug: "bommasandra-jigani",
+    name: "Bommasandra-Jigani",
+    state: "Karnataka",
+    stateSlug: "karnataka",
+    lgdCode: 55603,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Bommasandra",
+    overview:
+      "The Bommasandra-Jigani Industrial Link corridor is a pivotal heavy manufacturing and biopharmaceutical manufacturing epicenter in South Bengaluru.",
+    economicProfile:
+      "High concentration of USFDA-approved bulk drug manufacturing, automotive casting, heavy sheet metal fabrication, and electric vehicle battery assembly.",
+    dominantIndustries: ["Biopharmaceutical Formulations", "Automotive Ancillary", "Industrial Robotics", "Granite & Precision Fabrication"],
+    clusters: [
+      {
+        name: "Bommasandra Industrial Area Phases 1–4",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Biocon Pharma Enclave", "Bommasandra Auto Ancillary Belt", "KIADB Sector 2"],
+      },
+      {
+        name: "Jigani Industrial Area & APC Circle",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Jigani 1st & 2nd Phase", "Otis Elevator Industrial Campus", "Haragadde Granite Park"],
+      },
+    ],
+    localComplianceNuance:
+      "Factories Act 1948 boiler registrations, hazardous process safety protocols under DISH Karnataka, KSPCB water/air consent renewals, and CLRA contractor licensing.",
+    averageSourcingSLA: "24–48 hours for pharma quality assurance chemists, EHS managers, and mechanical technicians",
+    nearbyHubs: [
+      { name: "Bengaluru", slug: "bengaluru" },
+      { name: "Hosur", slug: "hosur" },
+      { name: "Bidadi", slug: "bidadi" },
+    ],
+  },
+
+  bidadi: {
+    slug: "bidadi",
+    name: "Bidadi Industrial Area",
+    state: "Karnataka",
+    stateSlug: "karnataka",
+    lgdCode: 55604,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Bidadi",
+    overview:
+      "Bidadi Industrial Area on the Bengaluru-Mysuru Expressway is Karnataka's premier automotive assembly and industrial packaging corridor.",
+    economicProfile:
+      "Dominated by the Toyota Kirloskar vehicle assembly plants, auto tier-1 supplier parks, food processing, and high-speed packaging plants.",
+    dominantIndustries: ["Automobile Assembly", "Auto Tier-1 Ancillaries", "Packaging & Polymers", "Precision Engineering"],
+    clusters: [
+      {
+        name: "Toyota Automotive Complex & Sector 1–2",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Toyota Kirloskar Motor Zone", "Bosch Bidadi Facility", "KIADB Industrial Area 1st Phase"],
+      },
+      {
+        name: "Bidadi Smart Industrial Park Phase 2",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Harohalli Industrial Link", "Bidadi Heavy Engineering Enclave"],
+      },
+    ],
+    localComplianceNuance:
+      "Strict compliance with Section 59 overtime limits (double pay rate), standing orders certification under Industrial Employment (Standing Orders) Act, and contract labour muster governance.",
+    averageSourcingSLA: "24–48 hours for assembly line technicians, mechanical fitters, and store supervisors",
+    nearbyHubs: [
+      { name: "Bengaluru", slug: "bengaluru" },
+      { name: "Peenya", slug: "peenya" },
+      { name: "Mysuru", slug: "mysuru" },
+    ],
+  },
+
+  mysuru: {
+    slug: "mysuru",
+    name: "Mysuru",
+    state: "Karnataka",
+    stateSlug: "karnataka",
+    lgdCode: 55605,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Mysore",
+    overview:
+      "Mysuru is Karnataka's key heritage manufacturing hub and emerging technology Tier-2 destination, with dedicated defense electronics and automotive corridors.",
+    economicProfile:
+      "Precision defense electronics, IT software development, automotive tires (JK Tyre), and heavy electrical engineering.",
+    dominantIndustries: ["Defense Electronics", "Software & IT Services", "Tire & Rubber Manufacturing", "Automotive Components"],
+    clusters: [
+      {
+        name: "Hebbal Industrial Area & Electronic City",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Hebbal KIADB 1st & 2nd Phase", "Infosys Mysuru SEZ", "Wipro Consumer Care Campus"],
+      },
+      {
+        name: "Koorgalli & Belagola Industrial Estates",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Koorgalli Auto Cluster", "Belagola Heavy Chemical Belt", "Kadakola Container Depot"],
+      },
+    ],
+    localComplianceNuance:
+      "Governed by Karnataka Shops and Establishments Act, DISH Mysuru regional office factory licensing, and Mysore Municipal Corporation trade clearances.",
+    averageSourcingSLA: "24–72 hours for software engineers, electronics technicians, and quality inspectors",
+    nearbyHubs: [
+      { name: "Bengaluru", slug: "bengaluru" },
+      { name: "Bidadi", slug: "bidadi" },
+      { name: "Coimbatore", slug: "coimbatore" },
+    ],
+  },
+
+  // 2. MAHARASHTRA INDUSTRIAL HUBS
+  "chakan-talegaon": {
+    slug: "chakan-talegaon",
+    name: "Chakan-Talegaon",
+    state: "Maharashtra",
+    stateSlug: "maharashtra",
+    lgdCode: 52101,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Chakan",
+    overview:
+      "The Chakan-Talegaon corridor is India's pre-eminent automotive capital, hosting vehicle assembly plants of Volkswagen, Mercedes-Benz, Mahindra, Bajaj Auto, and hundreds of Tier-1 ancillaries.",
+    economicProfile:
+      "World-class automotive manufacturing, robotic press stamping, electric vehicle drive trains, and heavy industrial machinery.",
+    dominantIndustries: ["Automobile OEMs", "Tier-1 Auto Components", "Sheet Metal Pressings", "EV Powertrains"],
+    clusters: [
+      {
+        name: "Chakan MIDC Phases 1–5",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Volkswagen & Bajaj Enclave", "Mahindra Auto Sector", "Chakan Phase 2 Industrial Park"],
+      },
+      {
+        name: "Talegaon MIDC & Floriculture Park",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Talegaon Industrial Area", "JCB Heavy Machinery Campus", "General Motors Legacy Hub"],
+      },
+    ],
+    localComplianceNuance:
+      "Factories Act 1948 doubled threshold compliance (20 workers with power / 40 without), DISH Pune approvals, Mahagst PTRC/PTEC compliance (female wages ≤₹25k exempt), and MLWB Form A-1 remittances.",
+    averageSourcingSLA: "24–48 hours for automotive assembly fitters, robotic welding technicians, and quality engineers",
+    nearbyHubs: [
+      { name: "Pune", slug: "pune" },
+      { name: "Bhosari-PCMC", slug: "bhosari-pcmc" },
+      { name: "Mumbai", slug: "mumbai" },
+    ],
+  },
+
+  "bhosari-pcmc": {
+    slug: "bhosari-pcmc",
+    name: "Bhosari-PCMC",
+    state: "Maharashtra",
+    stateSlug: "maharashtra",
+    lgdCode: 52102,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Bhosari",
+    overview:
+      "Bhosari MIDC in the Pimpri-Chinchwad Municipal Corporation (PCMC) is one of India's largest precision tooling, casting, and engineering MSME clusters.",
+    economicProfile:
+      "Precision forgings, machine tools, plastic injection moulding, sheet metal pressing, and defense sub-contracting.",
+    dominantIndustries: ["Precision Forgings", "Machine Tools & Dies", "Auto Ancillary", "Plastic Moulding"],
+    clusters: [
+      {
+        name: "Bhosari MIDC Blocks A to T",
+        type: "Manufacturing / Industrial",
+        keyZones: ["S-Block Tooling Zone", "W-Block Electronic Complex", "T-Block Heavy Engineering"],
+      },
+      {
+        name: "Pimpri-Chinchwad Auto Belt",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Tata Motors Ancillary Corridor", "Thermax Heavy Fabrication Campus"],
+      },
+    ],
+    localComplianceNuance:
+      "Subject to PCMC municipal trade licensing, Maharashtra Contract Labour CLRA Form IV licensing, DISH inspection readiness, and semi-annual Zone 1 minimum wage gazette revisions.",
+    averageSourcingSLA: "24–48 hours for CNC programmers, tool and die makers, and production engineers",
+    nearbyHubs: [
+      { name: "Pune", slug: "pune" },
+      { name: "Chakan-Talegaon", slug: "chakan-talegaon" },
+      { name: "Mumbai", slug: "mumbai" },
+    ],
+  },
+
+  "ttc-navi-mumbai": {
+    slug: "ttc-navi-mumbai",
+    name: "TTC Navi Mumbai",
+    state: "Maharashtra",
+    stateSlug: "maharashtra",
+    lgdCode: 52103,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Navi_Mumbai",
+    overview:
+      "Trans-Thane Creek (TTC) MIDC along the Thane-Belapur road is a powerhouse industrial and data center corridor spanning Airoli, Mahape, Turbhe, and Pawane.",
+    economicProfile:
+      "Specialty chemicals, hyperscale data center parks, electronics assembly, IT campuses (Mindspace), and cold chain logistics.",
+    dominantIndustries: ["Specialty Chemicals", "Hyperscale Data Centers", "Electronics Assembly", "IT/ITeS Services"],
+    clusters: [
+      {
+        name: "Thane-Belapur Industrial Corridor",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Mahape Millennium Business Park", "Turbhe Industrial Complex", "Pawane Chemical Estate"],
+      },
+      {
+        name: "Airoli Mindspace & Gigaplex SEZ",
+        type: "IT Park",
+        keyZones: ["Mindspace Airoli East & West", "L&T Seawoods Tech Park"],
+      },
+    ],
+    localComplianceNuance:
+      "Navi Mumbai Municipal Corporation (NMMC) trade licensing, MPCB chemical consent renewals (hazardous waste Form 1/3), DISH industrial safety, and Mahagst PT returns.",
+    averageSourcingSLA: "24–72 hours for chemical plant operators, data center infrastructure engineers, and IT specialists",
+    nearbyHubs: [
+      { name: "Mumbai", slug: "mumbai" },
+      { name: "Taloja", slug: "taloja" },
+      { name: "Pune", slug: "pune" },
+    ],
+  },
+
+  taloja: {
+    slug: "taloja",
+    name: "Taloja Industrial Area",
+    state: "Maharashtra",
+    stateSlug: "maharashtra",
+    lgdCode: 52104,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Taloja",
+    overview:
+      "Taloja MIDC in Raigad district is one of Western India's most significant chemical, metallurgical, and heavy process manufacturing complexes.",
+    economicProfile:
+      "Heavy chemicals, industrial gases, float glass (Asahi), bulk pharmaceuticals, and cryogenic storage facilities.",
+    dominantIndustries: ["Chemical Processing", "Heavy Metallurgy", "Float Glass Manufacturing", "Bulk Drugs & APIs"],
+    clusters: [
+      {
+        name: "Taloja MIDC Phase 1 & 2",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Chemical Zone CETP Corridor", "Engineering & Steel Zone", "Food Processing Park"],
+      },
+      {
+        name: "Navi Mumbai Airport Influence Notified Area (NAINA)",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["Taloja Logistics Hub", "JNPT Port Container Corridor"],
+      },
+    ],
+    localComplianceNuance:
+      "Strict MPCB red-category pollution clearance, on-site emergency plans under Chemical Accidents (Emergency Planning) Rules 1996, DISH safety audits, and Factories Act Form 1 stability certification.",
+    averageSourcingSLA: "24–48 hours for boiler operators, chemical plant engineers, and EHS safety officers",
+    nearbyHubs: [
+      { name: "Mumbai", slug: "mumbai" },
+      { name: "TTC-Navi-Mumbai", slug: "ttc-navi-mumbai" },
+      { name: "Pune", slug: "pune" },
+    ],
+  },
+
+  "chhatrapati-sambhajinagar": {
+    slug: "chhatrapati-sambhajinagar",
+    name: "Chhatrapati Sambhajinagar",
+    state: "Maharashtra",
+    stateSlug: "maharashtra",
+    lgdCode: 52105,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Aurangabad,_Maharashtra",
+    overview:
+      "Chhatrapati Sambhajinagar (formerly Aurangabad) is Central Maharashtra's industrial flagship, anchored by the AURIC smart city, automotive giants, and pharma MNCs.",
+    economicProfile:
+      "Automobile assembly (Bajaj Auto, Skoda Auto Volkswagen), pharmaceutical formulations (Lupin, Ajanta, Wockhardt), and precision engineering.",
+    dominantIndustries: ["Automotive & Two-Wheelers", "Pharmaceutical Formulations", "AURIC Smart Manufacturing", "Beer & Breweries"],
+    clusters: [
+      {
+        name: "AURIC Shendra-Bidkin Smart City",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["AURIC Shendra Industrial Node", "Bidkin Mega Industrial Belt", "Hyosung Textile Complex"],
+      },
+      {
+        name: "Waluj & Chikalthana MIDC",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Waluj Auto Ancillary Zone", "Chikalthana Pharma Estate", "Railway Station Industrial Area"],
+      },
+    ],
+    localComplianceNuance:
+      "Maharashtra S&E Act 2017, DISH Chhatrapati Sambhajinagar regional sanctions, MPCB industrial effluent oversight, and Mahagst PTRC compliance.",
+    averageSourcingSLA: "24–72 hours for formulation chemists, mechanical engineers, and production line workers",
+    nearbyHubs: [
+      { name: "Pune", slug: "pune" },
+      { name: "Nashik", slug: "mumbai" },
+      { name: "Nagpur", slug: "nagpur" },
+    ],
+  },
+
+  // 3. TAMIL NADU INDUSTRIAL HUBS
+  "sriperumbudur-oragadam": {
+    slug: "sriperumbudur-oragadam",
+    name: "Sriperumbudur-Oragadam",
+    state: "Tamil Nadu",
+    stateSlug: "tamil-nadu",
+    lgdCode: 62201,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Sriperumbudur",
+    overview:
+      "The Sriperumbudur-Oragadam belt on the Chennai-Bengaluru highway is India's foremost automotive and high-tech electronic hardware corridor.",
+    economicProfile:
+      "Global automotive OEMs (Hyundai, Daimler, Renault-Nissan, Royal Enfield) and tier-1 electronic EMS giants (Foxconn, Pegatron, Salcomp).",
+    dominantIndustries: ["Automobile OEMs", "Electronics EMS & Smartphones", "Heavy Commercial Vehicles", "Solar Equipment"],
+    clusters: [
+      {
+        name: "SIPCOT Industrial Park Sriperumbudur",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Hyundai Motor Complex", "Foxconn EMS Zone", "Mambakkam Industrial Layout"],
+      },
+      {
+        name: "SIPCOT Oragadam & Vallam Vadagal",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Daimler Commercial Vehicle Complex", "Renault-Nissan Corridor", "Vallam Vadagal Aerospace Park"],
+      },
+    ],
+    localComplianceNuance:
+      "DISH Tamil Nadu Form 1 clearances, Section 59 overtime limits, female night-shift transport orders under Tamil Nadu Factories Rules, and bi-annual GCC/ULB Professional Tax.",
+    averageSourcingSLA: "24–48 hours for electronics assembly operators, SMT technicians, and automotive assembly fitters",
+    nearbyHubs: [
+      { name: "Chennai", slug: "chennai" },
+      { name: "Ambattur", slug: "ambattur" },
+      { name: "Hosur", slug: "hosur" },
+    ],
+  },
+
+  ambattur: {
+    slug: "ambattur",
+    name: "Ambattur Industrial Estate",
+    state: "Tamil Nadu",
+    stateSlug: "tamil-nadu",
+    lgdCode: 62202,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Ambattur",
+    overview:
+      "Ambattur Industrial Estate is one of South Asia's largest dedicated MSME manufacturing zones, spanning over 1,400 acres in North Chennai.",
+    economicProfile:
+      "Automotive ancillaries, precision machining, textile garments, plastics, and enterprise data centers (AdaniConnex, Equinix).",
+    dominantIndustries: ["Auto Ancillary & Precision Tooling", "Garment Manufacturing", "Enterprise Data Centers", "Plastic Injection Moulding"],
+    clusters: [
+      {
+        name: "Ambattur Industrial Estate Phases 1–3",
+        type: "Manufacturing / Industrial",
+        keyZones: ["South Phase Engineering Hub", "North Phase Auto Zone", "Pattaravakkam Electronics Complex"],
+      },
+      {
+        name: "Ambattur IT & Data Center Enclave",
+        type: "IT Park",
+        keyZones: ["Prince Info Park", "Ambit IT Park", "Ambattur Data Center Corridor"],
+      },
+    ],
+    localComplianceNuance:
+      "Greater Chennai Corporation (GCC) Section 287 D&O trade licenses, TNPCB environmental clearances, DISH safety audits, and Tamil Nadu Labour Welfare Fund compliance.",
+    averageSourcingSLA: "24–48 hours for lathe operators, quality checkers, and industrial supervisors",
+    nearbyHubs: [
+      { name: "Chennai", slug: "chennai" },
+      { name: "Sriperumbudur-Oragadam", slug: "sriperumbudur-oragadam" },
+      { name: "Coimbatore", slug: "coimbatore" },
+    ],
+  },
+
+  hosur: {
+    slug: "hosur",
+    name: "Hosur SIPCOT",
+    state: "Tamil Nadu",
+    stateSlug: "tamil-nadu",
+    lgdCode: 62203,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Hosur",
+    overview:
+      "Hosur SIPCOT on the Tamil Nadu-Karnataka border is India's fastest-growing Electric Vehicle (EV), precision watchmaking, and automotive manufacturing hub.",
+    economicProfile:
+      "Electric two-wheelers (Ather, Ola Electric, TVS), commercial vehicles (Ashok Leyland), precision horology (Titan), and industrial automation.",
+    dominantIndustries: ["Electric Vehicles (EV)", "Automobile Manufacturing", "Horology & Precision Engineering", "Commercial Vehicles"],
+    clusters: [
+      {
+        name: "SIPCOT Industrial Complex Phases 1 & 2",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Titan Precision Campus", "Ashok Leyland Plants 1 & 2", "TVS Motor Enclave"],
+      },
+      {
+        name: "Moranapalli & Pochampalli Future EV Park",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Ola Futurefactory Corridor", "Ather Energy Manufacturing Hub", "Pochampalli SIPCOT Phase 3"],
+      },
+    ],
+    localComplianceNuance:
+      "Cross-border inter-state workforce compliance between Karnataka and Tamil Nadu, DISH Krishnagiri approvals, and Tamil Nadu half-yearly Professional Tax.",
+    averageSourcingSLA: "24–48 hours for EV battery pack technicians, mechatronics engineers, and assembly operators",
+    nearbyHubs: [
+      { name: "Bengaluru", slug: "bengaluru" },
+      { name: "Bommasandra-Jigani", slug: "bommasandra-jigani" },
+      { name: "Chennai", slug: "chennai" },
+    ],
+  },
+
+  tiruppur: {
+    slug: "tiruppur",
+    name: "Tiruppur",
+    state: "Tamil Nadu",
+    stateSlug: "tamil-nadu",
+    lgdCode: 62204,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Tiruppur",
+    overview:
+      "Tiruppur is known as the 'Knitwear Capital of India', accounting for over 50% of the country's total cotton knitwear and apparel exports.",
+    economicProfile:
+      "Cotton spinning, computerized knitting, zero-liquid discharge (ZLD) dyeing units, and apparel export houses supplying global fashion brands.",
+    dominantIndustries: ["Cotton Knitwear Exports", "Garment Manufacturing", "Zero Liquid Discharge (ZLD) Processing", "Textile Machinery"],
+    clusters: [
+      {
+        name: "Netaji Apparel Park & TEKIC",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Netaji Apparel Park (NAP)", "Tiruppur Export Knitwear Industrial Complex", "Avinashi Road Garment Zone"],
+      },
+      {
+        name: "Kunnathur & Palladam Hi-Tech Weaving Parks",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Palladam Hi-Tech Weaving Park", "Mangalam Dyeing & Printing Cluster"],
+      },
+    ],
+    localComplianceNuance:
+      "High scrutiny on Contract Labour CLRA register maintenance, Factories Act canteen and crèche facilities, TNPCB zero-liquid discharge compliance, and statutory minimum wages.",
+    averageSourcingSLA: "24–48 hours for skilled sewing operators, pattern cutters, and merchandising coordinators",
+    nearbyHubs: [
+      { name: "Coimbatore", slug: "coimbatore" },
+      { name: "Chennai", slug: "chennai" },
+      { name: "Kochi", slug: "kochi" },
+    ],
+  },
+
+  // 4. GUJARAT INDUSTRIAL HUBS
+  sanand: {
+    slug: "sanand",
+    name: "Sanand GIDC",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    lgdCode: 49401,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Sanand",
+    overview:
+      "Sanand GIDC is Gujarat's premier automotive and newly emerging semiconductor assembly capital, hosting Tata Motors, Micron Technology, and multinational tier-1s.",
+    economicProfile:
+      "Passenger car manufacturing, semiconductor ATMP packaging, cleanroom robotics, and consumer electronics.",
+    dominantIndustries: ["Automobile Assembly", "Semiconductor ATMP", "Consumer Electronics", "Precision Forgings"],
+    clusters: [
+      {
+        name: "Sanand GIDC Phase 1 & 2",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Tata Motors EV Assembly Plant", "Micron Semiconductor Cleanroom Park", "Colgate-Palmolive FMCG Hub"],
+      },
+      {
+        name: "Khoraj-Sanand Mega Industrial Park",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Khoraj Industrial Area", "Sanand Auto Ancillary Enclave"],
+      },
+    ],
+    localComplianceNuance:
+      "Governed by Gujarat Factories Rules, DISH Ahmedabad Form 1 site clearances, Gujarat Notification GHN-35 Professional Tax (≤₹12,000 exempt), and GPCB environmental consents.",
+    averageSourcingSLA: "24–48 hours for cleanroom technicians, assembly fitters, and electrical maintenance staff",
+    nearbyHubs: [
+      { name: "Ahmedabad", slug: "ahmedabad" },
+      { name: "Changodar", slug: "changodar" },
+      { name: "Vadodara", slug: "vadodara" },
+    ],
+  },
+
+  changodar: {
+    slug: "changodar",
+    name: "Changodar Industrial Belt",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    lgdCode: 49402,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Ahmedabad",
+    overview:
+      "Changodar on the Ahmedabad-Rajkot highway is one of Western India's densest pharmaceutical machinery, logistics warehousing, and packaging corridors.",
+    economicProfile:
+      "Pharma packaging machines, automated warehouse logistics, plastic blow moulding, and engineering fabrications.",
+    dominantIndustries: ["Pharma Packaging Machinery", "Automated Warehousing & 3PL", "Plastic Moulding", "Industrial Hardware"],
+    clusters: [
+      {
+        name: "Changodar-Moraiya Industrial Estate",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Moraiya Pharma Zone", "Changodar Engineering Layout", "Sarkhej-Bawla Logistics Strip"],
+      },
+      {
+        name: "Matoda GIDC & Sari Industrial Area",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Matoda GIDC Cluster", "Sari Engineering Park"],
+      },
+    ],
+    localComplianceNuance:
+      "High volume warehousing CLRA contractor management, GPCB air/water consent compliance, and AMC/District Panchayat trade licensing.",
+    averageSourcingSLA: "24–48 hours for forklift operators, warehouse supervisors, and machinery assemblers",
+    nearbyHubs: [
+      { name: "Ahmedabad", slug: "ahmedabad" },
+      { name: "Sanand", slug: "sanand" },
+      { name: "Vadodara", slug: "vadodara" },
+    ],
+  },
+
+  "dahej-bharuch": {
+    slug: "dahej-bharuch",
+    name: "Dahej-Bharuch PCPIR",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    lgdCode: 49403,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Dahej",
+    overview:
+      "Dahej is India's flagship Petroleum, Chemicals and Petrochemicals Investment Region (PCPIR) with dedicated deep-water chemical port terminals.",
+    economicProfile:
+      "Petrochemical complexes (OPaL, ONGC), specialty agrochemicals, caustic soda, LNG terminals (Petronet), and bulk synthetic fibers.",
+    dominantIndustries: ["Petrochemical Cracking", "Specialty Agrochemicals", "Bulk Polymers & PVC", "LNG & Cryogenic Terminals"],
+    clusters: [
+      {
+        name: "Dahej PCPIR Special Investment Region",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["OPaL Petrochemical Complex", "Dahej SEZ Part 1 & 2", "Reliance Dahej Manufacturing Division"],
+      },
+      {
+        name: "Bharuch-Ankleshwar Chemical Belt",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Ankleshwar GIDC", "Panoli Industrial Area", "Jhagadia Mega Industrial Estate"],
+      },
+    ],
+    localComplianceNuance:
+      "Stringent GPCB Red-Category consent management, Major Accident Hazard (MAH) safety drills under Factories Act Section 41B, and dangerous goods transport compliance.",
+    averageSourcingSLA: "24–48 hours for chemical process operators, DCS controllers, and safety managers",
+    nearbyHubs: [
+      { name: "Vadodara", slug: "vadodara" },
+      { name: "Surat", slug: "surat" },
+      { name: "Ahmedabad", slug: "ahmedabad" },
+    ],
+  },
+
+  morbi: {
+    slug: "morbi",
+    name: "Morbi",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    lgdCode: 49404,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Morbi",
+    overview:
+      "Morbi is the world's second-largest ceramic tile manufacturing powerhouse, producing over 80% of India's ceramic wall and floor tiles.",
+    economicProfile:
+      "Vitrified floor tiles, glazed ceramic wall tiles, sanitaryware, packaging boxes, and industrial clay processing.",
+    dominantIndustries: ["Ceramic & Vitrified Tiles", "Sanitaryware", "Corrugated Packaging", "Paper Mills"],
+    clusters: [
+      {
+        name: "Morbi-Wankaner Ceramic Highway",
+        type: "Manufacturing / Industrial",
+        keyZones: ["8-A National Highway Ceramic Zone", "Lakhdhirpur Road Tile Belt", "Halvad Industrial Area"],
+      },
+      {
+        name: "Pipali-Jetpar Industrial Cluster",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Pipali Road Vitrified Hub", "Jetpar Heavy Clay Estate"],
+      },
+    ],
+    localComplianceNuance:
+      "DISH factory inspections for continuous kilns and heavy presses, GPCB coal-gasifier and PNG conversion monitoring, and contract labour muster audits.",
+    averageSourcingSLA: "24–48 hours for kiln operators, ceramic technologists, and loading supervisors",
+    nearbyHubs: [
+      { name: "Rajkot", slug: "ahmedabad" },
+      { name: "Ahmedabad", slug: "ahmedabad" },
+      { name: "Surat", slug: "surat" },
+    ],
+  },
+
+  "savli-vadodara": {
+    slug: "savli-vadodara",
+    name: "Savli-Vadodara",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    lgdCode: 49405,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Savli,_Gujarat",
+    overview:
+      "Savli GIDC in Vadodara district is a globally recognized manufacturing cluster for railway rolling stock, power grid equipment, and heavy transformers.",
+    economicProfile:
+      "High-speed passenger rail coaches (Alstom), mega power transformers (ABB, Schneider), wind energy towers, and precision machine tools.",
+    dominantIndustries: ["Railway Rolling Stock & Locomotives", "Power Transmission Transformers", "Wind Turbine Engineering", "Heavy Electricals"],
+    clusters: [
+      {
+        name: "Savli GIDC Industrial Estate",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Alstom Rolling Stock Metro Facility", "Heavy Electrical Transformer Zone", "Manjusar GIDC Layout"],
+      },
+      {
+        name: "Makarpura GIDC Engineering Hub",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Makarpura Industrial Estate", "GIDC Electrical Enclave", "Gorwa Ancillary Park"],
+      },
+    ],
+    localComplianceNuance:
+      "Factories Act heavy crane and lifting equipment stability certification (Form 1-A), DISH Vadodara licenses, and Gujarat Professional Tax adherence.",
+    averageSourcingSLA: "24–48 hours for rolling stock electrical technicians, certified welders, and testing engineers",
+    nearbyHubs: [
+      { name: "Vadodara", slug: "vadodara" },
+      { name: "Ahmedabad", slug: "ahmedabad" },
+      { name: "Dahej-Bharuch", slug: "dahej-bharuch" },
+    ],
+  },
+
+  // 5. ODISHA INDUSTRIAL HUBS
+  kalinganagar: {
+    slug: "kalinganagar",
+    name: "Kalinganagar Steel City",
+    state: "Odisha",
+    stateSlug: "odisha",
+    lgdCode: 38801,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Kalinganagar",
+    overview:
+      "Kalinganagar in Jajpur district is India's largest modern metallurgy and integrated steel manufacturing hub, anchored by Tata Steel and Jindal Stainless.",
+    economicProfile:
+      "Integrated blast furnace steel production, cold rolling mills, stainless steel sheets, ferroalloys, and captive power plants.",
+    dominantIndustries: ["Integrated Steel Production", "Stainless Steel", "Ferroalloys & Chrome Smelting", "Heavy Machinery Fabrication"],
+    clusters: [
+      {
+        name: "Kalinganagar Industrial Complex (KNIC)",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Tata Steel Kalinganagar Plant", "Jindal Stainless Mega Complex", "Neelachal Ispat Nigam Enclave"],
+      },
+      {
+        name: "Duburi & Danagadi Metallurgy Corridor",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Duburi Ferrochrome Zone", "IDCO Common Corridor"],
+      },
+    ],
+    localComplianceNuance:
+      "CRITICAL: Odisha PT Act 2000 repealed effective April 1, 2026 (Flat ₹0 PT). DISH Odisha Major Hazard safety oversight, OSPCB blast furnace emissions monitoring, and high-volume CLRA contract labour adherence.",
+    averageSourcingSLA: "24–48 hours for blast furnace operators, rolling mill technicians, and safety engineers",
+    nearbyHubs: [
+      { name: "Bhubaneswar", slug: "bhubaneswar" },
+      { name: "Paradeep-Port", slug: "paradeep-port" },
+      { name: "Kolkata", slug: "kolkata" },
+    ],
+  },
+
+  jharsuguda: {
+    slug: "jharsuguda",
+    name: "Jharsuguda",
+    state: "Odisha",
+    stateSlug: "odisha",
+    lgdCode: 38802,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Jharsuguda",
+    overview:
+      "Jharsuguda, known as the 'Powerhouse of Odisha', is home to one of the world's largest single-location aluminum smelters and thermal power complexes.",
+    economicProfile:
+      "Primary aluminum smelting (Vedanta), captive thermal power generation, secondary metal processing, and heavy coal mining ancillaries.",
+    dominantIndustries: ["Primary Aluminum Smelting", "Thermal Power Generation", "Coal Mining Ancillaries", "Secondary Metallurgy"],
+    clusters: [
+      {
+        name: "Vedanta Aluminum & Power Zone",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Vedanta Smelter Complex", "Captive Power Plant Enclave", "Brundamal Industrial Area"],
+      },
+      {
+        name: "IDCO Industrial Estate Jharsuguda",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Phase 1 & 2 Metal Processing", "Badmal Logistics Corridor"],
+      },
+    ],
+    localComplianceNuance:
+      "Zero Professional Tax under repealed Odisha statute, DISH thermal plant safety clearances, hazardous potline emergency preparedness, and contractor labour audit rigor.",
+    averageSourcingSLA: "24–48 hours for potline operators, turbine engineers, and industrial instrumentation specialists",
+    nearbyHubs: [
+      { name: "Rourkela", slug: "rourkela" },
+      { name: "Kalinganagar", slug: "kalinganagar" },
+      { name: "Bhubaneswar", slug: "bhubaneswar" },
+    ],
+  },
+
+  "paradeep-port": {
+    slug: "paradeep-port",
+    name: "Paradeep Port City",
+    state: "Odisha",
+    stateSlug: "odisha",
+    lgdCode: 38803,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Paradip",
+    overview:
+      "Paradeep is Eastern India's primary deep-water port city and the hub of the Odisha Petroleum, Chemicals and Petrochemical Investment Region (PCPIR).",
+    economicProfile:
+      "Crude oil refining (IOCL 15 MMTPA refinery), phosphatic fertilizers (IFFCO, Paradeep Phosphates), port logistics, and pelletization plants.",
+    dominantIndustries: ["Petroleum Refining & Petrochemicals", "Phosphatic Fertilizers", "Port Marine Logistics", "Iron Ore Pelletization"],
+    clusters: [
+      {
+        name: "IOCL Refinery & Petrochemical PCPIR",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["IOCL Mega Refinery Complex", "Petrochemical Downstream Park", "Plastic Park Paradeep"],
+      },
+      {
+        name: "Paradeep Port Trust & Fertilizer Belt",
+        type: "Manufacturing / Industrial",
+        keyZones: ["IFFCO Paradeep Complex", "PPL Chemical Fertilizer Hub", "Port Logistics Enclave"],
+      },
+    ],
+    localComplianceNuance:
+      "Dock Workers (Safety, Health and Welfare) Act, DISH chemical refinery safety audits, OSPCB marine discharge standards, and repealed Odisha PT compliance.",
+    averageSourcingSLA: "24–48 hours for refinery process technicians, stevedoring coordinators, and chemical laboratory analysts",
+    nearbyHubs: [
+      { name: "Bhubaneswar", slug: "bhubaneswar" },
+      { name: "Kalinganagar", slug: "kalinganagar" },
+      { name: "Kolkata", slug: "kolkata" },
+    ],
+  },
+
+  rourkela: {
+    slug: "rourkela",
+    name: "Rourkela Steel City",
+    state: "Odisha",
+    stateSlug: "odisha",
+    lgdCode: 38804,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Rourkela",
+    overview:
+      "Rourkela in Sundargarh district is India's historic public-sector steel pioneer, anchored by the 4.5 MMTPA SAIL Rourkela Steel Plant (RSP).",
+    economicProfile:
+      "Heavy steel plates, Silicon steel for electrical power transformers, heavy fabrication, structural engineering, and refractories.",
+    dominantIndustries: ["Integrated Public-Sector Steel", "Special Plates for Defense", "Heavy Machine Fabrication", "Refractory Materials"],
+    clusters: [
+      {
+        name: "SAIL Rourkela Steel Plant (RSP) Complex",
+        type: "Manufacturing / Industrial",
+        keyZones: ["RSP Blast Furnace & Plate Mill", "Silicon Steel Mill (SSM)", "Captive Power Plant 1 & 2"],
+      },
+      {
+        name: "Kalunga Industrial Estate",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Kalunga Heavy Fabrication Belt", "IDCO Sponge Iron Enclave", "Civil Township Light Industry"],
+      },
+    ],
+    localComplianceNuance:
+      "Public sector vendor governance, DISH boiler inspections, Mines Act interlock compliances for captive iron mines, and zero PT liability under repealed Odisha statute.",
+    averageSourcingSLA: "24–48 hours for structural welders, NDT testing technicians, and heavy equipment mechanics",
+    nearbyHubs: [
+      { name: "Jharsuguda", slug: "jharsuguda" },
+      { name: "Kalinganagar", slug: "kalinganagar" },
+      { name: "Bhubaneswar", slug: "bhubaneswar" },
+    ],
+  },
+
+  // 6. NORTH & CENTRAL INDUSTRIAL HUBS
+  "imt-manesar": {
+    slug: "imt-manesar",
+    name: "IMT Manesar",
+    state: "Haryana",
+    stateSlug: "haryana",
+    lgdCode: 8501,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Manesar",
+    overview:
+      "Industrial Model Township (IMT) Manesar in Gurugram district is one of North India's premier integrated automotive, R&D, and electronics manufacturing hubs.",
+    economicProfile:
+      "Automobile assembly (Maruti Suzuki, Honda Motorcycle), automotive electronics, robotic press lines, and IT software testing.",
+    dominantIndustries: ["Automobile OEMs", "Automotive R&D", "Precision Die Casting", "Consumer Electronics"],
+    clusters: [
+      {
+        name: "IMT Manesar Phases 1–5",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Maruti Suzuki Campus Sector 8", "Honda Two-Wheeler Sector 3", "Cyber Green IT Enclave"],
+      },
+      {
+        name: "Pataudi-Bilaspur Logistics Corridor",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Bilaspur E-Commerce Mega Hub", "Binola Logistics Strip"],
+      },
+    ],
+    localComplianceNuance:
+      "Haryana Labour Department factory licensing, zero Professional Tax jurisdiction, monthly Haryana Labour Welfare Fund remittances, and standing orders certified dispute mechanisms.",
+    averageSourcingSLA: "24–48 hours for automotive assembly fitters, robotic maintenance technicians, and QA leads",
+    nearbyHubs: [
+      { name: "Gurugram", slug: "gurugram" },
+      { name: "Delhi", slug: "delhi" },
+      { name: "Bhiwadi-Neemrana", slug: "bhiwadi-neemrana" },
+    ],
+  },
+
+  "bhiwadi-neemrana": {
+    slug: "bhiwadi-neemrana",
+    name: "Neemrana-Bhiwadi",
+    state: "Rajasthan",
+    stateSlug: "rajasthan",
+    lgdCode: 11201,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Neemrana",
+    overview:
+      "The Neemrana-Bhiwadi corridor on the Delhi-Jaipur highway hosts India's premier Japanese Industrial Township, automotive manufacturing, and float glass plants.",
+    economicProfile:
+      "Japanese multinational manufacturing (Daikin, Havells, Saint-Gobain), auto ancillaries, electrical appliances, and architectural glass.",
+    dominantIndustries: ["Japanese Industrial Township", "HVAC & Air Conditioners", "Architectural Glass", "Electrical Appliances"],
+    clusters: [
+      {
+        name: "Neemrana Japanese Industrial Zone",
+        type: "Manufacturing / Industrial",
+        keyZones: ["JETRO Japanese Zone Phase 1–3", "Hero MotoCorp Garden Factory", "Daikin AC Mega Campus"],
+      },
+      {
+        name: "Bhiwadi & Khushkhera RIICO Industrial Areas",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Khushkhera Auto Ancillary Zone", "Bhiwadi Phase 1–4", "Tapukara Industrial Complex"],
+      },
+    ],
+    localComplianceNuance:
+      "Zero Professional Tax on salaries in Rajasthan, RIICO industrial building sanctions, Rajasthan Factories Rules doubled thresholds (20/40), and RSPCB environmental consent tracking.",
+    averageSourcingSLA: "24–48 hours for HVAC assembly technicians, glass cutting operators, and bilingual Japanese plant coordinators",
+    nearbyHubs: [
+      { name: "IMT-Manesar", slug: "imt-manesar" },
+      { name: "Gurugram", slug: "gurugram" },
+      { name: "Jaipur", slug: "jaipur" },
+    ],
+  },
+
+  pithampur: {
+    slug: "pithampur",
+    name: "Pithampur Industrial Area",
+    state: "Madhya Pradesh",
+    stateSlug: "madhya-pradesh",
+    lgdCode: 43601,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Pithampur",
+    overview:
+      "Pithampur in Dhar district, popularly known as the 'Detroit of Central India', is Madhya Pradesh's flagship automotive manufacturing and pharma SEZ.",
+    economicProfile:
+      "Automotive assembly (Eicher, Force Motors, Mahindra), USFDA-approved pharmaceutical formulation (Cipla, Glenmark, Lupin), and heavy machinery.",
+    dominantIndustries: ["Commercial Vehicles & Auto", "USFDA Pharma SEZ", "Heavy Construction Equipment", "Agri-Processing"],
+    clusters: [
+      {
+        name: "Pithampur Auto Belt Sectors 1–3",
+        type: "Manufacturing / Industrial",
+        keyZones: ["VE Commercial Vehicles Plant", "Force Motors Assembly Sector", "Sector 3 Heavy Engineering"],
+      },
+      {
+        name: "Pithampur Special Economic Zone (SEZ)",
+        type: "Special Economic Zone (SEZ)",
+        keyZones: ["Pharma SEZ Phase 1 & 2", "Textile & Apparel Park"],
+      },
+    ],
+    localComplianceNuance:
+      "MP Vritti Kar Adhiniyam 1995 (annual slab up to ₹2,500), DISH Indore factory licensing, MPPCB pharmaceutical discharge tracking, and semi-annual minimum wage gazettes.",
+    averageSourcingSLA: "24–48 hours for pharma formulation chemists, quality assurance officers, and CNC lathe operators",
+    nearbyHubs: [
+      { name: "Indore", slug: "indore" },
+      { name: "Vadodara", slug: "vadodara" },
+      { name: "Bhopal", slug: "indore" },
+    ],
+  },
+
+  ludhiana: {
+    slug: "ludhiana",
+    name: "Ludhiana",
+    state: "Punjab",
+    stateSlug: "punjab",
+    lgdCode: 3201,
+    tier: 2,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Ludhiana",
+    overview:
+      "Ludhiana, known as the 'Manchester of India', is Punjab's largest industrial city, producing over 75% of India's bicycles and 90% of winter woolen wear.",
+    economicProfile:
+      "Bicycle assembly and components (Hero, Avon), woolen knitwear and hosiery, auto parts, sewing machines, and diesel engines.",
+    dominantIndustries: ["Bicycle Manufacturing", "Woolen Knitwear & Hosiery", "Auto Ancillary & Hand Tools", "Diesel Engines & Tractors"],
+    clusters: [
+      {
+        name: "Focal Point Phases 1–8",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Hero Cycles Complex", "Dhandari Kalan Industrial Belt", "Phase 5 & 6 Heavy Engineering"],
+      },
+      {
+        name: "Industrial Area A & B",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Hosiery Textile Zone", "Sewing Machine Hub", "Miller Ganj Auto Parts Market"],
+      },
+    ],
+    localComplianceNuance:
+      "Punjab State Development Tax Act 2018 (flat ₹200/mo only for Income Tax payers), Punjab Factories Rules safety audits, and PPCB textile effluent oversight.",
+    averageSourcingSLA: "24–48 hours for textile machine operators, bicycle assembly workers, and industrial supervisors",
+    nearbyHubs: [
+      { name: "Chandigarh", slug: "chandigarh" },
+      { name: "Delhi", slug: "delhi" },
+      { name: "Gurugram", slug: "gurugram" },
+    ],
+  },
+
+  "greater-noida": {
+    slug: "greater-noida",
+    name: "Greater Noida",
+    state: "Uttar Pradesh",
+    stateSlug: "uttar-pradesh",
+    lgdCode: 15401,
+    tier: 1,
+    wikipediaUri: "https://en.wikipedia.org/wiki/Greater_Noida",
+    overview:
+      "Greater Noida in Gautam Buddha Nagar is North India's planned megacity for consumer electronics, smartphone manufacturing, and hyperscale data center parks.",
+    economicProfile:
+      "Smartphone manufacturing (Oppo, Vivo), consumer electronics (Haier), electric vehicle components, and enterprise data center campuses (Yotta D1).",
+    dominantIndustries: ["Smartphone & Electronics EMS", "Hyperscale Data Centers", "Consumer Electronics", "Automobile Components"],
+    clusters: [
+      {
+        name: "Ecotech Industrial Areas 1–16",
+        type: "Manufacturing / Industrial",
+        keyZones: ["Oppo Mobile Manufacturing Mega Campus", "Haier Appliance Park", "Ecotech 6 & 11 Electronics Clusters"],
+      },
+      {
+        name: "Knowledge Park & Techzone 4",
+        type: "IT Park",
+        keyZones: ["Yotta D1 Hyperscale Data Center", "Knowledge Park 3 Corporate Enclave"],
+      },
+    ],
+    localComplianceNuance:
+      "Zero Professional Tax jurisdiction in Uttar Pradesh, Nivesh Mitra single-window labour filings, DISH Gautam Buddha Nagar factory approvals, and UP Shops and Commercial Establishments Act.",
+    averageSourcingSLA: "24–48 hours for electronics assembly operators, cleanroom SMT engineers, and facility managers",
+    nearbyHubs: [
+      { name: "Noida", slug: "noida" },
+      { name: "Delhi", slug: "delhi" },
+      { name: "Gurugram", slug: "gurugram" },
     ],
   },
 };

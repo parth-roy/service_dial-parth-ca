@@ -4,9 +4,9 @@ import { SERVICES_CATALOG } from "@/data/services";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Enterprise Managed Services – Staffing, Payroll, Finance & Compliance",
+  title: "Enterprise Managed Services – Staffing, HRMS & Payroll, Finance & Compliance",
   description:
-    "Comprehensive B2B managed services architecture by Service Dial. Executive recruitment, 100% compliant payroll outsourcing, virtual CMA & audit governance, and statutory labor law defense across India.",
+    "Comprehensive B2B managed services architecture by Service Dial. Executive recruitment, 100% compliant HRMS & payroll outsourcing, virtual CMA & audit governance, and statutory labor law defense across India.",
   alternates: { canonical: "https://servicedialtm.com/services" },
 };
 
@@ -58,7 +58,7 @@ export default function ServicesHubPage() {
               </h1>
 
               <p className="font-sans text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
-                Service Dial integrates high-velocity staffing, zero-defect payroll outsourcing, financial audit controls, and proactive labor law compliance under a single institutional SLA.
+                Service Dial integrates high-velocity staffing, zero-defect HRMS &amp; payroll outsourcing, financial audit controls, and proactive labor law compliance under a single institutional SLA.
               </p>
             </div>
           </ScrollReveal>

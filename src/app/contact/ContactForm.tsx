@@ -8,7 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 const services = [
   "Staffing & Recruitment (Contract & Flexi)",
   "HRMS & Managed Payroll Outsourcing",
-  "Statutory Labour Compliance (EPFO, ESIC, WB PT & LWF)",
+  "Statutory Labour Compliance (EPFO, ESIC, Multi-State PT & Licensing)",
   "Finance & Virtual CMA Audit (CARO 2020 / Fixed Assets)",
   "Intellectual Property & Trademark Advisory",
   "Full-Suite Enterprise Managed Services",

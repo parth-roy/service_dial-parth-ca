@@ -4,7 +4,7 @@ import ContactForm from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact – Start a Confidential Conversation",
   description:
-    "Get in touch with Service Dial for staffing, payroll, finance, or compliance requirements. All inquiries are NDA-protected from first contact. Response within 24 hours.",
+    "Get in touch with Service Dial for staffing, HRMS & payroll, finance, or compliance requirements. All inquiries are NDA-protected from first contact. Response within 24 hours.",
   alternates: { canonical: "https://servicedialtm.com/contact" },
 };
 

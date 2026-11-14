@@ -12,7 +12,7 @@ const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_ID?.trim();
 export const metadata: Metadata = {
   metadataBase: new URL("https://servicedialtm.com"),
   title: {
-    default: "Service Dial – Staffing, Payroll, Finance & Compliance Solutions",
+    default: "Service Dial – Staffing, HRMS & Payroll, Finance & Compliance Solutions",
     template: "%s | Service Dial",
   },
   description:

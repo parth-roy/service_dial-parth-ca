@@ -56,7 +56,7 @@ export default function HRMSPayrollPage() {
               </div>
 
               <h1 className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.08] mb-6">
-                Payroll &amp; HRMS.{" "}
+                HRMS &amp; Payroll.{" "}
                 <span className="bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] bg-clip-text text-transparent">
                   Zero errors. 100% compliant.
                 </span>
@@ -71,13 +71,13 @@ export default function HRMSPayrollPage() {
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-xl px-7 py-3.5 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] hover:opacity-95 text-white shadow-md transition-all active:scale-95"
                 >
-                  Get Corporate Payroll Proposal →
+                  Get HRMS &amp; Payroll Proposal →
                 </Link>
                 <Link
                   href="/tools"
                   className="inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-xs sm:text-sm font-bold bg-slate-50 text-slate-800 border border-slate-200 hover:bg-slate-100 transition-all shadow-2xs"
                 >
-                  EPFO 25k &amp; WB PT Calculators ⚙️
+                  Statutory Compliance Calculators ⚙️
                 </Link>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function HRMSPayrollPage() {
                 Payroll Solutions Architecture
               </span>
               <h2 className="font-outfit text-3xl sm:text-4xl font-black text-slate-900">
-                5 Specialized Payroll &amp; Workforce Practices
+                5 Specialized HRMS &amp; Payroll Practices
               </h2>
               <p className="font-sans text-sm text-slate-600 mt-2 leading-relaxed">
                 From corporate gross-to-net salary computation to factory shift overtime and executive expat confidentiality.
@@ -202,7 +202,7 @@ export default function HRMSPayrollPage() {
                   href="/contact"
                   className="rounded-xl px-7 py-3.5 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] hover:opacity-95 text-white shadow-md transition-all active:scale-95"
                 >
-                  Schedule Payroll Strategy Session →
+                  Schedule HRMS &amp; Payroll Strategy Session →
                 </Link>
                 <Link
                   href="/tools"

@@ -598,27 +598,27 @@ export const SUBSERVICES_CATALOG: Record<string, SubService> = {
     slug: "statutory-payroll-compliance",
     pillarSlug: "hrms-and-payroll",
     pillarName: "HRMS & Payroll",
-    title: "Statutory Payroll Compliance (EPFO, ESIC, WB PT 2026)",
+    title: "Pan-India Multi-State Statutory Payroll Compliance (EPFO, ESIC, Multi-State PT & LWF)",
     shortTitle: "Statutory Compliance",
-    badge: "2026 Statutory Updates",
-    tagline: "EPFO ₹25,000 Wage Ceiling Split, West Bengal Revised PT Slabs (Oct 2026) & Multi-State LWF Returns",
-    metaTitle: "Statutory Payroll Compliance | EPFO ₹25,000 & WB PT 2026 | Service Dial",
-    metaDescription: "Stay 100% compliant with the 2026 EPFO ₹25,000 wage ceiling hike, West Bengal revised PT slabs (Notification 1607-F.T.), ESIC, and bi-annual LWF filings. Zero penalties guaranteed.",
-    blufSummary: "Service Dial provides end-to-end statutory payroll compliance shielding employers from regulatory liabilities. We implement the latest 2026 labor mandates including the EPFO ₹25,000 wage ceiling transition, West Bengal Salaried PT overhaul (4 revised tiers under Notification 1607-F.T. effective 1 Oct 2026), ESIC Form 5 submissions, and multi-state Labour Welfare Fund returns.",
+    badge: "Pan-India Compliance",
+    tagline: "EPFO Wage Restructuring, Pan-India Multi-State Professional Tax Matrix & Multi-State LWF Returns",
+    metaTitle: "Pan-India Statutory Payroll Compliance | EPFO, ESIC & Multi-State PT | Service Dial",
+    metaDescription: "100% statutory payroll compliance across 28 States & 8 UTs. EPFO wage ceiling transition, multi-state Professional Tax deduction (Karnataka, Maharashtra, Gujarat, Telangana, TN, WB), ESIC, and bi-annual LWF filings.",
+    blufSummary: "Service Dial delivers comprehensive multi-state statutory payroll governance shielding corporate employers from penalties and labor tribunal disputes. We manage unified pan-India filings including EPFO ECR generation, ESIC monthly contributions, state-by-state Professional Tax deductions across 28 states (incorporating Karnataka 2023 amendments, Maharashtra women exemptions, and Odisha PT abolition), and state Labour Welfare Fund returns.",
     regulatoryFramework: [
-      "EPFO Notification S.O. 5109(E) (Hike of Wage Ceiling from ₹15,000 to ₹25,000)",
-      "West Bengal State PT Notification No. 1607-F.T. (Revised Slabs Effective 1 Oct 2026)",
+      "EPFO Compliance & Notification S.O. 5109(E) (Statutory Wage Thresholds)",
+      "Multi-State Professional Tax Acts across 28 States & UTs (PTRC / PTEC)",
       "Employees' State Insurance Act 1948 (₹21,000 Wage Limit & Bi-Annual Form 5 Returns)",
-      "State Labour Welfare Fund (LWF) Acts (June & December Deductions)",
+      "State Labour Welfare Fund (LWF) Acts across 16+ States (June & December Deductions)",
     ],
     keyCapabilities: [
       {
-        title: "EPFO ₹25,000 Wage Ceiling Impact Modeling",
-        description: "Re-benchmarking employee salary structures to account for the mandatory ₹25,000 EPFO ceiling hike, computing revised 12% PF contributions and managing opt-out caps."
+        title: "Pan-India Multi-State Professional Tax Administration",
+        description: "Automated salary deductions and monthly/annual return filings across all 28 states, incorporating Karnataka e-Prerana, Maharashtra Mahagst, Gujarat, Telangana TGCT, Tamil Nadu ULBs, and West Bengal GRIPS."
       },
       {
-        title: "West Bengal Revised PT 2026 Automation",
-        description: "Applying the newly enacted 4-tier salaried PT slabs: ₹0 up to ₹10,000; ₹110 for ₹10,001–₹15,000; ₹130 for ₹15,001–₹25,000; and ₹200 for > ₹25,000."
+        title: "EPFO Wage Split & CTC Restructuring",
+        description: "Benchmarking employee salary components, calculating statutory 12% PF contributions, managing 8.33% EPS caps, and ensuring flawless tax-efficient CTC structuring."
       },
       {
         title: "Monthly ECR Filing & Challan Generation",
@@ -626,14 +626,14 @@ export const SUBSERVICES_CATALOG: Record<string, SubService> = {
       },
       {
         title: "Bi-Annual LWF & Annual Return Management",
-        description: "Executing June and December state Labour Welfare Fund deductions, submitting Form A/D returns, and maintaining statutory registers (Form 1, 2, 3)."
+        description: "Executing June and December state Labour Welfare Fund deductions, submitting Form A/D returns, and maintaining statutory registers across all operational states."
       }
     ],
     deliverables: [
       "Monthly EPFO Electronic Challan cum Return (ECR) & TRRN Payment Receipts",
       "Monthly ESIC Contribution Challans & Medical Card (Pehchan) Issuance Dossier",
-      "State-Wise Professional Tax Challans & Monthly/Annual Return Filings",
-      "Bi-Annual Labour Welfare Fund (LWF) Deposit Receipts & Forms",
+      "Multi-State Professional Tax Challans & Monthly/Annual Return Filings across 28 States",
+      "Bi-Annual Labour Welfare Fund (LWF) Deposit Receipts & State Board Forms",
       "Statutory Audit Dossier with Form 7A / ESIC Inspection Ready Papers"
     ],
     slaMetrics: [
@@ -643,12 +643,12 @@ export const SUBSERVICES_CATALOG: Record<string, SubService> = {
     ],
     faqs: [
       {
-        question: "How will the EPFO ₹25,000 wage ceiling hike affect corporate employer CTC?",
-        answer: "The increase from ₹15,000 to ₹25,000 raises mandatory employer PF contribution from ₹1,800 to ₹3,000 per month (an extra ₹1,200/month or ₹14,400/year per eligible employee). We restructure CTC allowances to maintain cost-neutrality or budget compliance."
+        question: "How does Service Dial manage Professional Tax for employees spread across multiple Indian states?",
+        answer: "We maintain automated tax engines mapped to each employee's state of domicile or workstation. Whether an employee is based in Karnataka (₹200/mo above ₹25,000), Maharashtra (women exempt up to ₹25,000), Gujarat, Telangana, or a nil-PT state like Delhi or Haryana, exact statutory tax is deducted and deposited with the respective state commercial tax portal."
       },
       {
-        question: "What are the new West Bengal Salaried PT slabs effective 1 October 2026?",
-        answer: "Under Notification No. 1607-F.T., the slabs are: Gross salary up to ₹10,000 = Nil; ₹10,001 to ₹15,000 = ₹110/month; ₹15,001 to ₹25,000 = ₹130/month; and Greater than ₹25,000 = ₹200/month."
+        question: "Is Professional Tax applicable in Odisha?",
+        answer: "No. The Odisha State Tax on Professions, Trades, Callings and Employments Act, 2000 has been formally repealed by the Government of Odisha with effect from April 1, 2026. Employers in Odisha are not required to deduct Professional Tax from employee salaries."
       },
       {
         question: "What happens if our company receives an EPFO Section 7A inquiry notice?",
@@ -1536,6 +1536,390 @@ export const SUBSERVICES_CATALOG: Record<string, SubService> = {
       {
         question: "How should an employer manage a domestic inquiry for serious employee misconduct?",
         answer: "The inquiry must strictly adhere to principles of natural justice: issuing a specific charge sheet, granting adequate time to reply, appointing an unbiased external inquiry officer, providing witness cross-examination rights, and recording formal findings before any termination action is taken."
+      }
+    ]
+  },
+
+  "municipal-trade-license-compliance": {
+    slug: "municipal-trade-license-compliance",
+    pillarSlug: "compliance-services",
+    pillarName: "Compliance Services",
+    title: "Municipal Trade License, Health Permits & D&O Clearances",
+    shortTitle: "Municipal Trade Licenses",
+    badge: "Urban Civic Compliance",
+    tagline: "BBMP, BMC, GHMC, MCD, GCC, KMC Trade Licenses, Health Trade Permits & D&O Operating Clearances",
+    metaTitle: "Municipal Trade License Registration & Health Permits Pan-India | Service Dial",
+    metaDescription: "End-to-end Municipal Trade License procurement across Tier 1, 2, and 3 cities. BBMP Sec 305, BMC Sec 394, GHMC Sec 521, MCD Sec 417, Health Trade licenses, and D&O storage permits.",
+    blufSummary: "Service Dial procures and manages statutory Municipal Trade Licenses, Health Trade Permits, and Dangerous & Offensive (D&O) storage clearances across 15+ metropolitan corporations (BBMP, BMC, GHMC, MCD, GCC, KMC, PMC, AMC). We handle property tax PID mapping, fire setback validations, public health sanitary scrutiny, and annual online renewals to prevent premises sealing and utility disconnections.",
+    regulatoryFramework: [
+      "Bruhat Bengaluru Mahanagara Palike (BBMP) Act 2020 (Section 305) / e-Trade Portal",
+      "Mumbai Municipal Corporation Act 1888 (Section 394 read with Schedule M)",
+      "Greater Hyderabad Municipal Corporation Act 1955 (Section 521 / TS-bPASS)",
+      "Delhi Municipal Corporation Act 1957 (Section 417 / Category A to H Licensing)",
+      "Chennai City Municipal Corp Act 1919 & Kolkata Municipal Corp Act 1980 (Sec 199 CE)",
+    ],
+    keyCapabilities: [
+      {
+        title: "General & Commercial Trade Licenses",
+        description: "Procuring initial trade licenses for corporate offices, retail establishments, IT/ITeS campuses, and commercial warehouses from local municipal wards."
+      },
+      {
+        title: "Food & Health Trade Permits (HTL)",
+        description: "Executing dual-mandate compliance for corporate cafeterias, cloud kitchens, and restaurants: harmonizing FSSAI food safety standards with municipal sanitary health permits."
+      },
+      {
+        title: "Dangerous & Offensive (D&O) Trades & Storage Permits",
+        description: "Obtaining specialized trade licenses for machinery-driven manufacturing, combustible chemical storage, timber yards, and DG set installations under municipal hazard schedules."
+      },
+      {
+        title: "Annual Civic Renewals & Compounding Penalty Defense",
+        description: "Filing digital renewals before statutory cutoff dates (e.g., Feb 28 in Bengaluru, March 31 in Mumbai/Hyderabad), preventing 25%–50% compounding penalty surcharges."
+      }
+    ],
+    deliverables: [
+      "Municipal Trade Identification Number (TIN) & Digital Certificate",
+      "Health Trade License (HTL) Sanitary Inspection Clearance Dossier",
+      "Dangerous & Offensive (D&O) Storage & Machine Power Endorsement",
+      "Property Tax PID & Commercial Occupancy Alignment Certificate",
+      "Municipal Magistrate Summons Defense & Premises Sealing Prevention Dossier"
+    ],
+    slaMetrics: [
+      { label: "Provisional TIN Generation", value: "3 to 5 Business Days", detail: "Fast-track digital submission across municipal single-window portals" },
+      { label: "Annual Renewal Window", value: "30 Days Prior to Cutoff", detail: "Automated renewal filing preventing late payment compounding surcharges" },
+      { label: "Pan-India Municipal Reach", value: "15+ Municipal Corporations", detail: "Direct liaison with ward licensing inspectors and medical health officers" }
+    ],
+    faqs: [
+      {
+        question: "Why does an office or commercial business require a Municipal Trade License?",
+        answer: "Under respective State Municipal Corporation Acts (e.g. Section 305 of BBMP Act 2020 or Section 394 of Mumbai Municipal Corporation Act 1888), every commercial activity operating within municipal corporation limits must obtain a trade license to certify that the premises adhere to local zoning, structural load, fire safety, and environmental sanitation standards."
+      },
+      {
+        question: "What is the penalty for operating a business without a valid Trade License?",
+        answer: "Municipal authorities hold statutory powers to issue closure notices, seize trade stock/machinery, impose compounding penalty fines ranging from 2x to 5x the regular fee, disconnect municipal water/power lines, and physically lock and seal the premises under police assistance."
+      },
+      {
+        question: "Is an FSSAI license sufficient for running an eatery or commercial cafeteria?",
+        answer: "No. Operating an eating house or corporate cafeteria requires both an FSSAI license (governing food standards under Central law) and a Municipal Health Trade License (governing physical premises hygiene, grease traps, water potability, and solid waste segregation under municipal civic laws)."
+      }
+    ]
+  },
+
+  "shops-and-establishments-act-compliance": {
+    slug: "shops-and-establishments-act-compliance",
+    pillarSlug: "compliance-services",
+    pillarName: "Compliance Services",
+    title: "Shops & Commercial Establishments Act (Gumasta) Dual-Tier Registration",
+    shortTitle: "Shops & Establishments",
+    badge: "Commercial Labour Law",
+    tagline: "<10 Employees Simplified Intimation vs 10+ Employees Full Registration, Registers & Annual Returns",
+    metaTitle: "Shops & Establishments Act (Gumasta) Compliance Pan-India | Service Dial",
+    metaDescription: "Pan-India Shops & Commercial Establishments Act registration and compliance. Dual-tier system (<10 intimation vs 10+ full registration), Form B/C certificates, overtime registers, and female night shift safety.",
+    blufSummary: "Service Dial manages end-to-end Shops and Commercial Establishments Act compliance across all 28 states and UTs. We navigate the dual-tier regulatory framework—executing instant Form F/D online intimations for micro-offices (<10 workers) with lifetime validity, and securing full Form B/C registration certificates, overtime register maintenance, POSH committee alignment, and female worker night-shift transport clearances for large enterprise workforces (10+ workers).",
+    regulatoryFramework: [
+      "Maharashtra Shops & Establishments Act 2017 (Act LXI / Aaple Sarkar)",
+      "Karnataka Shops & Commercial Establishments Act 1961 (e-Karmika Portal)",
+      "Delhi Shops & Establishments Act 1954 (Labour CIS Instant Auto-Approval)",
+      "Gujarat Shops & Establishments Act 2019 (Act 4 / e-Nagar Portal)",
+      "Tamil Nadu, Telangana (TS-iPASS), Uttar Pradesh (Nivesh Mitra), and Haryana Portals",
+    ],
+    keyCapabilities: [
+      {
+        title: "Dual-Tier S&E Registration Architecture",
+        description: "Advising on employee headcount thresholds: filing zero-fee lifetime intimation receipts for setups with <10 workers, or formal registration applications (Form A -> Form B/C) for 10+ associates."
+      },
+      {
+        title: "Statutory Register Maintenance (Form A to E)",
+        description: "Maintaining mandatory digital registers: Employee Register (Form A), Wage Register (Form B), Muster Roll (Form D), and Overtime Register (Form XXIII/H) compliant with Ease of Compliance Rules 2017."
+      },
+      {
+        title: "Female Night Shift Transport & Statutory Safety",
+        description: "Implementing government-notified night-shift protocols (8:00 PM / 9:30 PM to 6:00 AM): written employee consent, GPS-tracked fleet with panic buttons, security marshals, and POSH Internal Committee compliance."
+      },
+      {
+        title: "Annual Returns & Regional Holiday Gazettes",
+        description: "Submitting state annual returns (Form R in MH, Form U in KA, Form J in GJ) and issuing formal notifications for mandatory National and Festival Paid Holidays."
+      }
+    ],
+    deliverables: [
+      "Shops & Commercial Establishments Registration Certificate (Form B / Form C)",
+      "Simplified Intimation Receipt for Sub-10 Employee Entities (Form F / Form D)",
+      "Statutory Overtime & Spread-Over Tracking Ledger (Capped at 50–125 hrs/quarter)",
+      "Female Employee Night Shift Statutory Safety Compliance Dossier",
+      "Unified Annual Return (Form R / Form U) Filing Acknowledgments"
+    ],
+    slaMetrics: [
+      { label: "Certificate Turnaround", value: "24 to 72 Hours", detail: "Instant auto-issuance in reformed states (Delhi, MH, GJ) or direct liaison" },
+      { label: "Annual Return Filing", value: "100% on Time", detail: "Submitted prior to Jan 31 / Feb 15 state deadlines across all locations" },
+      { label: "Pan-India S&E Coverage", value: "All 28 States & 8 UTs", detail: "Single-window governance across all state labour commissioner portals" }
+    ],
+    faqs: [
+      {
+        question: "What is the difference between having fewer than 10 employees versus 10 or more employees under modern Shops Acts?",
+        answer: "Under progressive state legislation (such as Maharashtra 2017 Act or Gujarat 2019 Act), establishments employing fewer than 10 workers only need to submit an online self-intimation (Form F/D) which generates an instant, lifetime receipt with zero renewal fees and immunity from routine labour inspector visits. Establishments with 10 or more workers must obtain a formal Registration Certificate (Form B), maintain mandatory registers, file annual returns, and undergo statutory inspection protocols."
+      },
+      {
+        question: "Do Shops and Establishments certificates expire or require annual renewal?",
+        answer: "In reformed jurisdictions like Delhi, Maharashtra, Gujarat, and Karnataka, S&E certificates carry lifetime validity and do not require periodic renewal. In states like Tamil Nadu, Odisha, and West Bengal, periodic renewals (typically every 1, 3, or 5 years) remain legally mandatory. Service Dial monitors and executes all renewals automatically."
+      },
+      {
+        question: "What are the legal requirements for deploying female employees on night shifts?",
+        answer: "Deploying women between 8:00 PM / 9:30 PM and 6:00 AM requires explicit written employee consent, guaranteed door-to-door company-provided transportation equipped with GPS and female security escorts, strict prohibition of dropping a woman employee home last alone, separate restrooms, and a certified active POSH Internal Committee."
+      }
+    ]
+  },
+
+  "factories-act-plan-approval-cif": {
+    slug: "factories-act-plan-approval-cif",
+    pillarSlug: "compliance-services",
+    pillarName: "Compliance Services",
+    title: "Factories Act 1948 Site Plan Approval, Form 1 Sanction & DISH Clearance",
+    shortTitle: "Factory Plan Approvals",
+    badge: "Industrial Architecture",
+    tagline: "Form 1 Blueprint Approvals, Form 1A Structural Stability, DISH Liaison & Section 6 Sanctions",
+    metaTitle: "Factories Act Plan Approval (Form 1) & DISH Clearances | Service Dial",
+    metaDescription: "Factory architectural blueprint approvals under Section 6 of Factories Act 1948. Form 1 sanction from Chief Inspector of Factories (DISH), Form 1A structural stability certificates, and hazard process layout clearance.",
+    blufSummary: "Service Dial manages end-to-end industrial architecture and plant layout approvals under Section 6 of The Factories Act 1948. We prepare and submit Form 1 applications to State Directorates of Industrial Safety & Health (DISH), liaise with Chief Inspectors of Factories, coordinate Chartered Structural Stability Certificates (Form 1A/1B), and ensure full compliance for emergency exits, machine clearances, natural ventilation, and hazardous containment before civil construction commences.",
+    regulatoryFramework: [
+      "The Factories Act 1948 (Section 6 - Approval, Licensing and Registration of Factories)",
+      "State Factory Rules (Form 1 - Application for Permission to Construct or Extend a Factory)",
+      "Structural Stability Certification (Form 1A / Form 1B by Competent Chartered Engineer)",
+      "National Building Code of India (NBC 2016 Part 4 - Industrial Life & Fire Safety)",
+      "State DISH Oversight (MAITRI in MH, IFP in GJ, FBISH in KA, Single Window in TN)",
+    ],
+    keyCapabilities: [
+      {
+        title: "Plant Layout & Blueprint Engineering Vetting",
+        description: "Reviewing factory floor blueprints for machinery clearance, material movement aisles, emergency evacuation travel distances (<30m), natural lighting, and ventilation ratios."
+      },
+      {
+        title: "Form 1A Structural Stability Certification",
+        description: "Engaging state-notified Competent Structural Engineers to inspect building load-bearing frames, crane gantry beams, and machine foundations to issue statutory Form 1A stability certificates."
+      },
+      {
+        title: "Hazardous Chemical & Effluent Flow Vetting",
+        description: "Preparing mass-balance process flowcharts, MSDS chemical inventories, secondary containment dykes, and occupational health center (OHC) allocations under Chapter IV-A."
+      },
+      {
+        title: "Chief Inspector of Factories (DISH) Liaison",
+        description: "Representing client management before joint DISH technical appraisal committees to resolve scrutiny observations and secure unconditional formal Plan Sanction Letters."
+      }
+    ],
+    deliverables: [
+      "Formal Letter of Factory Building Plan Approval Signed by Chief Inspector of Factories",
+      "Statutorily Endorsed Architectural Machinery Layout & Evacuation Schematics",
+      "Form 1A / Form 1B Structural Stability Certificate Signed by Authorized Competent Person",
+      "DISH Scrutiny Observation Compliance Closure Dossier",
+      "Pre-Requisite Industrial Clearance Package for Factory License (Form 2) Grant"
+    ],
+    slaMetrics: [
+      { label: "Technical Scrutiny Turnaround", value: "7 to 10 Business Days", detail: "Internal architectural and safety audit of plans prior to government submission" },
+      { label: "DISH Plan Approval SLA", value: "30 to 45 Days", detail: "Complete coordination through state industrial single-window clearance portals" },
+      { label: "Engineering Standards", value: "100% NBC 2016 Aligned", detail: "Zero design rejection rate across industrial manufacturing sectors" }
+    ],
+    faqs: [
+      {
+        question: "When is Form 1 factory building plan approval legally required?",
+        answer: "Under Section 6 of the Factories Act 1948, written approval from the Chief Inspector of Factories / DISH is mandatory prior to constructing a new factory building, extending an existing manufacturing shed, installing additional heavy power-driven machinery, or taking any existing commercial building into use as a factory."
+      },
+      {
+        question: "What is a Form 1A Stability Certificate and who can issue it?",
+        answer: "A Form 1A Stability Certificate is a statutory engineering document certifying that the structural design of the factory building, foundations, and roofs are structurally sound and capable of supporting the installed machinery loads. It can only be issued and signed by a chartered structural engineer officially notified as a 'Competent Person' by the respective State DISH."
+      },
+      {
+        question: "Can factory construction begin while the DISH plan approval is pending?",
+        answer: "No. Initiating construction or installing machinery before securing formal Form 1 plan approval from DISH is an offense punishable under Section 92, carrying financial penalties and risk of immediate stop-work orders."
+      }
+    ]
+  },
+
+  "pollution-control-spcb-cte-cto": {
+    slug: "pollution-control-spcb-cte-cto",
+    pillarSlug: "compliance-services",
+    pillarName: "Compliance Services",
+    title: "State Pollution Control Board (SPCB) Consent to Establish (CTE) & Consent to Operate (CTO)",
+    shortTitle: "Pollution Control (SPCB)",
+    badge: "Environmental Regulatory",
+    tagline: "Red, Orange, Green & White CPCB Classification, Water & Air Acts Approvals & Hazardous Waste Form 1/3/4",
+    metaTitle: "SPCB Consent to Establish (CTE) & Consent to Operate (CTO) | Service Dial",
+    metaDescription: "End-to-end State Pollution Control Board environmental clearances. CPCB Red, Orange, Green categorization, Consent to Establish (CTE), Consent to Operate (CTO), ETP/STP design, and hazardous waste manifests.",
+    blufSummary: "Service Dial manages industrial environmental governance under the Water Act 1974 and Air Act 1981 across State Pollution Control Boards (MPCB, KSPCB, TNPCB, GPCB, HSPCB, UPPCB, OSPCB). We manage environmental audits across CPCB Red, Orange, Green, and White categories, securing pre-construction Consent to Establish (CTE), pre-commissioning Consent to Operate (CTO), ETP/STP design adequacy verifications, continuous emission monitoring (OCEMS) alignments, and hazardous waste authorizations.",
+    regulatoryFramework: [
+      "Water (Prevention and Control of Pollution) Act 1974 (Sections 25 & 26)",
+      "Air (Prevention and Control of Pollution) Act 1981 (Section 21)",
+      "Hazardous and Other Wastes (Management & Transboundary Movement) Rules 2016",
+      "CPCB Industrial Classification (Pollution Index: Red ≥60, Orange 41–59, Green 21–40, White ≤20)",
+      "State SPCB Online Portals (e-Consent / OCMMS / Single Window Systems)",
+    ],
+    keyCapabilities: [
+      {
+        title: "Consent to Establish (CTE / NOC) Procurement",
+        description: "Securing pre-construction environmental clearances: preparing DPR water balance sheets, mass-balance emission reports, and wastewater disposal plans prior to breaking ground."
+      },
+      {
+        title: "Consent to Operate (CTO / CCA) Procurement & Renewal",
+        description: "Procuring pre-commissioning operational licenses following physical inspection of installed ETP/STP systems, flow meters, stack heights, and ambient noise mitigation enclosures."
+      },
+      {
+        title: "White Category Exemption Intimations",
+        description: "Executing online self-declarations for non-polluting establishments (PI ≤ 20), such as software IT parks, assembly units, and dry warehouses, securing statutory exemption receipts."
+      },
+      {
+        title: "Hazardous Waste Authorizations & Form 3 Manifests",
+        description: "Procuring SPCB Form 2 authorizations for storing/handling hazardous waste, arranging authorized TSDF disposal agreements, and managing Form 3 manifests and Form 4 annual returns."
+      }
+    ],
+    deliverables: [
+      "Consent to Establish (CTE) Letter Issued by State Pollution Control Board",
+      "Consolidated Consent to Operate (CTO / CCA) with Multi-Year Validity",
+      "SPCB Form 2 Hazardous Waste Management Authorization Certificate",
+      "Stack Emission & Effluent Analysis Reports from NABL-Accredited Laboratories",
+      "Environmental Statement (Form V) Annual Submission Receipts"
+    ],
+    slaMetrics: [
+      { label: "Application Scrutiny SLA", value: "5 to 7 Business Days", detail: "Preparation and validation of DPR water balance and emission calculations" },
+      { label: "Green/Orange Fast Track", value: "15 to 30 Days", detail: "Fast-track processing under state Ease of Doing Business protocols" },
+      { label: "Compliance Zero Violation", value: "100% Notice Closure", detail: "Defending Section 33A closure notices with certified environmental remediation plans" }
+    ],
+    faqs: [
+      {
+        question: "What is the difference between Consent to Establish (CTE) and Consent to Operate (CTO)?",
+        answer: "Consent to Establish (CTE) is mandatory prior to starting civil construction, factory erection, or machinery installation to verify that proposed pollution mitigation designs meet statutory norms. Consent to Operate (CTO) must be obtained 60–90 days before initiating trial production, following an on-site inspection by SPCB officers to verify that ETP, STP, and air pollution control devices are fully installed and operational."
+      },
+      {
+        question: "Which industrial establishments are categorized as 'White Category' and exempt from SPCB consents?",
+        answer: "Under CPCB guidelines, industrial and commercial sectors with a Pollution Index (PI) score of 20 or below (such as software development offices, solar power generation, non-polluting dry warehouses, and clock/bicycle assembly) are classified as White Category. They do not require formal CTE or CTO, and only need to submit a simple online intimation to the SPCB."
+      },
+      {
+        question: "What are the legal consequences of operating an industrial unit without SPCB Consent to Operate (CTO)?",
+        answer: "Operating without a valid CTO is a serious criminal offense under Section 41/44 of the Water Act and Section 37 of the Air Act, empowering the SPCB to issue closure directions under Section 33A of the Water Act, direct electricity and water disconnection, and initiate prosecution against corporate directors carrying imprisonment up to 7 years."
+      }
+    ]
+  },
+
+  "contractor-clra-licensing": {
+    slug: "contractor-clra-licensing",
+    pillarSlug: "compliance-services",
+    pillarName: "Compliance Services",
+    title: "Contractor CLRA Licensing (Form IV), Security Deposit & Half-Yearly Returns",
+    shortTitle: "Contractor CLRA Licensing",
+    badge: "Staffing Vendor Desk",
+    tagline: "Form IV Contractor License, Form V Authentication, Security Deposits & Form XXIV Returns",
+    metaTitle: "Contractor CLRA Licensing Services (Form IV) Pan-India | Service Dial",
+    metaDescription: "Dedicated CLRA licensing desk for staffing agencies, security contractors, and facility vendors. Form IV license applications, Form V coordination, security deposit calculations, and Form XXIV returns.",
+    blufSummary: "Service Dial operates a dedicated Contractor CLRA Licensing Desk empowering staffing agencies, engineering contractors, security agencies, and facility vendors to obtain and maintain valid Section 12 Contractor Licenses across all Indian states. We manage the entire lifecycle: securing Form V certificates from Principal Employers, calculating treasury fees and refundable security deposits, obtaining Form VI licenses, and submitting mandatory Form XXIV half-yearly returns.",
+    regulatoryFramework: [
+      "Contract Labour (Regulation and Abolition) Act 1970 (Section 12 - Licensing of Contractors)",
+      "Central / State Contract Labour Rules (Form IV - Application for License)",
+      "Form V (Certificate by Principal Employer Authorizing Contractor License Application)",
+      "Form VI (Grant of License to Contractor by Licensing Officer)",
+      "Form XXIV (Half-Yearly Return of Contractor submitted within 30 days of period close)",
+    ],
+    keyCapabilities: [
+      {
+        title: "Contractor License Application (Form IV)",
+        description: "Drafting and filing Form IV applications before the jurisdictional Licensing Officer, accompanied by certified Form V certificates from the client Principal Employer."
+      },
+      {
+        title: "Statutory Security Deposit & Fee Administration",
+        description: "Accurately computing government licensing fees and refundable security deposits per deployed workman into designated state treasury accounts via online challan rails."
+      },
+      {
+        title: "License Amendments for Headcount Expansion",
+        description: "Executing swift Form IV amendments to increase licensed worker quotas when expanding associate deployments at manufacturing or commercial client facilities."
+      },
+      {
+        title: "Statutory Registers & Form XXIV Half-Yearly Returns",
+        description: "Maintaining contractor employment cards (Form XIV), wage registers (Form XVII), muster rolls, and filing mandatory Form XXIV half-yearly returns by July 30 and January 30."
+      }
+    ],
+    deliverables: [
+      "Form VI Contractor License Endorsed with Approved Worker Headcount Quota",
+      "Treasury Challan Receipts for Government Licensing Fees & Refundable Security Deposits",
+      "Form XXIV Half-Yearly Return Submission Receipts Endorsed by Labour Office",
+      "Employment Cards (Form XIV) and Service Certificates (Form XV) Suite",
+      "Zero-Default Contractor Statutory Compliance Dossier for Principal Employer Invoicing"
+    ],
+    slaMetrics: [
+      { label: "License Turnaround SLA", value: "7 to 14 Business Days", detail: "Prompt procurement upon receipt of Form V from client Principal Employer" },
+      { label: "Quota Expansion SLA", value: "< 5 Business Days", detail: "Immediate filing of headcount amendment applications for rapid workforce scaling" },
+      { label: "Return Filing Adherence", value: "100% on-time", detail: "Form XXIV filed bi-annually without attracting penalty notices" }
+    ],
+    faqs: [
+      {
+        question: "When is a staffing agency or service vendor legally required to obtain a CLRA Contractor License?",
+        answer: "Under Section 12 of the Contract Labour Act 1970, any contractor who employs 20 or more contract workers (or 50 or more in reformed states like Maharashtra, Rajasthan, and Gujarat) on any day in a client establishment must obtain a valid Contractor License in Form VI before deploying manpower."
+      },
+      {
+        question: "Can a contractor apply for a CLRA License without a Form V from the Principal Employer?",
+        answer: "No. Form V (Certificate by Principal Employer) is a mandatory statutory prerequisite under Rule 21(2). It certifies that the Principal Employer has engaged the contractor and authorizes them to deploy a specific maximum number of contract workers for a defined period."
+      },
+      {
+        question: "What is the consequence if a contractor deploys workers without a valid Section 12 License?",
+        answer: "Operating without a valid license is an offense punishable under Section 23 with imprisonment up to 3 months, fines, or both. Crucially, courts can declare the contract labour arrangement a 'sham contract', creating immense legal risk that deployed workers are deemed direct, permanent employees of the Principal Employer."
+      }
+    ]
+  },
+
+  "fire-safety-noc-compliance": {
+    slug: "fire-safety-noc-compliance",
+    pillarSlug: "compliance-services",
+    pillarName: "Compliance Services",
+    title: "Fire Department Safety NOC Clearances, NBC 2016 Part 4 Audits & Form B",
+    shortTitle: "Fire Safety NOC",
+    badge: "Life Safety & Infrastructure",
+    tagline: "Provisional Fire NOC, Final Fire Safety Certificate (FSC), Hydrant Audits & Bi-Annual Form B",
+    metaTitle: "Fire Safety NOC & NBC Part 4 Industrial Clearances | Service Dial",
+    metaDescription: "Comprehensive Fire Department NOC clearances for commercial offices, warehouses, and industrial plants. NBC 2016 Part 4 compliance, Provisional Fire NOC, Final FSC, and bi-annual Form B maintenance audits.",
+    blufSummary: "Service Dial delivers complete Fire and Life Safety NOC compliance under State Fire Prevention Acts and the National Building Code (NBC 2016 Part 4). We manage architectural plan vetting for Provisional Fire NOCs (ensuring 6m fire tender access setbacks and evacuation stairwell capacities), oversee active firefighting equipment testing (hydrants, automatic sprinklers, underground static tanks, fire pumps), procure Final Fire Safety Certificates (FSC), and manage bi-annual Form B maintenance audits.",
+    regulatoryFramework: [
+      "National Building Code of India (NBC 2016 Part 4 - Fire & Life Safety)",
+      "State Fire Prevention and Life Safety Measures Acts (e.g. Maharashtra 2006, Karnataka, Delhi)",
+      "Bureau of Indian Standards (IS 15105 Sprinklers, IS 3844 Hydrants, IS 2190 Extinguishers)",
+      "Provisional Fire NOC & Final Fire Safety Certificate (FSC / CFO Clearance)",
+      "Bi-Annual Form B Certificate of Maintenance by Licensed Fire Agencies",
+    ],
+    keyCapabilities: [
+      {
+        title: "Provisional Fire NOC Layout Approvals",
+        description: "Scrutinizing architectural site plans to guarantee 6.0m clear perimeter fire tender roadways (bearing 45 MT axle loads), external exit staircases, travel distances (<30m), and compartmentation."
+      },
+      {
+        title: "Active Fire Protection Testing & FSC Grant",
+        description: "Coordinating on-site hydraulic pressure testing (3.5 bar at highest outlet), electric main pump (2,850 LPM) and auto-start diesel standby pump integration, automatic sprinklers, and addressable smoke alarms."
+      },
+      {
+        title: "Industrial Warehouse High-Hazard Clearances",
+        description: "Designing fire suppression frameworks for high-bay logistics warehouses storing flammable packing polymers, tier racks, and bulk goods compliant with NBC Table 7 standards."
+      },
+      {
+        title: "Bi-Annual Form B Inspection Audits",
+        description: "Conducting mandatory 6-month preventive maintenance examinations via licensed fire agencies and submitting statutory Form B certificates to local fire headquarters."
+      }
+    ],
+    deliverables: [
+      "Provisional Fire NOC Sanction Letter Issued by Chief Fire Officer (CFO)",
+      "Final Fire Safety Certificate (FSC) / Permanent Fire NOC",
+      "Hydraulic Pressure Test & Fire Flow Measurement Reports",
+      "Bi-Annual Form B Maintenance Certificates Issued by State-Licensed Agency",
+      "Fire Evacuation Plan, Mock Drill Logs & Industrial Safety Signage Dossier"
+    ],
+    slaMetrics: [
+      { label: "Plan Review Turnaround", value: "3 to 5 Business Days", detail: "Comprehensive NBC 2016 Part 4 compliance gap analysis of building drawings" },
+      { label: "Form B Filing SLA", value: "Bi-Annually (Jan & July)", detail: "Preventing lapse of operational occupancy certificate and municipal sealing" },
+      { label: "Engineering Standards", value: "100% NBC / CFO Aligned", detail: "Zero rejection rate across high-rise, commercial, and industrial facilities" }
+    ],
+    faqs: [
+      {
+        question: "When is a commercial building, warehouse, or factory legally required to obtain a Fire NOC?",
+        answer: "Under State Fire Prevention Acts and NBC 2016 Part 4, a Fire NOC is mandatory for: (1) Any commercial building exceeding 15 meters in height; (2) Industrial plants or factories with built-up area exceeding 500 sq meters or handling hazardous substances; (3) Warehouses and logistics depots storing combustible/flammable goods or exceeding 1,000 cubic meters volume; and (4) Commercial assembly establishments such as large banquet halls, IT parks, and hotels."
+      },
+      {
+        question: "What is the difference between a Provisional Fire NOC and a Final Fire Safety Certificate (FSC)?",
+        answer: "A Provisional Fire NOC is issued during the pre-construction phase based on architectural drawings, specifying required fire safety systems (tanks, pumps, hydrants, staircases). The Final Fire Safety Certificate (FSC) is granted only after construction is complete, following an on-site physical inspection and operational live testing of installed firefighting installations by the Chief Fire Officer."
+      },
+      {
+        question: "What is Form B under State Fire Safety Acts and how often must it be submitted?",
+        answer: "Form B is a statutory maintenance certificate issued by an authorized, state-licensed fire agency certifying that all fire prevention and life safety systems installed in the building remain fully functional and in good working condition. It must be submitted bi-annually (typically in January and July) to the local fire department. Failure to submit Form B can lead to revocation of the building's Occupancy Certificate."
       }
     ]
   }

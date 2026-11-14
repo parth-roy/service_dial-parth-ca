@@ -75,13 +75,13 @@ export const SERVICES_CATALOG: Record<string, ServicePillar> = {
   "hrms-and-payroll": {
     slug: "hrms-and-payroll",
     name: "HRMS & Payroll Management",
-    shortName: "Payroll & HRMS",
-    tagline: "Accurate · Fully Compliant · Automated Process Management",
-    metaTitleSuffix: "Payroll Outsourcing & HRMS Services",
+    shortName: "HRMS & Payroll",
+    tagline: "Accurate · Fully Compliant · Cloud HRMS & Payroll Management",
+    metaTitleSuffix: "HRMS & Payroll Outsourcing Services",
     metaDescriptionTemplate:
-      "End-to-end payroll outsourcing and HRMS solutions in {city}, {state}. Statutory PF, ESI, and tax filings with 100% error-free SLA compliance.",
+      "End-to-end HRMS & payroll outsourcing solutions in {city}, {state}. Statutory PF, ESI, Professional Tax, and labor code compliance with 99.98% error-free SLA.",
     blufSummaryTemplate:
-      "Service Dial provides enterprise payroll outsourcing and HRMS software integration in {city}, guaranteeing 100% statutory adherence across PF, ESI, Professional Tax, and state labor regulations with zero calculation errors.",
+      "Service Dial provides enterprise HRMS & payroll outsourcing in {city}, guaranteeing 100% statutory adherence across PF, ESI, Professional Tax, and state labor regulations with zero calculation errors.",
     capabilities: [
       {
         title: "End-to-End Payroll Processing",

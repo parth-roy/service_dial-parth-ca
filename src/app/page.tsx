@@ -4,7 +4,7 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Staffing, Payroll & Compliance Solutions",
+  title: "Staffing, HRMS & Payroll, Finance & Compliance Solutions",
   description:
     "Service Dial delivers premium staffing, HRMS & payroll, finance & audit, and compliance services across India. Established 2016. 100% referenceable clients.",
   alternates: { canonical: "https://servicedialtm.com" },
@@ -30,7 +30,7 @@ const services = [
   {
     slug: "hrms-and-payroll",
     title: "HRMS & Payroll",
-    tagline: "PAYROLL CENTRALISED AND AUTOMATED",
+    tagline: "HRMS & PAYROLL CENTRALISED AND AUTOMATED",
     headline: "100% on-time payroll processing, statutory tax deductions, and automated salary disbursement.",
     description:
       "End-to-end payroll management, vendor compliance, and labour law adherence — so your HR team focuses on people, not paperwork.",
@@ -182,13 +182,13 @@ export default function HomePage() {
                 <h1 className="font-outfit text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] font-extrabold leading-[1.08] tracking-[-0.03em] text-white max-w-2xl">
                   Simplifying staffing,
                   <br />
-                  payroll &amp; compliance
+                  HRMS, payroll &amp; compliance
                   <br />
                   for your <span className="stroke-text">business.</span>
                 </h1>
 
                 <p className="mt-6 text-white/85 text-base sm:text-lg leading-relaxed max-w-lg font-normal">
-                  Technology-driven, tailor-made staffing, payroll, finance, and
+                  Technology-driven, tailor-made staffing, HRMS &amp; payroll, finance, and
                   compliance solutions — trusted by enterprises across India and
                   globally.
                 </p>
@@ -394,7 +394,7 @@ export default function HomePage() {
               {/* Left: Wide Majestic Headline with Text Art */}
               <div className="lg:col-span-7 pb-8 lg:pb-0 lg:pr-12 lg:border-r border-slate-200/90">
                 <h2 className="font-outfit text-3xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-black leading-[1.06] tracking-tight text-slate-900">
-                  Institutional staffing, payroll
+                  Institutional staffing, HRMS &amp; payroll
                   <br />
                   &amp; statutory compliance.
                   <br />
@@ -567,7 +567,7 @@ export default function HomePage() {
                   Ready to simplify your operations?
                 </h2>
                 <p className="text-slate-600 mb-8 text-base leading-relaxed">
-                  Whether you need a CXO placed in 72 hours or end-to-end payroll
+                  Whether you need a CXO placed in 72 hours or end-to-end HRMS &amp; payroll
                   compliance across 1,000 employees — let&apos;s talk under mutual NDA.
                 </p>
                 <Link

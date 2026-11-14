@@ -75,10 +75,10 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   },
   {
     id: "payroll",
-    label: "PAYROLL",
+    label: "HRMS & PAYROLL",
     title: "HRMS & Payroll Management",
     href: "/services/hrms-and-payroll",
-    tagline: "End-to-end cloud payroll processing, automated salary disbursement, and multi-state tax withholding.",
+    tagline: "Enterprise cloud HRMS software, automated gross-to-net payroll, and multi-state tax withholding.",
     services: [
       {
         title: "Managed Payroll Outsourcing",
@@ -87,7 +87,7 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
       },
       {
         title: "Statutory Payroll Compliance",
-        desc: "EPFO ₹25,000 wage ceiling compliance, multi-state PT, ECR challan filing, and Labour Welfare Fund returns.",
+        desc: "Pan-India multi-state Professional Tax matrix, EPFO wage restructuring, and Labour Welfare Fund returns.",
         href: "/services/hrms-and-payroll/statutory-payroll-compliance",
       },
       {
@@ -110,39 +110,49 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
   {
     id: "compliance",
     label: "COMPLIANCE SERVICES",
-    title: "Labour Law & Statutory Desk",
+    title: "Labour Law, Factory & Industrial Licensing Desk",
     href: "/services/compliance-services",
-    tagline: "Proactive labour law compliance, EPFO/ESIC administration, and factory inspection assurance.",
+    tagline: "Municipal trade licenses, S&E registrations, Factories Act sanctions, SPCB clearances, and CLRA defense.",
     services: [
       {
-        title: "Contract Labour (CLRA) Licensing",
-        desc: "Principal employer Form I registration, contractor Form IV licensing audits, and pass-through verification.",
-        href: "/services/compliance-services/contractor-labour-clra-compliance",
+        title: "Municipal Trade Licenses",
+        desc: "BBMP, BMC, GHMC, MCD, GCC, KMC trade licenses, health trade permits, and D&O operating clearances.",
+        href: "/services/compliance-services/municipal-trade-license-compliance",
       },
       {
-        title: "Factories Act 1948 Approvals",
-        desc: "Factory license renewal (Form 2), annual returns (Form 22), and occupier Section 92 defense.",
-        href: "/services/compliance-services/factories-act-licensing-compliance",
+        title: "Shops & Establishments (Gumasta)",
+        desc: "Dual-tier S&E governance: <10 workers simplified online intimation and 10+ workers full registration.",
+        href: "/services/compliance-services/shops-and-establishments-act-compliance",
+      },
+      {
+        title: "Factories Act Plan Approvals (CIF)",
+        desc: "Factory site blueprint vetting (Form 1), Form 1A structural stability certificates, and DISH sanctions.",
+        href: "/services/compliance-services/factories-act-plan-approval-cif",
+      },
+      {
+        title: "Pollution Control (SPCB CTE/CTO)",
+        desc: "Red, Orange, Green, White categorization, Consent to Establish (CTE), and pre-commissioning CTO.",
+        href: "/services/compliance-services/pollution-control-spcb-cte-cto",
+      },
+      {
+        title: "Contractor CLRA Licensing",
+        desc: "Staffing vendor Form IV licensing, Principal Employer Form V coordination, and Form XXIV half-yearly returns.",
+        href: "/services/compliance-services/contractor-clra-licensing",
+      },
+      {
+        title: "Fire Safety NOC & NBC Audits",
+        desc: "Provisional Fire NOC, active fire pump/sprinkler testing, Final FSC certificates, and bi-annual Form B.",
+        href: "/services/compliance-services/fire-safety-noc-compliance",
+      },
+      {
+        title: "CLRA Principal Employer Governance",
+        desc: "Principal employer Form I registration, contractor challan audits, and zero co-employment indemnity.",
+        href: "/services/compliance-services/contractor-labour-clra-compliance",
       },
       {
         title: "GST Compliance & 9/9C Audit",
         desc: "Monthly GSTR-1/3B, GSTR-2B ITC triangulation, Rule 36(4) defense, and annual reconciliation audits.",
         href: "/services/compliance-services/gst-compliance-and-audit",
-      },
-      {
-        title: "TDS & TCS Statutory Compliance",
-        desc: "Quarterly Form 24Q/26Q e-filings, Section 194C/194J withholding, and digital Form 16/16A generation.",
-        href: "/services/compliance-services/tds-tcs-compliance-and-filing",
-      },
-      {
-        title: "POSH Act Compliance & IC",
-        desc: "Internal Committee (IC) constitution, external member appointment, mandatory training, and annual reports.",
-        href: "/services/compliance-services/posh-compliance-and-ic-training",
-      },
-      {
-        title: "Pan-India Labour Law Advisory",
-        desc: "Multi-state statutory registers, labour tribunal conciliation, show-cause notices, and audit representation.",
-        href: "/services/compliance-services/pan-india-labour-law-advisory",
       },
     ],
   },

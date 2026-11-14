@@ -8,7 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "National Service Coverage & Locations Directory",
   description:
-    "Search and explore Service Dial's nationwide B2B service delivery network across 20 primary Indian commercial metros and industrial clusters. Staffing, Payroll, Finance & Compliance.",
+    "Search and explore Service Dial's nationwide B2B service delivery network across primary Indian commercial metros and industrial clusters. Staffing, HRMS & Payroll, Finance & Compliance.",
   alternates: { canonical: "https://servicedialtm.com/locations" },
 };
 

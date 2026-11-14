@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "About Service Dial – Corporate Heritage & Governance",
   description:
-    "Established in 2016, Service Dial Talent Management Pvt Ltd is a premier enterprise managed services provider across Staffing, Payroll, Finance, and Regulatory Compliance in India.",
+    "Established in 2016, Service Dial Talent Management Pvt Ltd is a premier enterprise managed services provider across Staffing, HRMS & Payroll, Finance, and Regulatory Compliance in India.",
   alternates: { canonical: "https://servicedialtm.com/about" },
 };
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
               </h1>
 
               <p className="font-sans text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
-                Founded in 2016, Service Dial Talent Management Private Limited delivers institutional-grade managed services across flexi-staffing, high-scale payroll, financial mid-office operations, and proactive labor law compliance for enterprises across India.
+                Founded in 2016, Service Dial Talent Management Private Limited delivers institutional-grade managed services across flexi-staffing, high-scale HRMS &amp; payroll, financial mid-office operations, and proactive labor law compliance for enterprises across India.
               </p>
             </div>
           </ScrollReveal>
@@ -235,7 +235,7 @@ export default function AboutPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 { year: "2016", title: "Incorporation & Launch", desc: "Registered under MCA in West Bengal, launching dedicated staffing operations." },
-                { year: "2019", title: "Payroll & Compliance Expansion", desc: "Integrated end-to-end cloud HRMS outsourcing and statutory labor law defense." },
+                { year: "2019", title: "HRMS & Payroll Expansion", desc: "Integrated end-to-end cloud HRMS & payroll outsourcing and statutory labor law defense." },
                 { year: "2022", title: "Finance & Virtual CMA Division", desc: "Added mid-office accounts payable, fixed asset tagging under CARO 2020, and R2R." },
                 { year: "2026", title: "National Coverage & IP Hub", desc: "Expanded across 20 commercial metros, Pan-India trademark advisory, and 2026 labor code transition." },
               ].map((m, idx) => (
