@@ -48,6 +48,16 @@ const nextConfig: NextConfig = {
         destination: "https://servicedialtm.com/:path*",
         permanent: true,
       },
+      {
+        source: "/tools/payroll-fee-estimator",
+        destination: "/tools",
+        permanent: true,
+      },
+      {
+        source: "/ip-services/tools/fee-calculator",
+        destination: "/ip-services",
+        permanent: true,
+      },
     ];
   },
   async headers() {

@@ -40,8 +40,7 @@ Helpline: +91 87778 64949 | Email: connect@servicedialtm.com | Web: https://serv
 ---
 
 ## Interactive Tools & Calculators
-- **Payroll & Statutory Compliance Fee Estimator:** https://servicedialtm.com/tools/payroll-fee-estimator
-- **Trademark Government Fee Calculator:** https://servicedialtm.com/ip-services/tools/fee-calculator
+- **Compliance & Statutory Tools Hub:** https://servicedialtm.com/tools
 - **Real-Time CGPDTM Status Check:** https://servicedialtm.com/ip-services/tools/status-check
 
 ---

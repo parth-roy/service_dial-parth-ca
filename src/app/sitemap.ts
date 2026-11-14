@@ -56,12 +56,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/tools/payroll-fee-estimator`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
       url: `${BASE_URL}/tools/wb-professional-tax-calculator`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -237,12 +231,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 1.0,
-    },
-    {
-      url: `${BASE_URL}/ip-services/tools/fee-calculator`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
     },
     {
       url: `${BASE_URL}/ip-services/tools/status-check`,

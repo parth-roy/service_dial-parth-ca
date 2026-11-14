@@ -27,10 +27,10 @@ export default function IPServicesLayout({
               IP Overview
             </Link>
             <Link
-              href="/ip-services/tools/fee-calculator"
+              href="/ip-services/class-finder"
               className="hover:text-sd-pink transition-colors font-medium"
             >
-              Fee Calculator
+              Class Finder
             </Link>
             <Link
               href="/ip-services/tools/status-check"

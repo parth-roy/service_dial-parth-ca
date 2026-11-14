@@ -336,10 +336,10 @@ export default function EpfoWageCeilingGuidePage() {
                 Schedule Free EPFO Audit →
               </Link>
               <Link
-                href="/tools/payroll-fee-estimator"
+                href="/tools/epfo-wage-ceiling-calculator"
                 className="py-3 px-6 rounded-xl bg-white/10 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all border border-white/20"
               >
-                Model Managed Payroll Costs
+                Launch EPFO Calculator
               </Link>
               <Link
                 href="/services/hrms-and-payroll/kolkata"

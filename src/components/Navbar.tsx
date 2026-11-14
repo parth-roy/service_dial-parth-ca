@@ -32,29 +32,44 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: "Expert corporate accounting, accounts payable/receivable automation, and statutory internal audits.",
     services: [
       {
-        title: "Finance & Accounting Services",
-        desc: "AP | AR | R2R | Audits. Transform corporate F&A operations with end-to-end controllership.",
-        href: "/services/finance-and-audit",
+        title: "Accounts Payable Outsourcing",
+        desc: "AP without the bottlenecks: 3-way invoice matching, MSME 43B(h) compliance, and vendor reconciliation.",
+        href: "/services/finance-and-audit/accounts-payable-outsourcing",
       },
       {
-        title: "Accounts Payable",
-        desc: "AP without the bottlenecks: Smarter, faster payables processing, 3-way invoice matching, and ledger hygiene.",
-        href: "/services/finance-and-audit",
+        title: "Accounts Receivable & DSO Control",
+        desc: "Elevate your cash flow: Customer billing, aging analysis, dispute resolution, and DSO minimization.",
+        href: "/services/finance-and-audit/accounts-receivable-and-credit-control",
       },
       {
-        title: "Accounts Receivable",
-        desc: "Elevate your cash flow, minimize disputes: Customer billing, aging analysis, dispute resolution, and DSO optimization.",
-        href: "/services/finance-and-audit",
+        title: "Record to Report (R2R)",
+        desc: "Day 3–5 financial close, ledger hygiene, balance sheet substantiation, and statutory audit readiness.",
+        href: "/services/finance-and-audit/record-to-report-r2r-services",
       },
       {
-        title: "Record to Report",
-        desc: "Faster closes, better decision-making: Period-end financial close, balance sheet substantiation, and board MIS.",
-        href: "/services/finance-and-audit",
+        title: "Fixed Asset Verification (CARO 2020)",
+        desc: "Physical asset verification, barcode & RFID tagging, and Fixed Asset Register (FAR) reconciliation.",
+        href: "/services/finance-and-audit/fixed-asset-verification-and-tagging",
       },
       {
-        title: "Fixed Asset & Inventory Audit Services",
-        desc: "Verified, accurate, compliant inventory: Physical asset tagging, inventory valuation, and statutory registers.",
-        href: "/services/finance-and-audit",
+        title: "Inventory & Stock Physical Audit",
+        desc: "100% on-site inventory count, warehouse stock audits, and valuation under CARO 2020 Clause 3(ii).",
+        href: "/services/finance-and-audit/inventory-and-stock-audit",
+      },
+      {
+        title: "Cost Audit & Variance Analysis",
+        desc: "Statutory cost accounting records and compliance under Section 148 of the Companies Act 2013.",
+        href: "/services/finance-and-audit/cost-audit-and-variance-analysis",
+      },
+      {
+        title: "Internal Financial Controls (IFC)",
+        desc: "SOP formalization, internal audit testing, and controls framework under Section 143(3)(i).",
+        href: "/services/finance-and-audit/internal-financial-controls-and-sop",
+      },
+      {
+        title: "Virtual CFO Advisory",
+        desc: "Senior CMA & CA controllership, financial architecture, fundraising MIS, and board advisory.",
+        href: "/services/finance-and-audit/virtual-cfo-services",
       },
     ],
   },
@@ -66,29 +81,29 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: "End-to-end cloud payroll processing, automated salary disbursement, and multi-state tax withholding.",
     services: [
       {
-        title: "Payroll Processing & Disbursement",
+        title: "Managed Payroll Outsourcing",
         desc: "Accurate gross-to-net computation, salary bank advice files, and 100% on-time disbursement guarantee.",
-        href: "/services/hrms-and-payroll",
+        href: "/services/hrms-and-payroll/managed-payroll-outsourcing",
       },
       {
-        title: "Vendor & Contractor Payroll",
-        desc: "Multi-vendor workforce compliance, wage reconciliation, PF/ESI challans, and statutory contractor audits.",
-        href: "/services/hrms-and-payroll",
+        title: "Statutory Payroll Compliance",
+        desc: "EPFO ₹25,000 wage ceiling compliance, multi-state PT, ECR challan filing, and Labour Welfare Fund returns.",
+        href: "/services/hrms-and-payroll/statutory-payroll-compliance",
       },
       {
-        title: "TDS 24Q & Digital Form 16",
-        desc: "Automated salary tax withholding under Section 192, quarterly e-filings, and digital Form 16 Part A/B.",
-        href: "/services/hrms-and-payroll",
+        title: "Cloud HRMS & Biometric Software",
+        desc: "Mobile ESS portal, biometric turnover gate integration, shift rules, and geo-fenced attendance tracking.",
+        href: "/services/hrms-and-payroll/cloud-hrms-software",
       },
       {
-        title: "Interactive Fee Estimator",
-        desc: "Simulate custom PEPM retainers and model cost savings compared to an in-house payroll department.",
-        href: "/tools/payroll-fee-estimator",
+        title: "Executive & Expat Payroll",
+        desc: "Confidential C-suite salary processing, DTAA expat taxation, and Section 192 TDS compliance.",
+        href: "/services/hrms-and-payroll/executive-and-expat-payroll",
       },
       {
-        title: "Statutory Bonus & Gratuity Desk",
-        desc: "Automated provision calculation, actuarial valuation compliance, and timely annual settlement execution.",
-        href: "/services/hrms-and-payroll",
+        title: "Factory Shift & Overtime Management",
+        desc: "Section 59 double-rate overtime calculation, spread-over limits, and Form H register maintenance.",
+        href: "/services/hrms-and-payroll/industrial-time-and-overtime-management",
       },
     ],
   },
@@ -100,29 +115,34 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: "Proactive labour law compliance, EPFO/ESIC administration, and factory inspection assurance.",
     services: [
       {
-        title: "Statutory Filings & Remittances",
-        desc: "Monthly EPFO, ESIC, Professional Tax (Form III-A), and bi-annual Labour Welfare Fund returns.",
-        href: "/services/compliance-services",
+        title: "Contract Labour (CLRA) Licensing",
+        desc: "Principal employer Form I registration, contractor Form IV licensing audits, and pass-through verification.",
+        href: "/services/compliance-services/contractor-labour-clra-compliance",
       },
       {
-        title: "Labour Law Inspection Defense",
-        desc: "Audit representation, registers maintenance (Forms XVI, XVII, XX), and regulatory show-cause handling.",
-        href: "/services/compliance-services",
+        title: "Factories Act 1948 Approvals",
+        desc: "Factory license renewal (Form 2), annual returns (Form 22), and occupier Section 92 defense.",
+        href: "/services/compliance-services/factories-act-licensing-compliance",
       },
       {
-        title: "2026 EPFO Wage Ceiling Desk",
-        desc: "Pre-configured payroll modeling for the ₹25,000 EPFO statutory wage threshold enhancement.",
-        href: "/resources/epfo-wage-ceiling-25000",
+        title: "GST Compliance & 9/9C Audit",
+        desc: "Monthly GSTR-1/3B, GSTR-2B ITC triangulation, Rule 36(4) defense, and annual reconciliation audits.",
+        href: "/services/compliance-services/gst-compliance-and-audit",
       },
       {
-        title: "West Bengal PT 2026 Revision",
-        desc: "Advisory and automated salary slab adjustments for the revised West Bengal Professional Tax schedules.",
-        href: "/resources/west-bengal-professional-tax-2026",
+        title: "TDS & TCS Statutory Compliance",
+        desc: "Quarterly Form 24Q/26Q e-filings, Section 194C/194J withholding, and digital Form 16/16A generation.",
+        href: "/services/compliance-services/tds-tcs-compliance-and-filing",
       },
       {
-        title: "CLRA Contractor Licensing",
-        desc: "Principal employer registration, contractor license issuance (Form IV/V), and half-yearly returns.",
-        href: "/services/compliance-services",
+        title: "POSH Act Compliance & IC",
+        desc: "Internal Committee (IC) constitution, external member appointment, mandatory training, and annual reports.",
+        href: "/services/compliance-services/posh-compliance-and-ic-training",
+      },
+      {
+        title: "Pan-India Labour Law Advisory",
+        desc: "Multi-state statutory registers, labour tribunal conciliation, show-cause notices, and audit representation.",
+        href: "/services/compliance-services/pan-india-labour-law-advisory",
       },
     ],
   },
@@ -134,29 +154,29 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
     tagline: "Pan-India executive search, specialized tech recruitment, and verified contract workforce deployment.",
     services: [
       {
-        title: "IT & Specialist Staffing",
-        desc: "7:10 submission-to-hire ratio across AI/ML, cloud engineering, data science, and SAP consultants.",
-        href: "/services/staffing-and-recruitment",
+        title: "Contract & Flexi-Staffing (TPP)",
+        desc: "Third-party payroll staffing with 100% Employer of Record (EOR) co-employment liability indemnity.",
+        href: "/services/staffing-and-recruitment/contract-and-flexi-staffing",
       },
       {
-        title: "CXO Leadership Search",
-        desc: "Confidential executive hiring, market talent mapping, and green-field C-suite buildouts under bilateral NDA.",
-        href: "/services/staffing-and-recruitment",
+        title: "Plant & Engineering Staffing",
+        desc: "Machinists, fitters, welders, and maintenance crew for factories across Howrah, Dankuni, and nationwide.",
+        href: "/services/staffing-and-recruitment/plant-engineering-workforce-staffing",
       },
       {
-        title: "General Flexi-Staffing",
-        desc: "Mid-management and operational staffing mapped to your headcount plans across BFSI, IT, and retail.",
-        href: "/services/staffing-and-recruitment",
+        title: "Corporate & Technical Recruitment",
+        desc: "Specialized mid-to-senior hiring for software engineering, finance, legal, and operational leadership.",
+        href: "/services/staffing-and-recruitment/corporate-technical-recruitment",
       },
       {
-        title: "Blue Collar & CLRA Staffing",
-        desc: "Background-checked, compliance-onboarded workforce for warehousing, manufacturing, and facilities.",
-        href: "/services/staffing-and-recruitment",
+        title: "Retained CXO Executive Search",
+        desc: "Confidential executive hiring, market talent mapping, and C-suite buildouts under bilateral NDA.",
+        href: "/services/staffing-and-recruitment/executive-search-cxo-hiring",
       },
       {
-        title: "Permanent Executive Sourcing",
-        desc: "Retained search, comprehensive candidate benchmarking, and seamless leadership onboarding.",
-        href: "/services/staffing-and-recruitment",
+        title: "Recruitment Process Outsourcing (RPO)",
+        desc: "End-to-end recruitment lifecycle outsourcing with dedicated on-site talent acquisition specialists.",
+        href: "/services/staffing-and-recruitment/recruitment-process-outsourcing-rpo",
       },
     ],
   },
@@ -178,19 +198,14 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
         href: "/ip-services/tools/status-check",
       },
       {
-        title: "Statutory IP Fee Calculator",
-        desc: "Calculate official Indian government trademark fees, attorney retainers, and filing costs.",
-        href: "/ip-services/tools/fee-calculator",
+        title: "Hearing Cause Lists Lookup",
+        desc: "Daily cause lists across Mumbai, Delhi, Chennai, Kolkata, and Ahmedabad registry benches.",
+        href: "/ip-services/tools/hearing-cause-lists",
       },
       {
-        title: "Pan-India Jurisdiction Filing",
-        desc: "Direct jurisdictional support across Mumbai, Delhi, Chennai, Kolkata, and Ahmedabad offices.",
-        href: "/ip-services",
-      },
-      {
-        title: "Trademark Objection & Hearing",
-        desc: "Drafting formal examination responses and senior counsel representation in registry hearings.",
-        href: "/ip-services",
+        title: "Nice Class Finder (Classes 1–45)",
+        desc: "Identify accurate trademark classification codes for products, software, and services.",
+        href: "/ip-services/class-finder",
       },
     ],
   },
@@ -224,7 +239,6 @@ const INDUSTRY_VERTICALS = [
 ];
 
 const DIRECT_NAV_LINKS = [
-  { label: "Fee Estimator", href: "/tools/payroll-fee-estimator" },
   { label: "2026 Regulations", href: "/resources" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
@@ -440,7 +454,8 @@ export default function Navbar() {
 
             {/* ── Action Buttons & Mobile Hamburger ─────────────────────────── */}
             <div className="flex items-center gap-3 shrink-0">
-              {/* Search Icon Button (Matches Image 1 Reference) */}
+              {/* Search Icon Button (Commented out per user request) */}
+              {/*
               <Link
                 href="/services"
                 aria-label="Search all services"
@@ -452,6 +467,7 @@ export default function Navbar() {
                   <path d="m21 21-4.35-4.35" />
                 </svg>
               </Link>
+              */}
 
               {/* Contact Pill Button (Matches Image 1 Reference) */}
               <Link

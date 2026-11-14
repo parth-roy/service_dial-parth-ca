@@ -105,7 +105,7 @@ export default async function NiceClassPage({ params }: ClassPageProps) {
           items={[
             { label: "Home", href: "/" },
             { label: "IP Services", href: "/ip-services" },
-            { label: "Nice Classes", href: "/ip-services/tools/fee-calculator" },
+            { label: "Nice Classes", href: "/ip-services/class-finder" },
             { label: `Class ${num}`, href: `/ip-services/trademarks/class/${num}` },
           ]}
         />

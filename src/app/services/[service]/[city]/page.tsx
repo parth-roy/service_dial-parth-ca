@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ScrollReveal from "@/components/ScrollReveal";
 import CalculatorQuickLeadForm from "@/components/calculator/CalculatorQuickLeadForm";
 import { CITIES_DATA, STATES_DATA } from "@/data/locations";
 import { SERVICES_CATALOG } from "@/data/services";
@@ -98,7 +99,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
     (c) => c.slug !== city.slug
   );
 
-  // JSON-LD Service Schema (Section 11 of Blueprint: strictly Service + areaServed, avoiding LocalBusiness spam)
+  // JSON-LD Service Schema
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -146,7 +147,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
   };
 
   return (
-    <>
+    <div className="relative min-h-screen bg-[#F8F9FA] text-slate-900 overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
@@ -156,9 +157,13 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className="py-10 lg:py-16">
+      {/* Subtle Top Ambient Brand Light Orbs */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[350px] bg-[#00cfdc]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
+      <div className="absolute top-1/3 left-0 w-[500px] h-[400px] bg-[#b80f68]/5 rounded-full blur-[130px] pointer-events-none" />
+
+      {/* Breadcrumbs Bar */}
+      <div className="relative pt-8 pb-4 border-b border-slate-200/70 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumbs */}
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -167,289 +172,329 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
               { label: `${city.name}`, href: `/services/${service.slug}/${city.slug}` },
             ]}
           />
+        </div>
+      </div>
 
+      <div className="py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Hero Section with BLUF */}
-          <section className="mt-4 mb-14">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-sd-pink/30 bg-sd-pink/5 px-3 py-1 mb-4">
-                <span className="h-1.5 w-1.5 rounded-full bg-sd-pink animate-pulse" />
-                <span className="text-xs font-semibold text-sd-pink">
-                  {city.name}, {city.state} · LGD Code {city.lgdCode}
-                </span>
-              </div>
+          <section className="mb-14 sm:mb-16">
+            <ScrollReveal direction="up" distance={25}>
+              <div className="max-w-4xl">
+                <div className="flex flex-wrap items-center gap-2.5 mb-5">
+                  <span className="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider text-[#b80f68] bg-[#b80f68]/10 border border-[#b80f68]/20 rounded-full px-3 py-1">
+                    {city.name}, {city.state}
+                  </span>
+                  <span className="inline-flex items-center text-xs font-mono font-semibold text-[#0284c7] bg-[#0284c7]/10 border border-[#0284c7]/20 rounded-full px-3 py-1">
+                    LGD Code {city.lgdCode}
+                  </span>
+                </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-sd-text leading-[1.1]">
-                Specialized {service.name} in {city.name}
-              </h1>
+                <h1 className="font-outfit text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.1] mb-5">
+                  Specialized {service.name}{" "}
+                  <span className="bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] bg-clip-text text-transparent">
+                    in {city.name}.
+                  </span>
+                </h1>
 
-              <p className="mt-5 text-sd-muted text-base lg:text-lg leading-relaxed">
-                Empowering enterprises, GCCs, and high-growth businesses in {city.name} with reliable execution, SLA-backed turnaround, and complete regulatory assurance.
-              </p>
-
-              {/* GEO / AEO Direct Answer Block (BLUF) */}
-              <div className="mt-6 p-4 rounded-lg border border-sd-border bg-sd-bg-2 text-xs leading-relaxed text-sd-text">
-                <p className="font-semibold text-sd-pink uppercase tracking-wider text-[11px] mb-1">
-                  Bottom-Line Up Front (BLUF):
+                <p className="font-sans text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mb-6">
+                  Empowering enterprises, GCCs, and high-growth businesses in {city.name} with reliable execution, SLA-backed turnaround, and complete regulatory assurance.
                 </p>
-                <p className="text-sd-muted">{blufAnswer}</p>
-              </div>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex justify-center items-center rounded px-6 py-3 text-xs sm:text-sm font-semibold bg-sd-pink text-white hover:bg-sd-pink-dark transition-colors"
-                >
-                  Schedule a {service.shortName} Consultation
-                </Link>
-                <Link
-                  href={`/locations/${city.stateSlug}`}
-                  className="inline-flex justify-center items-center rounded px-5 py-3 text-xs sm:text-sm font-semibold border border-sd-border text-sd-muted hover:text-sd-text hover:border-sd-border-2 transition-colors"
-                >
-                  View {city.state} Regulations →
-                </Link>
+                {/* GEO / AEO Direct Answer Block (BLUF) */}
+                <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs text-xs sm:text-sm leading-relaxed text-slate-800">
+                  <p className="font-mono font-bold text-[#b80f68] uppercase tracking-wider text-[11px] mb-1.5">
+                    Bottom-Line Up Front (BLUF):
+                  </p>
+                  <p className="text-slate-600 font-sans">{blufAnswer}</p>
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-xl px-7 py-3.5 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] hover:opacity-95 text-white shadow-md transition-all active:scale-95"
+                  >
+                    Schedule a {service.shortName} Consultation →
+                  </Link>
+                  <Link
+                    href={`/locations/${city.stateSlug}`}
+                    className="inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-xs sm:text-sm font-bold bg-white text-slate-800 border border-slate-200 hover:bg-slate-50 transition-all shadow-2xs"
+                  >
+                    View {city.state} Regulations
+                  </Link>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </section>
 
           {/* Local Context & Industrial Clusters */}
-          <section className="mb-14 rounded-lg border border-sd-border bg-white p-6 lg:p-8 shadow-xs">
-            <div className="max-w-3xl mb-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-sd-pink mb-1">
-                Regional Ecosystem Context
-              </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-sd-text">
-                Operating Across {city.name}’s Key Commercial Hubs
-              </h2>
-              <p className="text-xs text-sd-muted mt-2 leading-relaxed">
-                {city.economicProfile} Service Dial deploys specialized workflows tailored to the dominant industry clusters operating within {city.name}.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-3 gap-4 mb-6">
-              {city.clusters.map((cluster) => (
-                <div
-                  key={cluster.name}
-                  className="p-4 rounded border border-sd-border bg-sd-bg-2"
-                >
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-sd-pink block mb-1">
-                    {cluster.type}
+          <section className="mb-14 sm:mb-16">
+            <ScrollReveal direction="up" distance={25}>
+              <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-xs">
+                <div className="max-w-3xl mb-8">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#b80f68] block mb-2">
+                    Regional Ecosystem Context
                   </span>
-                  <p className="text-sm font-bold text-sd-text mb-2">{cluster.name}</p>
-                  <ul className="space-y-1">
-                    {cluster.keyZones.map((zone) => (
-                      <li key={zone} className="text-[11px] text-sd-muted flex items-center gap-1.5">
-                        <span className="h-1 w-1 rounded-full bg-sd-pink shrink-0" />
-                        {zone}
-                      </li>
-                    ))}
-                  </ul>
+                  <h2 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
+                    Operating Across {city.name}’s Key Commercial Hubs
+                  </h2>
+                  <p className="font-sans text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                    {city.economicProfile} Service Dial deploys specialized workflows tailored to the dominant industry clusters operating within {city.name}.
+                  </p>
                 </div>
-              ))}
-            </div>
 
-            <div className="p-4 rounded border-l-4 border-sd-pink bg-sd-bg-2 text-xs text-sd-muted">
-              <p className="font-semibold text-sd-text mb-0.5">
-                Statutory & Compliance Nuance for {city.name}:
-              </p>
-              <p>{serviceComplianceNuance}</p>
-            </div>
+                <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                  {city.clusters.map((cluster) => (
+                    <div
+                      key={cluster.name}
+                      className="p-5 rounded-2xl border border-slate-200 bg-[#F8F9FA]"
+                    >
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0284c7] block mb-1">
+                        {cluster.type}
+                      </span>
+                      <p className="font-outfit text-sm font-bold text-slate-900 mb-2">{cluster.name}</p>
+                      <ul className="space-y-1.5">
+                        {cluster.keyZones.map((zone) => (
+                          <li key={zone} className="text-xs font-sans text-slate-600 flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#b80f68] shrink-0" />
+                            {zone}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="p-5 rounded-2xl border-l-4 border-[#b80f68] bg-[#F8F9FA] text-xs sm:text-sm text-slate-600 font-sans">
+                  <p className="font-bold text-slate-900 mb-1 font-outfit">
+                    Statutory &amp; Compliance Nuance for {city.name}:
+                  </p>
+                  <p>{serviceComplianceNuance}</p>
+                </div>
+              </div>
+            </ScrollReveal>
           </section>
 
           {/* SLA & Service Delivery Metrics */}
-          <section className="mb-14">
-            <div className="mb-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-sd-pink mb-1">
-                Service Delivery Matrix
-              </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-sd-text">
-                Documented Execution Standards
-              </h2>
-            </div>
+          <section className="mb-14 sm:mb-16">
+            <ScrollReveal direction="up" distance={25}>
+              <div className="mb-8">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#b80f68] block mb-2">
+                  Service Delivery Matrix
+                </span>
+                <h2 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
+                  Documented Execution Standards
+                </h2>
+              </div>
+            </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {service.slaMetrics.map((metric) => (
-                <div
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {service.slaMetrics.map((metric, idx) => (
+                <ScrollReveal
                   key={metric.label}
-                  className="rounded-lg border border-sd-border bg-white p-5 shadow-xs"
+                  direction="up"
+                  distance={20}
+                  delay={idx * 60}
                 >
-                  <p className="text-2xl sm:text-3xl font-black text-sd-pink tracking-tight">
-                    {metric.value}
-                  </p>
-                  <p className="text-xs font-bold text-sd-text mt-1">{metric.label}</p>
-                  <p className="text-[11px] text-sd-muted mt-2 leading-relaxed">
-                    {metric.detail}
-                  </p>
-                </div>
+                  <div className="h-full rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col justify-between">
+                    <div>
+                      <p className="font-outfit text-3xl font-black text-[#b80f68] tracking-tight">
+                        {metric.value}
+                      </p>
+                      <p className="font-outfit text-sm font-bold text-slate-900 mt-1">{metric.label}</p>
+                    </div>
+                    <p className="text-xs font-sans text-slate-500 mt-3 leading-relaxed border-t border-slate-100 pt-2">
+                      {metric.detail}
+                    </p>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </section>
 
           {/* Capabilities Grid */}
-          <section className="mb-14">
-            <div className="mb-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-sd-pink mb-1">
-                Core Capabilities
-              </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-sd-text">
-                How We Deliver {service.name} in {city.name}
-              </h2>
-            </div>
+          <section className="mb-14 sm:mb-16">
+            <ScrollReveal direction="up" distance={25}>
+              <div className="mb-8">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0284c7] block mb-2">
+                  Core Capabilities
+                </span>
+                <h2 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
+                  How We Deliver {service.name} in {city.name}
+                </h2>
+              </div>
+            </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-5">
               {service.capabilities.map((cap, i) => (
-                <div
+                <ScrollReveal
                   key={cap.title}
-                  className="rounded-lg border border-sd-border bg-white p-6 shadow-xs flex gap-4"
+                  direction={i % 2 === 0 ? "left" : "right"}
+                  distance={20}
+                  delay={i * 60}
                 >
-                  <span className="text-2xl font-black text-sd-border-2 select-none shrink-0">
-                    0{i + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-base font-bold text-sd-text mb-2">
-                      {cap.title}
-                    </h3>
-                    <p className="text-xs text-sd-muted leading-relaxed">
-                      {cap.description}
-                    </p>
+                  <div className="h-full rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs flex gap-5">
+                    <span className="font-mono text-xl font-black text-slate-300 select-none shrink-0">
+                      0{i + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-outfit text-base font-bold text-slate-900 mb-2">
+                        {cap.title}
+                      </h3>
+                      <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        {cap.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </section>
 
           {/* Localized FAQ Accordion (GEO / AEO) */}
-          <section className="mb-14 rounded-lg border border-sd-border bg-white p-6 lg:p-8 shadow-xs">
-            <div className="max-w-2xl mb-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-sd-pink mb-1">
-                Frequently Asked Questions
-              </p>
-              <h2 className="text-xl sm:text-2xl font-bold text-sd-text">
-                {service.name} in {city.name}: Common Inquiries
-              </h2>
-            </div>
+          <section className="mb-14 sm:mb-16">
+            <ScrollReveal direction="up" distance={25}>
+              <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-xs">
+                <div className="max-w-2xl mb-8">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#b80f68] block mb-2">
+                    Frequently Asked Questions
+                  </span>
+                  <h2 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
+                    {service.name} in {city.name}: Common Inquiries
+                  </h2>
+                </div>
 
-            <div className="space-y-4">
-              {service.localFaqTemplates.map((faq, index) => {
-                const question = faq.questionTemplate.replace("{city}", city.name);
-                const answer = faq.answerTemplate
-                  .replace("{city}", city.name)
-                  .replace("{localCompliance}", serviceComplianceNuance);
+                <div className="space-y-4">
+                  {service.localFaqTemplates.map((faq, index) => {
+                    const question = faq.questionTemplate.replace("{city}", city.name);
+                    const answer = faq.answerTemplate
+                      .replace("{city}", city.name)
+                      .replace("{localCompliance}", serviceComplianceNuance);
 
-                return (
-                  <div
-                    key={index}
-                    className="p-4 rounded-lg border border-sd-border bg-sd-bg-2"
-                  >
-                    <h3 className="text-sm font-bold text-sd-text mb-2">
-                      {question}
-                    </h3>
-                    <p className="text-xs text-sd-muted leading-relaxed">
-                      {answer}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+                    return (
+                      <div
+                        key={index}
+                        className="p-5 rounded-2xl border border-slate-200 bg-[#F8F9FA]"
+                      >
+                        <h3 className="font-outfit text-sm sm:text-base font-bold text-slate-900 mb-2">
+                          {question}
+                        </h3>
+                        <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                          {answer}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </ScrollReveal>
           </section>
 
           {/* Lateral Linking: Other Services in This City */}
-          <section className="mb-12 pt-8 border-t border-sd-border">
-            <div className="mb-4">
-              <h3 className="text-base font-bold text-sd-text">
-                Other Enterprise Services in {city.name}
-              </h3>
-              <p className="text-xs text-sd-muted">
-                Explore integrated back-office support across our four pillars for {city.name} enterprises:
-              </p>
-            </div>
+          <section className="mb-12 pt-8 border-t border-slate-200">
+            <ScrollReveal direction="up" distance={20}>
+              <div className="mb-6">
+                <h3 className="font-outfit text-lg font-bold text-slate-900">
+                  Other Enterprise Services in {city.name}
+                </h3>
+                <p className="font-sans text-xs text-slate-500 mt-1">
+                  Explore integrated back-office support across our four pillars for {city.name} enterprises:
+                </p>
+              </div>
 
-            <div className="grid sm:grid-cols-3 gap-3">
-              {otherServices.map((otherSvc) => (
-                <Link
-                  key={otherSvc.slug}
-                  href={`/services/${otherSvc.slug}/${city.slug}`}
-                  className="p-3.5 rounded border border-sd-border bg-white hover:border-sd-pink/40 hover:shadow-xs transition-all flex items-center justify-between"
-                >
-                  <span className="text-xs font-semibold text-sd-text">
-                    {otherSvc.name} in {city.name}
-                  </span>
-                  <span className="text-xs text-sd-pink">→</span>
-                </Link>
-              ))}
-            </div>
+              <div className="grid sm:grid-cols-3 gap-3.5">
+                {otherServices.map((otherSvc) => (
+                  <Link
+                    key={otherSvc.slug}
+                    href={`/services/${otherSvc.slug}/${city.slug}`}
+                    className="p-4 rounded-xl border border-slate-200 bg-white hover:border-[#b80f68]/40 hover:shadow-xs transition-all flex items-center justify-between group"
+                  >
+                    <span className="text-xs font-semibold text-slate-900 group-hover:text-[#b80f68] transition-colors">
+                      {otherSvc.name} in {city.name}
+                    </span>
+                    <span className="text-xs text-[#b80f68] group-hover:translate-x-0.5 transition-transform">→</span>
+                  </Link>
+                ))}
+              </div>
+            </ScrollReveal>
           </section>
 
           {/* Geographic Spoke Linking: Other Major Hubs */}
-          <section className="mb-14 pt-6 border-t border-sd-border">
-            <div className="mb-4">
-              <h3 className="text-base font-bold text-sd-text">
-                {service.name} in Other Major Indian Commercial Hubs
-              </h3>
-              <p className="text-xs text-sd-muted">
-                Nationwide deployment across primary technology and manufacturing metros:
-              </p>
-            </div>
+          <section className="mb-14 pt-6 border-t border-slate-200">
+            <ScrollReveal direction="up" distance={20}>
+              <div className="mb-4">
+                <h3 className="font-outfit text-lg font-bold text-slate-900">
+                  {service.name} in Other Major Indian Commercial Hubs
+                </h3>
+                <p className="font-sans text-xs text-slate-500 mt-1">
+                  Nationwide deployment across primary technology and manufacturing metros:
+                </p>
+              </div>
 
-            <div className="flex flex-wrap gap-2 text-xs">
-              {otherCities.map((otherCity) => (
-                <Link
-                  key={otherCity.slug}
-                  href={`/services/${service.slug}/${otherCity.slug}`}
-                  className="px-3 py-1.5 rounded border border-sd-border bg-sd-bg-2 hover:bg-white hover:border-sd-pink/40 text-sd-muted hover:text-sd-text transition-all font-medium"
-                >
-                  {service.shortName} in {otherCity.name}
-                </Link>
-              ))}
-            </div>
+              <div className="flex flex-wrap gap-2 text-xs">
+                {otherCities.map((otherCity) => (
+                  <Link
+                    key={otherCity.slug}
+                    href={`/services/${service.slug}/${otherCity.slug}`}
+                    className="px-3.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:border-[#b80f68]/40 hover:text-slate-900 text-slate-600 transition-all font-medium text-xs shadow-2xs"
+                  >
+                    {service.shortName} in {otherCity.name}
+                  </Link>
+                ))}
+              </div>
+            </ScrollReveal>
           </section>
 
           {/* Bottom Lead Conversion Box */}
-          <section className="rounded-2xl border border-sd-pink/25 bg-gradient-to-br from-sd-pink/5 via-white to-slate-50 p-6 sm:p-8 lg:p-10 grid lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-6 space-y-3">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-sd-pink">
-                Direct {city.name} Corporate Desk
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-sd-text">
-                Initiate Your {service.shortName} Mandate in {city.name}
-              </h2>
-              <p className="text-xs sm:text-sm text-sd-muted leading-relaxed">
-                Every mandate is executed under strict bilateral NDA &amp; DPDP Act protection. Receive verified SLAs and tailored pricing within 24–72 hours.
-              </p>
-              <div className="flex flex-wrap items-center gap-4 pt-1 text-xs">
-                <a
-                  href="tel:+918777864949"
-                  className="font-bold text-sd-text hover:text-sd-pink underline"
-                >
-                  📞 +91 87778 64949
-                </a>
-                <Link
-                  href="/tools/payroll-fee-estimator"
-                  className="font-semibold text-sd-pink hover:underline"
-                >
-                  Estimate Monthly Fee →
-                </Link>
-                <Link
-                  href="/contact"
-                  className="font-semibold text-sd-muted hover:text-sd-text underline"
-                >
-                  Full Mandate Form
-                </Link>
+          <section className="relative rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-xs overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7]" />
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-6 space-y-4">
+                <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-[#b80f68]">
+                  Direct {city.name} Corporate Desk
+                </span>
+                <h2 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
+                  Initiate Your {service.shortName} Mandate in {city.name}
+                </h2>
+                <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Every mandate is executed under strict bilateral NDA &amp; DPDP Act protection. Receive verified SLAs and tailored pricing within 24–72 hours.
+                </p>
+                <div className="flex flex-wrap items-center gap-4 pt-1 text-xs">
+                  <a
+                    href="tel:+918777864949"
+                    className="font-bold text-slate-900 hover:text-[#b80f68] underline"
+                  >
+                    📞 +91 87778 64949
+                  </a>
+                  <Link
+                    href="/tools"
+                    className="font-semibold text-[#b80f68] hover:underline"
+                  >
+                    Statutory Tools →
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="font-semibold text-slate-500 hover:text-slate-900 underline"
+                  >
+                    Full Mandate Form
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="lg:col-span-6">
-              <CalculatorQuickLeadForm
-                service={service.name}
-                heading={`Request ${service.shortName} Proposal in ${city.name}`}
-                ctaLabel={`Get ${city.name} Proposal & Callback`}
-                contextSummary={`Commercial City Page Lead — Service: ${service.name} | City: ${city.name}, ${city.state}`}
-                analyticsChannel="city_service_page"
-                variant="light"
-                analyticsMeta={{ city: city.slug, service_slug: service.slug }}
-              />
+              <div className="lg:col-span-6">
+                <CalculatorQuickLeadForm
+                  service={service.name}
+                  heading={`Request ${service.shortName} Proposal in ${city.name}`}
+                  ctaLabel={`Get ${city.name} Proposal & Callback`}
+                  contextSummary={`Commercial City Page Lead — Service: ${service.name} | City: ${city.name}, ${city.state}`}
+                  analyticsChannel="city_service_page"
+                  variant="light"
+                  analyticsMeta={{ city: city.slug, service_slug: service.slug }}
+                />
+              </div>
             </div>
           </section>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -100,7 +100,7 @@ export async function GET() {
 ---
 
 ## 4. Primary Interactive Web Tools
-- **Payroll & Statutory Compliance Fee Estimator:** https://servicedialtm.com/tools/payroll-fee-estimator
+- **Compliance & Statutory Tools Hub:** https://servicedialtm.com/tools
 - **EPFO ₹25,000 Impact Guide:** https://servicedialtm.com/resources/epfo-wage-ceiling-25000
 - **West Bengal PT 2026 Guide:** https://servicedialtm.com/resources/west-bengal-professional-tax-2026
 - **West Bengal Labour Welfare Fund Guide:** https://servicedialtm.com/resources/west-bengal-labour-welfare-fund

@@ -13,7 +13,7 @@ const regulatoryResources = [
   { label: "EPFO ₹25,000 Wage Ceiling Guide", href: "/resources/epfo-wage-ceiling-25000" },
   { label: "West Bengal Professional Tax 2026", href: "/resources/west-bengal-professional-tax-2026" },
   { label: "WB Labour Welfare Fund (LWF)", href: "/resources/west-bengal-labour-welfare-fund" },
-  { label: "Payroll Fee Estimator Tool", href: "/tools/payroll-fee-estimator" },
+  { label: "Compliance Calculators & Tools", href: "/tools" },
   { label: "Industry Compliance Verticals", href: "/industries" },
 ];
 
@@ -53,7 +53,24 @@ export default function Footer() {
               Established 2016 with over 25+ years combined executive leadership tenure. Delivering zero-defect payroll, statutory compliance, and flexi-staffing across India.
             </p>
             <div className="text-xs text-slate-600 space-y-1 mb-4">
-              <p>📍 <strong>Registered Office:</strong> 58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120</p>
+              <p className="flex items-start gap-1.5 leading-relaxed">
+                <span className="shrink-0 mt-0.5" aria-hidden="true">📍</span>
+                <span>
+                  <strong className="text-slate-800">Registered Office:</strong>{" "}
+                  <a
+                    href="https://maps.google.com/?q=58+(30)+S.N.+Banerjee+Road+Barrackpore+Kolkata+West+Bengal+700120"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Open Service Dial Registered Office in Google Maps"
+                    className="text-slate-700 hover:text-[#b80f68] font-medium underline decoration-slate-300 hover:decoration-[#b80f68] underline-offset-2 transition-colors inline-flex items-center gap-1"
+                  >
+                    58 (30), S.N. Banerjee Road, Barrackpore, Kolkata, West Bengal 700120
+                    <svg className="w-3 h-3 inline-block shrink-0 opacity-60 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </span>
+              </p>
             </div>
             <div className="flex flex-wrap gap-2 text-xs text-slate-700">
               <span className="px-2 py-0.5 border border-slate-200/90 rounded bg-white/80 font-medium">Est. 2016</span>
@@ -131,7 +148,7 @@ export default function Footer() {
             <p className="text-[11px] uppercase tracking-wider font-bold text-slate-800 mb-2.5">
               Key Managed Service Hubs:
             </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-700">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-slate-700">
               <Link href="/locations/west-bengal" className="hover:text-sd-pink transition-colors font-semibold text-slate-900">Kolkata & Barrackpore HQ</Link>
               <Link href="/services/staffing-and-recruitment/bengaluru" className="hover:text-sd-pink transition-colors font-medium">Bengaluru</Link>
               <Link href="/services/staffing-and-recruitment/mumbai" className="hover:text-sd-pink transition-colors font-medium">Mumbai</Link>
@@ -140,12 +157,28 @@ export default function Footer() {
               <Link href="/services/staffing-and-recruitment/delhi" className="hover:text-sd-pink transition-colors font-medium">Delhi NCR</Link>
               <Link href="/services/staffing-and-recruitment/chennai" className="hover:text-sd-pink transition-colors font-medium">Chennai</Link>
               <Link href="/services/staffing-and-recruitment/ahmedabad" className="hover:text-sd-pink transition-colors font-medium">Ahmedabad</Link>
+              <Link href="/locations" className="text-[#b80f68] hover:text-[#2e0d82] hover:underline font-bold inline-flex items-center gap-0.5 ml-1 transition-colors">
+                Explore All 23 Hubs &rarr;
+              </Link>
             </div>
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-700 font-medium">
             <p>© {new Date().getFullYear()} Service Dial Talent Management Private Limited. All rights reserved.</p>
-            <p>CIN: U74999WB2016PTC216954 · Section 8(2) DPDP Compliant · 100% Audit Readiness</p>
+            <div className="flex flex-col sm:items-end gap-1 text-center sm:text-right">
+              <p>CIN: U74999WB2016PTC216954 · Section 8(2) DPDP Compliant · 100% Audit Readiness</p>
+              <p className="text-[11px] text-slate-500 font-normal">
+                Designed &amp; Developed by{" "}
+                <a
+                  href="https://parthertech.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-700 hover:text-[#b80f68] transition-colors underline decoration-slate-300 hover:decoration-[#b80f68] underline-offset-2"
+                >
+                  Parther Technologies Pvt Ltd
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

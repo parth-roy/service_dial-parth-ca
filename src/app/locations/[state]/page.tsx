@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { STATES_DATA, CITIES_DATA } from "@/data/locations";
@@ -13,25 +13,44 @@ export const dynamicParams = true;
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
-  return Object.keys(STATES_DATA).map((state) => ({ state }));
+  const stateParams = Object.keys(STATES_DATA).map((state) => ({ state }));
+  const cityParams = Object.keys(CITIES_DATA).map((state) => ({ state }));
+  return [...stateParams, ...cityParams];
 }
 
 export async function generateMetadata({ params }: StatePageProps): Promise<Metadata> {
   const { state: stateSlug } = await params;
   const state = STATES_DATA[stateSlug];
-  if (!state) return { title: "Location Not Found" };
+  if (state) {
+    return {
+      title: `B2B Enterprise Services in ${state.name}`,
+      description: `Enterprise staffing, payroll, finance, and labour law compliance services across ${state.name}. LGD Code: ${state.lgdStateCode}. 100% statutory adherence.`,
+      alternates: { canonical: `https://servicedialtm.com/locations/${state.slug}` },
+    };
+  }
 
-  return {
-    title: `B2B Enterprise Services in ${state.name}`,
-    description: `Enterprise staffing, payroll, finance, and labour law compliance services across ${state.name}. LGD Code: ${state.lgdStateCode}. 100% statutory adherence.`,
-    alternates: { canonical: `https://servicedialtm.com/locations/${state.slug}` },
-  };
+  const city = CITIES_DATA[stateSlug];
+  if (city) {
+    return {
+      title: `B2B Enterprise Hub - ${city.name}, ${city.state}`,
+      description: `Enterprise managed services, recruitment and statutory compliance in ${city.name}, ${city.state}.`,
+      alternates: { canonical: `https://servicedialtm.com/locations/${city.stateSlug}` },
+    };
+  }
+
+  return { title: "Location Not Found" };
 }
 
 export default async function StateHubPage({ params }: StatePageProps) {
   const { state: stateSlug } = await params;
   const state = STATES_DATA[stateSlug];
-  if (!state) notFound();
+  if (!state) {
+    const city = CITIES_DATA[stateSlug];
+    if (city) {
+      redirect(`/locations/${city.stateSlug}`);
+    }
+    notFound();
+  }
 
   const stateCities = state.cities
     .map((citySlug) => CITIES_DATA[citySlug])
