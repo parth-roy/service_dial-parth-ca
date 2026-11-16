@@ -24,7 +24,7 @@ export default function LocationsDirectoryPage() {
       <div className="absolute top-1/3 left-0 w-[500px] h-[400px] bg-[#b80f68]/5 rounded-full blur-[130px] pointer-events-none" />
 
       {/* Top Breadcrumb Bar */}
-      <div className="relative pt-8 pb-4 border-b border-slate-200/70 bg-white">
+      <div className="relative py-3 border-b border-slate-200/70 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4 text-xs">
             <div className="flex items-center gap-2 text-slate-500">
@@ -35,50 +35,88 @@ export default function LocationsDirectoryPage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700">
               <span className="font-mono text-[#0284c7]">LGD Aligned Architecture</span>
               <span className="text-slate-300">•</span>
-              <span>20 Commercial Metros</span>
+              <span>51 Industrial Corridors</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Hero Header */}
-      <section className="relative py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/70">
+      {/* Hero Header - Balanced 2-Column with Enterprise Trust & Coverage Metrics */}
+      <section className="relative pt-6 pb-8 sm:pt-8 sm:pb-10 bg-white border-b border-slate-200/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up" distance={25}>
-            <div className="max-w-4xl">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#b80f68] shrink-0" />
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: Heading & Value Proposition */}
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#b80f68] shrink-0 animate-pulse" />
                 <span className="font-outfit text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.24em] text-slate-900">
                   LOCAL GOVERNMENT DIRECTORY (LGD) ALIGNED NETWORK
                 </span>
                 <span className="h-px flex-1 bg-slate-200" />
               </div>
 
-              <h1 className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.08] mb-6">
+              <h1 className="font-outfit text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-[1.12] mb-4">
                 Nationwide B2B service{" "}
                 <span className="bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] bg-clip-text text-transparent">
                   delivery network.
                 </span>
               </h1>
 
-              <p className="font-sans text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
+              <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mb-5">
                 Service Dial delivers managed staffing, corporate payroll outsourcing, and multi-state compliance across India&apos;s primary economic corridors. Our service area architecture delivers verified legal adherence without deceptive physical branch claims.
               </p>
+
+              {/* Quick Live Status Hint */}
+              <div className="flex flex-wrap items-center gap-2.5 text-xs text-slate-500 font-mono">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                  Live Operational Network
+                </span>
+                <span className="text-slate-300">•</span>
+                <span>Active Sourcing &amp; Compliance across 51 Commercial Hubs</span>
+              </div>
             </div>
-          </ScrollReveal>
+
+            {/* Right Column: 4-Pillar Authority & Delivery Matrix */}
+            <div className="lg:col-span-5">
+              <div className="grid grid-cols-2 gap-3 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-200/90 shadow-sm">
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-xs">
+                  <div className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">51+</div>
+                  <div className="text-xs font-bold text-[#b80f68] mt-0.5">Industrial Hubs</div>
+                  <div className="text-[11px] text-slate-500 mt-1 leading-snug">Peenya, Chakan, Sanand, Whitefield, Oragadam &amp; SEZs</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-xs">
+                  <div className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">28</div>
+                  <div className="text-xs font-bold text-[#2e0d82] mt-0.5">States &amp; UTs</div>
+                  <div className="text-[11px] text-slate-500 mt-1 leading-snug">Unified statutory labour, PT &amp; LWF gazette coverage</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-xs">
+                  <div className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">24–72h</div>
+                  <div className="text-xs font-bold text-[#01adf7] mt-0.5">Deployment SLA</div>
+                  <div className="text-[11px] text-slate-500 mt-1 leading-snug">Guaranteed talent sourcing &amp; regulatory desk activation</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-xs">
+                  <div className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">100%</div>
+                  <div className="text-xs font-bold text-emerald-600 mt-0.5">Statutory Indemnity</div>
+                  <div className="text-[11px] text-slate-500 mt-1 leading-snug">Zero non-compliance penalty guarantee on managed mandates</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Interactive Search & Filter Client Component */}
-      <section className="relative py-12 sm:py-16">
+      <section className="relative pt-6 pb-12 sm:pt-8 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal direction="up" distance={20} delay={100}>
-            <LocationDirectoryClient
-              cities={cities}
-              states={states}
-              services={services}
-            />
-          </ScrollReveal>
+          <LocationDirectoryClient
+            cities={cities}
+            states={states}
+            services={services}
+          />
         </div>
       </section>
 
