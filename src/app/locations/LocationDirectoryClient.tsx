@@ -233,17 +233,19 @@ export default function LocationDirectoryClient({
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCities.map((city) => (
+          {filteredCities.map((city, idx) => (
             <div
               key={city.slug}
-              className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-sm hover:border-slate-300 transition-all flex flex-col justify-between group"
+              className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
+              {/* Subtle top accent gradient bar on hover */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div>
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div>
                     <h3 className="font-outfit text-xl font-bold text-slate-900 flex items-center gap-2 group-hover:text-[#b80f68] transition-colors">
                       {city.name}
-                      <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700">
+                      <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 group-hover:bg-[#b80f68]/10 group-hover:text-[#b80f68] group-hover:border-[#b80f68]/20 transition-colors">
                         Tier {city.tier}
                       </span>
                     </h3>
@@ -259,7 +261,7 @@ export default function LocationDirectoryClient({
                       LGD: {city.lgdCode}
                     </span>
                     {city.averageSourcingSLA && (
-                      <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+                      <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded shadow-2xs">
                         {city.averageSourcingSLA} SLA
                       </span>
                     )}
@@ -279,7 +281,7 @@ export default function LocationDirectoryClient({
                     {city.clusters.map((c) => (
                       <span
                         key={c.name}
-                        className="text-[10px] font-mono bg-slate-50 text-slate-600 px-2 py-0.5 rounded border border-slate-200 truncate max-w-full"
+                        className="text-[10px] font-mono bg-slate-50 text-slate-600 px-2 py-0.5 rounded border border-slate-200 truncate max-w-full hover:border-slate-300 hover:bg-slate-100 transition-colors"
                         title={c.keyZones.join(", ")}
                       >
                         {c.name}
@@ -299,9 +301,11 @@ export default function LocationDirectoryClient({
                     <Link
                       key={svc.slug}
                       href={`/services/${svc.slug}/${city.slug}`}
-                      className="text-slate-700 hover:text-[#b80f68] transition-colors truncate font-medium flex items-center gap-1.5"
+                      className="text-slate-700 hover:text-[#b80f68] transition-colors truncate font-medium flex items-center gap-1.5 group/link py-0.5"
                     >
-                      <span className="text-[#0284c7]">→</span>
+                      <span className="text-[#0284c7] group-hover/link:text-[#b80f68] group-hover/link:translate-x-1 transition-all duration-200">
+                        →
+                      </span>
                       <span>{svc.shortName}</span>
                     </Link>
                   ))}
