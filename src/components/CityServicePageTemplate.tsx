@@ -208,55 +208,317 @@ export default function CityServicePageTemplate({
     ];
   })();
 
+  const cleanPtForm = ptRule?.annualReturnForm
+    ? ptRule.annualReturnForm.startsWith("Form")
+      ? ptRule.annualReturnForm
+      : `Form ${ptRule.annualReturnForm}`
+    : "Annual PT Return";
+
+  const cleanLwfForm = lwfRule?.statutoryReturnForm
+    ? lwfRule.statutoryReturnForm.startsWith("Form")
+      ? lwfRule.statutoryReturnForm
+      : `Form ${lwfRule.statutoryReturnForm}`
+    : "Annual LWF Return";
+
   const ptFaqAnswer = ptRule?.isRepealed
     ? `In Odisha, the State Tax on Professions Act, 2000 was abolished and repealed effective April 1, 2026. Employers in ${city.name} are legally relieved from deducting or depositing Professional Tax (₹0 PT liability across all salary brackets). Any payroll engine continuing to deduct PT in ${city.name} is in statutory violation.`
     : ptRule?.statutoryStatus === "NO_PT_STATE"
     ? `${city.state} does not impose Professional Tax on salaried employees or commercial establishments. In ${city.name}, employees enjoy ₹0 Professional Tax deduction, and employers do not require PTRC or PTEC registrations.`
-    : `Professional Tax in ${city.state} is governed by the ${ptRule?.governingAct}. Salaried employees are assessed per the official schedule with deductions remitted via the ${ptRule?.portalName} on or before the ${ptRule?.monthlyPaymentDueDate}. ${ptRule?.specialProvisions?.join(" ")} Service Dial automates monthly challan reconciliation and annual Form ${ptRule?.annualReturnForm} filings under guaranteed zero-penalty SLAs.`;
+    : `Professional Tax in ${city.state} is governed by the ${ptRule?.governingAct}. Salaried employees are assessed per the official schedule with deductions remitted via the ${ptRule?.portalName} on or before the ${ptRule?.monthlyPaymentDueDate}. ${ptRule?.specialProvisions?.join(" ")} Service Dial automates monthly challan reconciliation and annual ${cleanPtForm} filings under guaranteed zero-penalty SLAs.`;
 
   const lwfFaqAnswer = lwfRule?.hasLwf
-    ? `Under the ${lwfRule.governingAct}, establishments in ${city.name} must deduct employee contributions of ${lwfRule.employeeShareMonthly} and deposit employer matching contributions of ${lwfRule.employerShareMonthly} on a ${lwfRule.remittanceFrequency} basis. Statutory cutoff dates are ${lwfRule.statutoryCutoffDates.join(" and ")} filed via ${lwfRule.portalName}. ${lwfRule.specialRules} Service Dial ensures full compliance with electronic remittance and Form ${lwfRule.statutoryReturnForm} certification.`
+    ? `Under the ${lwfRule.governingAct}, establishments in ${city.name} must deduct employee contributions of ${lwfRule.employeeShareMonthly} and deposit employer matching contributions of ${lwfRule.employerShareMonthly} on a ${lwfRule.remittanceFrequency} basis. Statutory cutoff dates are ${lwfRule.statutoryCutoffDates.join(" and ")} filed via ${lwfRule.portalName}. ${lwfRule.specialRules} Service Dial ensures full compliance with electronic remittance and ${cleanLwfForm} certification.`
     : `${city.state} currently does not enforce an active statutory Labour Welfare Fund enactment. Establishments operating in ${city.name} have zero LWF remittance liability, reducing employer overheads.`;
 
   const minWageFaqAnswer = minWageRule
     ? `Per Gazette Notification ${minWageRule.gazetteOrderNo} for ${minWageRule.zone}, the revised monthly minimum wages are: Unskilled: ₹${minWageRule.unskilledMonthly.toLocaleString("en-IN")} (₹${minWageRule.unskilledDaily}/day); Semi-skilled: ₹${minWageRule.semiSkilledMonthly.toLocaleString("en-IN")} (₹${minWageRule.semiSkilledDaily}/day); Skilled: ₹${minWageRule.skilledMonthly.toLocaleString("en-IN")} (₹${minWageRule.skilledDaily}/day); and Highly Skilled: ₹${minWageRule.highlySkilledMonthly.toLocaleString("en-IN")} (₹${minWageRule.highlySkilledDaily}/day). Overtime hours are compensated at ${minWageRule.overtimeMultiplier}. Service Dial configures payroll algorithms to automatically reflect semi-annual VDA adjustments, eliminating Section 20 claim risks.`
     : `Minimum wages in ${city.name} are revised semi-annually based on Consumer Price Index (CPI) adjustments published by the State Labour Commissioner. Service Dial tracks all gazette notifications across Zone 1, 2, and 3 classifications to guarantee 100% wage compliance.`;
 
-  // 8 Deep Localized Technical FAQs
-  const deepFaqs = [
-    {
-      q: `How does the 2026 EPFO ₹25,000 wage ceiling restructuring impact corporate CTC in ${city.name}?`,
-      a: `Under Central Labour Ministry Notification S.O. 5109(E), the statutory EPF wage ceiling is enhanced from ₹15,000 to ₹25,000 per month. In ${city.name}, employers must audit all employees earning between ₹15,001 and ₹25,000 who were previously treated as "excluded employees." Mandatory employer EPF contributions increase from ₹1,800 to ₹3,000 per month (an incremental ₹1,200/employee/month). EPS Account 10 contributions re-cap at ₹2,083 per month (8.33% of ₹25,000), with the remaining ₹917 directed to the EPF Account 1. Service Dial conducts complete CTC modeling to ensure smooth transitions without reducing employees' take-home pay or breaching minimum wage floors.`,
-    },
-    {
-      q: `What are the exact Professional Tax slabs, exemptions, and filing deadlines applicable in ${city.state}?`,
-      a: ptFaqAnswer,
-    },
-    {
-      q: `What is the Labour Welfare Fund (LWF) remittance calendar and statutory ratio in ${city.state}?`,
-      a: lwfFaqAnswer,
-    },
-    {
-      q: `What are the official minimum wage and semi-annual VDA rates across skill tiers in ${city.state}?`,
-      a: minWageFaqAnswer,
-    },
-    {
-      q: `What are the Factories Act 1948 site sanction and Form 1 CIF approval requirements in ${city.name}?`,
-      a: `Under Section 6 of the Factories Act, 1948 read with State Factory Rules, any manufacturing facility in ${city.name} employing 10+ workers (with power) or 20+ workers (without power)—or 20/40 workers in states with doubled thresholds—must obtain prior site plan approval from the Chief Inspector of Factories (DISH). Applications require architectural blueprints (scale 1:100), chartered structural engineer Form 1-A stability certificates, machinery layout diagrams with emergency egress, and ventilation load calculations. Operating without Form 1 sanction carries imprisonment up to 2 years and ₹1,00,000 fines under Section 92. Service Dial manages end-to-end DISH liaison and Form 2 factory license renewals.`,
-    },
-    {
-      q: `What is the threshold for Contract Labour (CLRA) licensing and Principal Employer registration in ${city.name}?`,
-      a: `Under the Contract Labour (Regulation and Abolition) Act, 1970, a Principal Employer in ${city.name} deploying 20 or more contract workers (or 50 workers in amended states) on any day of the preceding 12 months must obtain a Form II Certificate of Registration. Contractors deploying contract workers must hold a valid Form VI License backed by the Principal Employer's Form V Certificate. Service Dial serves as an institutional flexi-staffing partner, maintaining master statutory registers (Forms XII, XIII, XVII, XIX) and providing verified ECR challans to ringfence clients against co-employment claims.`,
-    },
-    {
-      q: `How does Service Dial eliminate co-employment risks and deliver statutory indemnity in ${city.name}?`,
-      a: `Service Dial operates strictly on a "Contract for Service" (deliverable-based SLA) rather than a "Contract of Service" (supervision-based employment). We execute bilateral institutional NDAs, maintain direct supervisory control, remit all statutory dues under our independent EPFO/ESIC sub-codes, and issue monthly statutory compliance indemnity certificates. In the event of a labour inspection in ${city.name}, our regulatory defense counsel represents the file directly before the Labour Officer.`,
-    },
-    {
-      q: `What municipal trade license and health permit clearances are mandatory for establishments in ${city.name}?`,
-      a: `Every commercial office, IT GCC, retail store, and industrial warehouse operating within ${city.name} must hold a valid Certificate of Enlistment or Trade License from the local municipal corporation. Clearances require property tax PID numbers, lease agreements, fire safety compliance certificates, and sanctioned building plans. Failure to renew trade licenses leads to compounding fines, trade sealing, and business interruption. Service Dial handles annual municipal filings and representation across municipal ward offices.`,
-    },
-  ];
+  // 4 Strictly Domain-Isolated Execution Pipelines
+  const executionPipeline = (() => {
+    if (service.slug === "hrms-and-payroll") {
+      return {
+        badge: "Payroll Operations SLA Architecture",
+        title: "5-Stage Payroll Processing & Statutory SLA Pipeline",
+        subtitle: `Our proprietary payroll execution framework guarantees 100% data integrity from gross-to-net calculation through government portal challan clearance in ${city.name}:`,
+        steps: [
+          {
+            step: "01",
+            title: "Gross-to-Net Ingestion & Attendance",
+            desc: `Master Aadhaar KYC, UAN seeding, ESIC IP allocation, and biometric attendance scrubbed with Section 59 overtime limits (2x rate calculation) before payroll calculation.`,
+          },
+          {
+            step: "02",
+            title: "Multi-State PT, LWF & TDS 24Q Engine",
+            desc: `Real-time calculation applying exact ${city.state} Professional Tax brackets, Labour Welfare Fund employer/employee splits, and quarterly TDS with Section 192 compliance.`,
+          },
+          {
+            step: "03",
+            title: "Escrow Salary Disbursal & Bank Advice",
+            desc: "Maker-checker authorization of direct net salary credits via corporate escrow bank integration with guaranteed zero-delay disbursement SLAs.",
+          },
+          {
+            step: "04",
+            title: "Automated ESS Payslips & Form 16",
+            desc: "Encrypted digital payslip delivery via employee self-service, real-time tax projection sheets, and automated annual Form 16 Part A & B generation.",
+          },
+          {
+            step: "05",
+            title: "ECR Electronic Challan & Statutory Filings",
+            desc: `Automated generation and submission of EPFO ECR text files, ESIC monthly contribution challans, and ${city.state} returns with TRRN digital proof vouchers.`,
+          },
+        ],
+      };
+    }
+    if (service.slug === "finance-and-audit") {
+      return {
+        badge: "Financial Governance Architecture",
+        title: "5-Stage Corporate Finance, AP & Audit Control Pipeline",
+        subtitle: `Our corporate financial controller framework guarantees 100% transaction integrity, MSME gatekeeping, and audit readiness for enterprises in ${city.name}:`,
+        steps: [
+          {
+            step: "01",
+            title: "3-Way PO Matching & AP Ingestion",
+            desc: "Automated OCR extraction of vendor tax invoices, 3-way matching against Purchase Orders and Goods Receipt Notes (GRN) in your ERP (SAP, Oracle, Tally).",
+          },
+          {
+            step: "02",
+            title: "MSME Sec 43B(h) 45-Day Gatekeeping",
+            desc: "Continuous Udyam portal verification and statutory aging tracking to ensure supplier payments are cleared within 15/45 days, preventing tax disallowances.",
+          },
+          {
+            step: "03",
+            title: "Multi-GSTN GSTR-2B ITC Matching",
+            desc: "Daily automated cross-verification of vendor-filed GSTR-1 with GSTR-2B inward supplies to lock 100% eligible Input Tax Credit and prevent Rule 21A notices.",
+          },
+          {
+            step: "04",
+            title: "CARO 2020 Asset & Stock Barcoding",
+            desc: `On-site physical tagging, RFID/barcode mapping of plant machinery in ${city.name}, and periodic stock-taking compliant with CARO Clauses 3(i) and 3(ii).`,
+          },
+          {
+            step: "05",
+            title: "Internal Financial Controls (IFC) Dossier",
+            desc: "Month-end ledger scrub, bank reconciliations, variance analysis, and audit-ready schedules for statutory and tax auditors under Section 134(5)(e).",
+          },
+        ],
+      };
+    }
+    if (service.slug === "compliance-services") {
+      return {
+        badge: "Industrial Regulatory Architecture",
+        title: "5-Stage Industrial Plant & Statutory Licensing Pipeline",
+        subtitle: `Our statutory engineering desk manages end-to-end liaison, blueprint sanctions, and on-ground inspection defense for industrial facilities in ${city.name}:`,
+        steps: [
+          {
+            step: "01",
+            title: "Industrial Plant Baseline Audit",
+            desc: `Comprehensive on-site gap assessment of factory premises in ${city.name}, machinery safety, contractor registers, and municipal licenses against state labor codes.`,
+          },
+          {
+            step: "02",
+            title: "Blueprint Drafting & CIF Form 1 Sanction",
+            desc: "Preparation of certified architectural layout plans (scale 1:100) and Form 1-A stability certificates for Chief Inspector of Factories (DISH) approval.",
+          },
+          {
+            step: "03",
+            title: "Contractor CLRA & Statutory Licensing",
+            desc: `End-to-end procurement and renewal of Principal Employer Form I registrations, Contractor Form VI licenses, and Form V issuance in ${city.name}.`,
+          },
+          {
+            step: "04",
+            title: "SPCB Environmental Consents (CTE/CTO)",
+            desc: `Industrial effluent audit, stack emission calculations, and consent-to-establish (CTE) / consent-to-operate (CTO) liaison with State Pollution Control Board.`,
+          },
+          {
+            step: "05",
+            title: "Inspection Defense Representation",
+            desc: "Maintenance of 30+ statutory digital registers (Forms XII, XIII, XVII, XIX) and physical representation during surprise labour inspections with zero client liability.",
+          },
+        ],
+      };
+    }
+    // Default: Staffing & Recruitment
+    return {
+      badge: "Workforce Sourcing & SLA Architecture",
+      title: "5-Stage Talent Sourcing, Screening & Deployment Pipeline",
+      subtitle: `Our talent acquisition and deployment framework guarantees 24–72 hour SLAs, rigorous 7-point BGV, and 100% legal ringfencing across ${city.name}:`,
+      steps: [
+        {
+          step: "01",
+          title: "JD Profiling & Compensation Benchmark",
+          desc: `Comprehensive role scoping, skill mapping, and localized compensation analysis across industrial clusters and SEZs in ${city.name}.`,
+        },
+        {
+          step: "02",
+          title: "Multi-Channel Sourcing & Screening",
+          desc: "Rapid candidate pipeline sourcing from verified talent databases with technical assessment and recruiter vetting within 24–48 hours.",
+        },
+        {
+          step: "03",
+          title: "7-Point BGV & DPDP Compliance",
+          desc: "Thorough background verification (criminal records, prior employment, education, identity) compliant with Section 8(2) of the DPDP Act 2023.",
+        },
+        {
+          step: "04",
+          title: "Digital Onboarding & Form V Deployment",
+          desc: "Paperless contract associate onboarding, appointment letter issuance, statutory nomination forms, and CLRA Form V alignment.",
+        },
+        {
+          step: "05",
+          title: "Workforce Governance & Replacement SLA",
+          desc: "Active on-site employee engagement, biometric attendance monitoring, monthly payroll liaison, and guaranteed 30–90 day replacement SLA.",
+        },
+      ],
+    };
+  })();
+
+  // 4 Strictly Domain-Isolated Technical FAQ Suites (8 Deep Questions Per Pillar)
+  const deepFaqs = (() => {
+    if (service.slug === "hrms-and-payroll") {
+      return [
+        {
+          q: `How does the 2026 EPFO ₹25,000 wage ceiling restructuring impact corporate CTC in ${city.name}?`,
+          a: `Under Central Labour Ministry Notification S.O. 5109(E), the statutory EPF wage ceiling is enhanced from ₹15,000 to ₹25,000 per month. In ${city.name}, employers must audit all employees earning between ₹15,001 and ₹25,000 who were previously treated as "excluded employees." Mandatory employer EPF contributions increase from ₹1,800 to ₹3,000 per month (an incremental ₹1,200/employee/month). EPS Account 10 contributions re-cap at ₹2,083 per month (8.33% of ₹25,000), with the remaining ₹917 directed to the EPF Account 1. Service Dial conducts complete CTC modeling to ensure smooth transitions without reducing employees' take-home pay or breaching minimum wage floors.`,
+        },
+        {
+          q: `What are the exact Professional Tax slabs, exemptions, and filing deadlines applicable in ${city.state}?`,
+          a: ptFaqAnswer,
+        },
+        {
+          q: `What is the Labour Welfare Fund (LWF) remittance calendar and statutory ratio in ${city.state}?`,
+          a: lwfFaqAnswer,
+        },
+        {
+          q: `What are the official minimum wage and semi-annual VDA rates across skill tiers in ${city.state}?`,
+          a: minWageFaqAnswer,
+        },
+        {
+          q: `How does Service Dial guarantee zero-defect salary TDS deduction and Form 24Q e-filing in ${city.name}?`,
+          a: `We automate Section 192 income tax projections across Old vs New Tax Regimes, managing monthly investment declarations, HRA proofs, 80C/80D verifications, and Section 87A rebate thresholds. Monthly TDS is deposited before the 7th via Challan ITNS 281. Quarterly Form 24Q Annexure II returns are validated using official NSDL FVU utilities, eliminating Section 201(1A) 1.5% monthly penal interest and generating digitally signed Form 16 Part A & B for all employees in ${city.name}.`,
+        },
+        {
+          q: `How does Service Dial calculate and administer gratuity liabilities under the Payment of Gratuity Act 1972?`,
+          a: `Under the Payment of Gratuity Act, 1972, gratuity is payable to employees completing 5 continuous years of service calculated at 15 days of last drawn basic wage + DA per completed year (using a 26-day divisor). We provide actuarial valuation support (AS 15 / Ind AS 19), calculate statutory accruals, and administer Group Gratuity Schemes with institutional insurers to optimize corporate tax deductions under Section 36(1)(v) of the Income Tax Act.`,
+        },
+        {
+          q: `How are multi-location payroll consolidations managed for enterprises with branches across multiple Indian states?`,
+          a: `Our centralized payroll engine maintains state-specific rule engines across all 28 states and 8 UTs. It isolates jurisdictional PT slabs, LWF contribution cycles, and state holiday calendars into a single master run. Corporate finance teams receive a unified general ledger (GL) journal voucher for ERP ingestion (SAP, Oracle, NetSuite) while local operational units receive state-compliant muster rolls and statutory challans.`,
+        },
+        {
+          q: `What is the electronic challan (ECR) generation and TRRN verification SLA provided by Service Dial in ${city.name}?`,
+          a: `Service Dial enforces a strict SLA: payroll freeze by the 25th, net salary credit by the 1st, and automated EPFO/ESIC ECR filing by the 10th—five full days ahead of the statutory 15th deadline. Clients receive verified TRRN payment confirmation vouchers. In the event of government portal downtime, our statutory compliance desk logs formal technical tickets with the EPFO Helpdesk, protecting employers against Section 14B damages and 7Q penal interest.`,
+        },
+      ];
+    }
+    if (service.slug === "finance-and-audit") {
+      return [
+        {
+          q: `How does Section 43B(h) of the Income Tax Act enforce MSME 45-day payment timelines for companies in ${city.name}?`,
+          a: `Under Section 43B(h) of the Income Tax Act, 1961, inserted by the Finance Act 2023, any sum payable to an enterprise registered as a Micro or Small enterprise under the MSMED Act, 2006 must be settled within the agreed period (up to 45 days if written, or 15 days if unwritten). If unpaid by the end of the financial year, the entire outstanding purchase amount is disallowed as a business expense and added back to taxable profits, subject to 30%+ corporate tax. Furthermore, Section 16 of the MSMED Act mandates penal compounding interest at 3x the RBI Bank Rate. Service Dial’s AP desk verifies vendor Udyam certificates, tags invoice due dates, and operates an automated 45-day payment gatekeeper in ${city.name}.`,
+        },
+        {
+          q: `What are the specific requirements of CARO 2020 Clause 3(i) regarding physical fixed asset verification and tagging in ${city.name}?`,
+          a: `Under Clause 3(i) of the Companies (Auditor's Report) Order (CARO) 2020, statutory auditors must report whether the company maintains proper records of Property, Plant and Equipment (PPE), whether assets have been physically verified by management at reasonable intervals, and whether material discrepancies exceeding 10% in value have been appropriately dealt with in the books. Service Dial deploys specialized technical teams across industrial belts in ${city.name} to barcode/RFID-tag plant machinery, reconcile physical assets against ERP Fixed Asset Registers (FAR), and produce statutory audit-ready reconciliation dossiers.`,
+        },
+        {
+          q: `How does Service Dial prevent Input Tax Credit (ITC) disallowances under CGST Section 16(2)(aa) through GSTR-2B reconciliations?`,
+          a: `Section 16(2)(aa) of the CGST Act mandates that ITC can only be availed if the supplier has furnished invoice details in Form GSTR-1 and the same are reflected in the recipient's auto-drafted Form GSTR-2B. Service Dial executes automated daily 2B reconciliations, isolating non-compliant vendors, issuing debit notes, and preventing improper ITC claims that could trigger DRC-01 notices or 18% statutory interest penalties under Section 50(1).`,
+        },
+        {
+          q: `What is CARO 2020 Clause 3(ii) quarterly inventory and working capital audit compliance for corporate bank facilities in ${city.name}?`,
+          a: `Clause 3(ii) mandates that auditors verify whether physical inventory has been verified at reasonable intervals (with discrepancies over 10% properly accounted for) and whether quarterly stock statements submitted to banks for sanctioned working capital limits exceeding ₹5 Crores agree with the books of account. Service Dial conducts on-site cycle counts, perpetual inventory reconciliations, and provides certified stock audit certificates for industrial units in ${city.name}.`,
+        },
+        {
+          q: `How do your Accounts Payable (AP) outsourcing services maintain bilateral NDA security and ERP 3-way matching in ${city.name}?`,
+          a: `Our AP outsourcing engine operates inside an ISO 27001-certified environment protected by comprehensive bilateral non-disclosure agreements. We ingest vendor invoices, perform automated 3-way matching against Purchase Orders and Goods Receipt Notes (GRN), verify GSTIN validity and TDS applicability (Section 194C, 194J, 194Q), and upload validated payment batches directly into your SAP, Oracle, or Tally ERP without human intervention.`,
+        },
+        {
+          q: `What constitutes Internal Financial Controls over Financial Reporting (IFCoFR) testing under Companies Act Section 134(5)(e)?`,
+          a: `Under Section 134(5)(e) of the Companies Act, 2013, directors must state that adequate internal financial controls are in place and operating effectively. For listed and large private entities, statutory auditors must issue a separate opinion on IFCoFR. Service Dial assists corporate finance teams in ${city.name} by preparing Risk and Control Matrices (RCM), testing operational controls over procure-to-pay, order-to-cash, and hire-to-retire cycles, and remediating control gaps before annual audit sign-off.`,
+        },
+        {
+          q: `How does Service Dial assist CFOs and finance leaders in ${city.name} with Virtual CFO controllership and board MIS reporting?`,
+          a: `Our Virtual CFO practice provides high-growth enterprises in ${city.name} with senior chartered accountant oversight. Deliverables include rolling 13-week cash flow forecasts, unit economics and EBITDA analysis, budget vs actual variance tracking, cost optimization modeling, and board-ready financial MIS reports, empowering leadership to make data-backed growth decisions.`,
+        },
+        {
+          q: `What are the statutory cost audit triggers under Section 148 of the Companies Act 2013 for manufacturing units in ${city.name}?`,
+          a: `Under Section 148 read with Companies (Cost Records and Audit) Rules, 2014, manufacturing entities in regulated sectors with annual overall turnover exceeding ₹50 Crores (product turnover ₹25 Cr) and non-regulated sectors exceeding ₹100 Crores (product turnover ₹35 Cr) must maintain cost records (Form CRA-1) and undergo statutory Cost Audit (Form CRA-2/CRA-4). Service Dial helps industrial plants in ${city.name} implement standard costing frameworks and prepare compliant cost accounting schedules.`,
+        },
+      ];
+    }
+    if (service.slug === "compliance-services") {
+      return [
+        {
+          q: `What are the Factories Act 1948 site sanction and Form 1 CIF approval requirements in ${city.name}?`,
+          a: `Under Section 6 of the Factories Act, 1948 read with State Factory Rules, any manufacturing facility in ${city.name} employing 10+ workers (with power) or 20+ workers (without power)—or 20/40 workers in states with doubled thresholds—must obtain prior site plan approval from the Chief Inspector of Factories (DISH). Applications require architectural blueprints (scale 1:100), chartered structural engineer Form 1-A stability certificates, machinery layout diagrams with emergency egress, and ventilation load calculations. Operating without Form 1 sanction carries imprisonment up to 2 years and ₹1,00,000 fines under Section 92. Service Dial manages end-to-end DISH liaison and Form 2 factory license renewals.`,
+        },
+        {
+          q: `What is the threshold for Contract Labour (CLRA) licensing and Principal Employer registration in ${city.name}?`,
+          a: `Under the Contract Labour (Regulation and Abolition) Act, 1970, a Principal Employer in ${city.name} deploying 20 or more contract workers (or 50 workers in amended states) on any day of the preceding 12 months must obtain a Form II Certificate of Registration. Contractors deploying contract workers must hold a valid Form VI License backed by the Principal Employer's Form V Certificate. Service Dial serves as an institutional partner, maintaining master statutory registers (Forms XII, XIII, XVII, XIX) and providing verified ECR challans to ringfence clients against co-employment claims.`,
+        },
+        {
+          q: `How does Service Dial manage State Pollution Control Board (SPCB) CTE and CTO environmental consent filings in ${city.name}?`,
+          a: `Under the Water (Prevention and Control of Pollution) Act 1974 and Air Act 1981, industrial units must obtain Consent to Establish (CTE) before construction and Consent to Operate (CTO) before commissioning. Industries are categorized into Red, Orange, Green, and White classifications based on pollution index. Service Dial prepares effluent discharge schematics, stack emission monitoring reports, hazardous waste management filings, and represents industrial facilities before the State Pollution Control Board in ${city.name}.`,
+        },
+        {
+          q: `What are the local municipal trade license and Shops & Commercial Establishments Act renewal requirements in ${city.name}?`,
+          a: `Operating a commercial enterprise in ${city.name} requires a valid Trade License from the local Urban Local Body (Municipal Corporation / Municipality) under public health bylaws, renewed annually before March/April. Commercial offices and IT/ITeS units must also register under the ${city.state} Shops and Commercial Establishments Act (Gumasta), maintaining statutory employment records, maternity benefit compliance, and national/festival holiday leave registers.`,
+        },
+        {
+          q: `How does your statutory inspection defense desk protect industrial management during surprise DISH and DLC visits in ${city.name}?`,
+          a: `When factory inspectors (DISH), labour enforcement officers (DLC), or EPFO/ESIC vigilance squads initiate unannounced inspections, Service Dial provides on-ground representation. Our senior compliance executives verify official credentials, present digitized statutory registers (Forms XII, XIII, XVII, XIX, Form 11, muster rolls), reconcile wage slips, and draft formal responses to show-cause notices, preventing arbitrary closure notices or magistrate summons.`,
+        },
+        {
+          q: `What are the statutory register maintenance requirements under Central & ${city.state} Labour Rules (Forms XII, XIII, XVII, XIX)?`,
+          a: `Establishments must maintain unified electronic registers including Form A (Employee Register), Form B (Wage Register), Form C (Loan & Advance Register), Form D (Attendance Register), Form XII (Register of Contractors), and Form XIX (Wage Slip Issuance). Service Dial digitizes, updates, and securely cloud-archives all mandatory registers, ensuring full compliance with both existing Central enactments and emerging New Labour Codes.`,
+        },
+        {
+          q: `What are the compliance mandates under the POSH Act 2013 for workplaces and Internal Committees (IC) in ${city.name}?`,
+          a: `Under the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, any establishment with 10+ employees must constitute an Internal Committee (IC) headed by a senior female presiding officer and include an independent external NGO member. Establishments must conduct mandatory employee sensitization workshops, maintain formal inquiry procedures, and submit an Annual POSH Report to the District Officer by January 31st each year. Service Dial provides certified external POSH committee members and handles annual filings.`,
+        },
+        {
+          q: `How does Service Dial ensure total statutory indemnity and audit ringfencing for manufacturing and warehouse facilities?`,
+          a: `We execute formal bilateral indemnity covenants backed by our comprehensive corporate compliance operations. We audit all contractor wage payments, verify monthly ECR remittances before authorizing invoice payouts, maintain physical compliance dossiers on-site, and contractually indemnify our clients against third-party statutory liabilities, interest surcharges, and penal damages.`,
+        },
+      ];
+    }
+    // Default: Staffing & Recruitment
+    return [
+      {
+        q: `What are Service Dial's candidate sourcing and shortlisting SLAs for corporate and plant roles in ${city.name}?`,
+        a: `For lateral corporate and executive search mandates in ${city.name}, we deliver a curated shortlist of 3–5 pre-screened, culturally vetted candidates within 48 to 72 hours. For volume plant engineering, logistics, and frontline industrial workforce deployment, our local recruitment engine activates candidate pipelines within 24 hours, ensuring uninterrupted operations across high-velocity shifts.`,
+      },
+      {
+        q: `How do you ringfence corporate clients against Section 21 CLRA joint-and-several wage liabilities in ${city.name}?`,
+        a: `Under Section 21 of the Contract Labour (Regulation and Abolition) Act, 1970, if a contractor fails to pay wages or statutory dues (EPFO, ESIC, LWF), the Principal Employer becomes directly liable to disburse full wages. Service Dial operates as an institutional employer of record. We maintain dedicated escrow accounts for wage disbursements, execute digital muster roll verifications, and provide clients with certified monthly bank credit statements and government TRRN challans before invoice generation, totally insulating clients from co-employment claims.`,
+      },
+      {
+        q: `What 7-point background verification (BGV) protocols are conducted compliant with Section 8(2) of the DPDP Act 2023?`,
+        a: `Every candidate undergoes rigorous 7-point screening: (1) Aadhaar & PAN authentication via UIDAI/NDSL APIs, (2) Highest education qualification verification with issuing universities, (3) Prior employment experience & conduct checks, (4) Criminal record verification via court database searches, (5) Permanent address physical verification, (6) Credit history assessment (CIBIL) for finance roles, and (7) 5-panel or 10-panel drug screening for plant personnel. All data is processed with explicit candidate consent under Section 8(2) of the Digital Personal Data Protection Act, 2023.`,
+      },
+      {
+        q: `What replacement guarantee is provided if a recruited executive or contractual associate departs prematurely?`,
+        a: `For executive search and permanent corporate hires, we provide an ironclad 90-day replacement guarantee. If a selected professional resigns or fails to meet performance benchmarks within 90 days of joining, we provide a replacement candidate of equal caliber at zero additional recruitment fee. For managed flexi-staffing and contractual associates, our on-ground talent pool provides immediate replacement within 24 to 48 hours.`,
+      },
+      {
+        q: `How does Service Dial source and deploy blue-collar, technical, and shop-floor contract manpower in ${city.name}?`,
+        a: `We operate active ground sourcing networks across major manufacturing clusters, SEZs, and industrial corridors in and around ${city.name}. We source certified ITI fitters, CNC operators, warehouse associates, assembly technicians, and quality inspectors. All deployed associates undergo safety orientation, shop-floor etiquette training, and possess valid medical fitness certificates before stepping onto your shop floor.`,
+      },
+      {
+        q: `How is compliance handled for contract associates regarding minimum wages, PF, ESIC, and bonus payments in ${city.state}?`,
+        a: `We guarantee 100% compliance with official ${city.state} Gazette minimum wage notifications and semi-annual VDA revisions across Unskilled, Semi-Skilled, Skilled, and Highly Skilled tiers. We disburse monthly wages on or before the 7th via direct NEFT/IMPS bank transfer, credit statutory bonus under the Payment of Bonus Act, 1965, and remit EPF, ESIC, and LWF contributions on official government portals with automated compliance certificates.`,
+      },
+      {
+        q: `What is the operational and financial difference between direct hiring and managed flexi-staffing in ${city.name}?`,
+        a: `Direct hiring adds headcount to your permanent balance sheet, requires extensive HR administration, and exposes the organization to complex severance, retrenchment (Industrial Disputes Act), and long-term gratuity liabilities. Managed flexi-staffing with Service Dial converts fixed personnel overhead into a flexible operational expense (OpEx). We act as the legal employer, managing all onboarding, payroll, statutory benefits, and employee relations with 100% legal indemnity.`,
+      },
+      {
+        q: `How do you manage multi-shift plant staffing, overtime tracking, and statutory welfare compliance for manufacturing units?`,
+        a: `We deploy on-site associate relationship executives at large industrial facilities in ${city.name}. We integrate biometric attendance machines with cloud software to track Shift A, B, and C rotations, enforce Section 51 weekly 48-hour caps, automatically calculate Section 59 double overtime wages, and oversee statutory canteen, rest shelter, and first-aid compliance under the Factories Act.`,
+      },
+    ];
+  })();
 
   // Other services in the same city (Lateral linking)
   const otherServices = Object.values(SERVICES_CATALOG).filter(
@@ -674,44 +936,18 @@ export default function CityServicePageTemplate({
               <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-xs">
                 <div className="max-w-3xl mb-10">
                   <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#b80f68] block mb-2">
-                    Service Dial Delivery Architecture
+                    {executionPipeline.badge}
                   </span>
                   <h2 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
-                    5-Stage Verification &amp; Statutory SLA Pipeline
+                    {executionPipeline.title}
                   </h2>
                   <p className="font-sans text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                    Our proprietary compliance execution framework guarantees 100% data integrity from onboarding through government portal challan clearance:
+                    {executionPipeline.subtitle}
                   </p>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                  {[
-                    {
-                      step: "01",
-                      title: "Master Data Scrubbing",
-                      desc: "Aadhaar KYC, UAN seeding, ESIC IP allocation, and Form 11 declarations scrubbed before payroll ingestion.",
-                    },
-                    {
-                      step: "02",
-                      title: "Biometric Triangulation",
-                      desc: "Shift muster triangulation against Section 59 overtime limits (2x rate calculation) and leave balance tracking.",
-                    },
-                    {
-                      step: "03",
-                      title: "Single-Window E-Filing",
-                      desc: "Automated generation of ECR challans, state PT filings, and LWF returns with TRRN digital proof vouchers.",
-                    },
-                    {
-                      step: "04",
-                      title: "Inspection Defense Desk",
-                      desc: "Senior compliance directors physically represent records during DLC/DISH surprise audits with zero client exposure.",
-                    },
-                    {
-                      step: "05",
-                      title: "Safe Archive Dossier",
-                      desc: "Annual Form 16, Form III-A, and statutory audit registers permanently archived with encrypted cloud backup.",
-                    },
-                  ].map((pipe) => (
+                  {executionPipeline.steps.map((pipe) => (
                     <div
                       key={pipe.step}
                       className="p-5 rounded-2xl border border-slate-200 bg-[#F8F9FA] flex flex-col justify-between"

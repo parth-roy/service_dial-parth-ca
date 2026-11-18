@@ -51,32 +51,32 @@ When instructed to proceed (`"Haa ab kaam shuru krdo"`), we will execute these t
 
 ---
 
-### Phase 2: Pillar Template Isolation & Complete Content De-Duplication (Core Architecture)
+### Phase 2: Pillar Template Isolation & Complete Content De-Duplication (Core Architecture) — COMPLETED & VERIFIED
 *Objective: Eliminate cross-pillar content cloning across all 204 city-service landing pages by creating 4 strictly isolated, domain-specific execution pipelines, penalty matrices, and localized technical FAQ sets.*
 
-- [ ] **Task 2.1: Architect Domain-Specific Execution Pipelines in `CityServicePageTemplate.tsx`**
+- [x] **Task 2.1: Architect Domain-Specific Execution Pipelines in `CityServicePageTemplate.tsx`**
   - **File:** `src/components/CityServicePageTemplate.tsx`
-  - **Action:** Replace the monolithic 5-Stage Payroll Pipeline with 4 distinct, domain-specific execution pipelines tailored to the active service pillar:
-    1. **HRMS & Payroll Pipeline:** (1) Gross-to-Net Ingestion & Multi-Structure CTC Calculation; (2) Multi-State PT, LWF & TDS 24Q Tax Computation; (3) Escrow Salary Disbursal & Bank Advice Authorization; (4) Automated Digital Payslips & Employee Self-Service Delivery; (5) Electronic Challan (ECR) Generation & Statutory Filing.
-    2. **Finance & Audit Pipeline:** (1) 3-Way Purchase Order Matching & Accounts Payable ERP Ingestion; (2) Real-Time MSME Udyam Verification & Section 43B(h) 45-Day Payment Gatekeeping; (3) Multi-GSTN GSTR-2B vs 3B ITC Reconciliation & E-Way Bill Clearance; (4) Physical Fixed Asset Barcoding, RFID Tagging & Inventory Stock Verification; (5) Board MIS, CARO 2020 Compliance Certification & Statutory Audit Closure.
-    3. **Compliance Services Pipeline:** (1) Industrial Unit On-Site Compliance Audit & Baseline Gap Analysis; (2) Statutory Blueprint & License Sanction Documentation; (3) Liaison with State DISH, SPCB & Municipal Inspectorates; (4) Register Maintenance (Forms XII, XIII, XVII, XIX) & Digital Records; (5) Inspection Defense Representation & Annual License Renewal Governance.
-    4. **Staffing & Recruitment Pipeline:** (1) Requirement Scoping, JD Profiling & Market Compensation Benchmarking; (2) Multi-Channel Candidate Sourcing & Rigorous Technical/Background Screening; (3) Structured Interview Coordination & 24–72 Hour Shortlist SLA; (4) Seamless Digital Onboarding, Statutory KYC & Form V Issuance; (5) Performance Tracking, Workforce Retention & 30–90 Day Replacement Guarantee.
+  - **Action:** Replaced the monolithic 5-Stage Payroll Pipeline with 4 distinct, domain-specific execution pipelines tailored to the active service pillar:
+    1. **HRMS & Payroll Pipeline:** (1) Gross-to-Net Ingestion & Attendance Triangulation; (2) Multi-State PT, LWF & TDS 24Q Tax Engine; (3) Escrow Salary Disbursal & Bank Advice; (4) Automated ESS Payslips & Form 16; (5) ECR Electronic Challan & Statutory Filings.
+    2. **Finance & Audit Pipeline:** (1) 3-Way PO Matching & AP Ingestion; (2) MSME Sec 43B(h) 45-Day Payment Gatekeeping; (3) Multi-GSTN GSTR-2B ITC Matching; (4) CARO 2020 Asset & Stock Barcoding; (5) Internal Financial Controls (IFC) Dossier.
+    3. **Compliance Services Pipeline:** (1) Industrial Plant Baseline Audit; (2) Blueprint Drafting & CIF Form 1 Sanction; (3) Contractor CLRA & Statutory Licensing; (4) SPCB Environmental Consents (CTE/CTO); (5) Inspection Defense Representation.
+    4. **Staffing & Recruitment Pipeline:** (1) JD Profiling & Compensation Benchmark; (2) Multi-Channel Sourcing & Screening; (3) 7-Point BGV & DPDP Compliance; (4) Digital Onboarding & Form V Deployment; (5) Workforce Governance & Replacement SLA.
 
-- [ ] **Task 2.2: Architect 4 Distinct Pillar Statutory Non-Compliance Penalty Matrices**
+- [x] **Task 2.2: Architect 4 Distinct Pillar Statutory Non-Compliance Penalty Matrices**
   - **File:** `src/components/CityServicePageTemplate.tsx`
-  - **Action:** Ensure Finance pages display financial/tax statutes; Staffing pages display labour contracting statutes; Compliance pages display factory/environmental licensing statutes; Payroll pages display wage/PF/tax remittance statutes.
+  - **Action:** Ensured Finance pages display financial/tax statutes (Sec 43B(h), CARO 2020, CGST 16(2)(aa), CRA-4, IFCoFR); Staffing pages display labour contracting statutes (CLRA Sec 7/12, DPDP Act Sec 8(2), Shops Act, Equal Remuneration); Compliance pages display factory/environmental licensing statutes (Factories Act Sec 92, CLRA 23/24, SPCB CTE/CTO, Municipal D&O); Payroll pages display wage/PF/tax remittance statutes (EPF 14B/7Q, ESI 85, PT Act, TDS 201/276B, LWF).
 
-- [ ] **Task 2.3: Generate 4 Distinct Domain-Specific Technical FAQ Suites**
+- [x] **Task 2.3: Generate 4 Distinct Domain-Specific Technical FAQ Suites**
   - **File:** `src/components/CityServicePageTemplate.tsx`
-  - **Action:** Eradicate the bug where Finance and Staffing pages answer questions about Factories Act Form 1 or LWF ratios. Build 4 specialized FAQ engines (8 deep localized questions per pillar):
-    - *Finance & Audit FAQs:* Section 43B(h) MSME compliance, Multi-GSTN input tax credit (ITC) reconciliation, CARO 2020 physical asset verification, IFC testing, Inventory Clause 3(ii) audits, Virtual CFO controllership, and Bilateral NDA data security.
-    - *Staffing & Recruitment FAQs:* Sourcing SLAs (24-72h) in {city}, Blue-collar workforce deployment, CLRA Section 21 co-employment ringfencing, Executive search capabilities, Background verification (BGV), 30-90 day replacement guarantees, and Industrial multi-shift management.
-    - *Compliance Services FAQs:* Factories Act Form 1 site sanctions in {city}, CLRA Form V registration thresholds, SPCB Pollution CTE/CTO clearances, Municipal Trade Licenses, POSH Internal Committee (IC) governance, and State DISH inspection defense.
-    - *HRMS & Payroll FAQs:* 2026 EPFO ₹25,000 wage ceiling CTC impact, State PT slabs & exemptions in {state}, State LWF remittance calendar in {state}, Gazetted Minimum Wage & VDA tiers, Form 16 TDS 24Q compliance, and Multi-unit payroll consolidation.
+  - **Action:** Eradicated the cross-pillar cloning bug where Finance and Staffing pages answered Factories Act Form 1 questions. Deployed 4 specialized FAQ engines (8 deep localized questions per pillar):
+    - *Finance & Audit FAQs:* Section 43B(h) MSME compliance, Multi-GSTN input tax credit (ITC) reconciliation, CARO 2020 physical asset verification, IFC testing, Inventory Clause 3(ii) audits, Virtual CFO controllership, AP ERP 3-way matching, and Section 148 Cost Audits.
+    - *Staffing & Recruitment FAQs:* Sourcing SLAs (24-72h) in {city}, Blue-collar workforce deployment, CLRA Section 21 co-employment ringfencing, Executive search capabilities, 7-point Background verification (BGV) under DPDP Act, 30-90 day replacement guarantees, Minimum Wage compliance, and Multi-shift plant governance.
+    - *Compliance Services FAQs:* Factories Act Form 1 site sanctions in {city}, CLRA Form V registration thresholds, SPCB Pollution CTE/CTO clearances, Municipal Trade Licenses & Shops Act, POSH Internal Committee (IC) governance, State DISH inspection defense, Master register maintenance (Forms XII, XIII, XVII, XIX), and Total statutory indemnity covenants.
+    - *HRMS & Payroll FAQs:* 2026 EPFO ₹25,000 wage ceiling CTC impact, State PT slabs & exemptions in {state}, State LWF remittance calendar in {state}, Gazetted Minimum Wage & VDA tiers, Form 16 TDS 24Q compliance, Gratuity Act administration, Multi-unit payroll consolidation, and ECR TRRN filing SLAs.
 
-- [ ] **Task 2.4: Fix Automated String Interpolation Bugs (`Form Form D`, etc.)**
+- [x] **Task 2.4: Fix Automated String Interpolation Bugs (`Form Form D`, etc.)**
   - **Files:** `src/components/CityServicePageTemplate.tsx`, `src/data/statutoryMatrix.ts`
-  - **Action:** Sanitize template string interpolation. Remove redundant `"Form "` prefixes so output renders cleanly as `"Form III-A"` rather than `"Form Form III-A"` or `"Form Form 5-B"`.
+  - **Action:** Sanitized template string interpolation with `cleanPtForm` and `cleanLwfForm`. Redundant `"Form "` prefixes eliminated so output renders cleanly as `"Form III-A"` and `"Form D"` rather than `"Form Form III-A"` or `"Form Form D"`.
 
 ---
 
