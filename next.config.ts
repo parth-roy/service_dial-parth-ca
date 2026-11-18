@@ -53,11 +53,6 @@ const nextConfig: NextConfig = {
         destination: "/tools",
         permanent: true,
       },
-      {
-        source: "/ip-services/tools/fee-calculator",
-        destination: "/ip-services",
-        permanent: true,
-      },
     ];
   },
   async headers() {

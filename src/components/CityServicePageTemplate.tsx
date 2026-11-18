@@ -409,6 +409,10 @@ export default function CityServicePageTemplate({
           q: `What is the electronic challan (ECR) generation and TRRN verification SLA provided by Service Dial in ${city.name}?`,
           a: `Service Dial enforces a strict SLA: payroll freeze by the 25th, net salary credit by the 1st, and automated EPFO/ESIC ECR filing by the 10th—five full days ahead of the statutory 15th deadline. Clients receive verified TRRN payment confirmation vouchers. In the event of government portal downtime, our statutory compliance desk logs formal technical tickets with the EPFO Helpdesk, protecting employers against Section 14B damages and 7Q penal interest.`,
         },
+        {
+          q: `Does Service Dial provide automated cloud payroll software or end-to-end managed payroll outsourcing in ${city.name}?`,
+          a: `We offer both models tailored to your operating scale: an enterprise Cloud HRMS Software with biometric integration, mobile employee self-service (ESS), and automated tax computation; or 100% managed payroll outsourcing where our compliance desk manages monthly gross-to-net computation, statutory challan generation, ${city.state} Professional Tax filings, and bank disbursement advice under strict error-free SLAs.`,
+        },
       ];
     }
     if (service.slug === "finance-and-audit") {
@@ -481,6 +485,10 @@ export default function CityServicePageTemplate({
           q: `How does Service Dial ensure total statutory indemnity and audit ringfencing for manufacturing and warehouse facilities?`,
           a: `We execute formal bilateral indemnity covenants backed by our comprehensive corporate compliance operations. We audit all contractor wage payments, verify monthly ECR remittances before authorizing invoice payouts, maintain physical compliance dossiers on-site, and contractually indemnify our clients against third-party statutory liabilities, interest surcharges, and penal damages.`,
         },
+        {
+          q: `How do Service Dial's vendor compliance solutions protect enterprise principals in ${city.name}?`,
+          a: `Under the Contract Labour (Regulation & Abolition) Act, 1970 and ${city.state} statutory rules, principal employers are jointly and severally liable for any contractor defaults in PF, ESIC, or minimum wages. Service Dial conducts pre-billing statutory vendor audits across all third-party staffing, security, and facility contractors in ${city.name}, verifying individual ECR challans and wage payment receipts before contractor invoices are cleared for payment.`,
+        },
       ];
     }
     // Default: Staffing & Recruitment
@@ -516,6 +524,10 @@ export default function CityServicePageTemplate({
       {
         q: `How do you manage multi-shift plant staffing, overtime tracking, and statutory welfare compliance for manufacturing units?`,
         a: `We deploy on-site associate relationship executives at large industrial facilities in ${city.name}. We integrate biometric attendance machines with cloud software to track Shift A, B, and C rotations, enforce Section 51 weekly 48-hour caps, automatically calculate Section 59 double overtime wages, and oversee statutory canteen, rest shelter, and first-aid compliance under the Factories Act.`,
+      },
+      {
+        q: `What distinguishes Service Dial's regulatory staffing services from generic recruitment agencies in ${city.name}?`,
+        a: `Unlike standard staffing agencies, Service Dial operates a zero-liability regulatory staffing model. Every temporary and contract associate deployed in ${city.name} is onboarded with verified KYC, automated EPF/ESIC enrollment, Form V CLRA compliance, and coverage under our ₹5 Crore Professional Indemnity Insurance (PII), shielding client leadership from co-employment and statutory penalty exposure.`,
       },
     ];
   })();
@@ -643,7 +655,13 @@ export default function CityServicePageTemplate({
                 </div>
 
                 <h1 className="font-outfit text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.1] mb-5">
-                  Specialized {service.name}{" "}
+                  {service.slug === "hrms-and-payroll"
+                    ? "Payroll Software & Managed Services "
+                    : service.slug === "compliance-services"
+                    ? "Vendor Compliance & Statutory Advisory "
+                    : service.slug === "staffing-and-recruitment"
+                    ? "Regulatory Staffing & Manpower Solutions "
+                    : `Specialized ${service.name} `}
                   <span className="bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] bg-clip-text text-transparent">
                     in {city.name}.
                   </span>
