@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ScrollReveal from "@/components/ScrollReveal";
+import EpfoCeilingCalculator from "@/components/calculator/EpfoCeilingCalculator";
 import { getSubServicesByPillar } from "@/data/subservices";
 
 export const metadata: Metadata = {
@@ -134,6 +135,27 @@ export default function HRMSPayrollPage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Interactive 2026 EPFO ₹25,000 Wage Ceiling Simulator */}
+      <section className="relative py-14 sm:py-18 bg-white border-b border-slate-200/70">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up" distance={25}>
+            <div className="max-w-3xl mb-8">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#b80f68] block mb-2">
+                Interactive 2026 Statutory Simulator
+              </span>
+              <h2 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
+                Calculate Corporate CTC Impact of the EPFO ₹25,000 Ceiling
+              </h2>
+              <p className="font-sans text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Model your organization&apos;s statutory outgo delta under Central Labour Ministry Notification S.O. 5109(E). Instant employer EPF, EPS Account 10 re-capping, and net take-home analysis:
+              </p>
+            </div>
+
+            <EpfoCeilingCalculator />
+          </ScrollReveal>
         </div>
       </section>
 

@@ -29,6 +29,14 @@ const headcountOptions = [
 ];
 
 export default function ContactForm() {
+  const [step, setStep] = useState<1 | 2>(1);
+  const [selectedService, setSelectedService] = useState(services[0]);
+  const [operatingCity, setOperatingCity] = useState("");
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [result, setResult] = useState<ContactSubmissionState | null>(null);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -60,14 +68,31 @@ export default function ContactForm() {
     }
   }, []);
 
+  function handleContinueToStep2(e: React.FormEvent) {
+    e.preventDefault();
+    setErrorMessage(null);
+    if (!selectedService) {
+      setErrorMessage("Please select a primary practice area to continue.");
+      return;
+    }
+    setStep(2);
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setErrorMessage(null);
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData();
+    formData.set("name", name);
+    formData.set("company", company);
+    formData.set("email", email);
+    formData.set("phone", phone);
+    formData.set("service", selectedService);
     formData.set("timeline", selectedTimeline);
     formData.set("headcount", selectedHeadcount);
+    const finalMessage = message.trim() || `Mandate request for ${selectedService} across ${operatingCity || "primary hubs"} (Headcount: ${selectedHeadcount}, Timeline: ${selectedTimeline}).`;
+    formData.set("message", finalMessage);
     formData.set("dpdp_consent", dpdpChecked ? "true" : "false");
     formData.set("terms_version", "DPDP-2023-V1.0");
     formData.set("utm_source", trackingData.utm_source);
@@ -247,16 +272,32 @@ export default function ContactForm() {
                       </button>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="space-y-5">
+                    <form onSubmit={step === 1 ? handleContinueToStep2 : handleSubmit} className="space-y-5">
+                      {/* 2-Step Progressive Header & Progress Bar */}
                       <div>
-                        <div className="text-xs uppercase font-mono tracking-wider text-[#b80f68] font-bold mb-1">
-                          Direct Mandate Dispatch
+                        <div className="flex items-center justify-between text-xs mb-2">
+                          <span className="font-mono font-bold uppercase tracking-wider text-[#b80f68]">
+                            {step === 1 ? "Step 1 of 2: Mandate Scope & Scale" : "Step 2 of 2: Authorized Executive Verification"}
+                          </span>
+                          <span className="font-mono text-slate-400 font-semibold">
+                            {step === 1 ? "50% Completed" : "100% Final Review"}
+                          </span>
                         </div>
+                        {/* Progress Bar */}
+                        <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden mb-4">
+                          <div
+                            className="bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] h-1.5 rounded-full transition-all duration-300"
+                            style={{ width: step === 1 ? "50%" : "100%" }}
+                          />
+                        </div>
+
                         <h2 className="font-outfit text-2xl font-black text-slate-900">
-                          Submit Your Confidential Requirements
+                          {step === 1 ? "Select Your Corporate Requirements" : "Authorize Mandate Dispatch"}
                         </h2>
                         <p className="text-xs text-slate-600 mt-1">
-                          Fill in your corporate parameters to trigger executive scoping and tailored commercial pricing.
+                          {step === 1
+                            ? "Configure your operational service scope, estimated headcount, and delivery turnaround."
+                            : "Enter your verified business contact details to establish direct executive consultation under NDA."}
                         </p>
                       </div>
 
@@ -266,185 +307,265 @@ export default function ContactForm() {
                         </div>
                       )}
 
-                      {/* Contact Essentials */}
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                            Full Name <span className="text-[#b80f68]">*</span>
-                          </label>
-                          <input
-                            required
-                            type="text"
-                            name="name"
-                            placeholder="e.g. Vikram Mehta"
-                            className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
-                          />
+                      {/* ── STEP 1: SCOPE, SCALE & TIMELINE ── */}
+                      {step === 1 && (
+                        <div className="space-y-5">
+                          {/* Primary Practice Area Chips */}
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-700 mb-2">
+                              Primary Practice Area / Discipline <span className="text-[#b80f68]">*</span>
+                            </label>
+                            <div className="grid sm:grid-cols-2 gap-2">
+                              {services.map((s) => {
+                                const isSelected = selectedService === s;
+                                return (
+                                  <button
+                                    type="button"
+                                    key={s}
+                                    onClick={() => setSelectedService(s)}
+                                    className={`text-left p-3 rounded-xl border text-xs font-medium transition-all ${
+                                      isSelected
+                                        ? "border-[#b80f68] bg-[#b80f68]/10 text-slate-900 font-bold shadow-xs"
+                                        : "border-slate-200 bg-slate-50/60 text-slate-700 hover:border-slate-300 hover:bg-slate-100"
+                                    }`}
+                                  >
+                                    <div className="flex items-center gap-2">
+                                      <span className={`w-2 h-2 rounded-full ${isSelected ? "bg-[#b80f68]" : "bg-slate-300"}`} />
+                                      <span className="truncate">{s}</span>
+                                    </div>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+
+                          {/* Headcount / Scale Selector */}
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-700 mb-2">
+                              Workforce Scale / Positions Needed
+                            </label>
+                            <div className="grid grid-cols-5 gap-2">
+                              {headcountOptions.map((h) => {
+                                const isSelected = selectedHeadcount === h.value;
+                                return (
+                                  <button
+                                    type="button"
+                                    key={h.value}
+                                    onClick={() => setSelectedHeadcount(h.value)}
+                                    className={`py-2 px-1 text-center rounded-xl border text-xs font-bold transition-all ${
+                                      isSelected
+                                        ? "border-[#0284c7] bg-[#0284c7]/10 text-[#0284c7] shadow-xs"
+                                        : "border-slate-200 bg-slate-50/60 text-slate-600 hover:border-slate-300 hover:bg-slate-100"
+                                    }`}
+                                  >
+                                    {h.label}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+
+                          {/* Custom Timeline Selector */}
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-700 mb-2">
+                              Target Deployment Timeline &amp; SLA
+                            </label>
+                            <div className="grid sm:grid-cols-3 gap-2.5">
+                              {timelineOptions.map((t) => {
+                                const isSelected = selectedTimeline === t.value;
+                                return (
+                                  <button
+                                    type="button"
+                                    key={t.value}
+                                    onClick={() => setSelectedTimeline(t.value)}
+                                    className={`text-left p-3 rounded-xl border transition-all ${
+                                      isSelected
+                                        ? "border-[#2e0d82] bg-[#2e0d82]/10 text-slate-900 font-bold shadow-xs"
+                                        : "border-slate-200 bg-slate-50/60 text-slate-600 hover:border-slate-300 hover:bg-slate-100"
+                                    }`}
+                                  >
+                                    <div className="text-xs font-bold leading-tight">{t.label}</div>
+                                    <div className="text-[10px] text-slate-500 mt-1 line-clamp-2">{t.sub}</div>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+
+                          {/* Primary City / Operating Hub */}
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                              Primary City or Industrial Hub (Optional)
+                            </label>
+                            <input
+                              type="text"
+                              value={operatingCity}
+                              onChange={(e) => setOperatingCity(e.target.value)}
+                              placeholder="e.g. Bengaluru, Pune, Chakan, Mumbai, Manesar, Kolkata..."
+                              className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
+                            />
+                          </div>
+
+                          {/* Continue to Step 2 Button */}
+                          <div className="pt-2">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setErrorMessage(null);
+                                setStep(2);
+                              }}
+                              className="w-full rounded-xl py-3.5 px-6 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] hover:opacity-95 text-white shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                            >
+                              <span>Continue to Authorized Contact (Step 2) →</span>
+                            </button>
+                          </div>
                         </div>
+                      )}
 
-                        <div>
-                          <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                            Company Name <span className="text-[#b80f68]">*</span>
-                          </label>
-                          <input
-                            required
-                            type="text"
-                            name="company"
-                            placeholder="e.g. Acme Manufacturing Ltd"
-                            className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
-                          />
+                      {/* ── STEP 2: AUTHORIZED CONTACT & SUBMIT ── */}
+                      {step === 2 && (
+                        <div className="space-y-4">
+                          {/* Step 1 Parameter Review Pill */}
+                          <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between text-xs">
+                            <div className="truncate mr-2">
+                              <span className="font-bold text-slate-900">{selectedService}</span>
+                              <span className="text-slate-400 mx-1.5">•</span>
+                              <span className="text-slate-600">{headcountOptions.find((h) => h.value === selectedHeadcount)?.label} associates</span>
+                              {operatingCity && (
+                                <>
+                                  <span className="text-slate-400 mx-1.5">•</span>
+                                  <span className="text-slate-600">{operatingCity}</span>
+                                </>
+                              )}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => setStep(1)}
+                              className="text-[#0284c7] font-bold text-xs hover:underline shrink-0"
+                            >
+                              Edit Scope ✏️
+                            </button>
+                          </div>
+
+                          {/* Contact Essentials */}
+                          <div className="grid sm:grid-cols-2 gap-4">
+                            <div>
+                              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                                Full Name <span className="text-[#b80f68]">*</span>
+                              </label>
+                              <input
+                                required
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="e.g. Vikram Mehta"
+                                className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                                Company Name <span className="text-[#b80f68]">*</span>
+                              </label>
+                              <input
+                                required
+                                type="text"
+                                value={company}
+                                onChange={(e) => setCompany(e.target.value)}
+                                placeholder="e.g. Acme Manufacturing Ltd"
+                                className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="grid sm:grid-cols-2 gap-4">
+                            <div>
+                              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                                Corporate Work Email <span className="text-[#b80f68]">*</span>
+                              </label>
+                              <input
+                                required
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="v.mehta@acme.com"
+                                className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                                Direct Contact / WhatsApp
+                              </label>
+                              <input
+                                type="tel"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                placeholder="+91 98765 43210"
+                                className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Mandate Description / Notes */}
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                              Mandate Context / Specific Questions (Optional)
+                            </label>
+                            <textarea
+                              rows={2}
+                              value={message}
+                              onChange={(e) => setMessage(e.target.value)}
+                              placeholder="Describe specific roles, required skill stacks, current payroll headcount, multi-location requirements, or statutory challenges..."
+                              className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors resize-none"
+                            />
+                          </div>
+
+                          {/* DPDP Act 2023 Explicit Consent Checkbox */}
+                          <div className="pt-1">
+                            <label className="flex items-start gap-3 cursor-pointer select-none">
+                              <input
+                                type="checkbox"
+                                required
+                                checked={dpdpChecked}
+                                onChange={(e) => setDpdpChecked(e.target.checked)}
+                                className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#b80f68] focus:ring-[#b80f68] shrink-0 cursor-pointer"
+                              />
+                              <span className="text-[11px] text-slate-600 leading-relaxed">
+                                I consent under <strong className="text-slate-900">Section 8(2) of the DPDP Act, 2023</strong> to Service Dial processing this business contact data solely for providing advisory consultations and proposals under bilateral NDA.
+                              </span>
+                            </label>
+                          </div>
+
+                          {/* Actions: Back & Submit */}
+                          <div className="flex items-center gap-3 pt-2">
+                            <button
+                              type="button"
+                              onClick={() => setStep(1)}
+                              className="px-5 py-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-700 transition-all"
+                            >
+                              ← Back
+                            </button>
+                            <button
+                              type="submit"
+                              disabled={loading || !dpdpChecked}
+                              className="flex-1 rounded-xl py-3.5 px-6 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] hover:opacity-95 text-white shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                            >
+                              {loading ? (
+                                <>
+                                  <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                  </svg>
+                                  <span>Verifying Mandate...</span>
+                                </>
+                              ) : (
+                                <span>Dispatch Confidential Mandate (NDA Governed) →</span>
+                              )}
+                            </button>
+                          </div>
                         </div>
-                      </div>
-
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                            Corporate Work Email <span className="text-[#b80f68]">*</span>
-                          </label>
-                          <input
-                            required
-                            type="email"
-                            name="email"
-                            placeholder="v.mehta@acme.com"
-                            className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                            Direct Contact Number
-                          </label>
-                          <input
-                            type="tel"
-                            name="phone"
-                            placeholder="+91 98765 43210"
-                            className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Primary Practice Area */}
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                          Practice Area / Service Required <span className="text-[#b80f68]">*</span>
-                        </label>
-                        <select
-                          required
-                          name="service"
-                          defaultValue=""
-                          className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors"
-                        >
-                          <option value="" disabled className="text-slate-400">
-                            Select primary corporate discipline
-                          </option>
-                          {services.map((s) => (
-                            <option key={s} value={s} className="text-slate-900">
-                              {s}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {/* Custom Timeline Selector */}
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-2">
-                          Target Timeline &amp; Sourcing SLA
-                        </label>
-                        <div className="grid sm:grid-cols-3 gap-2.5">
-                          {timelineOptions.map((t) => {
-                            const isSelected = selectedTimeline === t.value;
-                            return (
-                              <button
-                                type="button"
-                                key={t.value}
-                                onClick={() => setSelectedTimeline(t.value)}
-                                className={`text-left p-3 rounded-xl border transition-all ${
-                                  isSelected
-                                    ? "border-[#0284c7] bg-[#0284c7]/5 text-slate-900 font-bold shadow-xs"
-                                    : "border-slate-200 bg-slate-50/60 text-slate-600 hover:border-slate-300 hover:bg-slate-100"
-                                }`}
-                              >
-                                <div className="text-xs font-bold leading-tight">{t.label}</div>
-                                <div className="text-[10px] text-slate-500 mt-1 line-clamp-2">{t.sub}</div>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Headcount / Scale Selector */}
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-2">
-                          Workforce Scale / Positions Needed
-                        </label>
-                        <div className="grid grid-cols-5 gap-2">
-                          {headcountOptions.map((h) => {
-                            const isSelected = selectedHeadcount === h.value;
-                            return (
-                              <button
-                                type="button"
-                                key={h.value}
-                                onClick={() => setSelectedHeadcount(h.value)}
-                                className={`py-2 px-1 text-center rounded-xl border text-xs font-bold transition-all ${
-                                  isSelected
-                                    ? "border-[#b80f68] bg-[#b80f68]/10 text-[#b80f68] shadow-xs"
-                                    : "border-slate-200 bg-slate-50/60 text-slate-600 hover:border-slate-300 hover:bg-slate-100"
-                                }`}
-                              >
-                                {h.label}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-
-                      {/* Mandate Description */}
-                      <div>
-                        <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                          Mandate Details &amp; Operational Context <span className="text-[#b80f68]">*</span>
-                        </label>
-                        <textarea
-                          required
-                          name="message"
-                          rows={3}
-                          placeholder="Describe specific roles, required skill stacks, employee count for payroll, multi-location requirements, or current statutory challenges..."
-                          className="w-full rounded-xl border border-slate-200 bg-slate-50/70 px-3.5 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-[#0284c7] focus:bg-white focus:ring-1 focus:ring-[#0284c7]/30 focus:outline-none transition-colors resize-none"
-                        />
-                      </div>
-
-                      {/* DPDP Act 2023 Explicit Consent Checkbox */}
-                      <div className="pt-2">
-                        <label className="flex items-start gap-3 cursor-pointer select-none">
-                          <input
-                            type="checkbox"
-                            required
-                            checked={dpdpChecked}
-                            onChange={(e) => setDpdpChecked(e.target.checked)}
-                            className="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#b80f68] focus:ring-[#b80f68] shrink-0 cursor-pointer"
-                          />
-                          <span className="text-[11px] text-slate-600 leading-relaxed">
-                            I consent under <strong className="text-slate-900">Section 8(2) of the Digital Personal Data Protection (DPDP) Act, 2023</strong> to Service Dial collecting and processing this enterprise business contact data solely for providing advisory consultations, fee estimates, and managed staffing/payroll services. I understand consent can be withdrawn at any time.
-                          </span>
-                        </label>
-                      </div>
-
-                      {/* Submit Button with 3-Color Brand Gradient */}
-                      <button
-                        type="submit"
-                        disabled={loading || !dpdpChecked}
-                        className="w-full rounded-xl py-3.5 px-6 text-xs sm:text-sm font-bold bg-gradient-to-r from-[#b80f68] via-[#2e0d82] to-[#01adf7] hover:opacity-95 text-white shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                      >
-                        {loading ? (
-                          <>
-                            <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                            </svg>
-                            <span>Verifying &amp; Submitting Mandate...</span>
-                          </>
-                        ) : (
-                          <span>Submit Mandate Under Bilateral NDA →</span>
-                        )}
-                      </button>
+                      )}
                     </form>
                   )}
                 </div>
