@@ -23,10 +23,12 @@ export async function GET() {
       publicationState: "Published",
     }).lean()) as any[];
 
+    // Exclude City-Intent routes to eliminate 31,500+ programmatic doorway URLs from crawl budget
     const filteredAssets = assets.filter((a: any) => {
       if (!a.slug || CORRUPTED_SLUG_RE.test(a.slug)) return false;
+      if (a.routeFamily === "City-Intent") return false; // Strictly excluded
       const isMumbaiOwned =
-        (a.routeFamily === "City-Intent" || a.routeFamily === "State-Hub") &&
+        a.routeFamily === "State-Hub" &&
         a.geographyId &&
         mumbaiGeoIds.has(a.geographyId.toString());
       return !isMumbaiOwned;

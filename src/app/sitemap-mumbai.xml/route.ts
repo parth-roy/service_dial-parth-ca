@@ -31,9 +31,9 @@ export async function GET() {
 
     const allGeoIds = cities.map((c) => c._id).concat(states.map((s) => s._id));
 
-    // 3. Fetch Published City-Intent and State-Hub Assets (excluding corrupted duplicate slugs)
+    // 3. Fetch Published State-Hub Assets only (strictly excluding City-Intent to eliminate programmatic crawl bloat)
     const assets = (await IPPageAsset.find({
-      routeFamily: { $in: ["City-Intent", "State-Hub"] },
+      routeFamily: "State-Hub",
       publicationState: "Published",
       geographyId: { $in: allGeoIds },
     }).lean()) as any[];

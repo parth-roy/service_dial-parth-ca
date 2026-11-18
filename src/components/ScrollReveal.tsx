@@ -38,6 +38,13 @@ export default function ScrollReveal({
     const currentRef = ref.current;
     if (!currentRef) return;
 
+    // Check immediately if element is already within or near viewport on mount
+    const rect = currentRef.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100 && rect.bottom > -100) {
+      setIsVisible(true);
+      if (once) return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -50,8 +57,8 @@ export default function ScrollReveal({
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.01,
+        rootMargin: "60px 0px 60px 0px",
       }
     );
 
