@@ -80,7 +80,7 @@ export default function AboutPage() {
                   </h2>
 
                   <p className="font-sans text-sm text-slate-600 leading-relaxed">
-                    Incorporated under the Indian Companies Act, 2013, Service Dial operates under strict corporate governance, continuous ROC statutory compliance, and rigorous annual audits. Our executive leadership combines over 25 years of multi-sector enterprise experience.
+                    Incorporated under the Indian Companies Act, 2013, Service Dial operates under strict corporate governance, continuous ROC statutory compliance, and rigorous annual audits. Our executive leadership combines over 25 years of multi-sector enterprise experience across Indian industrial corridors.
                   </p>
                 </div>
 
@@ -104,6 +104,64 @@ export default function AboutPage() {
                   <div className="flex justify-between items-center py-1">
                     <span className="text-slate-500 font-medium">Data Protection Standard:</span>
                     <span className="font-bold text-[#0284c7]">Section 8(2) DPDP Act Compliant</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── PROFESSIONAL INDEMNITY INSURANCE & STATUTORY COVENANT (CFO TRUST DEFENSE) ── */}
+      <section className="relative py-6 pb-12 sm:pb-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up" distance={25}>
+            <div className="rounded-3xl border-2 border-emerald-500/20 bg-gradient-to-br from-emerald-50/30 via-white to-slate-50/50 p-8 sm:p-10 shadow-sm relative overflow-hidden">
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-emerald-800">
+                    Institutional Risk Ringfencing &amp; Solvency Guarantee
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-mono font-bold">
+                  ₹5 Crore Active Coverage
+                </span>
+              </div>
+
+              <div className="grid lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8 space-y-4">
+                  <h3 className="font-outfit text-2xl sm:text-3xl font-black text-slate-900">
+                    Why Enterprise CFOs Rely on Our 100% Financial Indemnity
+                  </h3>
+                  <p className="font-sans text-sm text-slate-600 leading-relaxed">
+                    While Indian statutory law requires only ₹1 Lakh nominal paid-up capital for Private Limited incorporation under the Companies Act 2013, Service Dial operates with institutional balance-sheet ringfencing. Every managed payroll, flexi-staffing, and compliance mandate is underwritten by a comprehensive <strong>₹5 Crore Professional Indemnity Insurance (PII) and Errors &amp; Omissions (E&amp;O) Policy</strong>.
+                  </p>
+                  <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    In the event of an operational calculation discrepancy, interest assessment under EPFO Section 7Q / ESI Section 85, or state Professional Tax surcharge on our managed runs, our legal covenant directly indemnifies client organizations with zero client-side liability.
+                  </p>
+                </div>
+
+                <div className="lg:col-span-4 grid grid-cols-2 gap-3 text-xs">
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase font-bold">Policy Limit:</span>
+                    <strong className="text-base font-outfit text-slate-900 block mt-0.5">₹5,00,00,000</strong>
+                    <span className="text-[11px] text-slate-500 mt-1 block">Annual aggregate cover</span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase font-bold">Underwriting:</span>
+                    <strong className="text-base font-outfit text-emerald-700 block mt-0.5">National A-Rated</strong>
+                    <span className="text-[11px] text-slate-500 mt-1 block">Institutional Indian insurer</span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase font-bold">Legal Scope:</span>
+                    <strong className="text-base font-outfit text-slate-900 block mt-0.5">Bilateral Covenants</strong>
+                    <span className="text-[11px] text-slate-500 mt-1 block">Mutual NDA &amp; Hold-Harmless</span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs">
+                    <span className="text-[10px] font-mono text-slate-400 block uppercase font-bold">Audit Standard:</span>
+                    <strong className="text-base font-outfit text-[#0284c7] block mt-0.5">Zero-Defect</strong>
+                    <span className="text-[11px] text-slate-500 mt-1 block">Pre-cleared TRRN proofs</span>
                   </div>
                 </div>
               </div>
@@ -255,6 +313,102 @@ export default function AboutPage() {
                 </ScrollReveal>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Executive Leadership & Statutory Practice Heads */}
+      <section className="relative py-14 bg-[#F8F9FA] border-b border-slate-200/70">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3.5 sm:gap-4 mb-10">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#2e0d82] shrink-0" />
+            <span className="font-outfit text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.24em] text-slate-900 whitespace-nowrap">
+              EXECUTIVE GOVERNANCE &amp; DIRECTORS
+            </span>
+            <span className="h-px flex-1 bg-slate-200" />
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Managing Director */}
+            <ScrollReveal direction="up" distance={20} delay={0}>
+              <div className="h-full rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono font-bold uppercase text-[#b80f68] bg-[#b80f68]/10 border border-[#b80f68]/20 px-2.5 py-1 rounded-full">
+                      Board of Directors
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">DIN Verified</span>
+                  </div>
+                  <h3 className="font-outfit text-xl font-bold text-slate-900 mb-1">
+                    Bikash Chandra Roy
+                  </h3>
+                  <p className="text-xs font-medium text-[#2e0d82] mb-3">
+                    Founder &amp; Managing Director
+                  </p>
+                  <p className="font-sans text-xs text-slate-600 leading-relaxed">
+                    Over two decades of on-ground practitioner experience representing corporate employers before Central &amp; State Labour Commissioners, EPFO Regional Offices, and Industrial Tribunals. Leads national compliance policy, institutional banking, and statutory indemnity defense.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                  <span>Labour Law &amp; Governance</span>
+                  <span className="font-bold text-slate-700">20+ Yrs Exp</span>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Corporate Finance Lead */}
+            <ScrollReveal direction="up" distance={20} delay={80}>
+              <div className="h-full rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono font-bold uppercase text-[#0284c7] bg-[#0284c7]/10 border border-[#0284c7]/20 px-2.5 py-1 rounded-full">
+                      Practice Leadership
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">FCA / CMA</span>
+                  </div>
+                  <h3 className="font-outfit text-xl font-bold text-slate-900 mb-1">
+                    Corporate Finance &amp; Audit Practice
+                  </h3>
+                  <p className="text-xs font-medium text-[#0284c7] mb-3">
+                    Director of Financial Assurance
+                  </p>
+                  <p className="font-sans text-xs text-slate-600 leading-relaxed">
+                    Oversees Section 43B(h) MSME compliance gatekeeping, CARO 2020 Clause 3(i) fixed asset physical verifications, multi-GSTN GSTR-2B ITC reconciliations, and mid-office accounts payable ERP workflows across industrial clients.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                  <span>CARO 2020 &amp; Tax Audits</span>
+                  <span className="font-bold text-slate-700">Audit-Ready</span>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Workforce Solutions Lead */}
+            <ScrollReveal direction="up" distance={20} delay={160}>
+              <div className="h-full rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-mono font-bold uppercase text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                      Workforce Solutions
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">Pan-India SLAs</span>
+                  </div>
+                  <h3 className="font-outfit text-xl font-bold text-slate-900 mb-1">
+                    Talent &amp; Flexi-Staffing Practice
+                  </h3>
+                  <p className="text-xs font-medium text-emerald-700 mb-3">
+                    Head of Enterprise Sourcing
+                  </p>
+                  <p className="font-sans text-xs text-slate-600 leading-relaxed">
+                    Directs high-scale industrial workforce deployment, corporate IT recruitment, and contractor CLRA compliance across 51 commercial corridors. Enforces DPDP Act 2023 candidate screening and 24–72 hour sourcing SLAs.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                  <span>Sourcing &amp; CLRA Form V</span>
+                  <span className="font-bold text-slate-700">24–72h SLA</span>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

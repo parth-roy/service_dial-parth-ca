@@ -21,6 +21,11 @@ export default function OrganizationSchema() {
       "@type": "Place",
       name: "Barrackpore, Kolkata, West Bengal, India",
     },
+    founder: {
+      "@type": "Person",
+      name: "Bikash Chandra Roy",
+      jobTitle: "Founder & Managing Director",
+    },
     knowsAbout: [
       "Outsourced Payroll Processing India",
       "EPFO & ESIC Statutory Compliance",
